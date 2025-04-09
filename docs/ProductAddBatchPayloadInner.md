@@ -1,0 +1,77 @@
+# WWW::OpenAPIClient::Object::ProductAddBatchPayloadInner
+
+## Load the model package
+```perl
+use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInner;
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **string** |  | [optional] 
+**description** | **string** |  | [optional] 
+**short_description** | **string** |  | [optional] 
+**sku** | **string** |  | [optional] 
+**model** | **string** |  | [optional] 
+**asin** | **string** |  | [optional] 
+**upc** | **string** |  | [optional] 
+**ean** | **string** |  | [optional] 
+**gtin** | **string** |  | [optional] 
+**mpn** | **string** |  | [optional] 
+**barcode** | **string** |  | [optional] 
+**price** | **double** |  | [optional] 
+**old_price** | **double** |  | [optional] 
+**cost_price** | **double** |  | [optional] 
+**special_price** | **double** |  | [optional] 
+**sprice_create** | **string** |  | [optional] 
+**sprice_expire** | **string** |  | [optional] 
+**advanced_prices** | [**ARRAY[ProductAddBatchPayloadInnerAdvancedPricesInner]**](ProductAddBatchPayloadInnerAdvancedPricesInner.md) |  | [optional] 
+**fixed_cost_shipping_price** | **double** |  | [optional] 
+**quantity** | **double** |  | [optional] 
+**manage_stock** | **boolean** |  | [optional] 
+**product_type** | **string** |  | [optional] 
+**marketplace_item_properties** | **object** |  | [optional] 
+**is_free_shipping** | **boolean** |  | [optional] 
+**taxable** | **boolean** |  | [optional] 
+**status** | **string** |  | [optional] 
+**condition** | **string** |  | [optional] 
+**visible** | **string** |  | [optional] 
+**available_for_view** | **boolean** |  | [optional] 
+**available_for_sale** | **boolean** |  | [optional] 
+**is_virtual** | **boolean** |  | [optional] 
+**in_stock** | **boolean** |  | [optional] 
+**type** | **string** |  | [optional] 
+**downloadable** | **boolean** |  | [optional] 
+**weight** | **double** |  | [optional] 
+**length** | **double** |  | [optional] 
+**width** | **double** |  | [optional] 
+**height** | **double** |  | [optional] 
+**weight_unit** | **string** |  | [optional] 
+**dimensions_unit** | **string** |  | [optional] 
+**store_id** | **string** |  | [optional] 
+**lang_id** | **string** |  | [optional] 
+**category_id** | **string** |  | [optional] 
+**warehouse_id** | **string** |  | [optional] 
+**categories_ids** | **ARRAY[string]** |  | [optional] 
+**related_products_ids** | **ARRAY[string]** |  | [optional] 
+**up_sell_products_ids** | **ARRAY[string]** |  | [optional] 
+**cross_sell_products_ids** | **ARRAY[string]** |  | [optional] 
+**stores_ids** | **ARRAY[string]** |  | [optional] 
+**tax_class_id** | **string** |  | [optional] 
+**meta_title** | **string** |  | [optional] 
+**meta_description** | **string** |  | [optional] 
+**meta_keywords** | **ARRAY[string]** |  | [optional] 
+**search_keywords** | **ARRAY[string]** |  | [optional] 
+**harmonized_system_code** | **string** |  | [optional] 
+**url** | **string** |  | [optional] 
+**seo_url** | **string** |  | [optional] 
+**manufacturer** | **string** |  | [optional] 
+**manufacturer_id** | **string** |  | [optional] 
+**backorder_status** | **string** |  | [optional] 
+**images** | [**ARRAY[ProductAddBatchPayloadInnerImagesInner]**](ProductAddBatchPayloadInnerImagesInner.md) |  | [optional] 
+**tags** | **ARRAY[string]** |  | [optional] 
+**files** | [**ARRAY[ProductAddFilesInner]**](ProductAddFilesInner.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

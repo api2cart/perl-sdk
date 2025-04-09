@@ -1,0 +1,15 @@
+# WWW::OpenAPIClient::Object::CartGiftcardCount200ResponseResult
+
+## Load the model package
+```perl
+use WWW::OpenAPIClient::Object::CartGiftcardCount200ResponseResult;
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**gift_cards_count** | **string** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
