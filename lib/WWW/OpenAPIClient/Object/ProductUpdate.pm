@@ -774,6 +774,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'on_sale' => {
+        datatype => 'boolean',
+        base_name => 'on_sale',
+        description => 'Set whether the product on sale',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -855,7 +862,8 @@ __PACKAGE__->openapi_types( {
     'is_supply' => 'boolean',
     'downloadable' => 'boolean',
     'materials' => 'ARRAY[string]',
-    'auto_renew' => 'boolean'
+    'auto_renew' => 'boolean',
+    'on_sale' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -937,7 +945,8 @@ __PACKAGE__->attribute_map( {
     'is_supply' => 'is_supply',
     'downloadable' => 'downloadable',
     'materials' => 'materials',
-    'auto_renew' => 'auto_renew'
+    'auto_renew' => 'auto_renew',
+    'on_sale' => 'on_sale'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
