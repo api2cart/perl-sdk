@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **weight_unit** | **string** |  | [optional] 
 **sort_order** | **int** |  | [optional] 
 **in_stock** | **boolean** |  | [optional] 
+**on_sale** | **boolean** |  | [optional] 
 **backorders** | **string** |  | [optional] 
 **manage_stock** | **string** |  | [optional] 
 **is_stock_managed** | **boolean** |  | [optional] 
