@@ -285,6 +285,7 @@ docs/ProductAddCertificationsInnerFilesInner.md
 docs/ProductAddCertificationsInnerImagesInner.md
 docs/ProductAddFilesInner.md
 docs/ProductAddGroupPricesInner.md
+docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddSalesTax.md
@@ -739,6 +740,7 @@ lib/WWW/OpenAPIClient/Object/ProductAddCertificationsInnerFilesInner.pm
 lib/WWW/OpenAPIClient/Object/ProductAddCertificationsInnerImagesInner.pm
 lib/WWW/OpenAPIClient/Object/ProductAddFilesInner.pm
 lib/WWW/OpenAPIClient/Object/ProductAddGroupPricesInner.pm
+lib/WWW/OpenAPIClient/Object/ProductAddLogisticInfoInner.pm
 lib/WWW/OpenAPIClient/Object/ProductAddManufacturerInfo.pm
 lib/WWW/OpenAPIClient/Object/ProductAddPackageDetails.pm
 lib/WWW/OpenAPIClient/Object/ProductAddSalesTax.pm
@@ -1191,6 +1193,7 @@ t/ProductAddCertificationsInnerImagesInnerTest.t
 t/ProductAddCertificationsInnerTest.t
 t/ProductAddFilesInnerTest.t
 t/ProductAddGroupPricesInnerTest.t
+t/ProductAddLogisticInfoInnerTest.t
 t/ProductAddManufacturerInfoTest.t
 t/ProductAddPackageDetailsTest.t
 t/ProductAddSalesTaxTest.t

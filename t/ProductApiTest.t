@@ -100,6 +100,7 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_brand_list_params = undef; # replace NULL with a proper value
 #my $product_brand_list_brand_ids = undef; # replace NULL with a proper value
 #my $product_brand_list_exclude = undef; # replace NULL with a proper value
+#my $product_brand_list_category_id = undef; # replace NULL with a proper value
 #my $product_brand_list_store_id = undef; # replace NULL with a proper value
 #my $product_brand_list_lang_id = undef; # replace NULL with a proper value
 #my $product_brand_list_created_from = undef; # replace NULL with a proper value
@@ -110,7 +111,7 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_brand_list_response_fields = undef; # replace NULL with a proper value
 #my $product_brand_list_find_where = undef; # replace NULL with a proper value
 #my $product_brand_list_find_value = undef; # replace NULL with a proper value
-#my $product_brand_list_result = $api->product_brand_list(start => $product_brand_list_start, count => $product_brand_list_count, page_cursor => $product_brand_list_page_cursor, params => $product_brand_list_params, brand_ids => $product_brand_list_brand_ids, exclude => $product_brand_list_exclude, store_id => $product_brand_list_store_id, lang_id => $product_brand_list_lang_id, created_from => $product_brand_list_created_from, created_to => $product_brand_list_created_to, modified_from => $product_brand_list_modified_from, modified_to => $product_brand_list_modified_to, parent_id => $product_brand_list_parent_id, response_fields => $product_brand_list_response_fields, find_where => $product_brand_list_find_where, find_value => $product_brand_list_find_value);
+#my $product_brand_list_result = $api->product_brand_list(start => $product_brand_list_start, count => $product_brand_list_count, page_cursor => $product_brand_list_page_cursor, params => $product_brand_list_params, brand_ids => $product_brand_list_brand_ids, exclude => $product_brand_list_exclude, category_id => $product_brand_list_category_id, store_id => $product_brand_list_store_id, lang_id => $product_brand_list_lang_id, created_from => $product_brand_list_created_from, created_to => $product_brand_list_created_to, modified_from => $product_brand_list_modified_from, modified_to => $product_brand_list_modified_to, parent_id => $product_brand_list_parent_id, response_fields => $product_brand_list_response_fields, find_where => $product_brand_list_find_where, find_value => $product_brand_list_find_value);
 
 #
 # product_child_item_find test

@@ -522,6 +522,7 @@ use WWW::OpenAPIClient::Object::ProductAddCertificationsInnerFilesInner;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInnerImagesInner;
 use WWW::OpenAPIClient::Object::ProductAddFilesInner;
 use WWW::OpenAPIClient::Object::ProductAddGroupPricesInner;
+use WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner;
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
 use WWW::OpenAPIClient::Object::ProductAddSalesTax;
@@ -986,6 +987,7 @@ use WWW::OpenAPIClient::Object::ProductAddCertificationsInnerFilesInner;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInnerImagesInner;
 use WWW::OpenAPIClient::Object::ProductAddFilesInner;
 use WWW::OpenAPIClient::Object::ProductAddGroupPricesInner;
+use WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner;
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
 use WWW::OpenAPIClient::Object::ProductAddSalesTax;
@@ -1631,6 +1633,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ProductAddCertificationsInnerImagesInner](docs/ProductAddCertificationsInnerImagesInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddFilesInner](docs/ProductAddFilesInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddGroupPricesInner](docs/ProductAddGroupPricesInner.md)
+ - [WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner](docs/ProductAddLogisticInfoInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddManufacturerInfo](docs/ProductAddManufacturerInfo.md)
  - [WWW::OpenAPIClient::Object::ProductAddPackageDetails](docs/ProductAddPackageDetails.md)
  - [WWW::OpenAPIClient::Object::ProductAddSalesTax](docs/ProductAddSalesTax.md)

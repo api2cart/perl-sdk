@@ -34,6 +34,7 @@ use WWW::OpenAPIClient::Object::ProductAddBestOffer;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInner;
 use WWW::OpenAPIClient::Object::ProductAddFilesInner;
 use WWW::OpenAPIClient::Object::ProductAddGroupPricesInner;
+use WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner;
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
 use WWW::OpenAPIClient::Object::ProductAddSalesTax;
@@ -707,6 +708,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'additional_image_urls' => {
+        datatype => 'ARRAY[string]',
+        base_name => 'additional_image_urls',
+        description => 'Image Url',
+        format => '',
+        read_only => '',
+            },
     'reserve_price' => {
         datatype => 'double',
         base_name => 'reserve_price',
@@ -732,6 +740,13 @@ __PACKAGE__->method_documentation({
         datatype => 'string',
         base_name => 'auction_confidentiality_level',
         description => 'This allows buyers to remain anonymous when the bid or buy an item.',
+        format => '',
+        read_only => '',
+            },
+    'logistic_info' => {
+        datatype => 'ARRAY[ProductAddLogisticInfoInner]',
+        base_name => 'logistic_info',
+        description => 'Defines product&#39;s logistic channel settings',
         format => '',
         read_only => '',
             },
@@ -1072,10 +1087,12 @@ __PACKAGE__->openapi_types( {
     'specifics' => 'ARRAY[ProductAddSpecificsInner]',
     'image_url' => 'string',
     'image_name' => 'string',
+    'additional_image_urls' => 'ARRAY[string]',
     'reserve_price' => 'double',
     'buyitnow_price' => 'double',
     'condition_description' => 'string',
     'auction_confidentiality_level' => 'string',
+    'logistic_info' => 'ARRAY[ProductAddLogisticInfoInner]',
     'avail_from' => 'string',
     'tags' => 'string',
     'clear_cache' => 'boolean',
@@ -1185,10 +1202,12 @@ __PACKAGE__->attribute_map( {
     'specifics' => 'specifics',
     'image_url' => 'image_url',
     'image_name' => 'image_name',
+    'additional_image_urls' => 'additional_image_urls',
     'reserve_price' => 'reserve_price',
     'buyitnow_price' => 'buyitnow_price',
     'condition_description' => 'condition_description',
     'auction_confidentiality_level' => 'auction_confidentiality_level',
+    'logistic_info' => 'logistic_info',
     'avail_from' => 'avail_from',
     'tags' => 'tags',
     'clear_cache' => 'clear_cache',

@@ -675,6 +675,7 @@ sub product_attribute_value_unset {
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,short_description,active,url')
 # @param string $brand_ids Retrieves brands specified by brand ids (optional)
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+# @param string $category_id Retrieves product brands specified by category id (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
@@ -715,6 +716,11 @@ sub product_attribute_value_unset {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        required => '0',
+    },
+    'category_id' => {
+        data_type => 'string',
+        description => 'Retrieves product brands specified by category id',
         required => '0',
     },
     'store_id' => {
@@ -822,6 +828,11 @@ sub product_brand_list {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    }
+
+    # query params
+    if ( exists $args{'category_id'}) {
+        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
     }
 
     # query params

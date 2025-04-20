@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_brand_list**
-> ModelResponseProductBrandList product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, brand_ids => $brand_ids, exclude => $exclude, store_id => $store_id, lang_id => $lang_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, parent_id => $parent_id, response_fields => $response_fields, find_where => $find_where, find_value => $find_value)
+> ModelResponseProductBrandList product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, brand_ids => $brand_ids, exclude => $exclude, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, parent_id => $parent_id, response_fields => $response_fields, find_where => $find_where, find_value => $find_value)
 
 product.brand.list
 
@@ -419,6 +419,7 @@ my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagina
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $brand_ids = 4,5; # string | Retrieves brands specified by brand ids
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+my $category_id = 6; # string | Retrieves product brands specified by category id
 my $store_id = 1; # string | Store Id
 my $lang_id = 3; # string | Language id
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
@@ -431,7 +432,7 @@ my $find_where = name; # string | Entity search that is specified by the comma-s
 my $find_value = Phone; # string | Entity search that is specified by some value
 
 eval {
-    my $result = $api_instance->product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, brand_ids => $brand_ids, exclude => $exclude, store_id => $store_id, lang_id => $lang_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, parent_id => $parent_id, response_fields => $response_fields, find_where => $find_where, find_value => $find_value);
+    my $result = $api_instance->product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, brand_ids => $brand_ids, exclude => $exclude, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, parent_id => $parent_id, response_fields => $response_fields, find_where => $find_where, find_value => $find_value);
     print Dumper($result);
 };
 if ($@) {
@@ -449,6 +450,7 @@ Name | Type | Description  | Notes
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,short_description,active,url&#39;]
  **brand_ids** | **string**| Retrieves brands specified by brand ids | [optional] 
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **category_id** | **string**| Retrieves product brands specified by category id | [optional] 
  **store_id** | **string**| Store Id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
