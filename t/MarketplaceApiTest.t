@@ -33,21 +33,21 @@ isa_ok($api, 'WWW::OpenAPIClient::MarketplaceApi');
 # marketplace_product_find test
 #
 # uncomment below and update the test
-#my $marketplace_product_find_store_id = undef; # replace NULL with a proper value
 #my $marketplace_product_find_count = undef; # replace NULL with a proper value
 #my $marketplace_product_find_page_cursor = undef; # replace NULL with a proper value
-#my $marketplace_product_find_categories_ids = undef; # replace NULL with a proper value
 #my $marketplace_product_find_keyword = undef; # replace NULL with a proper value
+#my $marketplace_product_find_categories_ids = undef; # replace NULL with a proper value
+#my $marketplace_product_find_store_id = undef; # replace NULL with a proper value
 #my $marketplace_product_find_asin = undef; # replace NULL with a proper value
 #my $marketplace_product_find_ean = undef; # replace NULL with a proper value
 #my $marketplace_product_find_gtin = undef; # replace NULL with a proper value
 #my $marketplace_product_find_upc = undef; # replace NULL with a proper value
 #my $marketplace_product_find_mpn = undef; # replace NULL with a proper value
 #my $marketplace_product_find_isbn = undef; # replace NULL with a proper value
+#my $marketplace_product_find_response_fields = undef; # replace NULL with a proper value
 #my $marketplace_product_find_params = undef; # replace NULL with a proper value
 #my $marketplace_product_find_exclude = undef; # replace NULL with a proper value
-#my $marketplace_product_find_response_fields = undef; # replace NULL with a proper value
-#my $marketplace_product_find_result = $api->marketplace_product_find(store_id => $marketplace_product_find_store_id, count => $marketplace_product_find_count, page_cursor => $marketplace_product_find_page_cursor, categories_ids => $marketplace_product_find_categories_ids, keyword => $marketplace_product_find_keyword, asin => $marketplace_product_find_asin, ean => $marketplace_product_find_ean, gtin => $marketplace_product_find_gtin, upc => $marketplace_product_find_upc, mpn => $marketplace_product_find_mpn, isbn => $marketplace_product_find_isbn, params => $marketplace_product_find_params, exclude => $marketplace_product_find_exclude, response_fields => $marketplace_product_find_response_fields);
+#my $marketplace_product_find_result = $api->marketplace_product_find(count => $marketplace_product_find_count, page_cursor => $marketplace_product_find_page_cursor, keyword => $marketplace_product_find_keyword, categories_ids => $marketplace_product_find_categories_ids, store_id => $marketplace_product_find_store_id, asin => $marketplace_product_find_asin, ean => $marketplace_product_find_ean, gtin => $marketplace_product_find_gtin, upc => $marketplace_product_find_upc, mpn => $marketplace_product_find_mpn, isbn => $marketplace_product_find_isbn, response_fields => $marketplace_product_find_response_fields, params => $marketplace_product_find_params, exclude => $marketplace_product_find_exclude);
 
 
 done_testing();

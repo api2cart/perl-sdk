@@ -275,9 +275,9 @@ sub return_count {
 # @param string $id Entity id (required)
 # @param string $order_id Defines the order id (optional)
 # @param string $store_id Store Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_products')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
     'id' => {
@@ -295,6 +295,11 @@ sub return_count {
         description => 'Store Id',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -303,11 +308,6 @@ sub return_count {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -358,6 +358,11 @@ sub return_info {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -365,11 +370,6 @@ sub return_info {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;
@@ -395,9 +395,6 @@ sub return_info {
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_products')
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $order_id Defines the order id (optional)
 # @param string $order_ids Retrieves return requests specified by order ids (optional)
 # @param string $customer_id Retrieves return requests specified by customer id (optional)
@@ -408,6 +405,9 @@ sub return_info {
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_products')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $report_request_id Report request id (optional)
 # @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 {
@@ -425,21 +425,6 @@ sub return_info {
     'page_cursor' => {
         data_type => 'string',
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'order_id' => {
@@ -490,6 +475,21 @@ sub return_info {
     'modified_to' => {
         data_type => 'string',
         description => 'Retrieve entities to their modification date',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     'report_request_id' => {
@@ -545,21 +545,6 @@ sub return_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
     if ( exists $args{'order_id'}) {
         $query_params->{'order_id'} = $self->{api_client}->to_query_value($args{'order_id'});
     }
@@ -607,6 +592,21 @@ sub return_list {
     # query params
     if ( exists $args{'modified_to'}) {
         $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     # query params

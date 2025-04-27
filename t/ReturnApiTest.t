@@ -59,10 +59,10 @@ isa_ok($api, 'WWW::OpenAPIClient::ReturnApi');
 #my $return_info_id = undef; # replace NULL with a proper value
 #my $return_info_order_id = undef; # replace NULL with a proper value
 #my $return_info_store_id = undef; # replace NULL with a proper value
+#my $return_info_response_fields = undef; # replace NULL with a proper value
 #my $return_info_params = undef; # replace NULL with a proper value
 #my $return_info_exclude = undef; # replace NULL with a proper value
-#my $return_info_response_fields = undef; # replace NULL with a proper value
-#my $return_info_result = $api->return_info(id => $return_info_id, order_id => $return_info_order_id, store_id => $return_info_store_id, params => $return_info_params, exclude => $return_info_exclude, response_fields => $return_info_response_fields);
+#my $return_info_result = $api->return_info(id => $return_info_id, order_id => $return_info_order_id, store_id => $return_info_store_id, response_fields => $return_info_response_fields, params => $return_info_params, exclude => $return_info_exclude);
 
 #
 # return_list test
@@ -71,9 +71,6 @@ isa_ok($api, 'WWW::OpenAPIClient::ReturnApi');
 #my $return_list_start = undef; # replace NULL with a proper value
 #my $return_list_count = undef; # replace NULL with a proper value
 #my $return_list_page_cursor = undef; # replace NULL with a proper value
-#my $return_list_params = undef; # replace NULL with a proper value
-#my $return_list_exclude = undef; # replace NULL with a proper value
-#my $return_list_response_fields = undef; # replace NULL with a proper value
 #my $return_list_order_id = undef; # replace NULL with a proper value
 #my $return_list_order_ids = undef; # replace NULL with a proper value
 #my $return_list_customer_id = undef; # replace NULL with a proper value
@@ -84,9 +81,12 @@ isa_ok($api, 'WWW::OpenAPIClient::ReturnApi');
 #my $return_list_created_to = undef; # replace NULL with a proper value
 #my $return_list_modified_from = undef; # replace NULL with a proper value
 #my $return_list_modified_to = undef; # replace NULL with a proper value
+#my $return_list_response_fields = undef; # replace NULL with a proper value
+#my $return_list_params = undef; # replace NULL with a proper value
+#my $return_list_exclude = undef; # replace NULL with a proper value
 #my $return_list_report_request_id = undef; # replace NULL with a proper value
 #my $return_list_disable_report_cache = undef; # replace NULL with a proper value
-#my $return_list_result = $api->return_list(start => $return_list_start, count => $return_list_count, page_cursor => $return_list_page_cursor, params => $return_list_params, exclude => $return_list_exclude, response_fields => $return_list_response_fields, order_id => $return_list_order_id, order_ids => $return_list_order_ids, customer_id => $return_list_customer_id, store_id => $return_list_store_id, status => $return_list_status, return_type => $return_list_return_type, created_from => $return_list_created_from, created_to => $return_list_created_to, modified_from => $return_list_modified_from, modified_to => $return_list_modified_to, report_request_id => $return_list_report_request_id, disable_report_cache => $return_list_disable_report_cache);
+#my $return_list_result = $api->return_list(start => $return_list_start, count => $return_list_count, page_cursor => $return_list_page_cursor, order_id => $return_list_order_id, order_ids => $return_list_order_ids, customer_id => $return_list_customer_id, store_id => $return_list_store_id, status => $return_list_status, return_type => $return_list_return_type, created_from => $return_list_created_from, created_to => $return_list_created_to, modified_from => $return_list_modified_from, modified_to => $return_list_modified_to, response_fields => $return_list_response_fields, params => $return_list_params, exclude => $return_list_exclude, report_request_id => $return_list_report_request_id, disable_report_cache => $return_list_disable_report_cache);
 
 #
 # return_reason_list test

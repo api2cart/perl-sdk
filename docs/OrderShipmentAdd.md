@@ -9,17 +9,17 @@ use WWW::OpenAPIClient::Object::OrderShipmentAdd;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order_id** | **string** | Defines the order for which the shipment will be created | [optional] 
-**store_id** | **string** | Store Id | [optional] 
 **warehouse_id** | **string** | This parameter is used for selecting a warehouse where you need to set/modify a product quantity. | [optional] 
+**store_id** | **string** | Store Id | [optional] 
 **shipment_provider** | **string** | Defines company name that provide tracking of shipment | [optional] 
 **shipping_method** | **string** | Define shipping method | [optional] 
 **items** | [**ARRAY[OrderShipmentAddItemsInner]**](OrderShipmentAddItemsInner.md) | Defines items in the order that will be shipped | [optional] 
-**send_notifications** | **boolean** | Send notifications to customer after shipment was created | [optional] [default to false]
 **tracking_numbers** | [**ARRAY[OrderShipmentAddTrackingNumbersInner]**](OrderShipmentAddTrackingNumbersInner.md) | Defines shipment&#39;s tracking numbers that have to be added&lt;/br&gt; How set tracking numbers to appropriate carrier:&lt;ul&gt;&lt;li&gt;tracking_numbers[]&#x3D;a2c.demo1,a2c.demo2 - set default carrier&lt;/li&gt;&lt;li&gt;tracking_numbers[&lt;b&gt;carrier_id&lt;/b&gt;]&#x3D;a2c.demo - set appropriate carrier&lt;/li&gt;&lt;/ul&gt;To get the list of carriers IDs that are available in your store, use the &lt;a href &#x3D; \&quot;https://api2cart.com/docs/#/cart/CartInfo\&quot;&gt;cart.info&lt;/a &gt; method | [optional] 
-**adjust_stock** | **boolean** | This parameter is used for adjust stock. | [optional] [default to false]
-**enable_cache** | **boolean** | If the value is &#39;true&#39; and order exist in our cache, we will use order.info from cache to prepare shipment items. | [optional] [default to false]
 **tracking_link** | **string** | Defines custom tracking link | [optional] 
 **is_shipped** | **boolean** | Defines shipment&#39;s status | [optional] [default to true]
+**send_notifications** | **boolean** | Send notifications to customer after shipment was created | [optional] [default to false]
+**adjust_stock** | **boolean** | This parameter is used for adjust stock. | [optional] [default to false]
+**enable_cache** | **boolean** | If the value is &#39;true&#39; and order exist in our cache, we will use order.info from cache to prepare shipment items. | [optional] [default to false]
 **check_process_status** | **boolean** | Disable or enable check process status. Please note that the response will be slower due to additional requests to the store. | [optional] [default to false]
 **use_latest_api_version** | **boolean** | Use the latest platform API version | [optional] [default to false]
 

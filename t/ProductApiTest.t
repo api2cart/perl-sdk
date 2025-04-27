@@ -48,21 +48,21 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #
 # uncomment below and update the test
 #my $product_attribute_list_product_id = undef; # replace NULL with a proper value
-#my $product_attribute_list_attribute_id = undef; # replace NULL with a proper value
-#my $product_attribute_list_variant_id = undef; # replace NULL with a proper value
-#my $product_attribute_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_attribute_list_start = undef; # replace NULL with a proper value
 #my $product_attribute_list_count = undef; # replace NULL with a proper value
+#my $product_attribute_list_page_cursor = undef; # replace NULL with a proper value
+#my $product_attribute_list_attribute_id = undef; # replace NULL with a proper value
+#my $product_attribute_list_variant_id = undef; # replace NULL with a proper value
 #my $product_attribute_list_attribute_group_id = undef; # replace NULL with a proper value
-#my $product_attribute_list_set_name = undef; # replace NULL with a proper value
 #my $product_attribute_list_lang_id = undef; # replace NULL with a proper value
 #my $product_attribute_list_store_id = undef; # replace NULL with a proper value
+#my $product_attribute_list_set_name = undef; # replace NULL with a proper value
 #my $product_attribute_list_sort_by = undef; # replace NULL with a proper value
 #my $product_attribute_list_sort_direction = undef; # replace NULL with a proper value
-#my $product_attribute_list_params = undef; # replace NULL with a proper value
 #my $product_attribute_list_response_fields = undef; # replace NULL with a proper value
+#my $product_attribute_list_params = undef; # replace NULL with a proper value
 #my $product_attribute_list_exclude = undef; # replace NULL with a proper value
-#my $product_attribute_list_result = $api->product_attribute_list(product_id => $product_attribute_list_product_id, attribute_id => $product_attribute_list_attribute_id, variant_id => $product_attribute_list_variant_id, page_cursor => $product_attribute_list_page_cursor, start => $product_attribute_list_start, count => $product_attribute_list_count, attribute_group_id => $product_attribute_list_attribute_group_id, set_name => $product_attribute_list_set_name, lang_id => $product_attribute_list_lang_id, store_id => $product_attribute_list_store_id, sort_by => $product_attribute_list_sort_by, sort_direction => $product_attribute_list_sort_direction, params => $product_attribute_list_params, response_fields => $product_attribute_list_response_fields, exclude => $product_attribute_list_exclude);
+#my $product_attribute_list_result = $api->product_attribute_list(product_id => $product_attribute_list_product_id, start => $product_attribute_list_start, count => $product_attribute_list_count, page_cursor => $product_attribute_list_page_cursor, attribute_id => $product_attribute_list_attribute_id, variant_id => $product_attribute_list_variant_id, attribute_group_id => $product_attribute_list_attribute_group_id, lang_id => $product_attribute_list_lang_id, store_id => $product_attribute_list_store_id, set_name => $product_attribute_list_set_name, sort_by => $product_attribute_list_sort_by, sort_direction => $product_attribute_list_sort_direction, response_fields => $product_attribute_list_response_fields, params => $product_attribute_list_params, exclude => $product_attribute_list_exclude);
 
 #
 # product_attribute_value_set test
@@ -97,21 +97,21 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_brand_list_start = undef; # replace NULL with a proper value
 #my $product_brand_list_count = undef; # replace NULL with a proper value
 #my $product_brand_list_page_cursor = undef; # replace NULL with a proper value
-#my $product_brand_list_params = undef; # replace NULL with a proper value
 #my $product_brand_list_brand_ids = undef; # replace NULL with a proper value
-#my $product_brand_list_exclude = undef; # replace NULL with a proper value
 #my $product_brand_list_category_id = undef; # replace NULL with a proper value
+#my $product_brand_list_parent_id = undef; # replace NULL with a proper value
 #my $product_brand_list_store_id = undef; # replace NULL with a proper value
 #my $product_brand_list_lang_id = undef; # replace NULL with a proper value
+#my $product_brand_list_find_where = undef; # replace NULL with a proper value
+#my $product_brand_list_find_value = undef; # replace NULL with a proper value
 #my $product_brand_list_created_from = undef; # replace NULL with a proper value
 #my $product_brand_list_created_to = undef; # replace NULL with a proper value
 #my $product_brand_list_modified_from = undef; # replace NULL with a proper value
 #my $product_brand_list_modified_to = undef; # replace NULL with a proper value
-#my $product_brand_list_parent_id = undef; # replace NULL with a proper value
 #my $product_brand_list_response_fields = undef; # replace NULL with a proper value
-#my $product_brand_list_find_where = undef; # replace NULL with a proper value
-#my $product_brand_list_find_value = undef; # replace NULL with a proper value
-#my $product_brand_list_result = $api->product_brand_list(start => $product_brand_list_start, count => $product_brand_list_count, page_cursor => $product_brand_list_page_cursor, params => $product_brand_list_params, brand_ids => $product_brand_list_brand_ids, exclude => $product_brand_list_exclude, category_id => $product_brand_list_category_id, store_id => $product_brand_list_store_id, lang_id => $product_brand_list_lang_id, created_from => $product_brand_list_created_from, created_to => $product_brand_list_created_to, modified_from => $product_brand_list_modified_from, modified_to => $product_brand_list_modified_to, parent_id => $product_brand_list_parent_id, response_fields => $product_brand_list_response_fields, find_where => $product_brand_list_find_where, find_value => $product_brand_list_find_value);
+#my $product_brand_list_params = undef; # replace NULL with a proper value
+#my $product_brand_list_exclude = undef; # replace NULL with a proper value
+#my $product_brand_list_result = $api->product_brand_list(start => $product_brand_list_start, count => $product_brand_list_count, page_cursor => $product_brand_list_page_cursor, brand_ids => $product_brand_list_brand_ids, category_id => $product_brand_list_category_id, parent_id => $product_brand_list_parent_id, store_id => $product_brand_list_store_id, lang_id => $product_brand_list_lang_id, find_where => $product_brand_list_find_where, find_value => $product_brand_list_find_value, created_from => $product_brand_list_created_from, created_to => $product_brand_list_created_to, modified_from => $product_brand_list_modified_from, modified_to => $product_brand_list_modified_to, response_fields => $product_brand_list_response_fields, params => $product_brand_list_params, exclude => $product_brand_list_exclude);
 
 #
 # product_child_item_find test
@@ -129,29 +129,22 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 # uncomment below and update the test
 #my $product_child_item_info_product_id = undef; # replace NULL with a proper value
 #my $product_child_item_info_id = undef; # replace NULL with a proper value
-#my $product_child_item_info_params = undef; # replace NULL with a proper value
-#my $product_child_item_info_response_fields = undef; # replace NULL with a proper value
-#my $product_child_item_info_exclude = undef; # replace NULL with a proper value
 #my $product_child_item_info_store_id = undef; # replace NULL with a proper value
 #my $product_child_item_info_lang_id = undef; # replace NULL with a proper value
 #my $product_child_item_info_currency_id = undef; # replace NULL with a proper value
+#my $product_child_item_info_response_fields = undef; # replace NULL with a proper value
+#my $product_child_item_info_params = undef; # replace NULL with a proper value
+#my $product_child_item_info_exclude = undef; # replace NULL with a proper value
 #my $product_child_item_info_use_latest_api_version = undef; # replace NULL with a proper value
-#my $product_child_item_info_result = $api->product_child_item_info(product_id => $product_child_item_info_product_id, id => $product_child_item_info_id, params => $product_child_item_info_params, response_fields => $product_child_item_info_response_fields, exclude => $product_child_item_info_exclude, store_id => $product_child_item_info_store_id, lang_id => $product_child_item_info_lang_id, currency_id => $product_child_item_info_currency_id, use_latest_api_version => $product_child_item_info_use_latest_api_version);
+#my $product_child_item_info_result = $api->product_child_item_info(product_id => $product_child_item_info_product_id, id => $product_child_item_info_id, store_id => $product_child_item_info_store_id, lang_id => $product_child_item_info_lang_id, currency_id => $product_child_item_info_currency_id, response_fields => $product_child_item_info_response_fields, params => $product_child_item_info_params, exclude => $product_child_item_info_exclude, use_latest_api_version => $product_child_item_info_use_latest_api_version);
 
 #
 # product_child_item_list test
 #
 # uncomment below and update the test
-#my $product_child_item_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_child_item_list_start = undef; # replace NULL with a proper value
 #my $product_child_item_list_count = undef; # replace NULL with a proper value
-#my $product_child_item_list_params = undef; # replace NULL with a proper value
-#my $product_child_item_list_response_fields = undef; # replace NULL with a proper value
-#my $product_child_item_list_exclude = undef; # replace NULL with a proper value
-#my $product_child_item_list_created_from = undef; # replace NULL with a proper value
-#my $product_child_item_list_created_to = undef; # replace NULL with a proper value
-#my $product_child_item_list_modified_from = undef; # replace NULL with a proper value
-#my $product_child_item_list_modified_to = undef; # replace NULL with a proper value
+#my $product_child_item_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_child_item_list_product_id = undef; # replace NULL with a proper value
 #my $product_child_item_list_product_ids = undef; # replace NULL with a proper value
 #my $product_child_item_list_sku = undef; # replace NULL with a proper value
@@ -161,39 +154,46 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_child_item_list_avail_sale = undef; # replace NULL with a proper value
 #my $product_child_item_list_find_value = undef; # replace NULL with a proper value
 #my $product_child_item_list_find_where = undef; # replace NULL with a proper value
+#my $product_child_item_list_created_from = undef; # replace NULL with a proper value
+#my $product_child_item_list_created_to = undef; # replace NULL with a proper value
+#my $product_child_item_list_modified_from = undef; # replace NULL with a proper value
+#my $product_child_item_list_modified_to = undef; # replace NULL with a proper value
+#my $product_child_item_list_return_global = undef; # replace NULL with a proper value
+#my $product_child_item_list_response_fields = undef; # replace NULL with a proper value
+#my $product_child_item_list_params = undef; # replace NULL with a proper value
+#my $product_child_item_list_exclude = undef; # replace NULL with a proper value
 #my $product_child_item_list_report_request_id = undef; # replace NULL with a proper value
 #my $product_child_item_list_disable_report_cache = undef; # replace NULL with a proper value
 #my $product_child_item_list_use_latest_api_version = undef; # replace NULL with a proper value
-#my $product_child_item_list_return_global = undef; # replace NULL with a proper value
-#my $product_child_item_list_result = $api->product_child_item_list(page_cursor => $product_child_item_list_page_cursor, start => $product_child_item_list_start, count => $product_child_item_list_count, params => $product_child_item_list_params, response_fields => $product_child_item_list_response_fields, exclude => $product_child_item_list_exclude, created_from => $product_child_item_list_created_from, created_to => $product_child_item_list_created_to, modified_from => $product_child_item_list_modified_from, modified_to => $product_child_item_list_modified_to, product_id => $product_child_item_list_product_id, product_ids => $product_child_item_list_product_ids, sku => $product_child_item_list_sku, store_id => $product_child_item_list_store_id, lang_id => $product_child_item_list_lang_id, currency_id => $product_child_item_list_currency_id, avail_sale => $product_child_item_list_avail_sale, find_value => $product_child_item_list_find_value, find_where => $product_child_item_list_find_where, report_request_id => $product_child_item_list_report_request_id, disable_report_cache => $product_child_item_list_disable_report_cache, use_latest_api_version => $product_child_item_list_use_latest_api_version, return_global => $product_child_item_list_return_global);
+#my $product_child_item_list_result = $api->product_child_item_list(start => $product_child_item_list_start, count => $product_child_item_list_count, page_cursor => $product_child_item_list_page_cursor, product_id => $product_child_item_list_product_id, product_ids => $product_child_item_list_product_ids, sku => $product_child_item_list_sku, store_id => $product_child_item_list_store_id, lang_id => $product_child_item_list_lang_id, currency_id => $product_child_item_list_currency_id, avail_sale => $product_child_item_list_avail_sale, find_value => $product_child_item_list_find_value, find_where => $product_child_item_list_find_where, created_from => $product_child_item_list_created_from, created_to => $product_child_item_list_created_to, modified_from => $product_child_item_list_modified_from, modified_to => $product_child_item_list_modified_to, return_global => $product_child_item_list_return_global, response_fields => $product_child_item_list_response_fields, params => $product_child_item_list_params, exclude => $product_child_item_list_exclude, report_request_id => $product_child_item_list_report_request_id, disable_report_cache => $product_child_item_list_disable_report_cache, use_latest_api_version => $product_child_item_list_use_latest_api_version);
 
 #
 # product_count test
 #
 # uncomment below and update the test
+#my $product_count_product_ids = undef; # replace NULL with a proper value
+#my $product_count_since_id = undef; # replace NULL with a proper value
+#my $product_count_categories_ids = undef; # replace NULL with a proper value
 #my $product_count_category_id = undef; # replace NULL with a proper value
+#my $product_count_store_id = undef; # replace NULL with a proper value
+#my $product_count_lang_id = undef; # replace NULL with a proper value
+#my $product_count_avail_view = undef; # replace NULL with a proper value
+#my $product_count_avail_sale = undef; # replace NULL with a proper value
 #my $product_count_created_from = undef; # replace NULL with a proper value
 #my $product_count_created_to = undef; # replace NULL with a proper value
 #my $product_count_modified_from = undef; # replace NULL with a proper value
 #my $product_count_modified_to = undef; # replace NULL with a proper value
-#my $product_count_avail_view = undef; # replace NULL with a proper value
-#my $product_count_avail_sale = undef; # replace NULL with a proper value
-#my $product_count_store_id = undef; # replace NULL with a proper value
-#my $product_count_lang_id = undef; # replace NULL with a proper value
-#my $product_count_product_ids = undef; # replace NULL with a proper value
-#my $product_count_since_id = undef; # replace NULL with a proper value
-#my $product_count_report_request_id = undef; # replace NULL with a proper value
-#my $product_count_disable_report_cache = undef; # replace NULL with a proper value
 #my $product_count_brand_name = undef; # replace NULL with a proper value
 #my $product_count_product_attributes = undef; # replace NULL with a proper value
 #my $product_count_status = undef; # replace NULL with a proper value
 #my $product_count_type = undef; # replace NULL with a proper value
 #my $product_count_find_value = undef; # replace NULL with a proper value
 #my $product_count_find_where = undef; # replace NULL with a proper value
-#my $product_count_use_latest_api_version = undef; # replace NULL with a proper value
+#my $product_count_report_request_id = undef; # replace NULL with a proper value
 #my $product_count_return_global = undef; # replace NULL with a proper value
-#my $product_count_categories_ids = undef; # replace NULL with a proper value
-#my $product_count_result = $api->product_count(category_id => $product_count_category_id, created_from => $product_count_created_from, created_to => $product_count_created_to, modified_from => $product_count_modified_from, modified_to => $product_count_modified_to, avail_view => $product_count_avail_view, avail_sale => $product_count_avail_sale, store_id => $product_count_store_id, lang_id => $product_count_lang_id, product_ids => $product_count_product_ids, since_id => $product_count_since_id, report_request_id => $product_count_report_request_id, disable_report_cache => $product_count_disable_report_cache, brand_name => $product_count_brand_name, product_attributes => $product_count_product_attributes, status => $product_count_status, type => $product_count_type, find_value => $product_count_find_value, find_where => $product_count_find_where, use_latest_api_version => $product_count_use_latest_api_version, return_global => $product_count_return_global, categories_ids => $product_count_categories_ids);
+#my $product_count_disable_report_cache = undef; # replace NULL with a proper value
+#my $product_count_use_latest_api_version = undef; # replace NULL with a proper value
+#my $product_count_result = $api->product_count(product_ids => $product_count_product_ids, since_id => $product_count_since_id, categories_ids => $product_count_categories_ids, category_id => $product_count_category_id, store_id => $product_count_store_id, lang_id => $product_count_lang_id, avail_view => $product_count_avail_view, avail_sale => $product_count_avail_sale, created_from => $product_count_created_from, created_to => $product_count_created_to, modified_from => $product_count_modified_from, modified_to => $product_count_modified_to, brand_name => $product_count_brand_name, product_attributes => $product_count_product_attributes, status => $product_count_status, type => $product_count_type, find_value => $product_count_find_value, find_where => $product_count_find_where, report_request_id => $product_count_report_request_id, return_global => $product_count_return_global, disable_report_cache => $product_count_disable_report_cache, use_latest_api_version => $product_count_use_latest_api_version);
 
 #
 # product_currency_add test
@@ -214,13 +214,13 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 # uncomment below and update the test
 #my $product_currency_list_start = undef; # replace NULL with a proper value
 #my $product_currency_list_count = undef; # replace NULL with a proper value
-#my $product_currency_list_params = undef; # replace NULL with a proper value
 #my $product_currency_list_page_cursor = undef; # replace NULL with a proper value
-#my $product_currency_list_exclude = undef; # replace NULL with a proper value
-#my $product_currency_list_response_fields = undef; # replace NULL with a proper value
 #my $product_currency_list_default = undef; # replace NULL with a proper value
 #my $product_currency_list_avail = undef; # replace NULL with a proper value
-#my $product_currency_list_result = $api->product_currency_list(start => $product_currency_list_start, count => $product_currency_list_count, params => $product_currency_list_params, page_cursor => $product_currency_list_page_cursor, exclude => $product_currency_list_exclude, response_fields => $product_currency_list_response_fields, default => $product_currency_list_default, avail => $product_currency_list_avail);
+#my $product_currency_list_response_fields = undef; # replace NULL with a proper value
+#my $product_currency_list_params = undef; # replace NULL with a proper value
+#my $product_currency_list_exclude = undef; # replace NULL with a proper value
+#my $product_currency_list_result = $api->product_currency_list(start => $product_currency_list_start, count => $product_currency_list_count, page_cursor => $product_currency_list_page_cursor, default => $product_currency_list_default, avail => $product_currency_list_avail, response_fields => $product_currency_list_response_fields, params => $product_currency_list_params, exclude => $product_currency_list_exclude);
 
 #
 # product_delete test
@@ -278,69 +278,69 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_image_update_product_id = undef; # replace NULL with a proper value
 #my $product_image_update_id = undef; # replace NULL with a proper value
 #my $product_image_update_variant_ids = undef; # replace NULL with a proper value
+#my $product_image_update_store_id = undef; # replace NULL with a proper value
+#my $product_image_update_lang_id = undef; # replace NULL with a proper value
 #my $product_image_update_image_name = undef; # replace NULL with a proper value
 #my $product_image_update_type = undef; # replace NULL with a proper value
 #my $product_image_update_label = undef; # replace NULL with a proper value
 #my $product_image_update_position = undef; # replace NULL with a proper value
-#my $product_image_update_store_id = undef; # replace NULL with a proper value
-#my $product_image_update_lang_id = undef; # replace NULL with a proper value
 #my $product_image_update_hidden = undef; # replace NULL with a proper value
-#my $product_image_update_result = $api->product_image_update(product_id => $product_image_update_product_id, id => $product_image_update_id, variant_ids => $product_image_update_variant_ids, image_name => $product_image_update_image_name, type => $product_image_update_type, label => $product_image_update_label, position => $product_image_update_position, store_id => $product_image_update_store_id, lang_id => $product_image_update_lang_id, hidden => $product_image_update_hidden);
+#my $product_image_update_result = $api->product_image_update(product_id => $product_image_update_product_id, id => $product_image_update_id, variant_ids => $product_image_update_variant_ids, store_id => $product_image_update_store_id, lang_id => $product_image_update_lang_id, image_name => $product_image_update_image_name, type => $product_image_update_type, label => $product_image_update_label, position => $product_image_update_position, hidden => $product_image_update_hidden);
 
 #
 # product_info test
 #
 # uncomment below and update the test
 #my $product_info_id = undef; # replace NULL with a proper value
-#my $product_info_params = undef; # replace NULL with a proper value
-#my $product_info_response_fields = undef; # replace NULL with a proper value
-#my $product_info_exclude = undef; # replace NULL with a proper value
 #my $product_info_store_id = undef; # replace NULL with a proper value
 #my $product_info_lang_id = undef; # replace NULL with a proper value
 #my $product_info_currency_id = undef; # replace NULL with a proper value
+#my $product_info_response_fields = undef; # replace NULL with a proper value
+#my $product_info_params = undef; # replace NULL with a proper value
+#my $product_info_exclude = undef; # replace NULL with a proper value
 #my $product_info_report_request_id = undef; # replace NULL with a proper value
 #my $product_info_disable_report_cache = undef; # replace NULL with a proper value
 #my $product_info_use_latest_api_version = undef; # replace NULL with a proper value
-#my $product_info_result = $api->product_info(id => $product_info_id, params => $product_info_params, response_fields => $product_info_response_fields, exclude => $product_info_exclude, store_id => $product_info_store_id, lang_id => $product_info_lang_id, currency_id => $product_info_currency_id, report_request_id => $product_info_report_request_id, disable_report_cache => $product_info_disable_report_cache, use_latest_api_version => $product_info_use_latest_api_version);
+#my $product_info_result = $api->product_info(id => $product_info_id, store_id => $product_info_store_id, lang_id => $product_info_lang_id, currency_id => $product_info_currency_id, response_fields => $product_info_response_fields, params => $product_info_params, exclude => $product_info_exclude, report_request_id => $product_info_report_request_id, disable_report_cache => $product_info_disable_report_cache, use_latest_api_version => $product_info_use_latest_api_version);
 
 #
 # product_list test
 #
 # uncomment below and update the test
-#my $product_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_list_start = undef; # replace NULL with a proper value
 #my $product_list_count = undef; # replace NULL with a proper value
-#my $product_list_params = undef; # replace NULL with a proper value
-#my $product_list_response_fields = undef; # replace NULL with a proper value
-#my $product_list_exclude = undef; # replace NULL with a proper value
+#my $product_list_page_cursor = undef; # replace NULL with a proper value
+#my $product_list_product_ids = undef; # replace NULL with a proper value
+#my $product_list_since_id = undef; # replace NULL with a proper value
+#my $product_list_categories_ids = undef; # replace NULL with a proper value
 #my $product_list_category_id = undef; # replace NULL with a proper value
+#my $product_list_store_id = undef; # replace NULL with a proper value
+#my $product_list_lang_id = undef; # replace NULL with a proper value
+#my $product_list_currency_id = undef; # replace NULL with a proper value
+#my $product_list_avail_view = undef; # replace NULL with a proper value
+#my $product_list_avail_sale = undef; # replace NULL with a proper value
 #my $product_list_created_from = undef; # replace NULL with a proper value
 #my $product_list_created_to = undef; # replace NULL with a proper value
 #my $product_list_modified_from = undef; # replace NULL with a proper value
 #my $product_list_modified_to = undef; # replace NULL with a proper value
-#my $product_list_avail_view = undef; # replace NULL with a proper value
-#my $product_list_avail_sale = undef; # replace NULL with a proper value
-#my $product_list_store_id = undef; # replace NULL with a proper value
-#my $product_list_lang_id = undef; # replace NULL with a proper value
-#my $product_list_currency_id = undef; # replace NULL with a proper value
-#my $product_list_product_ids = undef; # replace NULL with a proper value
-#my $product_list_since_id = undef; # replace NULL with a proper value
-#my $product_list_report_request_id = undef; # replace NULL with a proper value
-#my $product_list_disable_report_cache = undef; # replace NULL with a proper value
-#my $product_list_sort_by = undef; # replace NULL with a proper value
-#my $product_list_sort_direction = undef; # replace NULL with a proper value
 #my $product_list_sku = undef; # replace NULL with a proper value
-#my $product_list_disable_cache = undef; # replace NULL with a proper value
 #my $product_list_brand_name = undef; # replace NULL with a proper value
 #my $product_list_product_attributes = undef; # replace NULL with a proper value
 #my $product_list_status = undef; # replace NULL with a proper value
 #my $product_list_type = undef; # replace NULL with a proper value
 #my $product_list_find_value = undef; # replace NULL with a proper value
 #my $product_list_find_where = undef; # replace NULL with a proper value
-#my $product_list_use_latest_api_version = undef; # replace NULL with a proper value
 #my $product_list_return_global = undef; # replace NULL with a proper value
-#my $product_list_categories_ids = undef; # replace NULL with a proper value
-#my $product_list_result = $api->product_list(page_cursor => $product_list_page_cursor, start => $product_list_start, count => $product_list_count, params => $product_list_params, response_fields => $product_list_response_fields, exclude => $product_list_exclude, category_id => $product_list_category_id, created_from => $product_list_created_from, created_to => $product_list_created_to, modified_from => $product_list_modified_from, modified_to => $product_list_modified_to, avail_view => $product_list_avail_view, avail_sale => $product_list_avail_sale, store_id => $product_list_store_id, lang_id => $product_list_lang_id, currency_id => $product_list_currency_id, product_ids => $product_list_product_ids, since_id => $product_list_since_id, report_request_id => $product_list_report_request_id, disable_report_cache => $product_list_disable_report_cache, sort_by => $product_list_sort_by, sort_direction => $product_list_sort_direction, sku => $product_list_sku, disable_cache => $product_list_disable_cache, brand_name => $product_list_brand_name, product_attributes => $product_list_product_attributes, status => $product_list_status, type => $product_list_type, find_value => $product_list_find_value, find_where => $product_list_find_where, use_latest_api_version => $product_list_use_latest_api_version, return_global => $product_list_return_global, categories_ids => $product_list_categories_ids);
+#my $product_list_params = undef; # replace NULL with a proper value
+#my $product_list_response_fields = undef; # replace NULL with a proper value
+#my $product_list_exclude = undef; # replace NULL with a proper value
+#my $product_list_sort_by = undef; # replace NULL with a proper value
+#my $product_list_sort_direction = undef; # replace NULL with a proper value
+#my $product_list_report_request_id = undef; # replace NULL with a proper value
+#my $product_list_disable_cache = undef; # replace NULL with a proper value
+#my $product_list_disable_report_cache = undef; # replace NULL with a proper value
+#my $product_list_use_latest_api_version = undef; # replace NULL with a proper value
+#my $product_list_result = $api->product_list(start => $product_list_start, count => $product_list_count, page_cursor => $product_list_page_cursor, product_ids => $product_list_product_ids, since_id => $product_list_since_id, categories_ids => $product_list_categories_ids, category_id => $product_list_category_id, store_id => $product_list_store_id, lang_id => $product_list_lang_id, currency_id => $product_list_currency_id, avail_view => $product_list_avail_view, avail_sale => $product_list_avail_sale, created_from => $product_list_created_from, created_to => $product_list_created_to, modified_from => $product_list_modified_from, modified_to => $product_list_modified_to, sku => $product_list_sku, brand_name => $product_list_brand_name, product_attributes => $product_list_product_attributes, status => $product_list_status, type => $product_list_type, find_value => $product_list_find_value, find_where => $product_list_find_where, return_global => $product_list_return_global, params => $product_list_params, response_fields => $product_list_response_fields, exclude => $product_list_exclude, sort_by => $product_list_sort_by, sort_direction => $product_list_sort_direction, report_request_id => $product_list_report_request_id, disable_cache => $product_list_disable_cache, disable_report_cache => $product_list_disable_report_cache, use_latest_api_version => $product_list_use_latest_api_version);
 
 #
 # product_manufacturer_add test
@@ -385,13 +385,13 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 # uncomment below and update the test
 #my $product_option_list_start = undef; # replace NULL with a proper value
 #my $product_option_list_count = undef; # replace NULL with a proper value
-#my $product_option_list_params = undef; # replace NULL with a proper value
-#my $product_option_list_exclude = undef; # replace NULL with a proper value
-#my $product_option_list_response_fields = undef; # replace NULL with a proper value
 #my $product_option_list_product_id = undef; # replace NULL with a proper value
 #my $product_option_list_lang_id = undef; # replace NULL with a proper value
 #my $product_option_list_store_id = undef; # replace NULL with a proper value
-#my $product_option_list_result = $api->product_option_list(start => $product_option_list_start, count => $product_option_list_count, params => $product_option_list_params, exclude => $product_option_list_exclude, response_fields => $product_option_list_response_fields, product_id => $product_option_list_product_id, lang_id => $product_option_list_lang_id, store_id => $product_option_list_store_id);
+#my $product_option_list_response_fields = undef; # replace NULL with a proper value
+#my $product_option_list_params = undef; # replace NULL with a proper value
+#my $product_option_list_exclude = undef; # replace NULL with a proper value
+#my $product_option_list_result = $api->product_option_list(start => $product_option_list_start, count => $product_option_list_count, product_id => $product_option_list_product_id, lang_id => $product_option_list_lang_id, store_id => $product_option_list_store_id, response_fields => $product_option_list_response_fields, params => $product_option_list_params, exclude => $product_option_list_exclude);
 
 #
 # product_option_value_add test
@@ -468,15 +468,15 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 # uncomment below and update the test
 #my $product_review_list_product_id = undef; # replace NULL with a proper value
 #my $product_review_list_start = undef; # replace NULL with a proper value
-#my $product_review_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_review_list_count = undef; # replace NULL with a proper value
+#my $product_review_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_review_list_ids = undef; # replace NULL with a proper value
 #my $product_review_list_store_id = undef; # replace NULL with a proper value
 #my $product_review_list_status = undef; # replace NULL with a proper value
+#my $product_review_list_response_fields = undef; # replace NULL with a proper value
 #my $product_review_list_params = undef; # replace NULL with a proper value
 #my $product_review_list_exclude = undef; # replace NULL with a proper value
-#my $product_review_list_response_fields = undef; # replace NULL with a proper value
-#my $product_review_list_result = $api->product_review_list(product_id => $product_review_list_product_id, start => $product_review_list_start, page_cursor => $product_review_list_page_cursor, count => $product_review_list_count, ids => $product_review_list_ids, store_id => $product_review_list_store_id, status => $product_review_list_status, params => $product_review_list_params, exclude => $product_review_list_exclude, response_fields => $product_review_list_response_fields);
+#my $product_review_list_result = $api->product_review_list(product_id => $product_review_list_product_id, start => $product_review_list_start, count => $product_review_list_count, page_cursor => $product_review_list_page_cursor, ids => $product_review_list_ids, store_id => $product_review_list_store_id, status => $product_review_list_status, response_fields => $product_review_list_response_fields, params => $product_review_list_params, exclude => $product_review_list_exclude);
 
 #
 # product_store_assign test
@@ -526,13 +526,13 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #
 # uncomment below and update the test
 #my $product_variant_count_product_id = undef; # replace NULL with a proper value
+#my $product_variant_count_category_id = undef; # replace NULL with a proper value
+#my $product_variant_count_store_id = undef; # replace NULL with a proper value
 #my $product_variant_count_created_from = undef; # replace NULL with a proper value
 #my $product_variant_count_created_to = undef; # replace NULL with a proper value
 #my $product_variant_count_modified_from = undef; # replace NULL with a proper value
 #my $product_variant_count_modified_to = undef; # replace NULL with a proper value
-#my $product_variant_count_category_id = undef; # replace NULL with a proper value
-#my $product_variant_count_store_id = undef; # replace NULL with a proper value
-#my $product_variant_count_result = $api->product_variant_count(product_id => $product_variant_count_product_id, created_from => $product_variant_count_created_from, created_to => $product_variant_count_created_to, modified_from => $product_variant_count_modified_from, modified_to => $product_variant_count_modified_to, category_id => $product_variant_count_category_id, store_id => $product_variant_count_store_id);
+#my $product_variant_count_result = $api->product_variant_count(product_id => $product_variant_count_product_id, category_id => $product_variant_count_category_id, store_id => $product_variant_count_store_id, created_from => $product_variant_count_created_from, created_to => $product_variant_count_created_to, modified_from => $product_variant_count_modified_from, modified_to => $product_variant_count_modified_to);
 
 #
 # product_variant_delete test
@@ -572,10 +572,10 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #
 # uncomment below and update the test
 #my $product_variant_info_id = undef; # replace NULL with a proper value
+#my $product_variant_info_store_id = undef; # replace NULL with a proper value
 #my $product_variant_info_params = undef; # replace NULL with a proper value
 #my $product_variant_info_exclude = undef; # replace NULL with a proper value
-#my $product_variant_info_store_id = undef; # replace NULL with a proper value
-#my $product_variant_info_result = $api->product_variant_info(id => $product_variant_info_id, params => $product_variant_info_params, exclude => $product_variant_info_exclude, store_id => $product_variant_info_store_id);
+#my $product_variant_info_result = $api->product_variant_info(id => $product_variant_info_id, store_id => $product_variant_info_store_id, params => $product_variant_info_params, exclude => $product_variant_info_exclude);
 
 #
 # product_variant_list test
@@ -583,16 +583,16 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 # uncomment below and update the test
 #my $product_variant_list_start = undef; # replace NULL with a proper value
 #my $product_variant_list_count = undef; # replace NULL with a proper value
-#my $product_variant_list_params = undef; # replace NULL with a proper value
-#my $product_variant_list_exclude = undef; # replace NULL with a proper value
+#my $product_variant_list_product_id = undef; # replace NULL with a proper value
+#my $product_variant_list_category_id = undef; # replace NULL with a proper value
+#my $product_variant_list_store_id = undef; # replace NULL with a proper value
 #my $product_variant_list_created_from = undef; # replace NULL with a proper value
 #my $product_variant_list_created_to = undef; # replace NULL with a proper value
 #my $product_variant_list_modified_from = undef; # replace NULL with a proper value
 #my $product_variant_list_modified_to = undef; # replace NULL with a proper value
-#my $product_variant_list_category_id = undef; # replace NULL with a proper value
-#my $product_variant_list_product_id = undef; # replace NULL with a proper value
-#my $product_variant_list_store_id = undef; # replace NULL with a proper value
-#my $product_variant_list_result = $api->product_variant_list(start => $product_variant_list_start, count => $product_variant_list_count, params => $product_variant_list_params, exclude => $product_variant_list_exclude, created_from => $product_variant_list_created_from, created_to => $product_variant_list_created_to, modified_from => $product_variant_list_modified_from, modified_to => $product_variant_list_modified_to, category_id => $product_variant_list_category_id, product_id => $product_variant_list_product_id, store_id => $product_variant_list_store_id);
+#my $product_variant_list_params = undef; # replace NULL with a proper value
+#my $product_variant_list_exclude = undef; # replace NULL with a proper value
+#my $product_variant_list_result = $api->product_variant_list(start => $product_variant_list_start, count => $product_variant_list_count, product_id => $product_variant_list_product_id, category_id => $product_variant_list_category_id, store_id => $product_variant_list_store_id, created_from => $product_variant_list_created_from, created_to => $product_variant_list_created_to, modified_from => $product_variant_list_modified_from, modified_to => $product_variant_list_modified_to, params => $product_variant_list_params, exclude => $product_variant_list_exclude);
 
 #
 # product_variant_price_add test

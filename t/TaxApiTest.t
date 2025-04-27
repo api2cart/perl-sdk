@@ -36,26 +36,26 @@ isa_ok($api, 'WWW::OpenAPIClient::TaxApi');
 #my $tax_class_info_tax_class_id = undef; # replace NULL with a proper value
 #my $tax_class_info_store_id = undef; # replace NULL with a proper value
 #my $tax_class_info_lang_id = undef; # replace NULL with a proper value
-#my $tax_class_info_params = undef; # replace NULL with a proper value
 #my $tax_class_info_response_fields = undef; # replace NULL with a proper value
+#my $tax_class_info_params = undef; # replace NULL with a proper value
 #my $tax_class_info_exclude = undef; # replace NULL with a proper value
-#my $tax_class_info_result = $api->tax_class_info(tax_class_id => $tax_class_info_tax_class_id, store_id => $tax_class_info_store_id, lang_id => $tax_class_info_lang_id, params => $tax_class_info_params, response_fields => $tax_class_info_response_fields, exclude => $tax_class_info_exclude);
+#my $tax_class_info_result = $api->tax_class_info(tax_class_id => $tax_class_info_tax_class_id, store_id => $tax_class_info_store_id, lang_id => $tax_class_info_lang_id, response_fields => $tax_class_info_response_fields, params => $tax_class_info_params, exclude => $tax_class_info_exclude);
 
 #
 # tax_class_list test
 #
 # uncomment below and update the test
+#my $tax_class_list_count = undef; # replace NULL with a proper value
+#my $tax_class_list_page_cursor = undef; # replace NULL with a proper value
+#my $tax_class_list_store_id = undef; # replace NULL with a proper value
+#my $tax_class_list_find_value = undef; # replace NULL with a proper value
+#my $tax_class_list_find_where = undef; # replace NULL with a proper value
 #my $tax_class_list_created_to = undef; # replace NULL with a proper value
 #my $tax_class_list_created_from = undef; # replace NULL with a proper value
 #my $tax_class_list_modified_to = undef; # replace NULL with a proper value
 #my $tax_class_list_modified_from = undef; # replace NULL with a proper value
-#my $tax_class_list_find_value = undef; # replace NULL with a proper value
-#my $tax_class_list_find_where = undef; # replace NULL with a proper value
-#my $tax_class_list_store_id = undef; # replace NULL with a proper value
-#my $tax_class_list_count = undef; # replace NULL with a proper value
-#my $tax_class_list_page_cursor = undef; # replace NULL with a proper value
 #my $tax_class_list_response_fields = undef; # replace NULL with a proper value
-#my $tax_class_list_result = $api->tax_class_list(created_to => $tax_class_list_created_to, created_from => $tax_class_list_created_from, modified_to => $tax_class_list_modified_to, modified_from => $tax_class_list_modified_from, find_value => $tax_class_list_find_value, find_where => $tax_class_list_find_where, store_id => $tax_class_list_store_id, count => $tax_class_list_count, page_cursor => $tax_class_list_page_cursor, response_fields => $tax_class_list_response_fields);
+#my $tax_class_list_result = $api->tax_class_list(count => $tax_class_list_count, page_cursor => $tax_class_list_page_cursor, store_id => $tax_class_list_store_id, find_value => $tax_class_list_find_value, find_where => $tax_class_list_find_where, created_to => $tax_class_list_created_to, created_from => $tax_class_list_created_from, modified_to => $tax_class_list_modified_to, modified_from => $tax_class_list_modified_from, response_fields => $tax_class_list_response_fields);
 
 
 done_testing();

@@ -188,9 +188,9 @@ sub customer_address_add {
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
     'customer_id' => {
@@ -218,6 +218,11 @@ sub customer_address_add {
         description => 'Language id',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -226,11 +231,6 @@ sub customer_address_add {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -291,6 +291,11 @@ sub customer_attribute_list {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -298,11 +303,6 @@ sub customer_attribute_list {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;
@@ -325,23 +325,58 @@ sub customer_attribute_list {
 #
 # customer.count
 #
+# @param string $ids Counts customers specified by ids (optional)
+# @param string $since_id Retrieve entities starting from the specified id. (optional)
+# @param string $customer_list_id The numeric ID of the customer list in Demandware. (optional)
 # @param string $group_id Customer group_id (optional)
+# @param string $store_id Counts customer specified by store id (optional)
+# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
+# @param string $find_value Entity search that is specified by some value (optional)
+# @param string $find_where Counts customers that are searched specified by field (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $store_id Counts customer specified by store id (optional)
-# @param string $customer_list_id The numeric ID of the customer list in Demandware. (optional)
-# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
-# @param string $find_value Entity search that is specified by some value (optional)
-# @param string $find_where Counts customers that are searched specified by field (optional)
-# @param string $ids Counts customers specified by ids (optional)
-# @param string $since_id Retrieve entities starting from the specified id. (optional)
 {
     my $params = {
+    'ids' => {
+        data_type => 'string',
+        description => 'Counts customers specified by ids',
+        required => '0',
+    },
+    'since_id' => {
+        data_type => 'string',
+        description => 'Retrieve entities starting from the specified id.',
+        required => '0',
+    },
+    'customer_list_id' => {
+        data_type => 'string',
+        description => 'The numeric ID of the customer list in Demandware.',
+        required => '0',
+    },
     'group_id' => {
         data_type => 'string',
         description => 'Customer group_id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Counts customer specified by store id',
+        required => '0',
+    },
+    'avail' => {
+        data_type => 'boolean',
+        description => 'Defines category&#39;s visibility status',
+        required => '0',
+    },
+    'find_value' => {
+        data_type => 'string',
+        description => 'Entity search that is specified by some value',
+        required => '0',
+    },
+    'find_where' => {
+        data_type => 'string',
+        description => 'Counts customers that are searched specified by field',
         required => '0',
     },
     'created_from' => {
@@ -362,41 +397,6 @@ sub customer_attribute_list {
     'modified_to' => {
         data_type => 'string',
         description => 'Retrieve entities to their modification date',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Counts customer specified by store id',
-        required => '0',
-    },
-    'customer_list_id' => {
-        data_type => 'string',
-        description => 'The numeric ID of the customer list in Demandware.',
-        required => '0',
-    },
-    'avail' => {
-        data_type => 'boolean',
-        description => 'Defines category&#39;s visibility status',
-        required => '0',
-    },
-    'find_value' => {
-        data_type => 'string',
-        description => 'Entity search that is specified by some value',
-        required => '0',
-    },
-    'find_where' => {
-        data_type => 'string',
-        description => 'Counts customers that are searched specified by field',
-        required => '0',
-    },
-    'ids' => {
-        data_type => 'string',
-        description => 'Counts customers specified by ids',
-        required => '0',
-    },
-    'since_id' => {
-        data_type => 'string',
-        description => 'Retrieve entities starting from the specified id.',
         required => '0',
     },
     };
@@ -427,8 +427,43 @@ sub customer_count {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'ids'}) {
+        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
+
+    # query params
+    if ( exists $args{'since_id'}) {
+        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
+    }
+
+    # query params
+    if ( exists $args{'customer_list_id'}) {
+        $query_params->{'customer_list_id'} = $self->{api_client}->to_query_value($args{'customer_list_id'});
+    }
+
+    # query params
     if ( exists $args{'group_id'}) {
         $query_params->{'group_id'} = $self->{api_client}->to_query_value($args{'group_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'avail'}) {
+        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'find_value'}) {
+        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
+    }
+
+    # query params
+    if ( exists $args{'find_where'}) {
+        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
     }
 
     # query params
@@ -449,41 +484,6 @@ sub customer_count {
     # query params
     if ( exists $args{'modified_to'}) {
         $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'customer_list_id'}) {
-        $query_params->{'customer_list_id'} = $self->{api_client}->to_query_value($args{'customer_list_id'});
-    }
-
-    # query params
-    if ( exists $args{'avail'}) {
-        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
-    }
-
-    # query params
-    if ( exists $args{'find_value'}) {
-        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
-    }
-
-    # query params
-    if ( exists $args{'find_where'}) {
-        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
-    }
-
-    # query params
-    if ( exists $args{'ids'}) {
-        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
-    }
-
-    # query params
-    if ( exists $args{'since_id'}) {
-        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
     }
 
     my $_body_data;
@@ -756,28 +756,18 @@ sub customer_group_add {
 #
 # customer.group.list
 #
-# @param boolean $disable_cache Disable cache for current request (optional, default to false)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $group_ids Groups that will be assigned to a customer (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
-# @param string $group_ids Groups that will be assigned to a customer (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,additional_fields')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param boolean $disable_cache Disable cache for current request (optional, default to false)
 {
     my $params = {
-    'disable_cache' => {
-        data_type => 'boolean',
-        description => 'Disable cache for current request',
-        required => '0',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -786,6 +776,16 @@ sub customer_group_add {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'group_ids' => {
+        data_type => 'string',
+        description => 'Groups that will be assigned to a customer',
         required => '0',
     },
     'store_id' => {
@@ -798,9 +798,9 @@ sub customer_group_add {
         description => 'Language id',
         required => '0',
     },
-    'group_ids' => {
+    'response_fields' => {
         data_type => 'string',
-        description => 'Groups that will be assigned to a customer',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'params' => {
@@ -813,9 +813,9 @@ sub customer_group_add {
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+    'disable_cache' => {
+        data_type => 'boolean',
+        description => 'Disable cache for current request',
         required => '0',
     },
     };
@@ -846,8 +846,13 @@ sub customer_group_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'disable_cache'}) {
-        $query_params->{'disable_cache'} = $self->{api_client}->to_query_value($args{'disable_cache'});
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    }
+
+    # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
     }
 
     # query params
@@ -856,13 +861,8 @@ sub customer_group_list {
     }
 
     # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
-    }
-
-    # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    if ( exists $args{'group_ids'}) {
+        $query_params->{'group_ids'} = $self->{api_client}->to_query_value($args{'group_ids'});
     }
 
     # query params
@@ -876,8 +876,8 @@ sub customer_group_list {
     }
 
     # query params
-    if ( exists $args{'group_ids'}) {
-        $query_params->{'group_ids'} = $self->{api_client}->to_query_value($args{'group_ids'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -891,8 +891,8 @@ sub customer_group_list {
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'disable_cache'}) {
+        $query_params->{'disable_cache'} = $self->{api_client}->to_query_value($args{'disable_cache'});
     }
 
     my $_body_data;
@@ -916,10 +916,10 @@ sub customer_group_list {
 # customer.info
 #
 # @param string $id Retrieves customer&#39;s info specified by customer id (required)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,email,first_name,last_name')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Retrieves customer info specified by store id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,email,first_name,last_name')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'id' => {
@@ -927,9 +927,9 @@ sub customer_group_list {
         description => 'Retrieves customer&#39;s info specified by customer id',
         required => '1',
     },
-    'params' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Retrieves customer info specified by store id',
         required => '0',
     },
     'response_fields' => {
@@ -937,14 +937,14 @@ sub customer_group_list {
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Retrieves customer info specified by store id',
         required => '0',
     },
     };
@@ -985,8 +985,8 @@ sub customer_info {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -995,13 +995,13 @@ sub customer_info {
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -1024,33 +1024,28 @@ sub customer_info {
 #
 # customer.list
 #
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $ids Retrieves customers specified by ids (optional)
+# @param string $since_id Retrieve entities starting from the specified id. (optional)
+# @param string $customer_list_id The numeric ID of the customer list in Demandware. (optional)
+# @param string $group_id Customer group_id (optional)
+# @param string $store_id Retrieves customers specified by store id (optional)
+# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
+# @param string $find_value Entity search that is specified by some value (optional)
+# @param string $find_where Customer search that is specified by field (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,email,first_name,last_name')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $group_id Customer group_id (optional)
-# @param string $store_id Retrieves customers specified by store id (optional)
-# @param string $customer_list_id The numeric ID of the customer list in Demandware. (optional)
-# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
-# @param string $find_value Entity search that is specified by some value (optional)
-# @param string $find_where Customer search that is specified by field (optional)
 # @param string $sort_by Set field to sort by (optional, default to 'created_time')
 # @param string $sort_direction Set sorting direction (optional, default to 'asc')
-# @param string $ids Retrieves customers specified by ids (optional)
-# @param string $since_id Retrieve entities starting from the specified id. (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,email,first_name,last_name')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -1059,6 +1054,51 @@ sub customer_info {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'ids' => {
+        data_type => 'string',
+        description => 'Retrieves customers specified by ids',
+        required => '0',
+    },
+    'since_id' => {
+        data_type => 'string',
+        description => 'Retrieve entities starting from the specified id.',
+        required => '0',
+    },
+    'customer_list_id' => {
+        data_type => 'string',
+        description => 'The numeric ID of the customer list in Demandware.',
+        required => '0',
+    },
+    'group_id' => {
+        data_type => 'string',
+        description => 'Customer group_id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Retrieves customers specified by store id',
+        required => '0',
+    },
+    'avail' => {
+        data_type => 'boolean',
+        description => 'Defines category&#39;s visibility status',
+        required => '0',
+    },
+    'find_value' => {
+        data_type => 'string',
+        description => 'Entity search that is specified by some value',
+        required => '0',
+    },
+    'find_where' => {
+        data_type => 'string',
+        description => 'Customer search that is specified by field',
         required => '0',
     },
     'created_from' => {
@@ -1081,51 +1121,6 @@ sub customer_info {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'group_id' => {
-        data_type => 'string',
-        description => 'Customer group_id',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Retrieves customers specified by store id',
-        required => '0',
-    },
-    'customer_list_id' => {
-        data_type => 'string',
-        description => 'The numeric ID of the customer list in Demandware.',
-        required => '0',
-    },
-    'avail' => {
-        data_type => 'boolean',
-        description => 'Defines category&#39;s visibility status',
-        required => '0',
-    },
-    'find_value' => {
-        data_type => 'string',
-        description => 'Entity search that is specified by some value',
-        required => '0',
-    },
-    'find_where' => {
-        data_type => 'string',
-        description => 'Customer search that is specified by field',
-        required => '0',
-    },
     'sort_by' => {
         data_type => 'string',
         description => 'Set field to sort by',
@@ -1136,14 +1131,19 @@ sub customer_info {
         description => 'Set sorting direction',
         required => '0',
     },
-    'ids' => {
+    'response_fields' => {
         data_type => 'string',
-        description => 'Retrieves customers specified by ids',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'since_id' => {
+    'params' => {
         data_type => 'string',
-        description => 'Retrieve entities starting from the specified id.',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -1174,11 +1174,6 @@ sub customer_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -1186,6 +1181,51 @@ sub customer_list {
     # query params
     if ( exists $args{'count'}) {
         $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
+    if ( exists $args{'ids'}) {
+        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
+
+    # query params
+    if ( exists $args{'since_id'}) {
+        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
+    }
+
+    # query params
+    if ( exists $args{'customer_list_id'}) {
+        $query_params->{'customer_list_id'} = $self->{api_client}->to_query_value($args{'customer_list_id'});
+    }
+
+    # query params
+    if ( exists $args{'group_id'}) {
+        $query_params->{'group_id'} = $self->{api_client}->to_query_value($args{'group_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'avail'}) {
+        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'find_value'}) {
+        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
+    }
+
+    # query params
+    if ( exists $args{'find_where'}) {
+        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
     }
 
     # query params
@@ -1209,51 +1249,6 @@ sub customer_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'group_id'}) {
-        $query_params->{'group_id'} = $self->{api_client}->to_query_value($args{'group_id'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'customer_list_id'}) {
-        $query_params->{'customer_list_id'} = $self->{api_client}->to_query_value($args{'customer_list_id'});
-    }
-
-    # query params
-    if ( exists $args{'avail'}) {
-        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
-    }
-
-    # query params
-    if ( exists $args{'find_value'}) {
-        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
-    }
-
-    # query params
-    if ( exists $args{'find_where'}) {
-        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
-    }
-
-    # query params
     if ( exists $args{'sort_by'}) {
         $query_params->{'sort_by'} = $self->{api_client}->to_query_value($args{'sort_by'});
     }
@@ -1264,13 +1259,18 @@ sub customer_list {
     }
 
     # query params
-    if ( exists $args{'ids'}) {
-        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
-    if ( exists $args{'since_id'}) {
-        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -1359,11 +1359,11 @@ sub customer_update {
 # customer.wishlist.list
 #
 # @param string $customer_id Retrieves orders specified by customer id (required)
-# @param string $id Entity id (optional)
-# @param string $store_id Store Id (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $id Entity id (optional)
+# @param string $store_id Store Id (optional)
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional, default to '{return_code,return_message,pagination,result}')
 {
     my $params = {
@@ -1371,16 +1371,6 @@ sub customer_update {
         data_type => 'string',
         description => 'Retrieves orders specified by customer id',
         required => '1',
-    },
-    'id' => {
-        data_type => 'string',
-        description => 'Entity id',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
     },
     'start' => {
         data_type => 'int',
@@ -1395,6 +1385,16 @@ sub customer_update {
     'page_cursor' => {
         data_type => 'string',
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'id' => {
+        data_type => 'string',
+        description => 'Entity id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
         required => '0',
     },
     'response_fields' => {
@@ -1435,21 +1435,6 @@ sub customer_wishlist_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'customer_id'}) {
-        $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
-    }
-
-    # query params
-    if ( exists $args{'id'}) {
-        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -1462,6 +1447,21 @@ sub customer_wishlist_list {
     # query params
     if ( exists $args{'page_cursor'}) {
         $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
+    if ( exists $args{'customer_id'}) {
+        $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
+    }
+
+    # query params
+    if ( exists $args{'id'}) {
+        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params

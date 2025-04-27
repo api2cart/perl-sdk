@@ -219,10 +219,10 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'product_id' => {
+    'type' => {
         datatype => 'string',
-        base_name => 'product_id',
-        description => 'Defines product id where the image should be added',
+        base_name => 'type',
+        description => 'Defines image&#39;s types that are specified by comma-separated list',
         format => '',
         read_only => '',
             },
@@ -233,45 +233,10 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'type' => {
+    'product_id' => {
         datatype => 'string',
-        base_name => 'type',
-        description => 'Defines image&#39;s types that are specified by comma-separated list',
-        format => '',
-        read_only => '',
-            },
-    'url' => {
-        datatype => 'string',
-        base_name => 'url',
-        description => 'Defines URL of the image that has to be added',
-        format => '',
-        read_only => '',
-            },
-    'label' => {
-        datatype => 'string',
-        base_name => 'label',
-        description => 'Defines alternative text that has to be attached to the picture',
-        format => '',
-        read_only => '',
-            },
-    'mime' => {
-        datatype => 'string',
-        base_name => 'mime',
-        description => 'Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.',
-        format => '',
-        read_only => '',
-            },
-    'position' => {
-        datatype => 'int',
-        base_name => 'position',
-        description => 'Defines image’s position in the list',
-        format => '',
-        read_only => '',
-            },
-    'content' => {
-        datatype => 'string',
-        base_name => 'content',
-        description => 'Content(body) encoded in base64 of image file',
+        base_name => 'product_id',
+        description => 'Defines product id where the image should be added',
         format => '',
         read_only => '',
             },
@@ -310,6 +275,41 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'url' => {
+        datatype => 'string',
+        base_name => 'url',
+        description => 'Defines URL of the image that has to be added',
+        format => '',
+        read_only => '',
+            },
+    'content' => {
+        datatype => 'string',
+        base_name => 'content',
+        description => 'Content(body) encoded in base64 of image file',
+        format => '',
+        read_only => '',
+            },
+    'label' => {
+        datatype => 'string',
+        base_name => 'label',
+        description => 'Defines alternative text that has to be attached to the picture',
+        format => '',
+        read_only => '',
+            },
+    'mime' => {
+        datatype => 'string',
+        base_name => 'mime',
+        description => 'Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.',
+        format => '',
+        read_only => '',
+            },
+    'position' => {
+        datatype => 'int',
+        base_name => 'position',
+        description => 'Defines image’s position in the list',
+        format => '',
+        read_only => '',
+            },
     'use_latest_api_version' => {
         datatype => 'boolean',
         base_name => 'use_latest_api_version',
@@ -320,36 +320,36 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'product_id' => 'string',
-    'image_name' => 'string',
     'type' => 'string',
-    'url' => 'string',
-    'label' => 'string',
-    'mime' => 'string',
-    'position' => 'int',
-    'content' => 'string',
+    'image_name' => 'string',
+    'product_id' => 'string',
     'product_variant_id' => 'string',
     'variant_ids' => 'string',
     'option_value_ids' => 'string',
     'store_id' => 'string',
     'lang_id' => 'string',
+    'url' => 'string',
+    'content' => 'string',
+    'label' => 'string',
+    'mime' => 'string',
+    'position' => 'int',
     'use_latest_api_version' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
-    'product_id' => 'product_id',
-    'image_name' => 'image_name',
     'type' => 'type',
-    'url' => 'url',
-    'label' => 'label',
-    'mime' => 'mime',
-    'position' => 'position',
-    'content' => 'content',
+    'image_name' => 'image_name',
+    'product_id' => 'product_id',
     'product_variant_id' => 'product_variant_id',
     'variant_ids' => 'variant_ids',
     'option_value_ids' => 'option_value_ids',
     'store_id' => 'store_id',
     'lang_id' => 'lang_id',
+    'url' => 'url',
+    'content' => 'content',
+    'label' => 'label',
+    'mime' => 'mime',
+    'position' => 'position',
     'use_latest_api_version' => 'use_latest_api_version'
 } );
 

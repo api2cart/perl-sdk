@@ -55,9 +55,9 @@ sub new {
 #
 # @param string $id Entity id (required)
 # @param string $store_id Store Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
     'id' => {
@@ -70,6 +70,11 @@ sub new {
         description => 'Store Id',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -78,11 +83,6 @@ sub new {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -128,6 +128,11 @@ sub basket_info {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -135,11 +140,6 @@ sub basket_info {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;
@@ -334,11 +334,6 @@ sub basket_live_shipping_service_create {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'name'}) {
         $query_params->{'name'} = $self->{api_client}->to_query_value($args{'name'});
     }
@@ -346,6 +341,11 @@ sub basket_live_shipping_service_create {
     # query params
     if ( exists $args{'callback'}) {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -433,16 +433,11 @@ sub basket_live_shipping_service_delete {
 #
 # basket.live_shipping_service.list
 #
-# @param string $store_id Store Id (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $store_id Store Id (optional)
 {
     my $params = {
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -451,6 +446,11 @@ sub basket_live_shipping_service_delete {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
         required => '0',
     },
     };
@@ -481,11 +481,6 @@ sub basket_live_shipping_service_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -493,6 +488,11 @@ sub basket_live_shipping_service_list {
     # query params
     if ( exists $args{'count'}) {
         $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;

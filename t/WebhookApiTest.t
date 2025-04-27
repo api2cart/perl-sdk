@@ -68,14 +68,14 @@ isa_ok($api, 'WWW::OpenAPIClient::WebhookApi');
 # webhook_list test
 #
 # uncomment below and update the test
-#my $webhook_list_params = undef; # replace NULL with a proper value
 #my $webhook_list_start = undef; # replace NULL with a proper value
 #my $webhook_list_count = undef; # replace NULL with a proper value
 #my $webhook_list_entity = undef; # replace NULL with a proper value
 #my $webhook_list_action = undef; # replace NULL with a proper value
 #my $webhook_list_active = undef; # replace NULL with a proper value
 #my $webhook_list_ids = undef; # replace NULL with a proper value
-#my $webhook_list_result = $api->webhook_list(params => $webhook_list_params, start => $webhook_list_start, count => $webhook_list_count, entity => $webhook_list_entity, action => $webhook_list_action, active => $webhook_list_active, ids => $webhook_list_ids);
+#my $webhook_list_params = undef; # replace NULL with a proper value
+#my $webhook_list_result = $api->webhook_list(start => $webhook_list_start, count => $webhook_list_count, entity => $webhook_list_entity, action => $webhook_list_action, active => $webhook_list_active, ids => $webhook_list_ids, params => $webhook_list_params);
 
 #
 # webhook_update test

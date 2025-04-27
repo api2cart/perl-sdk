@@ -312,13 +312,6 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'store_id' => {
-        datatype => 'string',
-        base_name => 'store_id',
-        description => 'Store Id',
-        format => '',
-        read_only => '',
-            },
     'note' => {
         datatype => 'string',
         base_name => 'note',
@@ -330,6 +323,13 @@ __PACKAGE__->method_documentation({
         datatype => 'string',
         base_name => 'status',
         description => 'Defines customer&#39;s status',
+        format => '',
+        read_only => '',
+            },
+    'store_id' => {
+        datatype => 'string',
+        base_name => 'store_id',
+        description => 'Store Id',
         format => '',
         read_only => '',
             },
@@ -356,9 +356,9 @@ __PACKAGE__->openapi_types( {
     'consents' => 'ARRAY[CustomerAddConsentsInner]',
     'tags' => 'string',
     'gender' => 'string',
-    'store_id' => 'string',
     'note' => 'string',
     'status' => 'string',
+    'store_id' => 'string',
     'address' => 'ARRAY[CustomerUpdateAddressInner]'
 } );
 
@@ -376,9 +376,9 @@ __PACKAGE__->attribute_map( {
     'consents' => 'consents',
     'tags' => 'tags',
     'gender' => 'gender',
-    'store_id' => 'store_id',
     'note' => 'note',
     'status' => 'status',
+    'store_id' => 'store_id',
     'address' => 'address'
 } );
 

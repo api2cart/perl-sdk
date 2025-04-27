@@ -224,13 +224,13 @@ sub attribute_add {
     }
 
     # query params
-    if ( exists $args{'code'}) {
-        $query_params->{'code'} = $self->{api_client}->to_query_value($args{'code'});
+    if ( exists $args{'name'}) {
+        $query_params->{'name'} = $self->{api_client}->to_query_value($args{'name'});
     }
 
     # query params
-    if ( exists $args{'name'}) {
-        $query_params->{'name'} = $self->{api_client}->to_query_value($args{'name'});
+    if ( exists $args{'code'}) {
+        $query_params->{'code'} = $self->{api_client}->to_query_value($args{'code'});
     }
 
     # query params
@@ -529,9 +529,9 @@ sub attribute_assign_set {
 #
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
     'start' => {
@@ -544,6 +544,11 @@ sub attribute_assign_set {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -552,11 +557,6 @@ sub attribute_assign_set {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -597,6 +597,11 @@ sub attribute_attributeset_list {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -604,11 +609,6 @@ sub attribute_attributeset_list {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;
@@ -804,13 +804,13 @@ sub attribute_delete {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'id'}) {
+        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
     }
 
     # query params
-    if ( exists $args{'id'}) {
-        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -835,11 +835,11 @@ sub attribute_delete {
 #
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $attribute_set_id Attribute set id (optional)
 # @param string $lang_id Language id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $attribute_set_id Attribute set id (optional)
 {
     my $params = {
     'start' => {
@@ -852,9 +852,19 @@ sub attribute_delete {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
+    'attribute_set_id' => {
+        data_type => 'string',
+        description => 'Attribute set id',
+        required => '0',
+    },
     'lang_id' => {
         data_type => 'string',
         description => 'Language id',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'params' => {
@@ -865,16 +875,6 @@ sub attribute_delete {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'attribute_set_id' => {
-        data_type => 'string',
-        description => 'Attribute set id',
         required => '0',
     },
     };
@@ -915,8 +915,18 @@ sub attribute_group_list {
     }
 
     # query params
+    if ( exists $args{'attribute_set_id'}) {
+        $query_params->{'attribute_set_id'} = $self->{api_client}->to_query_value($args{'attribute_set_id'});
+    }
+
+    # query params
     if ( exists $args{'lang_id'}) {
         $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -927,16 +937,6 @@ sub attribute_group_list {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'attribute_set_id'}) {
-        $query_params->{'attribute_set_id'} = $self->{api_client}->to_query_value($args{'attribute_set_id'});
     }
 
     my $_body_data;
@@ -963,9 +963,9 @@ sub attribute_group_list {
 # @param string $attribute_set_id Attribute set id (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
     'id' => {
@@ -988,6 +988,11 @@ sub attribute_group_list {
         description => 'Language id',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -996,11 +1001,6 @@ sub attribute_group_list {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -1056,6 +1056,11 @@ sub attribute_info {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -1063,11 +1068,6 @@ sub attribute_info {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;
@@ -1092,17 +1092,17 @@ sub attribute_info {
 #
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $type Defines attribute&#39;s type (optional)
 # @param string $attribute_ids Filter attributes by ids (optional)
 # @param string $attribute_set_id Filter items by attribute set id (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Retrieves attributes on specified language id (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,code,type')
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $type Defines attribute&#39;s type (optional)
 # @param boolean $visible Filter items by visibility status (optional)
 # @param boolean $required Defines if the option is required (optional)
 # @param boolean $system True if attribute is system (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,code,type')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'start' => {
@@ -1113,11 +1113,6 @@ sub attribute_info {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'type' => {
-        data_type => 'string',
-        description => 'Defines attribute&#39;s type',
         required => '0',
     },
     'attribute_ids' => {
@@ -1140,19 +1135,9 @@ sub attribute_info {
         description => 'Retrieves attributes on specified language id',
         required => '0',
     },
-    'params' => {
+    'type' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Defines attribute&#39;s type',
         required => '0',
     },
     'visible' => {
@@ -1168,6 +1153,21 @@ sub attribute_info {
     'system' => {
         data_type => 'boolean',
         description => 'True if attribute is system',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -1208,11 +1208,6 @@ sub attribute_list {
     }
 
     # query params
-    if ( exists $args{'type'}) {
-        $query_params->{'type'} = $self->{api_client}->to_query_value($args{'type'});
-    }
-
-    # query params
     if ( exists $args{'attribute_ids'}) {
         $query_params->{'attribute_ids'} = $self->{api_client}->to_query_value($args{'attribute_ids'});
     }
@@ -1233,18 +1228,8 @@ sub attribute_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'type'}) {
+        $query_params->{'type'} = $self->{api_client}->to_query_value($args{'type'});
     }
 
     # query params
@@ -1260,6 +1245,21 @@ sub attribute_list {
     # query params
     if ( exists $args{'system'}) {
         $query_params->{'system'} = $self->{api_client}->to_query_value($args{'system'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;

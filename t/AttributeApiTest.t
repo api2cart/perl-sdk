@@ -80,10 +80,10 @@ isa_ok($api, 'WWW::OpenAPIClient::AttributeApi');
 # uncomment below and update the test
 #my $attribute_attributeset_list_start = undef; # replace NULL with a proper value
 #my $attribute_attributeset_list_count = undef; # replace NULL with a proper value
+#my $attribute_attributeset_list_response_fields = undef; # replace NULL with a proper value
 #my $attribute_attributeset_list_params = undef; # replace NULL with a proper value
 #my $attribute_attributeset_list_exclude = undef; # replace NULL with a proper value
-#my $attribute_attributeset_list_response_fields = undef; # replace NULL with a proper value
-#my $attribute_attributeset_list_result = $api->attribute_attributeset_list(start => $attribute_attributeset_list_start, count => $attribute_attributeset_list_count, params => $attribute_attributeset_list_params, exclude => $attribute_attributeset_list_exclude, response_fields => $attribute_attributeset_list_response_fields);
+#my $attribute_attributeset_list_result = $api->attribute_attributeset_list(start => $attribute_attributeset_list_start, count => $attribute_attributeset_list_count, response_fields => $attribute_attributeset_list_response_fields, params => $attribute_attributeset_list_params, exclude => $attribute_attributeset_list_exclude);
 
 #
 # attribute_count test
@@ -112,12 +112,12 @@ isa_ok($api, 'WWW::OpenAPIClient::AttributeApi');
 # uncomment below and update the test
 #my $attribute_group_list_start = undef; # replace NULL with a proper value
 #my $attribute_group_list_count = undef; # replace NULL with a proper value
+#my $attribute_group_list_attribute_set_id = undef; # replace NULL with a proper value
 #my $attribute_group_list_lang_id = undef; # replace NULL with a proper value
+#my $attribute_group_list_response_fields = undef; # replace NULL with a proper value
 #my $attribute_group_list_params = undef; # replace NULL with a proper value
 #my $attribute_group_list_exclude = undef; # replace NULL with a proper value
-#my $attribute_group_list_response_fields = undef; # replace NULL with a proper value
-#my $attribute_group_list_attribute_set_id = undef; # replace NULL with a proper value
-#my $attribute_group_list_result = $api->attribute_group_list(start => $attribute_group_list_start, count => $attribute_group_list_count, lang_id => $attribute_group_list_lang_id, params => $attribute_group_list_params, exclude => $attribute_group_list_exclude, response_fields => $attribute_group_list_response_fields, attribute_set_id => $attribute_group_list_attribute_set_id);
+#my $attribute_group_list_result = $api->attribute_group_list(start => $attribute_group_list_start, count => $attribute_group_list_count, attribute_set_id => $attribute_group_list_attribute_set_id, lang_id => $attribute_group_list_lang_id, response_fields => $attribute_group_list_response_fields, params => $attribute_group_list_params, exclude => $attribute_group_list_exclude);
 
 #
 # attribute_info test
@@ -127,10 +127,10 @@ isa_ok($api, 'WWW::OpenAPIClient::AttributeApi');
 #my $attribute_info_attribute_set_id = undef; # replace NULL with a proper value
 #my $attribute_info_store_id = undef; # replace NULL with a proper value
 #my $attribute_info_lang_id = undef; # replace NULL with a proper value
+#my $attribute_info_response_fields = undef; # replace NULL with a proper value
 #my $attribute_info_params = undef; # replace NULL with a proper value
 #my $attribute_info_exclude = undef; # replace NULL with a proper value
-#my $attribute_info_response_fields = undef; # replace NULL with a proper value
-#my $attribute_info_result = $api->attribute_info(id => $attribute_info_id, attribute_set_id => $attribute_info_attribute_set_id, store_id => $attribute_info_store_id, lang_id => $attribute_info_lang_id, params => $attribute_info_params, exclude => $attribute_info_exclude, response_fields => $attribute_info_response_fields);
+#my $attribute_info_result = $api->attribute_info(id => $attribute_info_id, attribute_set_id => $attribute_info_attribute_set_id, store_id => $attribute_info_store_id, lang_id => $attribute_info_lang_id, response_fields => $attribute_info_response_fields, params => $attribute_info_params, exclude => $attribute_info_exclude);
 
 #
 # attribute_list test
@@ -138,18 +138,18 @@ isa_ok($api, 'WWW::OpenAPIClient::AttributeApi');
 # uncomment below and update the test
 #my $attribute_list_start = undef; # replace NULL with a proper value
 #my $attribute_list_count = undef; # replace NULL with a proper value
-#my $attribute_list_type = undef; # replace NULL with a proper value
 #my $attribute_list_attribute_ids = undef; # replace NULL with a proper value
 #my $attribute_list_attribute_set_id = undef; # replace NULL with a proper value
 #my $attribute_list_store_id = undef; # replace NULL with a proper value
 #my $attribute_list_lang_id = undef; # replace NULL with a proper value
-#my $attribute_list_params = undef; # replace NULL with a proper value
-#my $attribute_list_exclude = undef; # replace NULL with a proper value
-#my $attribute_list_response_fields = undef; # replace NULL with a proper value
+#my $attribute_list_type = undef; # replace NULL with a proper value
 #my $attribute_list_visible = undef; # replace NULL with a proper value
 #my $attribute_list_required = undef; # replace NULL with a proper value
 #my $attribute_list_system = undef; # replace NULL with a proper value
-#my $attribute_list_result = $api->attribute_list(start => $attribute_list_start, count => $attribute_list_count, type => $attribute_list_type, attribute_ids => $attribute_list_attribute_ids, attribute_set_id => $attribute_list_attribute_set_id, store_id => $attribute_list_store_id, lang_id => $attribute_list_lang_id, params => $attribute_list_params, exclude => $attribute_list_exclude, response_fields => $attribute_list_response_fields, visible => $attribute_list_visible, required => $attribute_list_required, system => $attribute_list_system);
+#my $attribute_list_response_fields = undef; # replace NULL with a proper value
+#my $attribute_list_params = undef; # replace NULL with a proper value
+#my $attribute_list_exclude = undef; # replace NULL with a proper value
+#my $attribute_list_result = $api->attribute_list(start => $attribute_list_start, count => $attribute_list_count, attribute_ids => $attribute_list_attribute_ids, attribute_set_id => $attribute_list_attribute_set_id, store_id => $attribute_list_store_id, lang_id => $attribute_list_lang_id, type => $attribute_list_type, visible => $attribute_list_visible, required => $attribute_list_required, system => $attribute_list_system, response_fields => $attribute_list_response_fields, params => $attribute_list_params, exclude => $attribute_list_exclude);
 
 #
 # attribute_type_list test

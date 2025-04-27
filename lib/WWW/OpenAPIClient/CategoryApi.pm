@@ -54,20 +54,20 @@ sub new {
 # category.add
 #
 # @param string $name Defines category&#39;s name that has to be added (required)
-# @param string $parent_id Adds categories specified by parent id (optional)
-# @param string $stores_ids Create category in the stores that is specified by comma-separated stores&#39; id (optional)
-# @param string $store_id Store Id (optional)
-# @param string $lang_id Language id (optional)
-# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
-# @param int $sort_order Sort number in the list (optional, default to 0)
-# @param string $created_time Entity&#39;s date creation (optional)
-# @param string $modified_time Entity&#39;s date modification (optional)
 # @param string $description Defines category&#39;s description (optional)
 # @param string $short_description Defines short description (optional)
+# @param string $parent_id Adds categories specified by parent id (optional)
+# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
+# @param string $created_time Entity&#39;s date creation (optional)
+# @param string $modified_time Entity&#39;s date modification (optional)
+# @param int $sort_order Sort number in the list (optional, default to 0)
 # @param string $meta_title Defines unique meta title for each entity (optional)
 # @param string $meta_description Defines unique meta description of a entity (optional)
 # @param string $meta_keywords Defines unique meta keywords for each entity (optional)
 # @param string $seo_url Defines unique category&#39;s URL for SEO (optional)
+# @param string $store_id Store Id (optional)
+# @param string $stores_ids Create category in the stores that is specified by comma-separated stores&#39; id (optional)
+# @param string $lang_id Language id (optional)
 {
     my $params = {
     'name' => {
@@ -75,34 +75,24 @@ sub new {
         description => 'Defines category&#39;s name that has to be added',
         required => '1',
     },
+    'description' => {
+        data_type => 'string',
+        description => 'Defines category&#39;s description',
+        required => '0',
+    },
+    'short_description' => {
+        data_type => 'string',
+        description => 'Defines short description',
+        required => '0',
+    },
     'parent_id' => {
         data_type => 'string',
         description => 'Adds categories specified by parent id',
         required => '0',
     },
-    'stores_ids' => {
-        data_type => 'string',
-        description => 'Create category in the stores that is specified by comma-separated stores&#39; id',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
-    'lang_id' => {
-        data_type => 'string',
-        description => 'Language id',
-        required => '0',
-    },
     'avail' => {
         data_type => 'boolean',
         description => 'Defines category&#39;s visibility status',
-        required => '0',
-    },
-    'sort_order' => {
-        data_type => 'int',
-        description => 'Sort number in the list',
         required => '0',
     },
     'created_time' => {
@@ -115,14 +105,9 @@ sub new {
         description => 'Entity&#39;s date modification',
         required => '0',
     },
-    'description' => {
-        data_type => 'string',
-        description => 'Defines category&#39;s description',
-        required => '0',
-    },
-    'short_description' => {
-        data_type => 'string',
-        description => 'Defines short description',
+    'sort_order' => {
+        data_type => 'int',
+        description => 'Sort number in the list',
         required => '0',
     },
     'meta_title' => {
@@ -143,6 +128,21 @@ sub new {
     'seo_url' => {
         data_type => 'string',
         description => 'Defines unique category&#39;s URL for SEO',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
+        required => '0',
+    },
+    'stores_ids' => {
+        data_type => 'string',
+        description => 'Create category in the stores that is specified by comma-separated stores&#39; id',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
         required => '0',
     },
     };
@@ -183,33 +183,23 @@ sub category_add {
     }
 
     # query params
+    if ( exists $args{'description'}) {
+        $query_params->{'description'} = $self->{api_client}->to_query_value($args{'description'});
+    }
+
+    # query params
+    if ( exists $args{'short_description'}) {
+        $query_params->{'short_description'} = $self->{api_client}->to_query_value($args{'short_description'});
+    }
+
+    # query params
     if ( exists $args{'parent_id'}) {
         $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
     }
 
     # query params
-    if ( exists $args{'stores_ids'}) {
-        $query_params->{'stores_ids'} = $self->{api_client}->to_query_value($args{'stores_ids'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
-    }
-
-    # query params
     if ( exists $args{'avail'}) {
         $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
-    }
-
-    # query params
-    if ( exists $args{'sort_order'}) {
-        $query_params->{'sort_order'} = $self->{api_client}->to_query_value($args{'sort_order'});
     }
 
     # query params
@@ -223,13 +213,8 @@ sub category_add {
     }
 
     # query params
-    if ( exists $args{'description'}) {
-        $query_params->{'description'} = $self->{api_client}->to_query_value($args{'description'});
-    }
-
-    # query params
-    if ( exists $args{'short_description'}) {
-        $query_params->{'short_description'} = $self->{api_client}->to_query_value($args{'short_description'});
+    if ( exists $args{'sort_order'}) {
+        $query_params->{'sort_order'} = $self->{api_client}->to_query_value($args{'sort_order'});
     }
 
     # query params
@@ -250,6 +235,21 @@ sub category_add {
     # query params
     if ( exists $args{'seo_url'}) {
         $query_params->{'seo_url'} = $self->{api_client}->to_query_value($args{'seo_url'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'stores_ids'}) {
+        $query_params->{'stores_ids'} = $self->{api_client}->to_query_value($args{'stores_ids'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     my $_body_data;
@@ -337,19 +337,19 @@ sub category_add_batch {
 #
 # category.assign
 #
-# @param string $product_id Defines category assign to the product, specified by product id (required)
 # @param string $category_id Defines category assign, specified by category id (required)
+# @param string $product_id Defines category assign to the product, specified by product id (required)
 # @param string $store_id Store Id (optional)
 {
     my $params = {
-    'product_id' => {
-        data_type => 'string',
-        description => 'Defines category assign to the product, specified by product id',
-        required => '1',
-    },
     'category_id' => {
         data_type => 'string',
         description => 'Defines category assign, specified by category id',
+        required => '1',
+    },
+    'product_id' => {
+        data_type => 'string',
+        description => 'Defines category assign to the product, specified by product id',
         required => '1',
     },
     'store_id' => {
@@ -369,14 +369,14 @@ sub category_add_batch {
 sub category_assign {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'product_id' is set
-    unless (exists $args{'product_id'}) {
-      croak("Missing the required parameter 'product_id' when calling category_assign");
-    }
-
     # verify the required parameter 'category_id' is set
     unless (exists $args{'category_id'}) {
       croak("Missing the required parameter 'category_id' when calling category_assign");
+    }
+
+    # verify the required parameter 'product_id' is set
+    unless (exists $args{'product_id'}) {
+      croak("Missing the required parameter 'product_id' when calling category_assign");
     }
 
     # parse inputs
@@ -395,13 +395,13 @@ sub category_assign {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'product_id'}) {
-        $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
+    if ( exists $args{'category_id'}) {
+        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
     }
 
     # query params
-    if ( exists $args{'category_id'}) {
-        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    if ( exists $args{'product_id'}) {
+        $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
     }
 
     # query params
@@ -432,11 +432,11 @@ sub category_assign {
 # @param string $parent_id Counts categories specified by parent id (optional)
 # @param string $store_id Counts category specified by store id (optional)
 # @param string $lang_id Counts category specified by language id (optional)
+# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
 # @param string $product_type A categorization for the product (optional)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Counts categories that are searched specified by field (optional)
@@ -459,6 +459,11 @@ sub category_assign {
         description => 'Counts category specified by language id',
         required => '0',
     },
+    'avail' => {
+        data_type => 'boolean',
+        description => 'Defines category&#39;s visibility status',
+        required => '0',
+    },
     'created_from' => {
         data_type => 'string',
         description => 'Retrieve entities from their creation date',
@@ -477,11 +482,6 @@ sub category_assign {
     'modified_to' => {
         data_type => 'string',
         description => 'Retrieve entities to their modification date',
-        required => '0',
-    },
-    'avail' => {
-        data_type => 'boolean',
-        description => 'Defines category&#39;s visibility status',
         required => '0',
     },
     'product_type' => {
@@ -552,6 +552,11 @@ sub category_count {
     }
 
     # query params
+    if ( exists $args{'avail'}) {
+        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
     if ( exists $args{'created_from'}) {
         $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
     }
@@ -569,11 +574,6 @@ sub category_count {
     # query params
     if ( exists $args{'modified_to'}) {
         $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
-    }
-
-    # query params
-    if ( exists $args{'avail'}) {
-        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
     }
 
     # query params
@@ -810,10 +810,10 @@ sub category_find {
 # @param string $image_name Defines image&#39;s name (required)
 # @param string $url Defines URL of the image that has to be added (required)
 # @param string $type Defines image&#39;s types that are specified by comma-separated list (required)
+# @param string $store_id Store Id (optional)
 # @param string $label Defines alternative text that has to be attached to the picture (optional)
 # @param string $mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. (optional)
 # @param int $position Defines image’s position in the list (optional, default to 0)
-# @param string $store_id Store Id (optional)
 {
     my $params = {
     'category_id' => {
@@ -836,6 +836,11 @@ sub category_find {
         description => 'Defines image&#39;s types that are specified by comma-separated list',
         required => '1',
     },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
+        required => '0',
+    },
     'label' => {
         data_type => 'string',
         description => 'Defines alternative text that has to be attached to the picture',
@@ -849,11 +854,6 @@ sub category_find {
     'position' => {
         data_type => 'int',
         description => 'Defines image’s position in the list',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
         required => '0',
     },
     };
@@ -919,6 +919,16 @@ sub category_image_add {
     }
 
     # query params
+    if ( exists $args{'type'}) {
+        $query_params->{'type'} = $self->{api_client}->to_query_value($args{'type'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
     if ( exists $args{'label'}) {
         $query_params->{'label'} = $self->{api_client}->to_query_value($args{'label'});
     }
@@ -929,18 +939,8 @@ sub category_image_add {
     }
 
     # query params
-    if ( exists $args{'type'}) {
-        $query_params->{'type'} = $self->{api_client}->to_query_value($args{'type'});
-    }
-
-    # query params
     if ( exists $args{'position'}) {
         $query_params->{'position'} = $self->{api_client}->to_query_value($args{'position'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -1056,12 +1056,12 @@ sub category_image_delete {
 # category.info
 #
 # @param string $id Retrieves category&#39;s info specified by category id (required)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,parent_id,name,description')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Retrieves category info  specified by store id (optional)
 # @param string $lang_id Retrieves category info  specified by language id (optional)
 # @param string $schema_type The name of the requirements set for the provided schema. (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,parent_id,name,description')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $report_request_id Report request id (optional)
 # @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 {
@@ -1070,21 +1070,6 @@ sub category_image_delete {
         data_type => 'string',
         description => 'Retrieves category&#39;s info specified by category id',
         required => '1',
-    },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
     },
     'store_id' => {
         data_type => 'string',
@@ -1099,6 +1084,21 @@ sub category_image_delete {
     'schema_type' => {
         data_type => 'string',
         description => 'The name of the requirements set for the provided schema.',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     'report_request_id' => {
@@ -1149,21 +1149,6 @@ sub category_info {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
@@ -1176,6 +1161,21 @@ sub category_info {
     # query params
     if ( exists $args{'schema_type'}) {
         $query_params->{'schema_type'} = $self->{api_client}->to_query_value($args{'schema_type'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     # query params
@@ -1211,20 +1211,20 @@ sub category_info {
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param string $parent_id Retrieves categories specified by parent id (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,parent_id,name,description')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Retrieves categories specified by store id (optional)
 # @param string $lang_id Retrieves categorys specified by language id (optional)
+# @param string $parent_id Retrieves categories specified by parent id (optional)
+# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
+# @param string $product_type A categorization for the product (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
-# @param string $product_type A categorization for the product (optional)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Category search that is specified by field (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,parent_id,name,description')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $report_request_id Report request id (optional)
 # @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 # @param boolean $disable_cache Disable cache for current request (optional, default to false)
@@ -1245,26 +1245,6 @@ sub category_info {
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
-    'parent_id' => {
-        data_type => 'string',
-        description => 'Retrieves categories specified by parent id',
-        required => '0',
-    },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
     'store_id' => {
         data_type => 'string',
         description => 'Retrieves categories specified by store id',
@@ -1273,6 +1253,21 @@ sub category_info {
     'lang_id' => {
         data_type => 'string',
         description => 'Retrieves categorys specified by language id',
+        required => '0',
+    },
+    'parent_id' => {
+        data_type => 'string',
+        description => 'Retrieves categories specified by parent id',
+        required => '0',
+    },
+    'avail' => {
+        data_type => 'boolean',
+        description => 'Defines category&#39;s visibility status',
+        required => '0',
+    },
+    'product_type' => {
+        data_type => 'string',
+        description => 'A categorization for the product',
         required => '0',
     },
     'created_from' => {
@@ -1295,16 +1290,6 @@ sub category_info {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'avail' => {
-        data_type => 'boolean',
-        description => 'Defines category&#39;s visibility status',
-        required => '0',
-    },
-    'product_type' => {
-        data_type => 'string',
-        description => 'A categorization for the product',
-        required => '0',
-    },
     'find_value' => {
         data_type => 'string',
         description => 'Entity search that is specified by some value',
@@ -1313,6 +1298,21 @@ sub category_info {
     'find_where' => {
         data_type => 'string',
         description => 'Category search that is specified by field',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     'report_request_id' => {
@@ -1373,26 +1373,6 @@ sub category_list {
     }
 
     # query params
-    if ( exists $args{'parent_id'}) {
-        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
-    }
-
-    # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
@@ -1400,6 +1380,21 @@ sub category_list {
     # query params
     if ( exists $args{'lang_id'}) {
         $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
+    if ( exists $args{'parent_id'}) {
+        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
+    }
+
+    # query params
+    if ( exists $args{'avail'}) {
+        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'product_type'}) {
+        $query_params->{'product_type'} = $self->{api_client}->to_query_value($args{'product_type'});
     }
 
     # query params
@@ -1423,16 +1418,6 @@ sub category_list {
     }
 
     # query params
-    if ( exists $args{'avail'}) {
-        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
-    }
-
-    # query params
-    if ( exists $args{'product_type'}) {
-        $query_params->{'product_type'} = $self->{api_client}->to_query_value($args{'product_type'});
-    }
-
-    # query params
     if ( exists $args{'find_value'}) {
         $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
     }
@@ -1440,6 +1425,21 @@ sub category_list {
     # query params
     if ( exists $args{'find_where'}) {
         $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     # query params
@@ -1571,19 +1571,19 @@ sub category_unassign {
 #
 # @param string $id Defines category update specified by category id (required)
 # @param string $name Defines new category’s name (optional)
+# @param string $description Defines new category&#39;s description (optional)
+# @param string $short_description Defines short description (optional)
 # @param string $parent_id Defines new parent category id (optional)
-# @param string $stores_ids Update category in the stores that is specified by comma-separated stores&#39; id (optional)
 # @param boolean $avail Defines category&#39;s visibility status (optional)
 # @param int $sort_order Sort number in the list (optional)
 # @param string $modified_time Entity&#39;s date modification (optional)
-# @param string $description Defines new category&#39;s description (optional)
-# @param string $short_description Defines short description (optional)
 # @param string $meta_title Defines unique meta title for each entity (optional)
 # @param string $meta_description Defines unique meta description of a entity (optional)
 # @param string $meta_keywords Defines unique meta keywords for each entity (optional)
 # @param string $seo_url Defines unique category&#39;s URL for SEO (optional)
-# @param string $lang_id Language id (optional)
 # @param string $store_id Store Id (optional)
+# @param string $stores_ids Update category in the stores that is specified by comma-separated stores&#39; id (optional)
+# @param string $lang_id Language id (optional)
 {
     my $params = {
     'id' => {
@@ -1596,14 +1596,19 @@ sub category_unassign {
         description => 'Defines new category’s name',
         required => '0',
     },
+    'description' => {
+        data_type => 'string',
+        description => 'Defines new category&#39;s description',
+        required => '0',
+    },
+    'short_description' => {
+        data_type => 'string',
+        description => 'Defines short description',
+        required => '0',
+    },
     'parent_id' => {
         data_type => 'string',
         description => 'Defines new parent category id',
-        required => '0',
-    },
-    'stores_ids' => {
-        data_type => 'string',
-        description => 'Update category in the stores that is specified by comma-separated stores&#39; id',
         required => '0',
     },
     'avail' => {
@@ -1619,16 +1624,6 @@ sub category_unassign {
     'modified_time' => {
         data_type => 'string',
         description => 'Entity&#39;s date modification',
-        required => '0',
-    },
-    'description' => {
-        data_type => 'string',
-        description => 'Defines new category&#39;s description',
-        required => '0',
-    },
-    'short_description' => {
-        data_type => 'string',
-        description => 'Defines short description',
         required => '0',
     },
     'meta_title' => {
@@ -1651,14 +1646,19 @@ sub category_unassign {
         description => 'Defines unique category&#39;s URL for SEO',
         required => '0',
     },
-    'lang_id' => {
-        data_type => 'string',
-        description => 'Language id',
-        required => '0',
-    },
     'store_id' => {
         data_type => 'string',
         description => 'Store Id',
+        required => '0',
+    },
+    'stores_ids' => {
+        data_type => 'string',
+        description => 'Update category in the stores that is specified by comma-separated stores&#39; id',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
         required => '0',
     },
     };
@@ -1704,13 +1704,18 @@ sub category_update {
     }
 
     # query params
-    if ( exists $args{'parent_id'}) {
-        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
+    if ( exists $args{'description'}) {
+        $query_params->{'description'} = $self->{api_client}->to_query_value($args{'description'});
     }
 
     # query params
-    if ( exists $args{'stores_ids'}) {
-        $query_params->{'stores_ids'} = $self->{api_client}->to_query_value($args{'stores_ids'});
+    if ( exists $args{'short_description'}) {
+        $query_params->{'short_description'} = $self->{api_client}->to_query_value($args{'short_description'});
+    }
+
+    # query params
+    if ( exists $args{'parent_id'}) {
+        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
     }
 
     # query params
@@ -1726,16 +1731,6 @@ sub category_update {
     # query params
     if ( exists $args{'modified_time'}) {
         $query_params->{'modified_time'} = $self->{api_client}->to_query_value($args{'modified_time'});
-    }
-
-    # query params
-    if ( exists $args{'description'}) {
-        $query_params->{'description'} = $self->{api_client}->to_query_value($args{'description'});
-    }
-
-    # query params
-    if ( exists $args{'short_description'}) {
-        $query_params->{'short_description'} = $self->{api_client}->to_query_value($args{'short_description'});
     }
 
     # query params
@@ -1759,13 +1754,18 @@ sub category_update {
     }
 
     # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'stores_ids'}) {
+        $query_params->{'stores_ids'} = $self->{api_client}->to_query_value($args{'stores_ids'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     my $_body_data;

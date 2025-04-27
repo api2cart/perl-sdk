@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **basket_info**
-> BasketInfo200Response basket_info(id => $id, store_id => $store_id, params => $params, exclude => $exclude, response_fields => $response_fields)
+> BasketInfo200Response basket_info(id => $id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 basket.info
 
@@ -41,12 +41,12 @@ my $api_instance = WWW::OpenAPIClient::BasketApi->new(
 
 my $id = 10; # string | Entity id
 my $store_id = 1; # string | Store Id
+my $response_fields = {result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->basket_info(id => $id, store_id => $store_id, params => $params, exclude => $exclude, response_fields => $response_fields);
+    my $result = $api_instance->basket_info(id => $id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Entity id | 
  **store_id** | **string**| Store Id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;force_all&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **basket_live_shipping_service_list**
-> BasketLiveShippingServiceList200Response basket_live_shipping_service_list(store_id => $store_id, start => $start, count => $count)
+> BasketLiveShippingServiceList200Response basket_live_shipping_service_list(start => $start, count => $count, store_id => $store_id)
 
 basket.live_shipping_service.list
 
@@ -279,12 +279,12 @@ my $api_instance = WWW::OpenAPIClient::BasketApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $store_id = 1; # string | Store Id
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $store_id = 1; # string | Store Id
 
 eval {
-    my $result = $api_instance->basket_live_shipping_service_list(store_id => $store_id, start => $start, count => $count);
+    my $result = $api_instance->basket_live_shipping_service_list(start => $start, count => $count, store_id => $store_id);
     print Dumper($result);
 };
 if ($@) {
@@ -296,9 +296,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **string**| Store Id | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **store_id** | **string**| Store Id | [optional] 
 
 ### Return type
 

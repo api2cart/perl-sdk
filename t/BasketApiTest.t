@@ -35,10 +35,10 @@ isa_ok($api, 'WWW::OpenAPIClient::BasketApi');
 # uncomment below and update the test
 #my $basket_info_id = undef; # replace NULL with a proper value
 #my $basket_info_store_id = undef; # replace NULL with a proper value
+#my $basket_info_response_fields = undef; # replace NULL with a proper value
 #my $basket_info_params = undef; # replace NULL with a proper value
 #my $basket_info_exclude = undef; # replace NULL with a proper value
-#my $basket_info_response_fields = undef; # replace NULL with a proper value
-#my $basket_info_result = $api->basket_info(id => $basket_info_id, store_id => $basket_info_store_id, params => $basket_info_params, exclude => $basket_info_exclude, response_fields => $basket_info_response_fields);
+#my $basket_info_result = $api->basket_info(id => $basket_info_id, store_id => $basket_info_store_id, response_fields => $basket_info_response_fields, params => $basket_info_params, exclude => $basket_info_exclude);
 
 #
 # basket_item_add test
@@ -71,10 +71,10 @@ isa_ok($api, 'WWW::OpenAPIClient::BasketApi');
 # basket_live_shipping_service_list test
 #
 # uncomment below and update the test
-#my $basket_live_shipping_service_list_store_id = undef; # replace NULL with a proper value
 #my $basket_live_shipping_service_list_start = undef; # replace NULL with a proper value
 #my $basket_live_shipping_service_list_count = undef; # replace NULL with a proper value
-#my $basket_live_shipping_service_list_result = $api->basket_live_shipping_service_list(store_id => $basket_live_shipping_service_list_store_id, start => $basket_live_shipping_service_list_start, count => $basket_live_shipping_service_list_count);
+#my $basket_live_shipping_service_list_store_id = undef; # replace NULL with a proper value
+#my $basket_live_shipping_service_list_result = $api->basket_live_shipping_service_list(start => $basket_live_shipping_service_list_start, count => $basket_live_shipping_service_list_count, store_id => $basket_live_shipping_service_list_store_id);
 
 
 done_testing();

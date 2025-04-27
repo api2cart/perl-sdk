@@ -52,28 +52,28 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 #my $customer_attribute_list_page_cursor = undef; # replace NULL with a proper value
 #my $customer_attribute_list_store_id = undef; # replace NULL with a proper value
 #my $customer_attribute_list_lang_id = undef; # replace NULL with a proper value
+#my $customer_attribute_list_response_fields = undef; # replace NULL with a proper value
 #my $customer_attribute_list_params = undef; # replace NULL with a proper value
 #my $customer_attribute_list_exclude = undef; # replace NULL with a proper value
-#my $customer_attribute_list_response_fields = undef; # replace NULL with a proper value
-#my $customer_attribute_list_result = $api->customer_attribute_list(customer_id => $customer_attribute_list_customer_id, count => $customer_attribute_list_count, page_cursor => $customer_attribute_list_page_cursor, store_id => $customer_attribute_list_store_id, lang_id => $customer_attribute_list_lang_id, params => $customer_attribute_list_params, exclude => $customer_attribute_list_exclude, response_fields => $customer_attribute_list_response_fields);
+#my $customer_attribute_list_result = $api->customer_attribute_list(customer_id => $customer_attribute_list_customer_id, count => $customer_attribute_list_count, page_cursor => $customer_attribute_list_page_cursor, store_id => $customer_attribute_list_store_id, lang_id => $customer_attribute_list_lang_id, response_fields => $customer_attribute_list_response_fields, params => $customer_attribute_list_params, exclude => $customer_attribute_list_exclude);
 
 #
 # customer_count test
 #
 # uncomment below and update the test
+#my $customer_count_ids = undef; # replace NULL with a proper value
+#my $customer_count_since_id = undef; # replace NULL with a proper value
+#my $customer_count_customer_list_id = undef; # replace NULL with a proper value
 #my $customer_count_group_id = undef; # replace NULL with a proper value
+#my $customer_count_store_id = undef; # replace NULL with a proper value
+#my $customer_count_avail = undef; # replace NULL with a proper value
+#my $customer_count_find_value = undef; # replace NULL with a proper value
+#my $customer_count_find_where = undef; # replace NULL with a proper value
 #my $customer_count_created_from = undef; # replace NULL with a proper value
 #my $customer_count_created_to = undef; # replace NULL with a proper value
 #my $customer_count_modified_from = undef; # replace NULL with a proper value
 #my $customer_count_modified_to = undef; # replace NULL with a proper value
-#my $customer_count_store_id = undef; # replace NULL with a proper value
-#my $customer_count_customer_list_id = undef; # replace NULL with a proper value
-#my $customer_count_avail = undef; # replace NULL with a proper value
-#my $customer_count_find_value = undef; # replace NULL with a proper value
-#my $customer_count_find_where = undef; # replace NULL with a proper value
-#my $customer_count_ids = undef; # replace NULL with a proper value
-#my $customer_count_since_id = undef; # replace NULL with a proper value
-#my $customer_count_result = $api->customer_count(group_id => $customer_count_group_id, created_from => $customer_count_created_from, created_to => $customer_count_created_to, modified_from => $customer_count_modified_from, modified_to => $customer_count_modified_to, store_id => $customer_count_store_id, customer_list_id => $customer_count_customer_list_id, avail => $customer_count_avail, find_value => $customer_count_find_value, find_where => $customer_count_find_where, ids => $customer_count_ids, since_id => $customer_count_since_id);
+#my $customer_count_result = $api->customer_count(ids => $customer_count_ids, since_id => $customer_count_since_id, customer_list_id => $customer_count_customer_list_id, group_id => $customer_count_group_id, store_id => $customer_count_store_id, avail => $customer_count_avail, find_value => $customer_count_find_value, find_where => $customer_count_find_where, created_from => $customer_count_created_from, created_to => $customer_count_created_to, modified_from => $customer_count_modified_from, modified_to => $customer_count_modified_to);
 
 #
 # customer_delete test
@@ -105,54 +105,54 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 # customer_group_list test
 #
 # uncomment below and update the test
-#my $customer_group_list_disable_cache = undef; # replace NULL with a proper value
-#my $customer_group_list_page_cursor = undef; # replace NULL with a proper value
 #my $customer_group_list_start = undef; # replace NULL with a proper value
 #my $customer_group_list_count = undef; # replace NULL with a proper value
+#my $customer_group_list_page_cursor = undef; # replace NULL with a proper value
+#my $customer_group_list_group_ids = undef; # replace NULL with a proper value
 #my $customer_group_list_store_id = undef; # replace NULL with a proper value
 #my $customer_group_list_lang_id = undef; # replace NULL with a proper value
-#my $customer_group_list_group_ids = undef; # replace NULL with a proper value
+#my $customer_group_list_response_fields = undef; # replace NULL with a proper value
 #my $customer_group_list_params = undef; # replace NULL with a proper value
 #my $customer_group_list_exclude = undef; # replace NULL with a proper value
-#my $customer_group_list_response_fields = undef; # replace NULL with a proper value
-#my $customer_group_list_result = $api->customer_group_list(disable_cache => $customer_group_list_disable_cache, page_cursor => $customer_group_list_page_cursor, start => $customer_group_list_start, count => $customer_group_list_count, store_id => $customer_group_list_store_id, lang_id => $customer_group_list_lang_id, group_ids => $customer_group_list_group_ids, params => $customer_group_list_params, exclude => $customer_group_list_exclude, response_fields => $customer_group_list_response_fields);
+#my $customer_group_list_disable_cache = undef; # replace NULL with a proper value
+#my $customer_group_list_result = $api->customer_group_list(start => $customer_group_list_start, count => $customer_group_list_count, page_cursor => $customer_group_list_page_cursor, group_ids => $customer_group_list_group_ids, store_id => $customer_group_list_store_id, lang_id => $customer_group_list_lang_id, response_fields => $customer_group_list_response_fields, params => $customer_group_list_params, exclude => $customer_group_list_exclude, disable_cache => $customer_group_list_disable_cache);
 
 #
 # customer_info test
 #
 # uncomment below and update the test
 #my $customer_info_id = undef; # replace NULL with a proper value
-#my $customer_info_params = undef; # replace NULL with a proper value
-#my $customer_info_response_fields = undef; # replace NULL with a proper value
-#my $customer_info_exclude = undef; # replace NULL with a proper value
 #my $customer_info_store_id = undef; # replace NULL with a proper value
-#my $customer_info_result = $api->customer_info(id => $customer_info_id, params => $customer_info_params, response_fields => $customer_info_response_fields, exclude => $customer_info_exclude, store_id => $customer_info_store_id);
+#my $customer_info_response_fields = undef; # replace NULL with a proper value
+#my $customer_info_params = undef; # replace NULL with a proper value
+#my $customer_info_exclude = undef; # replace NULL with a proper value
+#my $customer_info_result = $api->customer_info(id => $customer_info_id, store_id => $customer_info_store_id, response_fields => $customer_info_response_fields, params => $customer_info_params, exclude => $customer_info_exclude);
 
 #
 # customer_list test
 #
 # uncomment below and update the test
-#my $customer_list_page_cursor = undef; # replace NULL with a proper value
 #my $customer_list_start = undef; # replace NULL with a proper value
 #my $customer_list_count = undef; # replace NULL with a proper value
+#my $customer_list_page_cursor = undef; # replace NULL with a proper value
+#my $customer_list_ids = undef; # replace NULL with a proper value
+#my $customer_list_since_id = undef; # replace NULL with a proper value
+#my $customer_list_customer_list_id = undef; # replace NULL with a proper value
+#my $customer_list_group_id = undef; # replace NULL with a proper value
+#my $customer_list_store_id = undef; # replace NULL with a proper value
+#my $customer_list_avail = undef; # replace NULL with a proper value
+#my $customer_list_find_value = undef; # replace NULL with a proper value
+#my $customer_list_find_where = undef; # replace NULL with a proper value
 #my $customer_list_created_from = undef; # replace NULL with a proper value
 #my $customer_list_created_to = undef; # replace NULL with a proper value
 #my $customer_list_modified_from = undef; # replace NULL with a proper value
 #my $customer_list_modified_to = undef; # replace NULL with a proper value
-#my $customer_list_params = undef; # replace NULL with a proper value
-#my $customer_list_response_fields = undef; # replace NULL with a proper value
-#my $customer_list_exclude = undef; # replace NULL with a proper value
-#my $customer_list_group_id = undef; # replace NULL with a proper value
-#my $customer_list_store_id = undef; # replace NULL with a proper value
-#my $customer_list_customer_list_id = undef; # replace NULL with a proper value
-#my $customer_list_avail = undef; # replace NULL with a proper value
-#my $customer_list_find_value = undef; # replace NULL with a proper value
-#my $customer_list_find_where = undef; # replace NULL with a proper value
 #my $customer_list_sort_by = undef; # replace NULL with a proper value
 #my $customer_list_sort_direction = undef; # replace NULL with a proper value
-#my $customer_list_ids = undef; # replace NULL with a proper value
-#my $customer_list_since_id = undef; # replace NULL with a proper value
-#my $customer_list_result = $api->customer_list(page_cursor => $customer_list_page_cursor, start => $customer_list_start, count => $customer_list_count, created_from => $customer_list_created_from, created_to => $customer_list_created_to, modified_from => $customer_list_modified_from, modified_to => $customer_list_modified_to, params => $customer_list_params, response_fields => $customer_list_response_fields, exclude => $customer_list_exclude, group_id => $customer_list_group_id, store_id => $customer_list_store_id, customer_list_id => $customer_list_customer_list_id, avail => $customer_list_avail, find_value => $customer_list_find_value, find_where => $customer_list_find_where, sort_by => $customer_list_sort_by, sort_direction => $customer_list_sort_direction, ids => $customer_list_ids, since_id => $customer_list_since_id);
+#my $customer_list_response_fields = undef; # replace NULL with a proper value
+#my $customer_list_params = undef; # replace NULL with a proper value
+#my $customer_list_exclude = undef; # replace NULL with a proper value
+#my $customer_list_result = $api->customer_list(start => $customer_list_start, count => $customer_list_count, page_cursor => $customer_list_page_cursor, ids => $customer_list_ids, since_id => $customer_list_since_id, customer_list_id => $customer_list_customer_list_id, group_id => $customer_list_group_id, store_id => $customer_list_store_id, avail => $customer_list_avail, find_value => $customer_list_find_value, find_where => $customer_list_find_where, created_from => $customer_list_created_from, created_to => $customer_list_created_to, modified_from => $customer_list_modified_from, modified_to => $customer_list_modified_to, sort_by => $customer_list_sort_by, sort_direction => $customer_list_sort_direction, response_fields => $customer_list_response_fields, params => $customer_list_params, exclude => $customer_list_exclude);
 
 #
 # customer_update test
@@ -166,13 +166,13 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 #
 # uncomment below and update the test
 #my $customer_wishlist_list_customer_id = undef; # replace NULL with a proper value
-#my $customer_wishlist_list_id = undef; # replace NULL with a proper value
-#my $customer_wishlist_list_store_id = undef; # replace NULL with a proper value
 #my $customer_wishlist_list_start = undef; # replace NULL with a proper value
 #my $customer_wishlist_list_count = undef; # replace NULL with a proper value
 #my $customer_wishlist_list_page_cursor = undef; # replace NULL with a proper value
+#my $customer_wishlist_list_id = undef; # replace NULL with a proper value
+#my $customer_wishlist_list_store_id = undef; # replace NULL with a proper value
 #my $customer_wishlist_list_response_fields = undef; # replace NULL with a proper value
-#my $customer_wishlist_list_result = $api->customer_wishlist_list(customer_id => $customer_wishlist_list_customer_id, id => $customer_wishlist_list_id, store_id => $customer_wishlist_list_store_id, start => $customer_wishlist_list_start, count => $customer_wishlist_list_count, page_cursor => $customer_wishlist_list_page_cursor, response_fields => $customer_wishlist_list_response_fields);
+#my $customer_wishlist_list_result = $api->customer_wishlist_list(customer_id => $customer_wishlist_list_customer_id, start => $customer_wishlist_list_start, count => $customer_wishlist_list_count, page_cursor => $customer_wishlist_list_page_cursor, id => $customer_wishlist_list_id, store_id => $customer_wishlist_list_store_id, response_fields => $customer_wishlist_list_response_fields);
 
 
 done_testing();

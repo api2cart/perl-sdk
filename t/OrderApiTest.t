@@ -33,21 +33,21 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 # order_abandoned_list test
 #
 # uncomment below and update the test
+#my $order_abandoned_list_start = undef; # replace NULL with a proper value
+#my $order_abandoned_list_count = undef; # replace NULL with a proper value
+#my $order_abandoned_list_page_cursor = undef; # replace NULL with a proper value
 #my $order_abandoned_list_customer_id = undef; # replace NULL with a proper value
 #my $order_abandoned_list_customer_email = undef; # replace NULL with a proper value
-#my $order_abandoned_list_created_to = undef; # replace NULL with a proper value
-#my $order_abandoned_list_created_from = undef; # replace NULL with a proper value
-#my $order_abandoned_list_modified_to = undef; # replace NULL with a proper value
-#my $order_abandoned_list_modified_from = undef; # replace NULL with a proper value
-#my $order_abandoned_list_skip_empty_email = undef; # replace NULL with a proper value
 #my $order_abandoned_list_store_id = undef; # replace NULL with a proper value
-#my $order_abandoned_list_page_cursor = undef; # replace NULL with a proper value
-#my $order_abandoned_list_count = undef; # replace NULL with a proper value
-#my $order_abandoned_list_start = undef; # replace NULL with a proper value
-#my $order_abandoned_list_params = undef; # replace NULL with a proper value
+#my $order_abandoned_list_created_from = undef; # replace NULL with a proper value
+#my $order_abandoned_list_created_to = undef; # replace NULL with a proper value
+#my $order_abandoned_list_modified_from = undef; # replace NULL with a proper value
+#my $order_abandoned_list_modified_to = undef; # replace NULL with a proper value
+#my $order_abandoned_list_skip_empty_email = undef; # replace NULL with a proper value
 #my $order_abandoned_list_response_fields = undef; # replace NULL with a proper value
+#my $order_abandoned_list_params = undef; # replace NULL with a proper value
 #my $order_abandoned_list_exclude = undef; # replace NULL with a proper value
-#my $order_abandoned_list_result = $api->order_abandoned_list(customer_id => $order_abandoned_list_customer_id, customer_email => $order_abandoned_list_customer_email, created_to => $order_abandoned_list_created_to, created_from => $order_abandoned_list_created_from, modified_to => $order_abandoned_list_modified_to, modified_from => $order_abandoned_list_modified_from, skip_empty_email => $order_abandoned_list_skip_empty_email, store_id => $order_abandoned_list_store_id, page_cursor => $order_abandoned_list_page_cursor, count => $order_abandoned_list_count, start => $order_abandoned_list_start, params => $order_abandoned_list_params, response_fields => $order_abandoned_list_response_fields, exclude => $order_abandoned_list_exclude);
+#my $order_abandoned_list_result = $api->order_abandoned_list(start => $order_abandoned_list_start, count => $order_abandoned_list_count, page_cursor => $order_abandoned_list_page_cursor, customer_id => $order_abandoned_list_customer_id, customer_email => $order_abandoned_list_customer_email, store_id => $order_abandoned_list_store_id, created_from => $order_abandoned_list_created_from, created_to => $order_abandoned_list_created_to, modified_from => $order_abandoned_list_modified_from, modified_to => $order_abandoned_list_modified_to, skip_empty_email => $order_abandoned_list_skip_empty_email, response_fields => $order_abandoned_list_response_fields, params => $order_abandoned_list_params, exclude => $order_abandoned_list_exclude);
 
 #
 # order_add test
@@ -60,17 +60,13 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 # order_count test
 #
 # uncomment below and update the test
+#my $order_count_order_ids = undef; # replace NULL with a proper value
+#my $order_count_ids = undef; # replace NULL with a proper value
 #my $order_count_customer_id = undef; # replace NULL with a proper value
+#my $order_count_store_id = undef; # replace NULL with a proper value
 #my $order_count_customer_email = undef; # replace NULL with a proper value
 #my $order_count_order_status = undef; # replace NULL with a proper value
 #my $order_count_order_status_ids = undef; # replace NULL with a proper value
-#my $order_count_created_to = undef; # replace NULL with a proper value
-#my $order_count_created_from = undef; # replace NULL with a proper value
-#my $order_count_modified_to = undef; # replace NULL with a proper value
-#my $order_count_modified_from = undef; # replace NULL with a proper value
-#my $order_count_store_id = undef; # replace NULL with a proper value
-#my $order_count_ids = undef; # replace NULL with a proper value
-#my $order_count_order_ids = undef; # replace NULL with a proper value
 #my $order_count_ebay_order_status = undef; # replace NULL with a proper value
 #my $order_count_financial_status = undef; # replace NULL with a proper value
 #my $order_count_financial_status_ids = undef; # replace NULL with a proper value
@@ -80,7 +76,11 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 #my $order_count_delivery_method = undef; # replace NULL with a proper value
 #my $order_count_tags = undef; # replace NULL with a proper value
 #my $order_count_ship_node_type = undef; # replace NULL with a proper value
-#my $order_count_result = $api->order_count(customer_id => $order_count_customer_id, customer_email => $order_count_customer_email, order_status => $order_count_order_status, order_status_ids => $order_count_order_status_ids, created_to => $order_count_created_to, created_from => $order_count_created_from, modified_to => $order_count_modified_to, modified_from => $order_count_modified_from, store_id => $order_count_store_id, ids => $order_count_ids, order_ids => $order_count_order_ids, ebay_order_status => $order_count_ebay_order_status, financial_status => $order_count_financial_status, financial_status_ids => $order_count_financial_status_ids, fulfillment_channel => $order_count_fulfillment_channel, fulfillment_status => $order_count_fulfillment_status, shipping_method => $order_count_shipping_method, delivery_method => $order_count_delivery_method, tags => $order_count_tags, ship_node_type => $order_count_ship_node_type);
+#my $order_count_created_from = undef; # replace NULL with a proper value
+#my $order_count_created_to = undef; # replace NULL with a proper value
+#my $order_count_modified_from = undef; # replace NULL with a proper value
+#my $order_count_modified_to = undef; # replace NULL with a proper value
+#my $order_count_result = $api->order_count(order_ids => $order_count_order_ids, ids => $order_count_ids, customer_id => $order_count_customer_id, store_id => $order_count_store_id, customer_email => $order_count_customer_email, order_status => $order_count_order_status, order_status_ids => $order_count_order_status_ids, ebay_order_status => $order_count_ebay_order_status, financial_status => $order_count_financial_status, financial_status_ids => $order_count_financial_status_ids, fulfillment_channel => $order_count_fulfillment_channel, fulfillment_status => $order_count_fulfillment_status, shipping_method => $order_count_shipping_method, delivery_method => $order_count_delivery_method, tags => $order_count_tags, ship_node_type => $order_count_ship_node_type, created_from => $order_count_created_from, created_to => $order_count_created_to, modified_from => $order_count_modified_from, modified_to => $order_count_modified_to);
 
 #
 # order_financial_status_list test
@@ -92,19 +92,19 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 # order_find test
 #
 # uncomment below and update the test
+#my $order_find_start = undef; # replace NULL with a proper value
+#my $order_find_count = undef; # replace NULL with a proper value
 #my $order_find_customer_id = undef; # replace NULL with a proper value
 #my $order_find_customer_email = undef; # replace NULL with a proper value
 #my $order_find_order_status = undef; # replace NULL with a proper value
-#my $order_find_start = undef; # replace NULL with a proper value
-#my $order_find_count = undef; # replace NULL with a proper value
-#my $order_find_params = undef; # replace NULL with a proper value
-#my $order_find_exclude = undef; # replace NULL with a proper value
+#my $order_find_financial_status = undef; # replace NULL with a proper value
 #my $order_find_created_to = undef; # replace NULL with a proper value
 #my $order_find_created_from = undef; # replace NULL with a proper value
 #my $order_find_modified_to = undef; # replace NULL with a proper value
 #my $order_find_modified_from = undef; # replace NULL with a proper value
-#my $order_find_financial_status = undef; # replace NULL with a proper value
-#my $order_find_result = $api->order_find(customer_id => $order_find_customer_id, customer_email => $order_find_customer_email, order_status => $order_find_order_status, start => $order_find_start, count => $order_find_count, params => $order_find_params, exclude => $order_find_exclude, created_to => $order_find_created_to, created_from => $order_find_created_from, modified_to => $order_find_modified_to, modified_from => $order_find_modified_from, financial_status => $order_find_financial_status);
+#my $order_find_params = undef; # replace NULL with a proper value
+#my $order_find_exclude = undef; # replace NULL with a proper value
+#my $order_find_result = $api->order_find(start => $order_find_start, count => $order_find_count, customer_id => $order_find_customer_id, customer_email => $order_find_customer_email, order_status => $order_find_order_status, financial_status => $order_find_financial_status, created_to => $order_find_created_to, created_from => $order_find_created_from, modified_to => $order_find_modified_to, modified_from => $order_find_modified_from, params => $order_find_params, exclude => $order_find_exclude);
 
 #
 # order_fulfillment_status_list test
@@ -117,59 +117,59 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 # order_info test
 #
 # uncomment below and update the test
-#my $order_info_order_id = undef; # replace NULL with a proper value
 #my $order_info_id = undef; # replace NULL with a proper value
+#my $order_info_order_id = undef; # replace NULL with a proper value
+#my $order_info_store_id = undef; # replace NULL with a proper value
 #my $order_info_params = undef; # replace NULL with a proper value
 #my $order_info_response_fields = undef; # replace NULL with a proper value
 #my $order_info_exclude = undef; # replace NULL with a proper value
-#my $order_info_store_id = undef; # replace NULL with a proper value
 #my $order_info_enable_cache = undef; # replace NULL with a proper value
 #my $order_info_use_latest_api_version = undef; # replace NULL with a proper value
-#my $order_info_result = $api->order_info(order_id => $order_info_order_id, id => $order_info_id, params => $order_info_params, response_fields => $order_info_response_fields, exclude => $order_info_exclude, store_id => $order_info_store_id, enable_cache => $order_info_enable_cache, use_latest_api_version => $order_info_use_latest_api_version);
+#my $order_info_result = $api->order_info(id => $order_info_id, order_id => $order_info_order_id, store_id => $order_info_store_id, params => $order_info_params, response_fields => $order_info_response_fields, exclude => $order_info_exclude, enable_cache => $order_info_enable_cache, use_latest_api_version => $order_info_use_latest_api_version);
 
 #
 # order_list test
 #
 # uncomment below and update the test
-#my $order_list_customer_id = undef; # replace NULL with a proper value
-#my $order_list_customer_email = undef; # replace NULL with a proper value
-#my $order_list_phone = undef; # replace NULL with a proper value
-#my $order_list_order_status = undef; # replace NULL with a proper value
-#my $order_list_order_status_ids = undef; # replace NULL with a proper value
 #my $order_list_start = undef; # replace NULL with a proper value
 #my $order_list_count = undef; # replace NULL with a proper value
 #my $order_list_page_cursor = undef; # replace NULL with a proper value
+#my $order_list_ids = undef; # replace NULL with a proper value
+#my $order_list_order_ids = undef; # replace NULL with a proper value
+#my $order_list_since_id = undef; # replace NULL with a proper value
+#my $order_list_store_id = undef; # replace NULL with a proper value
+#my $order_list_customer_id = undef; # replace NULL with a proper value
+#my $order_list_customer_email = undef; # replace NULL with a proper value
+#my $order_list_basket_id = undef; # replace NULL with a proper value
+#my $order_list_currency_id = undef; # replace NULL with a proper value
+#my $order_list_phone = undef; # replace NULL with a proper value
+#my $order_list_order_status = undef; # replace NULL with a proper value
+#my $order_list_order_status_ids = undef; # replace NULL with a proper value
+#my $order_list_ebay_order_status = undef; # replace NULL with a proper value
+#my $order_list_financial_status = undef; # replace NULL with a proper value
+#my $order_list_financial_status_ids = undef; # replace NULL with a proper value
+#my $order_list_fulfillment_status = undef; # replace NULL with a proper value
+#my $order_list_return_status = undef; # replace NULL with a proper value
+#my $order_list_fulfillment_channel = undef; # replace NULL with a proper value
+#my $order_list_shipping_method = undef; # replace NULL with a proper value
+#my $order_list_skip_order_ids = undef; # replace NULL with a proper value
+#my $order_list_is_deleted = undef; # replace NULL with a proper value
+#my $order_list_shipping_country_iso3 = undef; # replace NULL with a proper value
+#my $order_list_delivery_method = undef; # replace NULL with a proper value
+#my $order_list_ship_node_type = undef; # replace NULL with a proper value
+#my $order_list_created_to = undef; # replace NULL with a proper value
+#my $order_list_created_from = undef; # replace NULL with a proper value
+#my $order_list_modified_to = undef; # replace NULL with a proper value
+#my $order_list_modified_from = undef; # replace NULL with a proper value
+#my $order_list_tags = undef; # replace NULL with a proper value
 #my $order_list_sort_by = undef; # replace NULL with a proper value
 #my $order_list_sort_direction = undef; # replace NULL with a proper value
 #my $order_list_params = undef; # replace NULL with a proper value
 #my $order_list_response_fields = undef; # replace NULL with a proper value
 #my $order_list_exclude = undef; # replace NULL with a proper value
-#my $order_list_created_to = undef; # replace NULL with a proper value
-#my $order_list_created_from = undef; # replace NULL with a proper value
-#my $order_list_modified_to = undef; # replace NULL with a proper value
-#my $order_list_modified_from = undef; # replace NULL with a proper value
-#my $order_list_store_id = undef; # replace NULL with a proper value
-#my $order_list_ids = undef; # replace NULL with a proper value
-#my $order_list_order_ids = undef; # replace NULL with a proper value
-#my $order_list_ebay_order_status = undef; # replace NULL with a proper value
-#my $order_list_basket_id = undef; # replace NULL with a proper value
-#my $order_list_financial_status = undef; # replace NULL with a proper value
-#my $order_list_financial_status_ids = undef; # replace NULL with a proper value
-#my $order_list_fulfillment_status = undef; # replace NULL with a proper value
-#my $order_list_fulfillment_channel = undef; # replace NULL with a proper value
-#my $order_list_shipping_method = undef; # replace NULL with a proper value
-#my $order_list_skip_order_ids = undef; # replace NULL with a proper value
-#my $order_list_since_id = undef; # replace NULL with a proper value
-#my $order_list_is_deleted = undef; # replace NULL with a proper value
-#my $order_list_shipping_country_iso3 = undef; # replace NULL with a proper value
 #my $order_list_enable_cache = undef; # replace NULL with a proper value
-#my $order_list_delivery_method = undef; # replace NULL with a proper value
-#my $order_list_tags = undef; # replace NULL with a proper value
-#my $order_list_ship_node_type = undef; # replace NULL with a proper value
-#my $order_list_currency_id = undef; # replace NULL with a proper value
-#my $order_list_return_status = undef; # replace NULL with a proper value
 #my $order_list_use_latest_api_version = undef; # replace NULL with a proper value
-#my $order_list_result = $api->order_list(customer_id => $order_list_customer_id, customer_email => $order_list_customer_email, phone => $order_list_phone, order_status => $order_list_order_status, order_status_ids => $order_list_order_status_ids, start => $order_list_start, count => $order_list_count, page_cursor => $order_list_page_cursor, sort_by => $order_list_sort_by, sort_direction => $order_list_sort_direction, params => $order_list_params, response_fields => $order_list_response_fields, exclude => $order_list_exclude, created_to => $order_list_created_to, created_from => $order_list_created_from, modified_to => $order_list_modified_to, modified_from => $order_list_modified_from, store_id => $order_list_store_id, ids => $order_list_ids, order_ids => $order_list_order_ids, ebay_order_status => $order_list_ebay_order_status, basket_id => $order_list_basket_id, financial_status => $order_list_financial_status, financial_status_ids => $order_list_financial_status_ids, fulfillment_status => $order_list_fulfillment_status, fulfillment_channel => $order_list_fulfillment_channel, shipping_method => $order_list_shipping_method, skip_order_ids => $order_list_skip_order_ids, since_id => $order_list_since_id, is_deleted => $order_list_is_deleted, shipping_country_iso3 => $order_list_shipping_country_iso3, enable_cache => $order_list_enable_cache, delivery_method => $order_list_delivery_method, tags => $order_list_tags, ship_node_type => $order_list_ship_node_type, currency_id => $order_list_currency_id, return_status => $order_list_return_status, use_latest_api_version => $order_list_use_latest_api_version);
+#my $order_list_result = $api->order_list(start => $order_list_start, count => $order_list_count, page_cursor => $order_list_page_cursor, ids => $order_list_ids, order_ids => $order_list_order_ids, since_id => $order_list_since_id, store_id => $order_list_store_id, customer_id => $order_list_customer_id, customer_email => $order_list_customer_email, basket_id => $order_list_basket_id, currency_id => $order_list_currency_id, phone => $order_list_phone, order_status => $order_list_order_status, order_status_ids => $order_list_order_status_ids, ebay_order_status => $order_list_ebay_order_status, financial_status => $order_list_financial_status, financial_status_ids => $order_list_financial_status_ids, fulfillment_status => $order_list_fulfillment_status, return_status => $order_list_return_status, fulfillment_channel => $order_list_fulfillment_channel, shipping_method => $order_list_shipping_method, skip_order_ids => $order_list_skip_order_ids, is_deleted => $order_list_is_deleted, shipping_country_iso3 => $order_list_shipping_country_iso3, delivery_method => $order_list_delivery_method, ship_node_type => $order_list_ship_node_type, created_to => $order_list_created_to, created_from => $order_list_created_from, modified_to => $order_list_modified_to, modified_from => $order_list_modified_from, tags => $order_list_tags, sort_by => $order_list_sort_by, sort_direction => $order_list_sort_direction, params => $order_list_params, response_fields => $order_list_response_fields, exclude => $order_list_exclude, enable_cache => $order_list_enable_cache, use_latest_api_version => $order_list_use_latest_api_version);
 
 #
 # order_preestimate_shipping_list test
@@ -238,29 +238,29 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 #my $order_shipment_info_id = undef; # replace NULL with a proper value
 #my $order_shipment_info_order_id = undef; # replace NULL with a proper value
 #my $order_shipment_info_start = undef; # replace NULL with a proper value
-#my $order_shipment_info_params = undef; # replace NULL with a proper value
-#my $order_shipment_info_response_fields = undef; # replace NULL with a proper value
-#my $order_shipment_info_exclude = undef; # replace NULL with a proper value
 #my $order_shipment_info_store_id = undef; # replace NULL with a proper value
-#my $order_shipment_info_result = $api->order_shipment_info(id => $order_shipment_info_id, order_id => $order_shipment_info_order_id, start => $order_shipment_info_start, params => $order_shipment_info_params, response_fields => $order_shipment_info_response_fields, exclude => $order_shipment_info_exclude, store_id => $order_shipment_info_store_id);
+#my $order_shipment_info_response_fields = undef; # replace NULL with a proper value
+#my $order_shipment_info_params = undef; # replace NULL with a proper value
+#my $order_shipment_info_exclude = undef; # replace NULL with a proper value
+#my $order_shipment_info_result = $api->order_shipment_info(id => $order_shipment_info_id, order_id => $order_shipment_info_order_id, start => $order_shipment_info_start, store_id => $order_shipment_info_store_id, response_fields => $order_shipment_info_response_fields, params => $order_shipment_info_params, exclude => $order_shipment_info_exclude);
 
 #
 # order_shipment_list test
 #
 # uncomment below and update the test
 #my $order_shipment_list_order_id = undef; # replace NULL with a proper value
-#my $order_shipment_list_page_cursor = undef; # replace NULL with a proper value
 #my $order_shipment_list_start = undef; # replace NULL with a proper value
 #my $order_shipment_list_count = undef; # replace NULL with a proper value
-#my $order_shipment_list_params = undef; # replace NULL with a proper value
-#my $order_shipment_list_response_fields = undef; # replace NULL with a proper value
-#my $order_shipment_list_exclude = undef; # replace NULL with a proper value
+#my $order_shipment_list_page_cursor = undef; # replace NULL with a proper value
+#my $order_shipment_list_store_id = undef; # replace NULL with a proper value
 #my $order_shipment_list_created_from = undef; # replace NULL with a proper value
 #my $order_shipment_list_created_to = undef; # replace NULL with a proper value
 #my $order_shipment_list_modified_from = undef; # replace NULL with a proper value
 #my $order_shipment_list_modified_to = undef; # replace NULL with a proper value
-#my $order_shipment_list_store_id = undef; # replace NULL with a proper value
-#my $order_shipment_list_result = $api->order_shipment_list(order_id => $order_shipment_list_order_id, page_cursor => $order_shipment_list_page_cursor, start => $order_shipment_list_start, count => $order_shipment_list_count, params => $order_shipment_list_params, response_fields => $order_shipment_list_response_fields, exclude => $order_shipment_list_exclude, created_from => $order_shipment_list_created_from, created_to => $order_shipment_list_created_to, modified_from => $order_shipment_list_modified_from, modified_to => $order_shipment_list_modified_to, store_id => $order_shipment_list_store_id);
+#my $order_shipment_list_response_fields = undef; # replace NULL with a proper value
+#my $order_shipment_list_params = undef; # replace NULL with a proper value
+#my $order_shipment_list_exclude = undef; # replace NULL with a proper value
+#my $order_shipment_list_result = $api->order_shipment_list(order_id => $order_shipment_list_order_id, start => $order_shipment_list_start, count => $order_shipment_list_count, page_cursor => $order_shipment_list_page_cursor, store_id => $order_shipment_list_store_id, created_from => $order_shipment_list_created_from, created_to => $order_shipment_list_created_to, modified_from => $order_shipment_list_modified_from, modified_to => $order_shipment_list_modified_to, response_fields => $order_shipment_list_response_fields, params => $order_shipment_list_params, exclude => $order_shipment_list_exclude);
 
 #
 # order_shipment_tracking_add test
@@ -291,12 +291,12 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 # uncomment below and update the test
 #my $order_transaction_list_order_ids = undef; # replace NULL with a proper value
 #my $order_transaction_list_count = undef; # replace NULL with a proper value
+#my $order_transaction_list_page_cursor = undef; # replace NULL with a proper value
 #my $order_transaction_list_store_id = undef; # replace NULL with a proper value
 #my $order_transaction_list_params = undef; # replace NULL with a proper value
 #my $order_transaction_list_response_fields = undef; # replace NULL with a proper value
 #my $order_transaction_list_exclude = undef; # replace NULL with a proper value
-#my $order_transaction_list_page_cursor = undef; # replace NULL with a proper value
-#my $order_transaction_list_result = $api->order_transaction_list(order_ids => $order_transaction_list_order_ids, count => $order_transaction_list_count, store_id => $order_transaction_list_store_id, params => $order_transaction_list_params, response_fields => $order_transaction_list_response_fields, exclude => $order_transaction_list_exclude, page_cursor => $order_transaction_list_page_cursor);
+#my $order_transaction_list_result = $api->order_transaction_list(order_ids => $order_transaction_list_order_ids, count => $order_transaction_list_count, page_cursor => $order_transaction_list_page_cursor, store_id => $order_transaction_list_store_id, params => $order_transaction_list_params, response_fields => $order_transaction_list_response_fields, exclude => $order_transaction_list_exclude);
 
 #
 # order_update test
@@ -305,20 +305,20 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 #my $order_update_order_id = undef; # replace NULL with a proper value
 #my $order_update_store_id = undef; # replace NULL with a proper value
 #my $order_update_order_status = undef; # replace NULL with a proper value
+#my $order_update_financial_status = undef; # replace NULL with a proper value
+#my $order_update_fulfillment_status = undef; # replace NULL with a proper value
 #my $order_update_cancellation_reason = undef; # replace NULL with a proper value
+#my $order_update_order_payment_method = undef; # replace NULL with a proper value
 #my $order_update_comment = undef; # replace NULL with a proper value
 #my $order_update_admin_comment = undef; # replace NULL with a proper value
 #my $order_update_admin_private_comment = undef; # replace NULL with a proper value
+#my $order_update_invoice_admin_comment = undef; # replace NULL with a proper value
 #my $order_update_date_modified = undef; # replace NULL with a proper value
 #my $order_update_date_finished = undef; # replace NULL with a proper value
-#my $order_update_financial_status = undef; # replace NULL with a proper value
-#my $order_update_fulfillment_status = undef; # replace NULL with a proper value
-#my $order_update_order_payment_method = undef; # replace NULL with a proper value
 #my $order_update_send_notifications = undef; # replace NULL with a proper value
-#my $order_update_origin = undef; # replace NULL with a proper value
 #my $order_update_create_invoice = undef; # replace NULL with a proper value
-#my $order_update_invoice_admin_comment = undef; # replace NULL with a proper value
-#my $order_update_result = $api->order_update(order_id => $order_update_order_id, store_id => $order_update_store_id, order_status => $order_update_order_status, cancellation_reason => $order_update_cancellation_reason, comment => $order_update_comment, admin_comment => $order_update_admin_comment, admin_private_comment => $order_update_admin_private_comment, date_modified => $order_update_date_modified, date_finished => $order_update_date_finished, financial_status => $order_update_financial_status, fulfillment_status => $order_update_fulfillment_status, order_payment_method => $order_update_order_payment_method, send_notifications => $order_update_send_notifications, origin => $order_update_origin, create_invoice => $order_update_create_invoice, invoice_admin_comment => $order_update_invoice_admin_comment);
+#my $order_update_origin = undef; # replace NULL with a proper value
+#my $order_update_result = $api->order_update(order_id => $order_update_order_id, store_id => $order_update_store_id, order_status => $order_update_order_status, financial_status => $order_update_financial_status, fulfillment_status => $order_update_fulfillment_status, cancellation_reason => $order_update_cancellation_reason, order_payment_method => $order_update_order_payment_method, comment => $order_update_comment, admin_comment => $order_update_admin_comment, admin_private_comment => $order_update_admin_private_comment, invoice_admin_comment => $order_update_invoice_admin_comment, date_modified => $order_update_date_modified, date_finished => $order_update_date_finished, send_notifications => $order_update_send_notifications, create_invoice => $order_update_create_invoice, origin => $order_update_origin);
 
 
 done_testing();

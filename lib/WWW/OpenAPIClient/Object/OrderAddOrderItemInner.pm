@@ -277,6 +277,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'order_item_price_includes_tax' => {
+        datatype => 'boolean',
+        base_name => 'order_item_price_includes_tax',
+        description => 'Defines if item price includes tax',
+        format => '',
+        read_only => '',
+            },
     'order_item_parent' => {
         datatype => 'int',
         base_name => 'order_item_parent',
@@ -305,13 +312,6 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'order_item_price_includes_tax' => {
-        datatype => 'boolean',
-        base_name => 'order_item_price_includes_tax',
-        description => 'Defines if item price includes tax',
-        format => '',
-        read_only => '',
-            },
     'order_item_option' => {
         datatype => 'ARRAY[OrderAddOrderItemInnerOrderItemOptionInner]',
         base_name => 'order_item_option',
@@ -337,11 +337,11 @@ __PACKAGE__->openapi_types( {
     'order_item_weight' => 'double',
     'order_item_variant_id' => 'string',
     'order_item_tax' => 'double',
+    'order_item_price_includes_tax' => 'boolean',
     'order_item_parent' => 'int',
     'order_item_parent_option_name' => 'string',
     'order_item_allow_refund_items_separately' => 'boolean',
     'order_item_allow_ship_items_separately' => 'boolean',
-    'order_item_price_includes_tax' => 'boolean',
     'order_item_option' => 'ARRAY[OrderAddOrderItemInnerOrderItemOptionInner]',
     'order_item_property' => 'ARRAY[OrderAddOrderItemInnerOrderItemPropertyInner]'
 } );
@@ -355,11 +355,11 @@ __PACKAGE__->attribute_map( {
     'order_item_weight' => 'order_item_weight',
     'order_item_variant_id' => 'order_item_variant_id',
     'order_item_tax' => 'order_item_tax',
+    'order_item_price_includes_tax' => 'order_item_price_includes_tax',
     'order_item_parent' => 'order_item_parent',
     'order_item_parent_option_name' => 'order_item_parent_option_name',
     'order_item_allow_refund_items_separately' => 'order_item_allow_refund_items_separately',
     'order_item_allow_ship_items_separately' => 'order_item_allow_ship_items_separately',
-    'order_item_price_includes_tax' => 'order_item_price_includes_tax',
     'order_item_option' => 'order_item_option',
     'order_item_property' => 'order_item_property'
 } );

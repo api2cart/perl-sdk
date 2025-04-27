@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **return_info**
-> ReturnInfo200Response return_info(id => $id, order_id => $order_id, store_id => $store_id, params => $params, exclude => $exclude, response_fields => $response_fields)
+> ReturnInfo200Response return_info(id => $id, order_id => $order_id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 return.info
 
@@ -169,12 +169,12 @@ my $api_instance = WWW::OpenAPIClient::ReturnApi->new(
 my $id = 10; # string | Entity id
 my $order_id = 25; # string | Defines the order id
 my $store_id = 1; # string | Store Id
+my $response_fields = {return_code,return_message,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $params = id,order_products; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = id,order_id; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_code,return_message,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->return_info(id => $id, order_id => $order_id, store_id => $store_id, params => $params, exclude => $exclude, response_fields => $response_fields);
+    my $result = $api_instance->return_info(id => $id, order_id => $order_id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -189,9 +189,9 @@ Name | Type | Description  | Notes
  **id** | **string**| Entity id | 
  **order_id** | **string**| Defines the order id | [optional] 
  **store_id** | **string**| Store Id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,order_products&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **return_list**
-> ModelResponseReturnList return_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, exclude => $exclude, response_fields => $response_fields, order_id => $order_id, order_ids => $order_ids, customer_id => $customer_id, store_id => $store_id, status => $status, return_type => $return_type, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache)
+> ModelResponseReturnList return_list(start => $start, count => $count, page_cursor => $page_cursor, order_id => $order_id, order_ids => $order_ids, customer_id => $customer_id, store_id => $store_id, status => $status, return_type => $return_type, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache)
 
 return.list
 
@@ -234,9 +234,6 @@ my $api_instance = WWW::OpenAPIClient::ReturnApi->new(
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-my $params = id,order_products; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = id,order_id; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $order_id = 25; # string | Defines the order id
 my $order_ids = 24,25; # string | Retrieves return requests specified by order ids
 my $customer_id = 5; # string | Retrieves return requests specified by customer id
@@ -247,11 +244,14 @@ my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their 
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
+my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,order_products; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = id,order_id; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $report_request_id = 105245017661; # string | Report request id
 my $disable_report_cache = false; # boolean | Disable report cache for current request
 
 eval {
-    my $result = $api_instance->return_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, exclude => $exclude, response_fields => $response_fields, order_id => $order_id, order_ids => $order_ids, customer_id => $customer_id, store_id => $store_id, status => $status, return_type => $return_type, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache);
+    my $result = $api_instance->return_list(start => $start, count => $count, page_cursor => $page_cursor, order_id => $order_id, order_ids => $order_ids, customer_id => $customer_id, store_id => $store_id, status => $status, return_type => $return_type, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache);
     print Dumper($result);
 };
 if ($@) {
@@ -266,9 +266,6 @@ Name | Type | Description  | Notes
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,order_products&#39;]
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **order_id** | **string**| Defines the order id | [optional] 
  **order_ids** | **string**| Retrieves return requests specified by order ids | [optional] 
  **customer_id** | **string**| Retrieves return requests specified by customer id | [optional] 
@@ -279,6 +276,9 @@ Name | Type | Description  | Notes
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,order_products&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **report_request_id** | **string**| Report request id | [optional] 
  **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
 

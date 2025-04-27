@@ -250,7 +250,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_list**
-> WebhookList200Response webhook_list(params => $params, start => $start, count => $count, entity => $entity, action => $action, active => $active, ids => $ids)
+> WebhookList200Response webhook_list(start => $start, count => $count, entity => $entity, action => $action, active => $active, ids => $ids, params => $params)
 
 webhook.list
 
@@ -272,16 +272,16 @@ my $api_instance = WWW::OpenAPIClient::WebhookApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $params = id,entity,callback,fields; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 my $entity = product; # string | The entity you want to filter webhooks by (e.g. order or product)
 my $action = add; # string | The action you want to filter webhooks by (e.g. add, update, or delete)
 my $active = true; # boolean | The webhook status you want to filter webhooks by
 my $ids = 3,14,25; # string | List of сomma-separated webhook ids
+my $params = id,entity,callback,fields; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->webhook_list(params => $params, start => $start, count => $count, entity => $entity, action => $action, active => $active, ids => $ids);
+    my $result = $api_instance->webhook_list(start => $start, count => $count, entity => $entity, action => $action, active => $active, ids => $ids, params => $params);
     print Dumper($result);
 };
 if ($@) {
@@ -293,13 +293,13 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,entity,action,callback&#39;]
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **entity** | **string**| The entity you want to filter webhooks by (e.g. order or product) | [optional] 
  **action** | **string**| The action you want to filter webhooks by (e.g. add, update, or delete) | [optional] 
  **active** | **boolean**| The webhook status you want to filter webhooks by | [optional] 
  **ids** | **string**| List of сomma-separated webhook ids | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,entity,action,callback&#39;]
 
 ### Return type
 

@@ -140,7 +140,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_catalog_price_rules_list**
-> ModelResponseCartCatalogPriceRulesList cart_catalog_price_rules_list(page_cursor => $page_cursor, start => $start, count => $count, ids => $ids, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseCartCatalogPriceRulesList cart_catalog_price_rules_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.catalog_price_rules.list
 
@@ -162,16 +162,16 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $ids = 24,25; # string | Retrieves  catalog_price_rules by ids
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $response_fields = {result{catalog_price_rules_count,catalog_price_rules{id,type,name,avail,usage_count,actions,conditions}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_catalog_price_rules_list(page_cursor => $page_cursor, start => $start, count => $count, ids => $ids, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->cart_catalog_price_rules_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -183,12 +183,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **ids** | **string**| Retrieves  catalog_price_rules by ids | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_coupon_condition_add**
-> BasketLiveShippingServiceDelete200Response cart_coupon_condition_add(coupon_id => $coupon_id, entity => $entity, key => $key, operator => $operator, value => $value, store_id => $store_id, target => $target, include_tax => $include_tax, include_shipping => $include_shipping)
+> BasketLiveShippingServiceDelete200Response cart_coupon_condition_add(coupon_id => $coupon_id, entity => $entity, key => $key, operator => $operator, value => $value, target => $target, include_tax => $include_tax, include_shipping => $include_shipping, store_id => $store_id)
 
 cart.coupon.condition.add
 
@@ -456,13 +456,13 @@ my $entity = order; # string | Defines condition entity type
 my $key = subtotal; # string | Defines condition entity attribute key
 my $operator = ==; # string | Defines condition operator
 my $value = 2; # string | Defines condition value, can be comma separated according to the operator.
-my $store_id = 1; # string | Store Id
 my $target = coupon_action; # string | Defines condition operator
 my $include_tax = true; # boolean | Indicates whether to apply a discount for taxes.
 my $include_shipping = true; # boolean | Indicates whether to apply a discount for shipping.
+my $store_id = 1; # string | Store Id
 
 eval {
-    my $result = $api_instance->cart_coupon_condition_add(coupon_id => $coupon_id, entity => $entity, key => $key, operator => $operator, value => $value, store_id => $store_id, target => $target, include_tax => $include_tax, include_shipping => $include_shipping);
+    my $result = $api_instance->cart_coupon_condition_add(coupon_id => $coupon_id, entity => $entity, key => $key, operator => $operator, value => $value, target => $target, include_tax => $include_tax, include_shipping => $include_shipping, store_id => $store_id);
     print Dumper($result);
 };
 if ($@) {
@@ -479,10 +479,10 @@ Name | Type | Description  | Notes
  **key** | **string**| Defines condition entity attribute key | 
  **operator** | **string**| Defines condition operator | 
  **value** | **string**| Defines condition value, can be comma separated according to the operator. | 
- **store_id** | **string**| Store Id | [optional] 
  **target** | **string**| Defines condition operator | [optional] [default to &#39;coupon_prerequisite&#39;]
  **include_tax** | **boolean**| Indicates whether to apply a discount for taxes. | [optional] [default to false]
  **include_shipping** | **boolean**| Indicates whether to apply a discount for shipping. | [optional] [default to false]
+ **store_id** | **string**| Store Id | [optional] 
 
 ### Return type
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_coupon_count**
-> CartCouponCount200Response cart_coupon_count(store_id => $store_id, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, avail => $avail)
+> CartCouponCount200Response cart_coupon_count(store_id => $store_id, avail => $avail, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to)
 
 cart.coupon.count
 
@@ -523,14 +523,14 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
 );
 
 my $store_id = 1; # string | Store Id
+my $avail = false; # boolean | Defines category's visibility status
 my $date_start_from = 2016-12-29 16:44:30; # string | Filter entity by date_start (greater or equal)
 my $date_start_to = 2016-12-29 16:44:30; # string | Filter entity by date_start (less or equal)
 my $date_end_from = 2016-12-29 16:44:30; # string | Filter entity by date_end (greater or equal)
 my $date_end_to = 2016-12-29 16:44:30; # string | Filter entity by date_end (less or equal)
-my $avail = false; # boolean | Defines category's visibility status
 
 eval {
-    my $result = $api_instance->cart_coupon_count(store_id => $store_id, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, avail => $avail);
+    my $result = $api_instance->cart_coupon_count(store_id => $store_id, avail => $avail, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to);
     print Dumper($result);
 };
 if ($@) {
@@ -543,11 +543,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **store_id** | **string**| Store Id | [optional] 
+ **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
  **date_start_from** | **string**| Filter entity by date_start (greater or equal) | [optional] 
  **date_start_to** | **string**| Filter entity by date_start (less or equal) | [optional] 
  **date_end_from** | **string**| Filter entity by date_end (greater or equal) | [optional] 
  **date_end_to** | **string**| Filter entity by date_end (less or equal) | [optional] 
- **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
 
 ### Return type
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_coupon_list**
-> ModelResponseCartCouponList cart_coupon_list(page_cursor => $page_cursor, start => $start, count => $count, coupons_ids => $coupons_ids, store_id => $store_id, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, avail => $avail, lang_id => $lang_id, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseCartCouponList cart_coupon_list(start => $start, count => $count, page_cursor => $page_cursor, coupons_ids => $coupons_ids, store_id => $store_id, lang_id => $lang_id, avail => $avail, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.coupon.list
 
@@ -644,23 +644,23 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $coupons_ids = 1,2,3; # string | Filter coupons by ids
 my $store_id = 1; # string | Filter coupons by store id
+my $lang_id = 3; # string | Language id
+my $avail = false; # boolean | Filter coupons by avail status
 my $date_start_from = 2016-12-29 16:44:30; # string | Filter entity by date_start (greater or equal)
 my $date_start_to = 2016-12-29 16:44:30; # string | Filter entity by date_start (less or equal)
 my $date_end_from = 2016-12-29 16:44:30; # string | Filter entity by date_end (greater or equal)
 my $date_end_to = 2016-12-29 16:44:30; # string | Filter entity by date_end (less or equal)
-my $avail = false; # boolean | Filter coupons by avail status
-my $lang_id = 3; # string | Language id
-my $params = id,code,type,amount; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $response_fields = {pagination,result{coupon_count,coupon{id,code,name,conditions,actions{scope,amount,conditions{id,value,sub-conditions}},date_start,avail}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,code,type,amount; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = usage_history,type; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_coupon_list(page_cursor => $page_cursor, start => $start, count => $count, coupons_ids => $coupons_ids, store_id => $store_id, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, avail => $avail, lang_id => $lang_id, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->cart_coupon_list(start => $start, count => $count, page_cursor => $page_cursor, coupons_ids => $coupons_ids, store_id => $store_id, lang_id => $lang_id, avail => $avail, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -672,19 +672,19 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **coupons_ids** | **string**| Filter coupons by ids | [optional] 
  **store_id** | **string**| Filter coupons by store id | [optional] 
+ **lang_id** | **string**| Language id | [optional] 
+ **avail** | **boolean**| Filter coupons by avail status | [optional] 
  **date_start_from** | **string**| Filter entity by date_start (greater or equal) | [optional] 
  **date_start_to** | **string**| Filter entity by date_start (less or equal) | [optional] 
  **date_end_from** | **string**| Filter entity by date_end (greater or equal) | [optional] 
  **date_end_to** | **string**| Filter entity by date_end (less or equal) | [optional] 
- **avail** | **boolean**| Filter coupons by avail status | [optional] 
- **lang_id** | **string**| Language id | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,code,name,description&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,code,name,description&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1039,7 +1039,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_giftcard_list**
-> ModelResponseCartGiftCardList cart_giftcard_list(page_cursor => $page_cursor, start => $start, count => $count, store_id => $store_id, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseCartGiftCardList cart_giftcard_list(start => $start, count => $count, page_cursor => $page_cursor, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.giftcard.list
 
@@ -1061,16 +1061,16 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $store_id = 1; # string | Store Id
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $response_fields = {pagination,result{gift_card{id,code,amount,status}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_giftcard_list(page_cursor => $page_cursor, start => $start, count => $count, store_id => $store_id, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->cart_giftcard_list(start => $start, count => $count, page_cursor => $page_cursor, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -1082,12 +1082,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **store_id** | **string**| Store Id | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,code,name&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,code,name&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1106,7 +1106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_info**
-> CartInfo200Response cart_info(params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id)
+> CartInfo200Response cart_info(store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.info
 
@@ -1128,13 +1128,13 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $params = name,url; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = name,url; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $store_id = 1; # string | Store Id
+my $response_fields = {result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = name,url; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = name,url; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_info(params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id);
+    my $result = $api_instance->cart_info(store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -1146,10 +1146,10 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;store_name,store_url,db_prefix&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **store_id** | **string**| Store Id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;store_name,store_url,db_prefix&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -1214,7 +1214,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_meta_data_list**
-> ModelResponseCartMetaDataList cart_meta_data_list(entity_id => $entity_id, entity => $entity, store_id => $store_id, lang_id => $lang_id, key => $key, count => $count, page_cursor => $page_cursor, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseCartMetaDataList cart_meta_data_list(entity_id => $entity_id, count => $count, page_cursor => $page_cursor, entity => $entity, store_id => $store_id, lang_id => $lang_id, key => $key, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.meta_data.list
 
@@ -1237,18 +1237,18 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
 );
 
 my $entity_id = 1; # string | Entity Id
+my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $entity = order; # string | Entity
 my $store_id = 1; # string | Store Id
 my $lang_id = 3; # string | Language id
 my $key = subtotal; # string | Key
-my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $response_fields = {result{items{key,value}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_meta_data_list(entity_id => $entity_id, entity => $entity, store_id => $store_id, lang_id => $lang_id, key => $key, count => $count, page_cursor => $page_cursor, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->cart_meta_data_list(entity_id => $entity_id, count => $count, page_cursor => $page_cursor, entity => $entity, store_id => $store_id, lang_id => $lang_id, key => $key, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -1261,14 +1261,14 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_id** | **string**| Entity Id | 
+ **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **entity** | **string**| Entity | [optional] [default to &#39;product&#39;]
  **store_id** | **string**| Store Id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
  **key** | **string**| Key | [optional] 
- **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;key,value&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;key,value&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1468,7 +1468,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_plugin_list**
-> CartPluginList200Response cart_plugin_list(store_id => $store_id, start => $start, count => $count)
+> CartPluginList200Response cart_plugin_list(start => $start, count => $count, store_id => $store_id)
 
 cart.plugin.list
 
@@ -1490,12 +1490,12 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $store_id = 1; # string | Store Id
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $store_id = 1; # string | Store Id
 
 eval {
-    my $result = $api_instance->cart_plugin_list(store_id => $store_id, start => $start, count => $count);
+    my $result = $api_instance->cart_plugin_list(start => $start, count => $count, store_id => $store_id);
     print Dumper($result);
 };
 if ($@) {
@@ -1507,9 +1507,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **string**| Store Id | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **store_id** | **string**| Store Id | [optional] 
 
 ### Return type
 
@@ -1653,7 +1653,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_script_list**
-> ModelResponseCartScriptList cart_script_list(page_cursor => $page_cursor, start => $start, count => $count, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, script_ids => $script_ids, store_id => $store_id, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseCartScriptList cart_script_list(start => $start, count => $count, page_cursor => $page_cursor, script_ids => $script_ids, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.script.list
 
@@ -1675,21 +1675,21 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+my $script_ids = 34023324,34024032; # string | Retrieves only scripts with specific ids
+my $store_id = 1; # string | Store Id
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $script_ids = 34023324,34024032; # string | Retrieves only scripts with specific ids
-my $store_id = 1; # string | Store Id
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $response_fields = {pagination,result{total_count,scripts{id,name,src,created_time{value}}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_script_list(page_cursor => $page_cursor, start => $start, count => $count, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, script_ids => $script_ids, store_id => $store_id, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->cart_script_list(start => $start, count => $count, page_cursor => $page_cursor, script_ids => $script_ids, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -1701,17 +1701,17 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **script_ids** | **string**| Retrieves only scripts with specific ids | [optional] 
+ **store_id** | **string**| Store Id | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **script_ids** | **string**| Retrieves only scripts with specific ids | [optional] 
- **store_id** | **string**| Store Id | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -1730,7 +1730,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_shipping_zones_list**
-> ModelResponseCartShippingZonesList cart_shipping_zones_list(store_id => $store_id, start => $start, count => $count, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseCartShippingZonesList cart_shipping_zones_list(start => $start, count => $count, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.shipping_zones.list
 
@@ -1752,15 +1752,15 @@ my $api_instance = WWW::OpenAPIClient::CartApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $store_id = 1; # string | Store Id
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $store_id = 1; # string | Store Id
 my $response_fields = {result{id,name,enabled,countries,shipping_methods{name,rates}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_shipping_zones_list(store_id => $store_id, start => $start, count => $count, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->cart_shipping_zones_list(start => $start, count => $count, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -1772,11 +1772,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **store_id** | **string**| Store Id | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,enabled&#39;]
+ **store_id** | **string**| Store Id | [optional] 
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,enabled&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type

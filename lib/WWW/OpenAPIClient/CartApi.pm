@@ -151,20 +151,15 @@ sub cart_catalog_price_rules_count {
 #
 # cart.catalog_price_rules.list
 #
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $ids Retrieves  catalog_price_rules by ids (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -175,17 +170,22 @@ sub cart_catalog_price_rules_count {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
     'ids' => {
         data_type => 'string',
         description => 'Retrieves  catalog_price_rules by ids',
         required => '0',
     },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -223,11 +223,6 @@ sub cart_catalog_price_rules_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -238,18 +233,23 @@ sub cart_catalog_price_rules_list {
     }
 
     # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'ids'}) {
         $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
@@ -548,10 +548,10 @@ sub cart_coupon_add {
 # @param string $key Defines condition entity attribute key (required)
 # @param string $operator Defines condition operator (required)
 # @param string $value Defines condition value, can be comma separated according to the operator. (required)
-# @param string $store_id Store Id (optional)
 # @param string $target Defines condition operator (optional, default to 'coupon_prerequisite')
 # @param boolean $include_tax Indicates whether to apply a discount for taxes. (optional, default to false)
 # @param boolean $include_shipping Indicates whether to apply a discount for shipping. (optional, default to false)
+# @param string $store_id Store Id (optional)
 {
     my $params = {
     'coupon_id' => {
@@ -579,11 +579,6 @@ sub cart_coupon_add {
         description => 'Defines condition value, can be comma separated according to the operator.',
         required => '1',
     },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
     'target' => {
         data_type => 'string',
         description => 'Defines condition operator',
@@ -597,6 +592,11 @@ sub cart_coupon_add {
     'include_shipping' => {
         data_type => 'boolean',
         description => 'Indicates whether to apply a discount for shipping.',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
         required => '0',
     },
     };
@@ -652,18 +652,8 @@ sub cart_coupon_condition_add {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'coupon_id'}) {
         $query_params->{'coupon_id'} = $self->{api_client}->to_query_value($args{'coupon_id'});
-    }
-
-    # query params
-    if ( exists $args{'target'}) {
-        $query_params->{'target'} = $self->{api_client}->to_query_value($args{'target'});
     }
 
     # query params
@@ -687,6 +677,11 @@ sub cart_coupon_condition_add {
     }
 
     # query params
+    if ( exists $args{'target'}) {
+        $query_params->{'target'} = $self->{api_client}->to_query_value($args{'target'});
+    }
+
+    # query params
     if ( exists $args{'include_tax'}) {
         $query_params->{'include_tax'} = $self->{api_client}->to_query_value($args{'include_tax'});
     }
@@ -694,6 +689,11 @@ sub cart_coupon_condition_add {
     # query params
     if ( exists $args{'include_shipping'}) {
         $query_params->{'include_shipping'} = $self->{api_client}->to_query_value($args{'include_shipping'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -717,16 +717,21 @@ sub cart_coupon_condition_add {
 # cart.coupon.count
 #
 # @param string $store_id Store Id (optional)
+# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
 # @param string $date_start_from Filter entity by date_start (greater or equal) (optional)
 # @param string $date_start_to Filter entity by date_start (less or equal) (optional)
 # @param string $date_end_from Filter entity by date_end (greater or equal) (optional)
 # @param string $date_end_to Filter entity by date_end (less or equal) (optional)
-# @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
 {
     my $params = {
     'store_id' => {
         data_type => 'string',
         description => 'Store Id',
+        required => '0',
+    },
+    'avail' => {
+        data_type => 'boolean',
+        description => 'Defines category&#39;s visibility status',
         required => '0',
     },
     'date_start_from' => {
@@ -747,11 +752,6 @@ sub cart_coupon_condition_add {
     'date_end_to' => {
         data_type => 'string',
         description => 'Filter entity by date_end (less or equal)',
-        required => '0',
-    },
-    'avail' => {
-        data_type => 'boolean',
-        description => 'Defines category&#39;s visibility status',
         required => '0',
     },
     };
@@ -787,6 +787,11 @@ sub cart_coupon_count {
     }
 
     # query params
+    if ( exists $args{'avail'}) {
+        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
     if ( exists $args{'date_start_from'}) {
         $query_params->{'date_start_from'} = $self->{api_client}->to_query_value($args{'date_start_from'});
     }
@@ -804,11 +809,6 @@ sub cart_coupon_count {
     # query params
     if ( exists $args{'date_end_to'}) {
         $query_params->{'date_end_to'} = $self->{api_client}->to_query_value($args{'date_end_to'});
-    }
-
-    # query params
-    if ( exists $args{'avail'}) {
-        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
     }
 
     my $_body_data;
@@ -907,27 +907,22 @@ sub cart_coupon_delete {
 #
 # cart.coupon.list
 #
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $coupons_ids Filter coupons by ids (optional)
 # @param string $store_id Filter coupons by store id (optional)
+# @param string $lang_id Language id (optional)
+# @param boolean $avail Filter coupons by avail status (optional)
 # @param string $date_start_from Filter entity by date_start (greater or equal) (optional)
 # @param string $date_start_to Filter entity by date_start (less or equal) (optional)
 # @param string $date_end_from Filter entity by date_end (greater or equal) (optional)
 # @param string $date_end_to Filter entity by date_end (less or equal) (optional)
-# @param boolean $avail Filter coupons by avail status (optional)
-# @param string $lang_id Language id (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,code,name,description')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,code,name,description')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -938,6 +933,11 @@ sub cart_coupon_delete {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
     'coupons_ids' => {
         data_type => 'string',
         description => 'Filter coupons by ids',
@@ -946,6 +946,16 @@ sub cart_coupon_delete {
     'store_id' => {
         data_type => 'string',
         description => 'Filter coupons by store id',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
+        required => '0',
+    },
+    'avail' => {
+        data_type => 'boolean',
+        description => 'Filter coupons by avail status',
         required => '0',
     },
     'date_start_from' => {
@@ -968,22 +978,12 @@ sub cart_coupon_delete {
         description => 'Filter entity by date_end (less or equal)',
         required => '0',
     },
-    'avail' => {
-        data_type => 'boolean',
-        description => 'Filter coupons by avail status',
-        required => '0',
-    },
-    'lang_id' => {
-        data_type => 'string',
-        description => 'Language id',
-        required => '0',
-    },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -1021,11 +1021,6 @@ sub cart_coupon_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -1036,6 +1031,11 @@ sub cart_coupon_list {
     }
 
     # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'coupons_ids'}) {
         $query_params->{'coupons_ids'} = $self->{api_client}->to_query_value($args{'coupons_ids'});
     }
@@ -1043,6 +1043,16 @@ sub cart_coupon_list {
     # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
+    if ( exists $args{'avail'}) {
+        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
     }
 
     # query params
@@ -1066,23 +1076,13 @@ sub cart_coupon_list {
     }
 
     # query params
-    if ( exists $args{'avail'}) {
-        $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
-    }
-
-    # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -1540,20 +1540,15 @@ sub cart_giftcard_delete {
 #
 # cart.giftcard.list
 #
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $store_id Store Id (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,code,name')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,code,name')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -1564,17 +1559,22 @@ sub cart_giftcard_delete {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
     'store_id' => {
         data_type => 'string',
         description => 'Store Id',
         required => '0',
     },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -1612,11 +1612,6 @@ sub cart_giftcard_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -1627,18 +1622,23 @@ sub cart_giftcard_list {
     }
 
     # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
@@ -1666,15 +1666,15 @@ sub cart_giftcard_list {
 #
 # cart.info
 #
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'store_name,store_url,db_prefix')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Store Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'store_name,store_url,db_prefix')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'params' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Store Id',
         required => '0',
     },
     'response_fields' => {
@@ -1682,14 +1682,14 @@ sub cart_giftcard_list {
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
         required => '0',
     },
     };
@@ -1720,8 +1720,8 @@ sub cart_info {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -1730,13 +1730,13 @@ sub cart_info {
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -1809,14 +1809,14 @@ sub cart_list {
 # cart.meta_data.list
 #
 # @param string $entity_id Entity Id (required)
+# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $entity Entity (optional, default to 'product')
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
 # @param string $key Key (optional)
-# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'key,value')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'key,value')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
@@ -1824,6 +1824,16 @@ sub cart_list {
         data_type => 'string',
         description => 'Entity Id',
         required => '1',
+    },
+    'count' => {
+        data_type => 'int',
+        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
     },
     'entity' => {
         data_type => 'string',
@@ -1845,22 +1855,12 @@ sub cart_list {
         description => 'Key',
         required => '0',
     },
-    'count' => {
-        data_type => 'int',
-        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -1903,6 +1903,16 @@ sub cart_meta_data_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'entity_id'}) {
         $query_params->{'entity_id'} = $self->{api_client}->to_query_value($args{'entity_id'});
     }
@@ -1928,23 +1938,13 @@ sub cart_meta_data_list {
     }
 
     # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
-    }
-
-    # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -2069,21 +2069,6 @@ sub cart_meta_data_set {
     }
 
     # query params
-    if ( exists $args{'entity'}) {
-        $query_params->{'entity'} = $self->{api_client}->to_query_value($args{'entity'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
-    }
-
-    # query params
     if ( exists $args{'key'}) {
         $query_params->{'key'} = $self->{api_client}->to_query_value($args{'key'});
     }
@@ -2096,6 +2081,21 @@ sub cart_meta_data_set {
     # query params
     if ( exists $args{'namespace'}) {
         $query_params->{'namespace'} = $self->{api_client}->to_query_value($args{'namespace'});
+    }
+
+    # query params
+    if ( exists $args{'entity'}) {
+        $query_params->{'entity'} = $self->{api_client}->to_query_value($args{'entity'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     my $_body_data;
@@ -2198,16 +2198,6 @@ sub cart_meta_data_unset {
     }
 
     # query params
-    if ( exists $args{'entity'}) {
-        $query_params->{'entity'} = $self->{api_client}->to_query_value($args{'entity'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'key'}) {
         $query_params->{'key'} = $self->{api_client}->to_query_value($args{'key'});
     }
@@ -2215,6 +2205,16 @@ sub cart_meta_data_unset {
     # query params
     if ( exists $args{'id'}) {
         $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
+    }
+
+    # query params
+    if ( exists $args{'entity'}) {
+        $query_params->{'entity'} = $self->{api_client}->to_query_value($args{'entity'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -2286,16 +2286,11 @@ sub cart_methods {
 #
 # cart.plugin.list
 #
-# @param string $store_id Store Id (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $store_id Store Id (optional)
 {
     my $params = {
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -2304,6 +2299,11 @@ sub cart_methods {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
         required => '0',
     },
     };
@@ -2334,11 +2334,6 @@ sub cart_plugin_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -2346,6 +2341,11 @@ sub cart_plugin_list {
     # query params
     if ( exists $args{'count'}) {
         $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -2581,25 +2581,20 @@ sub cart_script_delete {
 #
 # cart.script.list
 #
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $script_ids Retrieves only scripts with specific ids (optional)
+# @param string $store_id Store Id (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $script_ids Retrieves only scripts with specific ids (optional)
-# @param string $store_id Store Id (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -2608,6 +2603,21 @@ sub cart_script_delete {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'script_ids' => {
+        data_type => 'string',
+        description => 'Retrieves only scripts with specific ids',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
         required => '0',
     },
     'created_from' => {
@@ -2630,22 +2640,12 @@ sub cart_script_delete {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'script_ids' => {
-        data_type => 'string',
-        description => 'Retrieves only scripts with specific ids',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -2683,11 +2683,6 @@ sub cart_script_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -2695,6 +2690,21 @@ sub cart_script_list {
     # query params
     if ( exists $args{'count'}) {
         $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
+    if ( exists $args{'script_ids'}) {
+        $query_params->{'script_ids'} = $self->{api_client}->to_query_value($args{'script_ids'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -2718,23 +2728,13 @@ sub cart_script_list {
     }
 
     # query params
-    if ( exists $args{'script_ids'}) {
-        $query_params->{'script_ids'} = $self->{api_client}->to_query_value($args{'script_ids'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -2762,19 +2762,14 @@ sub cart_script_list {
 #
 # cart.shipping_zones.list
 #
-# @param string $store_id Store Id (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,enabled')
+# @param string $store_id Store Id (optional)
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,enabled')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -2785,12 +2780,17 @@ sub cart_script_list {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
-    'params' => {
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
+        required => '0',
+    },
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -2828,11 +2828,6 @@ sub cart_shipping_zones_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -2843,13 +2838,18 @@ sub cart_shipping_zones_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
     if ( exists $args{'response_fields'}) {
         $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params

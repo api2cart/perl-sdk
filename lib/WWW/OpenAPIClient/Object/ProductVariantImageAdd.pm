@@ -233,6 +233,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'store_id' => {
+        datatype => 'string',
+        base_name => 'store_id',
+        description => 'Store Id',
+        format => '',
+        read_only => '',
+            },
     'image_name' => {
         datatype => 'string',
         base_name => 'image_name',
@@ -282,13 +289,6 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'store_id' => {
-        datatype => 'string',
-        base_name => 'store_id',
-        description => 'Store Id',
-        format => '',
-        read_only => '',
-            },
     'option_id' => {
         datatype => 'string',
         base_name => 'option_id',
@@ -301,6 +301,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'product_id' => 'string',
     'product_variant_id' => 'string',
+    'store_id' => 'string',
     'image_name' => 'string',
     'type' => 'string',
     'url' => 'string',
@@ -308,13 +309,13 @@ __PACKAGE__->openapi_types( {
     'label' => 'string',
     'mime' => 'string',
     'position' => 'int',
-    'store_id' => 'string',
     'option_id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'product_id' => 'product_id',
     'product_variant_id' => 'product_variant_id',
+    'store_id' => 'store_id',
     'image_name' => 'image_name',
     'type' => 'type',
     'url' => 'url',
@@ -322,7 +323,6 @@ __PACKAGE__->attribute_map( {
     'label' => 'label',
     'mime' => 'mime',
     'position' => 'position',
-    'store_id' => 'store_id',
     'option_id' => 'option_id'
 } );
 

@@ -220,13 +220,6 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'store_id' => {
-        datatype => 'string',
-        base_name => 'store_id',
-        description => 'Store Id',
-        format => '',
-        read_only => '',
-            },
     'shipment_id' => {
         datatype => 'string',
         base_name => 'shipment_id',
@@ -241,38 +234,10 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'tracking_numbers' => {
-        datatype => 'ARRAY[OrderShipmentAddTrackingNumbersInner]',
-        base_name => 'tracking_numbers',
-        description => 'Defines shipment&#39;s tracking numbers that have to be added&lt;/br&gt; How set tracking numbers to appropriate carrier:&lt;ul&gt;&lt;li&gt;tracking_numbers[]&#x3D;a2c.demo1,a2c.demo2 - set default carrier&lt;/li&gt;&lt;li&gt;tracking_numbers[&lt;b&gt;carrier_id&lt;/b&gt;]&#x3D;a2c.demo - set appropriate carrier&lt;/li&gt;&lt;/ul&gt;To get the list of carriers IDs that are available in your store, use the &lt;a href &#x3D; \&quot;https://api2cart.com/docs/#/cart/CartInfo\&quot;&gt;cart.info&lt;/a &gt; method',
-        format => '',
-        read_only => '',
-            },
-    'replace' => {
-        datatype => 'boolean',
-        base_name => 'replace',
-        description => 'Allows rewrite tracking numbers',
-        format => '',
-        read_only => '',
-            },
-    'is_shipped' => {
-        datatype => 'boolean',
-        base_name => 'is_shipped',
-        description => 'Defines shipment&#39;s status',
-        format => '',
-        read_only => '',
-            },
-    'tracking_link' => {
+    'store_id' => {
         datatype => 'string',
-        base_name => 'tracking_link',
-        description => 'Defines custom tracking link',
-        format => '',
-        read_only => '',
-            },
-    'delivered_at' => {
-        datatype => 'string',
-        base_name => 'delivered_at',
-        description => 'Defines the date of delivery',
+        base_name => 'store_id',
+        description => 'Store Id',
         format => '',
         read_only => '',
             },
@@ -283,30 +248,65 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'tracking_numbers' => {
+        datatype => 'ARRAY[OrderShipmentAddTrackingNumbersInner]',
+        base_name => 'tracking_numbers',
+        description => 'Defines shipment&#39;s tracking numbers that have to be added&lt;/br&gt; How set tracking numbers to appropriate carrier:&lt;ul&gt;&lt;li&gt;tracking_numbers[]&#x3D;a2c.demo1,a2c.demo2 - set default carrier&lt;/li&gt;&lt;li&gt;tracking_numbers[&lt;b&gt;carrier_id&lt;/b&gt;]&#x3D;a2c.demo - set appropriate carrier&lt;/li&gt;&lt;/ul&gt;To get the list of carriers IDs that are available in your store, use the &lt;a href &#x3D; \&quot;https://api2cart.com/docs/#/cart/CartInfo\&quot;&gt;cart.info&lt;/a &gt; method',
+        format => '',
+        read_only => '',
+            },
+    'tracking_link' => {
+        datatype => 'string',
+        base_name => 'tracking_link',
+        description => 'Defines custom tracking link',
+        format => '',
+        read_only => '',
+            },
+    'is_shipped' => {
+        datatype => 'boolean',
+        base_name => 'is_shipped',
+        description => 'Defines shipment&#39;s status',
+        format => '',
+        read_only => '',
+            },
+    'delivered_at' => {
+        datatype => 'string',
+        base_name => 'delivered_at',
+        description => 'Defines the date of delivery',
+        format => '',
+        read_only => '',
+            },
+    'replace' => {
+        datatype => 'boolean',
+        base_name => 'replace',
+        description => 'Allows rewrite tracking numbers',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
-    'store_id' => 'string',
     'shipment_id' => 'string',
     'order_id' => 'string',
+    'store_id' => 'string',
+    'shipment_provider' => 'string',
     'tracking_numbers' => 'ARRAY[OrderShipmentAddTrackingNumbersInner]',
-    'replace' => 'boolean',
-    'is_shipped' => 'boolean',
     'tracking_link' => 'string',
+    'is_shipped' => 'boolean',
     'delivered_at' => 'string',
-    'shipment_provider' => 'string'
+    'replace' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
-    'store_id' => 'store_id',
     'shipment_id' => 'shipment_id',
     'order_id' => 'order_id',
+    'store_id' => 'store_id',
+    'shipment_provider' => 'shipment_provider',
     'tracking_numbers' => 'tracking_numbers',
-    'replace' => 'replace',
-    'is_shipped' => 'is_shipped',
     'tracking_link' => 'tracking_link',
+    'is_shipped' => 'is_shipped',
     'delivered_at' => 'delivered_at',
-    'shipment_provider' => 'shipment_provider'
+    'replace' => 'replace'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

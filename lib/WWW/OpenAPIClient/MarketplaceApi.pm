@@ -53,27 +53,22 @@ sub new {
 #
 # marketplace.product.find
 #
-# @param string $store_id Store Id (optional)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param string $categories_ids Defines product add that is specified by comma-separated categories id (optional)
 # @param string $keyword Defines search keyword (optional)
+# @param string $categories_ids Defines product add that is specified by comma-separated categories id (optional)
+# @param string $store_id Store Id (optional)
 # @param string $asin Amazon Standard Identification Number. (optional)
 # @param string $ean European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products. (optional)
 # @param string $gtin Global Trade Item Number. An GTIN is an identifier for trade items. (optional)
 # @param string $upc Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products. (optional)
 # @param string $mpn Manufacturer Part Number. A MPN is an identifier of a particular part design or material used. (optional)
 # @param string $isbn International Standard Book Number. An ISBN is a unique identifier for books. (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
@@ -84,14 +79,19 @@ sub new {
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
+    'keyword' => {
+        data_type => 'string',
+        description => 'Defines search keyword',
+        required => '0',
+    },
     'categories_ids' => {
         data_type => 'string',
         description => 'Defines product add that is specified by comma-separated categories id',
         required => '0',
     },
-    'keyword' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Defines search keyword',
+        description => 'Store Id',
         required => '0',
     },
     'asin' => {
@@ -124,6 +124,11 @@ sub new {
         description => 'International Standard Book Number. An ISBN is a unique identifier for books.',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -132,11 +137,6 @@ sub new {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -167,11 +167,6 @@ sub marketplace_product_find {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
     if ( exists $args{'count'}) {
         $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
     }
@@ -182,13 +177,18 @@ sub marketplace_product_find {
     }
 
     # query params
+    if ( exists $args{'keyword'}) {
+        $query_params->{'keyword'} = $self->{api_client}->to_query_value($args{'keyword'});
+    }
+
+    # query params
     if ( exists $args{'categories_ids'}) {
         $query_params->{'categories_ids'} = $self->{api_client}->to_query_value($args{'categories_ids'});
     }
 
     # query params
-    if ( exists $args{'keyword'}) {
-        $query_params->{'keyword'} = $self->{api_client}->to_query_value($args{'keyword'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -222,6 +222,11 @@ sub marketplace_product_find {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -229,11 +234,6 @@ sub marketplace_product_find {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;

@@ -118,22 +118,22 @@ sub account_cart_add {
 #
 # account.cart.list
 #
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $request_from_date Retrieve entities from their creation date (optional)
-# @param string $request_to_date Retrieve entities to their creation date (optional)
 # @param string $store_url A web address of a store (optional)
 # @param string $store_key Find store by store key (optional)
+# @param string $request_from_date Retrieve entities from their creation date (optional)
+# @param string $request_to_date Retrieve entities to their creation date (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
-    'params' => {
+    'store_url' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'A web address of a store',
         required => '0',
     },
-    'exclude' => {
+    'store_key' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        description => 'Find store by store key',
         required => '0',
     },
     'request_from_date' => {
@@ -146,14 +146,14 @@ sub account_cart_add {
         description => 'Retrieve entities to their creation date',
         required => '0',
     },
-    'store_url' => {
+    'params' => {
         data_type => 'string',
-        description => 'A web address of a store',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'store_key' => {
+    'exclude' => {
         data_type => 'string',
-        description => 'Find store by store key',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -184,13 +184,13 @@ sub account_cart_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'store_url'}) {
+        $query_params->{'store_url'} = $self->{api_client}->to_query_value($args{'store_url'});
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'store_key'}) {
+        $query_params->{'store_key'} = $self->{api_client}->to_query_value($args{'store_key'});
     }
 
     # query params
@@ -204,13 +204,13 @@ sub account_cart_list {
     }
 
     # query params
-    if ( exists $args{'store_url'}) {
-        $query_params->{'store_url'} = $self->{api_client}->to_query_value($args{'store_url'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
-    if ( exists $args{'store_key'}) {
-        $query_params->{'store_key'} = $self->{api_client}->to_query_value($args{'store_key'});
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -292,6 +292,7 @@ sub account_cart_list {
 # @param string $shopline_access_token Shopline APP Key (optional)
 # @param string $shopline_app_key Shopline APP Key (optional)
 # @param string $shopline_app_secret Shopline App Secret (optional)
+# @param string $shopline_shared_secret Shopline Shared Secret (optional)
 # @param string $shopify_access_token Access token authorizing the app to access resources on behalf of a user (optional)
 # @param string $shopify_api_key Shopify API Key (optional)
 # @param string $shopify_api_password Shopify API Password (optional)
@@ -669,6 +670,11 @@ sub account_cart_list {
     'shopline_app_secret' => {
         data_type => 'string',
         description => 'Shopline App Secret',
+        required => '0',
+    },
+    'shopline_shared_secret' => {
+        data_type => 'string',
+        description => 'Shopline Shared Secret',
         required => '0',
     },
     'shopify_access_token' => {
@@ -1404,6 +1410,11 @@ sub account_config_update {
     }
 
     # query params
+    if ( exists $args{'shopline_shared_secret'}) {
+        $query_params->{'shopline_shared_secret'} = $self->{api_client}->to_query_value($args{'shopline_shared_secret'});
+    }
+
+    # query params
     if ( exists $args{'shopify_access_token'}) {
         $query_params->{'shopify_access_token'} = $self->{api_client}->to_query_value($args{'shopify_access_token'});
     }
@@ -1833,19 +1844,19 @@ sub account_config_update {
 #
 # account.failed_webhooks
 #
-# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
+# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $ids List of сomma-separated webhook ids (optional)
 {
     my $params = {
-    'count' => {
-        data_type => 'int',
-        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
+        required => '0',
+    },
+    'count' => {
+        data_type => 'int',
+        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
     'ids' => {
@@ -1881,13 +1892,13 @@ sub account_failed_webhooks {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
 
     # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
     }
 
     # query params

@@ -53,22 +53,37 @@ sub new {
 #
 # order.abandoned.list
 #
+# @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
+# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $customer_id Retrieves orders specified by customer id (optional)
 # @param string $customer_email Retrieves orders specified by customer email (optional)
-# @param string $created_to Retrieve entities to their creation date (optional)
-# @param string $created_from Retrieve entities from their creation date (optional)
-# @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $modified_from Retrieve entities from their modification date (optional)
-# @param boolean $skip_empty_email Filter empty emails (optional, default to false)
 # @param string $store_id Store Id (optional)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'customer,totals,items')
+# @param string $created_from Retrieve entities from their creation date (optional)
+# @param string $created_to Retrieve entities to their creation date (optional)
+# @param string $modified_from Retrieve entities from their modification date (optional)
+# @param string $modified_to Retrieve entities to their modification date (optional)
+# @param boolean $skip_empty_email Filter empty emails (optional, default to false)
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'customer,totals,items')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
+    'start' => {
+        data_type => 'int',
+        description => 'This parameter sets the number from which you want to get entities',
+        required => '0',
+    },
+    'count' => {
+        data_type => 'int',
+        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
     'customer_id' => {
         data_type => 'string',
         description => 'Retrieves orders specified by customer id',
@@ -79,9 +94,9 @@ sub new {
         description => 'Retrieves orders specified by customer email',
         required => '0',
     },
-    'created_to' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Retrieve entities to their creation date',
+        description => 'Store Id',
         required => '0',
     },
     'created_from' => {
@@ -89,9 +104,9 @@ sub new {
         description => 'Retrieve entities from their creation date',
         required => '0',
     },
-    'modified_to' => {
+    'created_to' => {
         data_type => 'string',
-        description => 'Retrieve entities to their modification date',
+        description => 'Retrieve entities to their creation date',
         required => '0',
     },
     'modified_from' => {
@@ -99,37 +114,22 @@ sub new {
         description => 'Retrieve entities from their modification date',
         required => '0',
     },
+    'modified_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their modification date',
+        required => '0',
+    },
     'skip_empty_email' => {
         data_type => 'boolean',
         description => 'Filter empty emails',
         required => '0',
     },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
-    'count' => {
-        data_type => 'int',
-        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'start' => {
-        data_type => 'int',
-        description => 'This parameter sets the number from which you want to get entities',
-        required => '0',
-    },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -167,6 +167,21 @@ sub order_abandoned_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    }
+
+    # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'customer_id'}) {
         $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
     }
@@ -177,8 +192,8 @@ sub order_abandoned_list {
     }
 
     # query params
-    if ( exists $args{'created_to'}) {
-        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -187,8 +202,8 @@ sub order_abandoned_list {
     }
 
     # query params
-    if ( exists $args{'modified_to'}) {
-        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
+    if ( exists $args{'created_to'}) {
+        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
     }
 
     # query params
@@ -197,38 +212,23 @@ sub order_abandoned_list {
     }
 
     # query params
+    if ( exists $args{'modified_to'}) {
+        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
+    }
+
+    # query params
     if ( exists $args{'skip_empty_email'}) {
         $query_params->{'skip_empty_email'} = $self->{api_client}->to_query_value($args{'skip_empty_email'});
     }
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
-    }
-
-    # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -321,17 +321,13 @@ sub order_add {
 #
 # order.count
 #
+# @param string $order_ids Counts orders specified by order ids (optional)
+# @param string $ids Counts orders specified by ids (optional)
 # @param string $customer_id Counts orders quantity specified by customer id (optional)
+# @param string $store_id Counts orders quantity specified by store id (optional)
 # @param string $customer_email Counts orders quantity specified by customer email (optional)
 # @param string $order_status Counts orders quantity specified by order status (optional)
 # @param ARRAY[string] $order_status_ids Retrieves orders specified by order statuses (optional)
-# @param string $created_to Retrieve entities to their creation date (optional)
-# @param string $created_from Retrieve entities from their creation date (optional)
-# @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $modified_from Retrieve entities from their modification date (optional)
-# @param string $store_id Counts orders quantity specified by store id (optional)
-# @param string $ids Counts orders specified by ids (optional)
-# @param string $order_ids Counts orders specified by order ids (optional)
 # @param string $ebay_order_status Counts orders quantity specified by order status (optional)
 # @param string $financial_status Counts orders quantity specified by financial status (optional)
 # @param ARRAY[string] $financial_status_ids Retrieves orders count specified by financial status ids (optional)
@@ -341,11 +337,30 @@ sub order_add {
 # @param string $delivery_method Retrieves order with delivery method (optional)
 # @param string $tags Order tags (optional)
 # @param string $ship_node_type Retrieves order with ship node type (optional)
+# @param string $created_from Retrieve entities from their creation date (optional)
+# @param string $created_to Retrieve entities to their creation date (optional)
+# @param string $modified_from Retrieve entities from their modification date (optional)
+# @param string $modified_to Retrieve entities to their modification date (optional)
 {
     my $params = {
+    'order_ids' => {
+        data_type => 'string',
+        description => 'Counts orders specified by order ids',
+        required => '0',
+    },
+    'ids' => {
+        data_type => 'string',
+        description => 'Counts orders specified by ids',
+        required => '0',
+    },
     'customer_id' => {
         data_type => 'string',
         description => 'Counts orders quantity specified by customer id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Counts orders quantity specified by store id',
         required => '0',
     },
     'customer_email' => {
@@ -361,41 +376,6 @@ sub order_add {
     'order_status_ids' => {
         data_type => 'ARRAY[string]',
         description => 'Retrieves orders specified by order statuses',
-        required => '0',
-    },
-    'created_to' => {
-        data_type => 'string',
-        description => 'Retrieve entities to their creation date',
-        required => '0',
-    },
-    'created_from' => {
-        data_type => 'string',
-        description => 'Retrieve entities from their creation date',
-        required => '0',
-    },
-    'modified_to' => {
-        data_type => 'string',
-        description => 'Retrieve entities to their modification date',
-        required => '0',
-    },
-    'modified_from' => {
-        data_type => 'string',
-        description => 'Retrieve entities from their modification date',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Counts orders quantity specified by store id',
-        required => '0',
-    },
-    'ids' => {
-        data_type => 'string',
-        description => 'Counts orders specified by ids',
-        required => '0',
-    },
-    'order_ids' => {
-        data_type => 'string',
-        description => 'Counts orders specified by order ids',
         required => '0',
     },
     'ebay_order_status' => {
@@ -443,6 +423,26 @@ sub order_add {
         description => 'Retrieves order with ship node type',
         required => '0',
     },
+    'created_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their creation date',
+        required => '0',
+    },
+    'created_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their creation date',
+        required => '0',
+    },
+    'modified_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their modification date',
+        required => '0',
+    },
+    'modified_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their modification date',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'order_count' } = {
         summary => 'order.count',
@@ -471,8 +471,23 @@ sub order_count {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'order_ids'}) {
+        $query_params->{'order_ids'} = $self->{api_client}->to_query_value($args{'order_ids'});
+    }
+
+    # query params
+    if ( exists $args{'ids'}) {
+        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
+
+    # query params
     if ( exists $args{'customer_id'}) {
         $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -488,41 +503,6 @@ sub order_count {
     # query params
     if ( exists $args{'order_status_ids'}) {
         $query_params->{'order_status_ids'} = $self->{api_client}->to_query_value($args{'order_status_ids'});
-    }
-
-    # query params
-    if ( exists $args{'created_to'}) {
-        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
-    }
-
-    # query params
-    if ( exists $args{'created_from'}) {
-        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
-    }
-
-    # query params
-    if ( exists $args{'modified_to'}) {
-        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
-    }
-
-    # query params
-    if ( exists $args{'modified_from'}) {
-        $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'ids'}) {
-        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
-    }
-
-    # query params
-    if ( exists $args{'order_ids'}) {
-        $query_params->{'order_ids'} = $self->{api_client}->to_query_value($args{'order_ids'});
     }
 
     # query params
@@ -568,6 +548,26 @@ sub order_count {
     # query params
     if ( exists $args{'ship_node_type'}) {
         $query_params->{'ship_node_type'} = $self->{api_client}->to_query_value($args{'ship_node_type'});
+    }
+
+    # query params
+    if ( exists $args{'created_from'}) {
+        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
+    }
+
+    # query params
+    if ( exists $args{'created_to'}) {
+        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
+    }
+
+    # query params
+    if ( exists $args{'modified_from'}) {
+        $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
+    }
+
+    # query params
+    if ( exists $args{'modified_to'}) {
+        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
     }
 
     my $_body_data;
@@ -639,20 +639,30 @@ sub order_financial_status_list {
 #
 # order.find
 #
+# @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
+# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $customer_id Retrieves orders specified by customer id (optional)
 # @param string $customer_email Retrieves orders specified by customer email (optional)
 # @param string $order_status Retrieves orders specified by order status (optional)
-# @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
-# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'order_id,customer,totals,address,items,bundles,status')
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+# @param string $financial_status Retrieves orders specified by financial status (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
-# @param string $financial_status Retrieves orders specified by financial status (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'order_id,customer,totals,address,items,bundles,status')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
+    'start' => {
+        data_type => 'int',
+        description => 'This parameter sets the number from which you want to get entities',
+        required => '0',
+    },
+    'count' => {
+        data_type => 'int',
+        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
     'customer_id' => {
         data_type => 'string',
         description => 'Retrieves orders specified by customer id',
@@ -668,24 +678,9 @@ sub order_financial_status_list {
         description => 'Retrieves orders specified by order status',
         required => '0',
     },
-    'start' => {
-        data_type => 'int',
-        description => 'This parameter sets the number from which you want to get entities',
-        required => '0',
-    },
-    'count' => {
-        data_type => 'int',
-        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'params' => {
+    'financial_status' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        description => 'Retrieves orders specified by financial status',
         required => '0',
     },
     'created_to' => {
@@ -708,9 +703,14 @@ sub order_financial_status_list {
         description => 'Retrieve entities from their modification date',
         required => '0',
     },
-    'financial_status' => {
+    'params' => {
         data_type => 'string',
-        description => 'Retrieves orders specified by financial status',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -741,6 +741,16 @@ sub order_find {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    }
+
+    # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
     if ( exists $args{'customer_id'}) {
         $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
     }
@@ -756,23 +766,8 @@ sub order_find {
     }
 
     # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
-    }
-
-    # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
-    }
-
-    # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'financial_status'}) {
+        $query_params->{'financial_status'} = $self->{api_client}->to_query_value($args{'financial_status'});
     }
 
     # query params
@@ -796,8 +791,13 @@ sub order_find {
     }
 
     # query params
-    if ( exists $args{'financial_status'}) {
-        $query_params->{'financial_status'} = $self->{api_client}->to_query_value($args{'financial_status'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -880,24 +880,29 @@ sub order_fulfillment_status_list {
 #
 # order.info
 #
-# @param string $order_id Retrieves order’s info specified by order id (optional)
 # @param string $id Retrieves order info specified by id (optional)
+# @param string $order_id Retrieves order’s info specified by order id (optional)
+# @param string $store_id Defines store id where the order should be found (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'order_id,customer,totals,address,items,bundles,status')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $store_id Defines store id where the order should be found (optional)
 # @param boolean $enable_cache If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache (optional, default to false)
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 {
     my $params = {
+    'id' => {
+        data_type => 'string',
+        description => 'Retrieves order info specified by id',
+        required => '0',
+    },
     'order_id' => {
         data_type => 'string',
         description => 'Retrieves order’s info specified by order id',
         required => '0',
     },
-    'id' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Retrieves order info specified by id',
+        description => 'Defines store id where the order should be found',
         required => '0',
     },
     'params' => {
@@ -913,11 +918,6 @@ sub order_fulfillment_status_list {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Defines store id where the order should be found',
         required => '0',
     },
     'enable_cache' => {
@@ -958,13 +958,18 @@ sub order_info {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'id'}) {
+        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
+    }
+
+    # query params
     if ( exists $args{'order_id'}) {
         $query_params->{'order_id'} = $self->{api_client}->to_query_value($args{'order_id'});
     }
 
     # query params
-    if ( exists $args{'id'}) {
-        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -980,11 +985,6 @@ sub order_info {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -1017,46 +1017,81 @@ sub order_info {
 #
 # order.list
 #
-# @param string $customer_id Retrieves orders specified by customer id (optional)
-# @param string $customer_email Retrieves orders specified by customer email (optional)
-# @param string $phone Filter orders by customer&#39;s phone number (optional)
-# @param string $order_status Retrieves orders specified by order status (optional)
-# @param ARRAY[string] $order_status_ids Retrieves orders specified by order statuses (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $ids Retrieves orders specified by ids (optional)
+# @param string $order_ids Retrieves orders specified by order ids (optional)
+# @param string $since_id Retrieve entities starting from the specified id. (optional)
+# @param string $store_id Store Id (optional)
+# @param string $customer_id Retrieves orders specified by customer id (optional)
+# @param string $customer_email Retrieves orders specified by customer email (optional)
+# @param string $basket_id Retrieves order’s info specified by basket id. (optional)
+# @param string $currency_id Currency Id (optional)
+# @param string $phone Filter orders by customer&#39;s phone number (optional)
+# @param string $order_status Retrieves orders specified by order status (optional)
+# @param ARRAY[string] $order_status_ids Retrieves orders specified by order statuses (optional)
+# @param string $ebay_order_status Retrieves orders specified by order status (optional)
+# @param string $financial_status Retrieves orders specified by financial status (optional)
+# @param ARRAY[string] $financial_status_ids Retrieves orders specified by financial status ids (optional)
+# @param string $fulfillment_status Create order with fulfillment status (optional)
+# @param string $return_status Retrieves orders specified by return status (optional)
+# @param string $fulfillment_channel Retrieves order with a fulfillment channel (optional)
+# @param string $shipping_method Retrieve entities according to shipping method (optional)
+# @param string $skip_order_ids Skipped orders by ids (optional)
+# @param boolean $is_deleted Filter deleted orders (optional)
+# @param string $shipping_country_iso3 Retrieve entities according to shipping country (optional)
+# @param string $delivery_method Retrieves order with delivery method (optional)
+# @param string $ship_node_type Retrieves order with ship node type (optional)
+# @param string $created_to Retrieve entities to their creation date (optional)
+# @param string $created_from Retrieve entities from their creation date (optional)
+# @param string $modified_to Retrieve entities to their modification date (optional)
+# @param string $modified_from Retrieve entities from their modification date (optional)
+# @param string $tags Order tags (optional)
 # @param string $sort_by Set field to sort by (optional, default to 'order_id')
 # @param string $sort_direction Set sorting direction (optional, default to 'asc')
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'order_id,customer,totals,address,items,bundles,status')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $created_to Retrieve entities to their creation date (optional)
-# @param string $created_from Retrieve entities from their creation date (optional)
-# @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $modified_from Retrieve entities from their modification date (optional)
-# @param string $store_id Store Id (optional)
-# @param string $ids Retrieves orders specified by ids (optional)
-# @param string $order_ids Retrieves orders specified by order ids (optional)
-# @param string $ebay_order_status Retrieves orders specified by order status (optional)
-# @param string $basket_id Retrieves order’s info specified by basket id. (optional)
-# @param string $financial_status Retrieves orders specified by financial status (optional)
-# @param ARRAY[string] $financial_status_ids Retrieves orders specified by financial status ids (optional)
-# @param string $fulfillment_status Create order with fulfillment status (optional)
-# @param string $fulfillment_channel Retrieves order with a fulfillment channel (optional)
-# @param string $shipping_method Retrieve entities according to shipping method (optional)
-# @param string $skip_order_ids Skipped orders by ids (optional)
-# @param string $since_id Retrieve entities starting from the specified id. (optional)
-# @param boolean $is_deleted Filter deleted orders (optional)
-# @param string $shipping_country_iso3 Retrieve entities according to shipping country (optional)
 # @param boolean $enable_cache If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional, default to false)
-# @param string $delivery_method Retrieves order with delivery method (optional)
-# @param string $tags Order tags (optional)
-# @param string $ship_node_type Retrieves order with ship node type (optional)
-# @param string $currency_id Currency Id (optional)
-# @param string $return_status Retrieves orders specified by return status (optional)
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 {
     my $params = {
+    'start' => {
+        data_type => 'int',
+        description => 'This parameter sets the number from which you want to get entities',
+        required => '0',
+    },
+    'count' => {
+        data_type => 'int',
+        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'ids' => {
+        data_type => 'string',
+        description => 'Retrieves orders specified by ids',
+        required => '0',
+    },
+    'order_ids' => {
+        data_type => 'string',
+        description => 'Retrieves orders specified by order ids',
+        required => '0',
+    },
+    'since_id' => {
+        data_type => 'string',
+        description => 'Retrieve entities starting from the specified id.',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
+        required => '0',
+    },
     'customer_id' => {
         data_type => 'string',
         description => 'Retrieves orders specified by customer id',
@@ -1065,6 +1100,16 @@ sub order_info {
     'customer_email' => {
         data_type => 'string',
         description => 'Retrieves orders specified by customer email',
+        required => '0',
+    },
+    'basket_id' => {
+        data_type => 'string',
+        description => 'Retrieves order’s info specified by basket id.',
+        required => '0',
+    },
+    'currency_id' => {
+        data_type => 'string',
+        description => 'Currency Id',
         required => '0',
     },
     'phone' => {
@@ -1082,19 +1127,89 @@ sub order_info {
         description => 'Retrieves orders specified by order statuses',
         required => '0',
     },
-    'start' => {
-        data_type => 'int',
-        description => 'This parameter sets the number from which you want to get entities',
-        required => '0',
-    },
-    'count' => {
-        data_type => 'int',
-        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'page_cursor' => {
+    'ebay_order_status' => {
         data_type => 'string',
-        description => 'Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        description => 'Retrieves orders specified by order status',
+        required => '0',
+    },
+    'financial_status' => {
+        data_type => 'string',
+        description => 'Retrieves orders specified by financial status',
+        required => '0',
+    },
+    'financial_status_ids' => {
+        data_type => 'ARRAY[string]',
+        description => 'Retrieves orders specified by financial status ids',
+        required => '0',
+    },
+    'fulfillment_status' => {
+        data_type => 'string',
+        description => 'Create order with fulfillment status',
+        required => '0',
+    },
+    'return_status' => {
+        data_type => 'string',
+        description => 'Retrieves orders specified by return status',
+        required => '0',
+    },
+    'fulfillment_channel' => {
+        data_type => 'string',
+        description => 'Retrieves order with a fulfillment channel',
+        required => '0',
+    },
+    'shipping_method' => {
+        data_type => 'string',
+        description => 'Retrieve entities according to shipping method',
+        required => '0',
+    },
+    'skip_order_ids' => {
+        data_type => 'string',
+        description => 'Skipped orders by ids',
+        required => '0',
+    },
+    'is_deleted' => {
+        data_type => 'boolean',
+        description => 'Filter deleted orders',
+        required => '0',
+    },
+    'shipping_country_iso3' => {
+        data_type => 'string',
+        description => 'Retrieve entities according to shipping country',
+        required => '0',
+    },
+    'delivery_method' => {
+        data_type => 'string',
+        description => 'Retrieves order with delivery method',
+        required => '0',
+    },
+    'ship_node_type' => {
+        data_type => 'string',
+        description => 'Retrieves order with ship node type',
+        required => '0',
+    },
+    'created_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their creation date',
+        required => '0',
+    },
+    'created_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their creation date',
+        required => '0',
+    },
+    'modified_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their modification date',
+        required => '0',
+    },
+    'modified_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their modification date',
+        required => '0',
+    },
+    'tags' => {
+        data_type => 'string',
+        description => 'Order tags',
         required => '0',
     },
     'sort_by' => {
@@ -1122,124 +1237,9 @@ sub order_info {
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
-    'created_to' => {
-        data_type => 'string',
-        description => 'Retrieve entities to their creation date',
-        required => '0',
-    },
-    'created_from' => {
-        data_type => 'string',
-        description => 'Retrieve entities from their creation date',
-        required => '0',
-    },
-    'modified_to' => {
-        data_type => 'string',
-        description => 'Retrieve entities to their modification date',
-        required => '0',
-    },
-    'modified_from' => {
-        data_type => 'string',
-        description => 'Retrieve entities from their modification date',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
-    'ids' => {
-        data_type => 'string',
-        description => 'Retrieves orders specified by ids',
-        required => '0',
-    },
-    'order_ids' => {
-        data_type => 'string',
-        description => 'Retrieves orders specified by order ids',
-        required => '0',
-    },
-    'ebay_order_status' => {
-        data_type => 'string',
-        description => 'Retrieves orders specified by order status',
-        required => '0',
-    },
-    'basket_id' => {
-        data_type => 'string',
-        description => 'Retrieves order’s info specified by basket id.',
-        required => '0',
-    },
-    'financial_status' => {
-        data_type => 'string',
-        description => 'Retrieves orders specified by financial status',
-        required => '0',
-    },
-    'financial_status_ids' => {
-        data_type => 'ARRAY[string]',
-        description => 'Retrieves orders specified by financial status ids',
-        required => '0',
-    },
-    'fulfillment_status' => {
-        data_type => 'string',
-        description => 'Create order with fulfillment status',
-        required => '0',
-    },
-    'fulfillment_channel' => {
-        data_type => 'string',
-        description => 'Retrieves order with a fulfillment channel',
-        required => '0',
-    },
-    'shipping_method' => {
-        data_type => 'string',
-        description => 'Retrieve entities according to shipping method',
-        required => '0',
-    },
-    'skip_order_ids' => {
-        data_type => 'string',
-        description => 'Skipped orders by ids',
-        required => '0',
-    },
-    'since_id' => {
-        data_type => 'string',
-        description => 'Retrieve entities starting from the specified id.',
-        required => '0',
-    },
-    'is_deleted' => {
-        data_type => 'boolean',
-        description => 'Filter deleted orders',
-        required => '0',
-    },
-    'shipping_country_iso3' => {
-        data_type => 'string',
-        description => 'Retrieve entities according to shipping country',
-        required => '0',
-    },
     'enable_cache' => {
         data_type => 'boolean',
         description => 'If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)',
-        required => '0',
-    },
-    'delivery_method' => {
-        data_type => 'string',
-        description => 'Retrieves order with delivery method',
-        required => '0',
-    },
-    'tags' => {
-        data_type => 'string',
-        description => 'Order tags',
-        required => '0',
-    },
-    'ship_node_type' => {
-        data_type => 'string',
-        description => 'Retrieves order with ship node type',
-        required => '0',
-    },
-    'currency_id' => {
-        data_type => 'string',
-        description => 'Currency Id',
-        required => '0',
-    },
-    'return_status' => {
-        data_type => 'string',
-        description => 'Retrieves orders specified by return status',
         required => '0',
     },
     'use_latest_api_version' => {
@@ -1275,6 +1275,41 @@ sub order_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    }
+
+    # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
+    if ( exists $args{'ids'}) {
+        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
+
+    # query params
+    if ( exists $args{'order_ids'}) {
+        $query_params->{'order_ids'} = $self->{api_client}->to_query_value($args{'order_ids'});
+    }
+
+    # query params
+    if ( exists $args{'since_id'}) {
+        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
     if ( exists $args{'customer_id'}) {
         $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
     }
@@ -1282,6 +1317,16 @@ sub order_list {
     # query params
     if ( exists $args{'customer_email'}) {
         $query_params->{'customer_email'} = $self->{api_client}->to_query_value($args{'customer_email'});
+    }
+
+    # query params
+    if ( exists $args{'basket_id'}) {
+        $query_params->{'basket_id'} = $self->{api_client}->to_query_value($args{'basket_id'});
+    }
+
+    # query params
+    if ( exists $args{'currency_id'}) {
+        $query_params->{'currency_id'} = $self->{api_client}->to_query_value($args{'currency_id'});
     }
 
     # query params
@@ -1300,18 +1345,88 @@ sub order_list {
     }
 
     # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    if ( exists $args{'ebay_order_status'}) {
+        $query_params->{'ebay_order_status'} = $self->{api_client}->to_query_value($args{'ebay_order_status'});
     }
 
     # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    if ( exists $args{'financial_status'}) {
+        $query_params->{'financial_status'} = $self->{api_client}->to_query_value($args{'financial_status'});
     }
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    if ( exists $args{'financial_status_ids'}) {
+        $query_params->{'financial_status_ids'} = $self->{api_client}->to_query_value($args{'financial_status_ids'});
+    }
+
+    # query params
+    if ( exists $args{'fulfillment_status'}) {
+        $query_params->{'fulfillment_status'} = $self->{api_client}->to_query_value($args{'fulfillment_status'});
+    }
+
+    # query params
+    if ( exists $args{'return_status'}) {
+        $query_params->{'return_status'} = $self->{api_client}->to_query_value($args{'return_status'});
+    }
+
+    # query params
+    if ( exists $args{'fulfillment_channel'}) {
+        $query_params->{'fulfillment_channel'} = $self->{api_client}->to_query_value($args{'fulfillment_channel'});
+    }
+
+    # query params
+    if ( exists $args{'shipping_method'}) {
+        $query_params->{'shipping_method'} = $self->{api_client}->to_query_value($args{'shipping_method'});
+    }
+
+    # query params
+    if ( exists $args{'skip_order_ids'}) {
+        $query_params->{'skip_order_ids'} = $self->{api_client}->to_query_value($args{'skip_order_ids'});
+    }
+
+    # query params
+    if ( exists $args{'is_deleted'}) {
+        $query_params->{'is_deleted'} = $self->{api_client}->to_query_value($args{'is_deleted'});
+    }
+
+    # query params
+    if ( exists $args{'shipping_country_iso3'}) {
+        $query_params->{'shipping_country_iso3'} = $self->{api_client}->to_query_value($args{'shipping_country_iso3'});
+    }
+
+    # query params
+    if ( exists $args{'delivery_method'}) {
+        $query_params->{'delivery_method'} = $self->{api_client}->to_query_value($args{'delivery_method'});
+    }
+
+    # query params
+    if ( exists $args{'ship_node_type'}) {
+        $query_params->{'ship_node_type'} = $self->{api_client}->to_query_value($args{'ship_node_type'});
+    }
+
+    # query params
+    if ( exists $args{'created_to'}) {
+        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
+    }
+
+    # query params
+    if ( exists $args{'created_from'}) {
+        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
+    }
+
+    # query params
+    if ( exists $args{'modified_to'}) {
+        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
+    }
+
+    # query params
+    if ( exists $args{'modified_from'}) {
+        $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
+    }
+
+    # query params
+    if ( exists $args{'tags'}) {
+        $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
     }
 
     # query params
@@ -1340,123 +1455,8 @@ sub order_list {
     }
 
     # query params
-    if ( exists $args{'created_to'}) {
-        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
-    }
-
-    # query params
-    if ( exists $args{'created_from'}) {
-        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
-    }
-
-    # query params
-    if ( exists $args{'modified_to'}) {
-        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
-    }
-
-    # query params
-    if ( exists $args{'modified_from'}) {
-        $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'ids'}) {
-        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
-    }
-
-    # query params
-    if ( exists $args{'order_ids'}) {
-        $query_params->{'order_ids'} = $self->{api_client}->to_query_value($args{'order_ids'});
-    }
-
-    # query params
-    if ( exists $args{'ebay_order_status'}) {
-        $query_params->{'ebay_order_status'} = $self->{api_client}->to_query_value($args{'ebay_order_status'});
-    }
-
-    # query params
-    if ( exists $args{'basket_id'}) {
-        $query_params->{'basket_id'} = $self->{api_client}->to_query_value($args{'basket_id'});
-    }
-
-    # query params
-    if ( exists $args{'financial_status'}) {
-        $query_params->{'financial_status'} = $self->{api_client}->to_query_value($args{'financial_status'});
-    }
-
-    # query params
-    if ( exists $args{'financial_status_ids'}) {
-        $query_params->{'financial_status_ids'} = $self->{api_client}->to_query_value($args{'financial_status_ids'});
-    }
-
-    # query params
-    if ( exists $args{'fulfillment_status'}) {
-        $query_params->{'fulfillment_status'} = $self->{api_client}->to_query_value($args{'fulfillment_status'});
-    }
-
-    # query params
-    if ( exists $args{'fulfillment_channel'}) {
-        $query_params->{'fulfillment_channel'} = $self->{api_client}->to_query_value($args{'fulfillment_channel'});
-    }
-
-    # query params
-    if ( exists $args{'shipping_method'}) {
-        $query_params->{'shipping_method'} = $self->{api_client}->to_query_value($args{'shipping_method'});
-    }
-
-    # query params
-    if ( exists $args{'skip_order_ids'}) {
-        $query_params->{'skip_order_ids'} = $self->{api_client}->to_query_value($args{'skip_order_ids'});
-    }
-
-    # query params
-    if ( exists $args{'since_id'}) {
-        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
-    }
-
-    # query params
-    if ( exists $args{'is_deleted'}) {
-        $query_params->{'is_deleted'} = $self->{api_client}->to_query_value($args{'is_deleted'});
-    }
-
-    # query params
-    if ( exists $args{'shipping_country_iso3'}) {
-        $query_params->{'shipping_country_iso3'} = $self->{api_client}->to_query_value($args{'shipping_country_iso3'});
-    }
-
-    # query params
     if ( exists $args{'enable_cache'}) {
         $query_params->{'enable_cache'} = $self->{api_client}->to_query_value($args{'enable_cache'});
-    }
-
-    # query params
-    if ( exists $args{'delivery_method'}) {
-        $query_params->{'delivery_method'} = $self->{api_client}->to_query_value($args{'delivery_method'});
-    }
-
-    # query params
-    if ( exists $args{'tags'}) {
-        $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
-    }
-
-    # query params
-    if ( exists $args{'ship_node_type'}) {
-        $query_params->{'ship_node_type'} = $self->{api_client}->to_query_value($args{'ship_node_type'});
-    }
-
-    # query params
-    if ( exists $args{'currency_id'}) {
-        $query_params->{'currency_id'} = $self->{api_client}->to_query_value($args{'currency_id'});
-    }
-
-    # query params
-    if ( exists $args{'return_status'}) {
-        $query_params->{'return_status'} = $self->{api_client}->to_query_value($args{'return_status'});
     }
 
     # query params
@@ -2061,10 +2061,10 @@ sub order_shipment_delete {
 # @param string $id Entity id (required)
 # @param string $order_id Defines the order id (required)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_id,items,tracking_numbers')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Store Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_id,items,tracking_numbers')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'id' => {
@@ -2082,9 +2082,9 @@ sub order_shipment_delete {
         description => 'This parameter sets the number from which you want to get entities',
         required => '0',
     },
-    'params' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Store Id',
         required => '0',
     },
     'response_fields' => {
@@ -2092,14 +2092,14 @@ sub order_shipment_delete {
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
         required => '0',
     },
     };
@@ -2140,6 +2140,11 @@ sub order_shipment_info {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    }
+
+    # query params
     if ( exists $args{'id'}) {
         $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
     }
@@ -2150,13 +2155,8 @@ sub order_shipment_info {
     }
 
     # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
-    }
-
-    # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -2165,13 +2165,13 @@ sub order_shipment_info {
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -2195,28 +2195,23 @@ sub order_shipment_info {
 # order.shipment.list
 #
 # @param string $order_id Retrieves shipments specified by order id (required)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_id,items,tracking_numbers')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $store_id Store Id (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $store_id Store Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_id,items,tracking_numbers')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'order_id' => {
         data_type => 'string',
         description => 'Retrieves shipments specified by order id',
         required => '1',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
     },
     'start' => {
         data_type => 'int',
@@ -2228,19 +2223,14 @@ sub order_shipment_info {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
-    'params' => {
+    'page_cursor' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
-    'response_fields' => {
+    'store_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        description => 'Store Id',
         required => '0',
     },
     'created_from' => {
@@ -2263,9 +2253,19 @@ sub order_shipment_info {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'store_id' => {
+    'response_fields' => {
         data_type => 'string',
-        description => 'Store Id',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -2301,16 +2301,6 @@ sub order_shipment_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'order_id'}) {
-        $query_params->{'order_id'} = $self->{api_client}->to_query_value($args{'order_id'});
-    }
-
-    # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -2321,18 +2311,18 @@ sub order_shipment_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'order_id'}) {
+        $query_params->{'order_id'} = $self->{api_client}->to_query_value($args{'order_id'});
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -2356,8 +2346,18 @@ sub order_shipment_list {
     }
 
     # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -2594,11 +2594,11 @@ sub order_status_list {
 #
 # @param string $order_ids Retrieves order transactions specified by order ids (required)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $store_id Store Id (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,order_id,amount,description')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 {
     my $params = {
     'order_ids' => {
@@ -2609,6 +2609,11 @@ sub order_status_list {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
     'store_id' => {
@@ -2629,11 +2634,6 @@ sub order_status_list {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
     };
@@ -2674,6 +2674,11 @@ sub order_transaction_list {
     }
 
     # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'order_ids'}) {
         $query_params->{'order_ids'} = $self->{api_client}->to_query_value($args{'order_ids'});
     }
@@ -2696,11 +2701,6 @@ sub order_transaction_list {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
     }
 
     my $_body_data;
@@ -2726,19 +2726,19 @@ sub order_transaction_list {
 # @param string $order_id Defines the orders specified by order id (required)
 # @param string $store_id Defines store id where the order should be found (optional)
 # @param string $order_status Defines new order&#39;s status (optional)
+# @param string $financial_status Update order financial status to specified (optional)
+# @param string $fulfillment_status Create order with fulfillment status (optional)
 # @param string $cancellation_reason Defines the cancellation reason when the order will be canceled (optional)
+# @param string $order_payment_method Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; (optional)
 # @param string $comment Specifies order comment (optional)
 # @param string $admin_comment Specifies admin&#39;s order comment (optional)
 # @param string $admin_private_comment Specifies private admin&#39;s order comment (optional)
+# @param string $invoice_admin_comment Specifies admin&#39;s order invoice comment (optional)
 # @param string $date_modified Specifies order&#39;s  modification date (optional)
 # @param string $date_finished Specifies order&#39;s  finished date (optional)
-# @param string $financial_status Update order financial status to specified (optional)
-# @param string $fulfillment_status Create order with fulfillment status (optional)
-# @param string $order_payment_method Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39; (optional)
 # @param boolean $send_notifications Send notifications to customer after order was created (optional, default to false)
-# @param string $origin The source of the order (optional)
 # @param boolean $create_invoice Determines whether an invoice should be created if it has not already been created (optional)
-# @param string $invoice_admin_comment Specifies admin&#39;s order invoice comment (optional)
+# @param string $origin The source of the order (optional)
 {
     my $params = {
     'order_id' => {
@@ -2756,9 +2756,24 @@ sub order_transaction_list {
         description => 'Defines new order&#39;s status',
         required => '0',
     },
+    'financial_status' => {
+        data_type => 'string',
+        description => 'Update order financial status to specified',
+        required => '0',
+    },
+    'fulfillment_status' => {
+        data_type => 'string',
+        description => 'Create order with fulfillment status',
+        required => '0',
+    },
     'cancellation_reason' => {
         data_type => 'string',
         description => 'Defines the cancellation reason when the order will be canceled',
+        required => '0',
+    },
+    'order_payment_method' => {
+        data_type => 'string',
+        description => 'Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;',
         required => '0',
     },
     'comment' => {
@@ -2776,6 +2791,11 @@ sub order_transaction_list {
         description => 'Specifies private admin&#39;s order comment',
         required => '0',
     },
+    'invoice_admin_comment' => {
+        data_type => 'string',
+        description => 'Specifies admin&#39;s order invoice comment',
+        required => '0',
+    },
     'date_modified' => {
         data_type => 'string',
         description => 'Specifies order&#39;s  modification date',
@@ -2786,29 +2806,9 @@ sub order_transaction_list {
         description => 'Specifies order&#39;s  finished date',
         required => '0',
     },
-    'financial_status' => {
-        data_type => 'string',
-        description => 'Update order financial status to specified',
-        required => '0',
-    },
-    'fulfillment_status' => {
-        data_type => 'string',
-        description => 'Create order with fulfillment status',
-        required => '0',
-    },
-    'order_payment_method' => {
-        data_type => 'string',
-        description => 'Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;',
-        required => '0',
-    },
     'send_notifications' => {
         data_type => 'boolean',
         description => 'Send notifications to customer after order was created',
-        required => '0',
-    },
-    'origin' => {
-        data_type => 'string',
-        description => 'The source of the order',
         required => '0',
     },
     'create_invoice' => {
@@ -2816,9 +2816,9 @@ sub order_transaction_list {
         description => 'Determines whether an invoice should be created if it has not already been created',
         required => '0',
     },
-    'invoice_admin_comment' => {
+    'origin' => {
         data_type => 'string',
-        description => 'Specifies admin&#39;s order invoice comment',
+        description => 'The source of the order',
         required => '0',
     },
     };
@@ -2869,8 +2869,23 @@ sub order_update {
     }
 
     # query params
+    if ( exists $args{'financial_status'}) {
+        $query_params->{'financial_status'} = $self->{api_client}->to_query_value($args{'financial_status'});
+    }
+
+    # query params
+    if ( exists $args{'fulfillment_status'}) {
+        $query_params->{'fulfillment_status'} = $self->{api_client}->to_query_value($args{'fulfillment_status'});
+    }
+
+    # query params
     if ( exists $args{'cancellation_reason'}) {
         $query_params->{'cancellation_reason'} = $self->{api_client}->to_query_value($args{'cancellation_reason'});
+    }
+
+    # query params
+    if ( exists $args{'order_payment_method'}) {
+        $query_params->{'order_payment_method'} = $self->{api_client}->to_query_value($args{'order_payment_method'});
     }
 
     # query params
@@ -2889,6 +2904,11 @@ sub order_update {
     }
 
     # query params
+    if ( exists $args{'invoice_admin_comment'}) {
+        $query_params->{'invoice_admin_comment'} = $self->{api_client}->to_query_value($args{'invoice_admin_comment'});
+    }
+
+    # query params
     if ( exists $args{'date_modified'}) {
         $query_params->{'date_modified'} = $self->{api_client}->to_query_value($args{'date_modified'});
     }
@@ -2899,28 +2919,8 @@ sub order_update {
     }
 
     # query params
-    if ( exists $args{'financial_status'}) {
-        $query_params->{'financial_status'} = $self->{api_client}->to_query_value($args{'financial_status'});
-    }
-
-    # query params
-    if ( exists $args{'fulfillment_status'}) {
-        $query_params->{'fulfillment_status'} = $self->{api_client}->to_query_value($args{'fulfillment_status'});
-    }
-
-    # query params
-    if ( exists $args{'order_payment_method'}) {
-        $query_params->{'order_payment_method'} = $self->{api_client}->to_query_value($args{'order_payment_method'});
-    }
-
-    # query params
     if ( exists $args{'send_notifications'}) {
         $query_params->{'send_notifications'} = $self->{api_client}->to_query_value($args{'send_notifications'});
-    }
-
-    # query params
-    if ( exists $args{'origin'}) {
-        $query_params->{'origin'} = $self->{api_client}->to_query_value($args{'origin'});
     }
 
     # query params
@@ -2929,8 +2929,8 @@ sub order_update {
     }
 
     # query params
-    if ( exists $args{'invoice_admin_comment'}) {
-        $query_params->{'invoice_admin_comment'} = $self->{api_client}->to_query_value($args{'invoice_admin_comment'});
+    if ( exists $args{'origin'}) {
+        $query_params->{'origin'} = $self->{api_client}->to_query_value($args{'origin'});
     }
 
     my $_body_data;

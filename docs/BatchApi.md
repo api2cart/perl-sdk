@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **batch_job_list**
-> ModelResponseBatchJobList batch_job_list(count => $count, page_cursor => $page_cursor, created_from => $created_from, created_to => $created_to, processed_from => $processed_from, processed_to => $processed_to, ids => $ids, response_fields => $response_fields)
+> ModelResponseBatchJobList batch_job_list(count => $count, page_cursor => $page_cursor, ids => $ids, created_from => $created_from, created_to => $created_to, processed_from => $processed_from, processed_to => $processed_to, response_fields => $response_fields)
 
 batch.job.list
 
@@ -38,15 +38,15 @@ my $api_instance = WWW::OpenAPIClient::BatchApi->new(
 
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+my $ids = 24,25; # string | Filter batch jobs by ids
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $processed_from = 2100-08-29 13:45:52; # string | Retrieve entities according to their processing datetime
 my $processed_to = 2100-08-29 13:45:52; # string | Retrieve entities according to their processing datetime
-my $ids = 24,25; # string | Filter batch jobs by ids
 my $response_fields = {result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->batch_job_list(count => $count, page_cursor => $page_cursor, created_from => $created_from, created_to => $created_to, processed_from => $processed_from, processed_to => $processed_to, ids => $ids, response_fields => $response_fields);
+    my $result = $api_instance->batch_job_list(count => $count, page_cursor => $page_cursor, ids => $ids, created_from => $created_from, created_to => $created_to, processed_from => $processed_from, processed_to => $processed_to, response_fields => $response_fields);
     print Dumper($result);
 };
 if ($@) {
@@ -60,11 +60,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **ids** | **string**| Filter batch jobs by ids | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **processed_from** | **string**| Retrieve entities according to their processing datetime | [optional] 
  **processed_to** | **string**| Retrieve entities according to their processing datetime | [optional] 
- **ids** | **string**| Filter batch jobs by ids | [optional] 
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;{return_code,return_message,pagination,result}&#39;]
 
 ### Return type

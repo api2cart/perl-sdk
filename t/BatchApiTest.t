@@ -35,13 +35,13 @@ isa_ok($api, 'WWW::OpenAPIClient::BatchApi');
 # uncomment below and update the test
 #my $batch_job_list_count = undef; # replace NULL with a proper value
 #my $batch_job_list_page_cursor = undef; # replace NULL with a proper value
+#my $batch_job_list_ids = undef; # replace NULL with a proper value
 #my $batch_job_list_created_from = undef; # replace NULL with a proper value
 #my $batch_job_list_created_to = undef; # replace NULL with a proper value
 #my $batch_job_list_processed_from = undef; # replace NULL with a proper value
 #my $batch_job_list_processed_to = undef; # replace NULL with a proper value
-#my $batch_job_list_ids = undef; # replace NULL with a proper value
 #my $batch_job_list_response_fields = undef; # replace NULL with a proper value
-#my $batch_job_list_result = $api->batch_job_list(count => $batch_job_list_count, page_cursor => $batch_job_list_page_cursor, created_from => $batch_job_list_created_from, created_to => $batch_job_list_created_to, processed_from => $batch_job_list_processed_from, processed_to => $batch_job_list_processed_to, ids => $batch_job_list_ids, response_fields => $batch_job_list_response_fields);
+#my $batch_job_list_result = $api->batch_job_list(count => $batch_job_list_count, page_cursor => $batch_job_list_page_cursor, ids => $batch_job_list_ids, created_from => $batch_job_list_created_from, created_to => $batch_job_list_created_to, processed_from => $batch_job_list_processed_from, processed_to => $batch_job_list_processed_to, response_fields => $batch_job_list_response_fields);
 
 #
 # batch_job_result test

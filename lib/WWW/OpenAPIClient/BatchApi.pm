@@ -55,11 +55,11 @@ sub new {
 #
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $ids Filter batch jobs by ids (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $processed_from Retrieve entities according to their processing datetime (optional)
 # @param string $processed_to Retrieve entities according to their processing datetime (optional)
-# @param string $ids Filter batch jobs by ids (optional)
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional, default to '{return_code,return_message,pagination,result}')
 {
     my $params = {
@@ -71,6 +71,11 @@ sub new {
     'page_cursor' => {
         data_type => 'string',
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'ids' => {
+        data_type => 'string',
+        description => 'Filter batch jobs by ids',
         required => '0',
     },
     'created_from' => {
@@ -91,11 +96,6 @@ sub new {
     'processed_to' => {
         data_type => 'string',
         description => 'Retrieve entities according to their processing datetime',
-        required => '0',
-    },
-    'ids' => {
-        data_type => 'string',
-        description => 'Filter batch jobs by ids',
         required => '0',
     },
     'response_fields' => {
@@ -141,6 +141,11 @@ sub batch_job_list {
     }
 
     # query params
+    if ( exists $args{'ids'}) {
+        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
+
+    # query params
     if ( exists $args{'created_from'}) {
         $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
     }
@@ -158,11 +163,6 @@ sub batch_job_list {
     # query params
     if ( exists $args{'processed_to'}) {
         $query_params->{'processed_to'} = $self->{api_client}->to_query_value($args{'processed_to'});
-    }
-
-    # query params
-    if ( exists $args{'ids'}) {
-        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
     }
 
     # query params

@@ -56,8 +56,8 @@ sub new {
 # @param string $tax_class_id Retrieves taxes specified by class id (required)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'tax_class_id,name,avail')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'tax_class_id,name,avail')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
@@ -76,12 +76,12 @@ sub new {
         description => 'Language id',
         required => '0',
     },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -139,13 +139,13 @@ sub tax_class_info {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
@@ -173,18 +173,43 @@ sub tax_class_info {
 #
 # tax.class.list
 #
+# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $store_id Store Id (optional)
+# @param string $find_value Entity search that is specified by some value (optional)
+# @param string $find_where Tax class search that is specified by field (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
-# @param string $find_value Entity search that is specified by some value (optional)
-# @param string $find_where Tax class search that is specified by field (optional)
-# @param string $store_id Store Id (optional)
-# @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional, default to '{return_code,return_message,pagination,result}')
 {
     my $params = {
+    'count' => {
+        data_type => 'int',
+        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
+        required => '0',
+    },
+    'find_value' => {
+        data_type => 'string',
+        description => 'Entity search that is specified by some value',
+        required => '0',
+    },
+    'find_where' => {
+        data_type => 'string',
+        description => 'Tax class search that is specified by field',
+        required => '0',
+    },
     'created_to' => {
         data_type => 'string',
         description => 'Retrieve entities to their creation date',
@@ -203,31 +228,6 @@ sub tax_class_info {
     'modified_from' => {
         data_type => 'string',
         description => 'Retrieve entities from their modification date',
-        required => '0',
-    },
-    'find_value' => {
-        data_type => 'string',
-        description => 'Entity search that is specified by some value',
-        required => '0',
-    },
-    'find_where' => {
-        data_type => 'string',
-        description => 'Tax class search that is specified by field',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
-    'count' => {
-        data_type => 'int',
-        description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
     'response_fields' => {
@@ -263,6 +263,31 @@ sub tax_class_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'find_value'}) {
+        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
+    }
+
+    # query params
+    if ( exists $args{'find_where'}) {
+        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
+    }
+
+    # query params
     if ( exists $args{'created_to'}) {
         $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
     }
@@ -280,31 +305,6 @@ sub tax_class_list {
     # query params
     if ( exists $args{'modified_from'}) {
         $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
-    }
-
-    # query params
-    if ( exists $args{'find_value'}) {
-        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
-    }
-
-    # query params
-    if ( exists $args{'find_where'}) {
-        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
-    }
-
-    # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
     }
 
     # query params

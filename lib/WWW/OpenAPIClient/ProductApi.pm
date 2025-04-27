@@ -184,19 +184,19 @@ sub product_add_batch {
 # product.attribute.list
 #
 # @param string $product_id Retrieves attributes specified by product id (required)
-# @param string $attribute_id Retrieves info for specified attribute_id (optional)
-# @param string $variant_id Defines product&#39;s variants specified by variant id (optional)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $attribute_id Retrieves info for specified attribute_id (optional)
+# @param string $variant_id Defines product&#39;s variants specified by variant id (optional)
 # @param string $attribute_group_id Filter by attribute_group_id (optional)
-# @param string $set_name Retrieves attributes specified by set_name in Magento (optional)
 # @param string $lang_id Retrieves attributes specified by language id (optional)
 # @param string $store_id Retrieves attributes specified by store id (optional)
+# @param string $set_name Retrieves attributes specified by set_name in Magento (optional)
 # @param string $sort_by Set field to sort by (optional, default to 'attribute_id')
 # @param string $sort_direction Set sorting direction (optional, default to 'asc')
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'attribute_id,name')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'attribute_id,name')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
@@ -204,21 +204,6 @@ sub product_add_batch {
         data_type => 'string',
         description => 'Retrieves attributes specified by product id',
         required => '1',
-    },
-    'attribute_id' => {
-        data_type => 'string',
-        description => 'Retrieves info for specified attribute_id',
-        required => '0',
-    },
-    'variant_id' => {
-        data_type => 'string',
-        description => 'Defines product&#39;s variants specified by variant id',
-        required => '0',
-    },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
     },
     'start' => {
         data_type => 'int',
@@ -230,14 +215,24 @@ sub product_add_batch {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
+        required => '0',
+    },
+    'attribute_id' => {
+        data_type => 'string',
+        description => 'Retrieves info for specified attribute_id',
+        required => '0',
+    },
+    'variant_id' => {
+        data_type => 'string',
+        description => 'Defines product&#39;s variants specified by variant id',
+        required => '0',
+    },
     'attribute_group_id' => {
         data_type => 'string',
         description => 'Filter by attribute_group_id',
-        required => '0',
-    },
-    'set_name' => {
-        data_type => 'string',
-        description => 'Retrieves attributes specified by set_name in Magento',
         required => '0',
     },
     'lang_id' => {
@@ -250,6 +245,11 @@ sub product_add_batch {
         description => 'Retrieves attributes specified by store id',
         required => '0',
     },
+    'set_name' => {
+        data_type => 'string',
+        description => 'Retrieves attributes specified by set_name in Magento',
+        required => '0',
+    },
     'sort_by' => {
         data_type => 'string',
         description => 'Set field to sort by',
@@ -260,12 +260,12 @@ sub product_add_batch {
         description => 'Set sorting direction',
         required => '0',
     },
-    'params' => {
+    'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'response_fields' => {
+    'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
@@ -308,6 +308,21 @@ sub product_attribute_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'start'}) {
+        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
+    }
+
+    # query params
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    }
+
+    # query params
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    }
+
+    # query params
     if ( exists $args{'product_id'}) {
         $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
     }
@@ -323,28 +338,8 @@ sub product_attribute_list {
     }
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
-    if ( exists $args{'start'}) {
-        $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
-    }
-
-    # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
-    }
-
-    # query params
     if ( exists $args{'attribute_group_id'}) {
         $query_params->{'attribute_group_id'} = $self->{api_client}->to_query_value($args{'attribute_group_id'});
-    }
-
-    # query params
-    if ( exists $args{'set_name'}) {
-        $query_params->{'set_name'} = $self->{api_client}->to_query_value($args{'set_name'});
     }
 
     # query params
@@ -358,6 +353,11 @@ sub product_attribute_list {
     }
 
     # query params
+    if ( exists $args{'set_name'}) {
+        $query_params->{'set_name'} = $self->{api_client}->to_query_value($args{'set_name'});
+    }
+
+    # query params
     if ( exists $args{'sort_by'}) {
         $query_params->{'sort_by'} = $self->{api_client}->to_query_value($args{'sort_by'});
     }
@@ -368,13 +368,13 @@ sub product_attribute_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
@@ -672,20 +672,20 @@ sub product_attribute_value_unset {
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,short_description,active,url')
 # @param string $brand_ids Retrieves brands specified by brand ids (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $category_id Retrieves product brands specified by category id (optional)
+# @param string $parent_id Retrieves brands specified by parent id (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
+# @param string $find_where Entity search that is specified by the comma-separated unique fields (optional)
+# @param string $find_value Entity search that is specified by some value (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $parent_id Retrieves brands specified by parent id (optional)
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $find_where Entity search that is specified by the comma-separated unique fields (optional)
-# @param string $find_value Entity search that is specified by some value (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,short_description,active,url')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'start' => {
@@ -703,24 +703,19 @@ sub product_attribute_value_unset {
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
     'brand_ids' => {
         data_type => 'string',
         description => 'Retrieves brands specified by brand ids',
         required => '0',
     },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
     'category_id' => {
         data_type => 'string',
         description => 'Retrieves product brands specified by category id',
+        required => '0',
+    },
+    'parent_id' => {
+        data_type => 'string',
+        description => 'Retrieves brands specified by parent id',
         required => '0',
     },
     'store_id' => {
@@ -731,6 +726,16 @@ sub product_attribute_value_unset {
     'lang_id' => {
         data_type => 'string',
         description => 'Language id',
+        required => '0',
+    },
+    'find_where' => {
+        data_type => 'string',
+        description => 'Entity search that is specified by the comma-separated unique fields',
+        required => '0',
+    },
+    'find_value' => {
+        data_type => 'string',
+        description => 'Entity search that is specified by some value',
         required => '0',
     },
     'created_from' => {
@@ -753,24 +758,19 @@ sub product_attribute_value_unset {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'parent_id' => {
-        data_type => 'string',
-        description => 'Retrieves brands specified by parent id',
-        required => '0',
-    },
     'response_fields' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'find_where' => {
+    'params' => {
         data_type => 'string',
-        description => 'Entity search that is specified by the comma-separated unique fields',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'find_value' => {
+    'exclude' => {
         data_type => 'string',
-        description => 'Entity search that is specified by some value',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -816,23 +816,18 @@ sub product_brand_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
     if ( exists $args{'brand_ids'}) {
         $query_params->{'brand_ids'} = $self->{api_client}->to_query_value($args{'brand_ids'});
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'category_id'}) {
+        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
     }
 
     # query params
-    if ( exists $args{'category_id'}) {
-        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    if ( exists $args{'parent_id'}) {
+        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
     }
 
     # query params
@@ -843,6 +838,16 @@ sub product_brand_list {
     # query params
     if ( exists $args{'lang_id'}) {
         $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
+    if ( exists $args{'find_where'}) {
+        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
+    }
+
+    # query params
+    if ( exists $args{'find_value'}) {
+        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
     }
 
     # query params
@@ -866,23 +871,18 @@ sub product_brand_list {
     }
 
     # query params
-    if ( exists $args{'parent_id'}) {
-        $query_params->{'parent_id'} = $self->{api_client}->to_query_value($args{'parent_id'});
-    }
-
-    # query params
     if ( exists $args{'response_fields'}) {
         $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
-    if ( exists $args{'find_where'}) {
-        $query_params->{'find_where'} = $self->{api_client}->to_query_value($args{'find_where'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
-    if ( exists $args{'find_value'}) {
-        $query_params->{'find_value'} = $self->{api_client}->to_query_value($args{'find_value'});
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -1000,12 +1000,12 @@ sub product_child_item_find {
 #
 # @param string $product_id Filter by parent product id (required)
 # @param string $id Entity id (required)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Store Id (optional)
 # @param string $lang_id Language id (optional)
 # @param string $currency_id Currency Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 {
     my $params = {
@@ -1018,21 +1018,6 @@ sub product_child_item_find {
         data_type => 'string',
         description => 'Entity id',
         required => '1',
-    },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
     },
     'store_id' => {
         data_type => 'string',
@@ -1047,6 +1032,21 @@ sub product_child_item_find {
     'currency_id' => {
         data_type => 'string',
         description => 'Currency Id',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     'use_latest_api_version' => {
@@ -1092,21 +1092,6 @@ sub product_child_item_info {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
     if ( exists $args{'product_id'}) {
         $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
     }
@@ -1129,6 +1114,21 @@ sub product_child_item_info {
     # query params
     if ( exists $args{'currency_id'}) {
         $query_params->{'currency_id'} = $self->{api_client}->to_query_value($args{'currency_id'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     # query params
@@ -1156,16 +1156,9 @@ sub product_child_item_info {
 #
 # product.child_item.list
 #
-# @param string $page_cursor Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $created_from Retrieve entities from their creation date (optional)
-# @param string $created_to Retrieve entities to their creation date (optional)
-# @param string $modified_from Retrieve entities from their modification date (optional)
-# @param string $modified_to Retrieve entities to their modification date (optional)
+# @param string $page_cursor Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $product_id Filter by parent product id (optional)
 # @param string $product_ids Filter by parent product ids (optional)
 # @param string $sku Filter by products variant&#39;s sku (optional)
@@ -1175,17 +1168,19 @@ sub product_child_item_info {
 # @param boolean $avail_sale Specifies the set of available/not available products for sale (optional)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Child products search that is specified by field (optional)
+# @param string $created_from Retrieve entities from their creation date (optional)
+# @param string $created_to Retrieve entities to their creation date (optional)
+# @param string $modified_from Retrieve entities from their modification date (optional)
+# @param string $modified_to Retrieve entities to their modification date (optional)
+# @param boolean $return_global Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. (optional, default to false)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'force_all')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $report_request_id Report request id (optional)
 # @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
-# @param boolean $return_global Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. (optional, default to false)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -1196,39 +1191,9 @@ sub product_child_item_info {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
-    'params' => {
+    'page_cursor' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'created_from' => {
-        data_type => 'string',
-        description => 'Retrieve entities from their creation date',
-        required => '0',
-    },
-    'created_to' => {
-        data_type => 'string',
-        description => 'Retrieve entities to their creation date',
-        required => '0',
-    },
-    'modified_from' => {
-        data_type => 'string',
-        description => 'Retrieve entities from their modification date',
-        required => '0',
-    },
-    'modified_to' => {
-        data_type => 'string',
-        description => 'Retrieve entities to their modification date',
+        description => 'Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
     'product_id' => {
@@ -1276,6 +1241,46 @@ sub product_child_item_info {
         description => 'Child products search that is specified by field',
         required => '0',
     },
+    'created_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their creation date',
+        required => '0',
+    },
+    'created_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their creation date',
+        required => '0',
+    },
+    'modified_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their modification date',
+        required => '0',
+    },
+    'modified_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their modification date',
+        required => '0',
+    },
+    'return_global' => {
+        data_type => 'boolean',
+        description => 'Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        required => '0',
+    },
     'report_request_id' => {
         data_type => 'string',
         description => 'Report request id',
@@ -1289,11 +1294,6 @@ sub product_child_item_info {
     'use_latest_api_version' => {
         data_type => 'boolean',
         description => 'Use the latest platform API version',
-        required => '0',
-    },
-    'return_global' => {
-        data_type => 'boolean',
-        description => 'Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.',
         required => '0',
     },
     };
@@ -1324,11 +1324,6 @@ sub product_child_item_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -1339,38 +1334,8 @@ sub product_child_item_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'created_from'}) {
-        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
-    }
-
-    # query params
-    if ( exists $args{'created_to'}) {
-        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
-    }
-
-    # query params
-    if ( exists $args{'modified_from'}) {
-        $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
-    }
-
-    # query params
-    if ( exists $args{'modified_to'}) {
-        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
     }
 
     # query params
@@ -1419,6 +1384,46 @@ sub product_child_item_list {
     }
 
     # query params
+    if ( exists $args{'created_from'}) {
+        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
+    }
+
+    # query params
+    if ( exists $args{'created_to'}) {
+        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
+    }
+
+    # query params
+    if ( exists $args{'modified_from'}) {
+        $query_params->{'modified_from'} = $self->{api_client}->to_query_value($args{'modified_from'});
+    }
+
+    # query params
+    if ( exists $args{'modified_to'}) {
+        $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
+    }
+
+    # query params
+    if ( exists $args{'return_global'}) {
+        $query_params->{'return_global'} = $self->{api_client}->to_query_value($args{'return_global'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    }
+
+    # query params
     if ( exists $args{'report_request_id'}) {
         $query_params->{'report_request_id'} = $self->{api_client}->to_query_value($args{'report_request_id'});
     }
@@ -1431,11 +1436,6 @@ sub product_child_item_list {
     # query params
     if ( exists $args{'use_latest_api_version'}) {
         $query_params->{'use_latest_api_version'} = $self->{api_client}->to_query_value($args{'use_latest_api_version'});
-    }
-
-    # query params
-    if ( exists $args{'return_global'}) {
-        $query_params->{'return_global'} = $self->{api_client}->to_query_value($args{'return_global'});
     }
 
     my $_body_data;
@@ -1458,33 +1458,68 @@ sub product_child_item_list {
 #
 # product.count
 #
+# @param string $product_ids Counts products specified by product ids (optional)
+# @param string $since_id Retrieve entities starting from the specified id. (optional)
+# @param string $categories_ids Defines product add that is specified by comma-separated categories id (optional)
 # @param string $category_id Counts products specified by category id (optional)
+# @param string $store_id Counts products specified by store id (optional)
+# @param string $lang_id Counts products specified by language id (optional)
+# @param boolean $avail_view Specifies the set of visible/invisible products (optional)
+# @param boolean $avail_sale Specifies the set of available/not available products for sale (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param boolean $avail_view Specifies the set of visible/invisible products (optional)
-# @param boolean $avail_sale Specifies the set of available/not available products for sale (optional)
-# @param string $store_id Counts products specified by store id (optional)
-# @param string $lang_id Counts products specified by language id (optional)
-# @param string $product_ids Counts products specified by product ids (optional)
-# @param string $since_id Retrieve entities starting from the specified id. (optional)
-# @param string $report_request_id Report request id (optional)
-# @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 # @param string $brand_name Retrieves brands specified by brand name (optional)
 # @param ARRAY[string] $product_attributes Defines product attributes (optional)
 # @param string $status Defines product&#39;s status (optional)
 # @param string $type Defines products&#39;s type (optional)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Counts products that are searched specified by field (optional)
-# @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
+# @param string $report_request_id Report request id (optional)
 # @param boolean $return_global Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. (optional, default to false)
-# @param string $categories_ids Defines product add that is specified by comma-separated categories id (optional)
+# @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
+# @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 {
     my $params = {
+    'product_ids' => {
+        data_type => 'string',
+        description => 'Counts products specified by product ids',
+        required => '0',
+    },
+    'since_id' => {
+        data_type => 'string',
+        description => 'Retrieve entities starting from the specified id.',
+        required => '0',
+    },
+    'categories_ids' => {
+        data_type => 'string',
+        description => 'Defines product add that is specified by comma-separated categories id',
+        required => '0',
+    },
     'category_id' => {
         data_type => 'string',
         description => 'Counts products specified by category id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Counts products specified by store id',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Counts products specified by language id',
+        required => '0',
+    },
+    'avail_view' => {
+        data_type => 'boolean',
+        description => 'Specifies the set of visible/invisible products',
+        required => '0',
+    },
+    'avail_sale' => {
+        data_type => 'boolean',
+        description => 'Specifies the set of available/not available products for sale',
         required => '0',
     },
     'created_from' => {
@@ -1505,46 +1540,6 @@ sub product_child_item_list {
     'modified_to' => {
         data_type => 'string',
         description => 'Retrieve entities to their modification date',
-        required => '0',
-    },
-    'avail_view' => {
-        data_type => 'boolean',
-        description => 'Specifies the set of visible/invisible products',
-        required => '0',
-    },
-    'avail_sale' => {
-        data_type => 'boolean',
-        description => 'Specifies the set of available/not available products for sale',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Counts products specified by store id',
-        required => '0',
-    },
-    'lang_id' => {
-        data_type => 'string',
-        description => 'Counts products specified by language id',
-        required => '0',
-    },
-    'product_ids' => {
-        data_type => 'string',
-        description => 'Counts products specified by product ids',
-        required => '0',
-    },
-    'since_id' => {
-        data_type => 'string',
-        description => 'Retrieve entities starting from the specified id.',
-        required => '0',
-    },
-    'report_request_id' => {
-        data_type => 'string',
-        description => 'Report request id',
-        required => '0',
-    },
-    'disable_report_cache' => {
-        data_type => 'boolean',
-        description => 'Disable report cache for current request',
         required => '0',
     },
     'brand_name' => {
@@ -1577,9 +1572,9 @@ sub product_child_item_list {
         description => 'Counts products that are searched specified by field',
         required => '0',
     },
-    'use_latest_api_version' => {
-        data_type => 'boolean',
-        description => 'Use the latest platform API version',
+    'report_request_id' => {
+        data_type => 'string',
+        description => 'Report request id',
         required => '0',
     },
     'return_global' => {
@@ -1587,9 +1582,14 @@ sub product_child_item_list {
         description => 'Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.',
         required => '0',
     },
-    'categories_ids' => {
-        data_type => 'string',
-        description => 'Defines product add that is specified by comma-separated categories id',
+    'disable_report_cache' => {
+        data_type => 'boolean',
+        description => 'Disable report cache for current request',
+        required => '0',
+    },
+    'use_latest_api_version' => {
+        data_type => 'boolean',
+        description => 'Use the latest platform API version',
         required => '0',
     },
     };
@@ -1620,8 +1620,43 @@ sub product_count {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'product_ids'}) {
+        $query_params->{'product_ids'} = $self->{api_client}->to_query_value($args{'product_ids'});
+    }
+
+    # query params
+    if ( exists $args{'since_id'}) {
+        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
+    }
+
+    # query params
+    if ( exists $args{'categories_ids'}) {
+        $query_params->{'categories_ids'} = $self->{api_client}->to_query_value($args{'categories_ids'});
+    }
+
+    # query params
     if ( exists $args{'category_id'}) {
         $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
+    if ( exists $args{'avail_view'}) {
+        $query_params->{'avail_view'} = $self->{api_client}->to_query_value($args{'avail_view'});
+    }
+
+    # query params
+    if ( exists $args{'avail_sale'}) {
+        $query_params->{'avail_sale'} = $self->{api_client}->to_query_value($args{'avail_sale'});
     }
 
     # query params
@@ -1642,46 +1677,6 @@ sub product_count {
     # query params
     if ( exists $args{'modified_to'}) {
         $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
-    }
-
-    # query params
-    if ( exists $args{'avail_view'}) {
-        $query_params->{'avail_view'} = $self->{api_client}->to_query_value($args{'avail_view'});
-    }
-
-    # query params
-    if ( exists $args{'avail_sale'}) {
-        $query_params->{'avail_sale'} = $self->{api_client}->to_query_value($args{'avail_sale'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
-    }
-
-    # query params
-    if ( exists $args{'product_ids'}) {
-        $query_params->{'product_ids'} = $self->{api_client}->to_query_value($args{'product_ids'});
-    }
-
-    # query params
-    if ( exists $args{'since_id'}) {
-        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
-    }
-
-    # query params
-    if ( exists $args{'report_request_id'}) {
-        $query_params->{'report_request_id'} = $self->{api_client}->to_query_value($args{'report_request_id'});
-    }
-
-    # query params
-    if ( exists $args{'disable_report_cache'}) {
-        $query_params->{'disable_report_cache'} = $self->{api_client}->to_query_value($args{'disable_report_cache'});
     }
 
     # query params
@@ -1715,8 +1710,8 @@ sub product_count {
     }
 
     # query params
-    if ( exists $args{'use_latest_api_version'}) {
-        $query_params->{'use_latest_api_version'} = $self->{api_client}->to_query_value($args{'use_latest_api_version'});
+    if ( exists $args{'report_request_id'}) {
+        $query_params->{'report_request_id'} = $self->{api_client}->to_query_value($args{'report_request_id'});
     }
 
     # query params
@@ -1725,8 +1720,13 @@ sub product_count {
     }
 
     # query params
-    if ( exists $args{'categories_ids'}) {
-        $query_params->{'categories_ids'} = $self->{api_client}->to_query_value($args{'categories_ids'});
+    if ( exists $args{'disable_report_cache'}) {
+        $query_params->{'disable_report_cache'} = $self->{api_client}->to_query_value($args{'disable_report_cache'});
+    }
+
+    # query params
+    if ( exists $args{'use_latest_api_version'}) {
+        $query_params->{'use_latest_api_version'} = $self->{api_client}->to_query_value($args{'use_latest_api_version'});
     }
 
     my $_body_data;
@@ -1887,12 +1887,12 @@ sub product_currency_add {
 #
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'name,iso3,default,avail')
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param boolean $default Specifies the set of default/not default currencies (optional)
 # @param boolean $avail Specifies the set of available/not available currencies (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'name,iso3,default,avail')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'start' => {
@@ -1905,24 +1905,9 @@ sub product_currency_add {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
     'page_cursor' => {
         data_type => 'string',
         description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'default' => {
@@ -1933,6 +1918,21 @@ sub product_currency_add {
     'avail' => {
         data_type => 'boolean',
         description => 'Specifies the set of available/not available currencies',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -1973,23 +1973,8 @@ sub product_currency_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
     if ( exists $args{'page_cursor'}) {
         $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -2000,6 +1985,21 @@ sub product_currency_list {
     # query params
     if ( exists $args{'avail'}) {
         $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -2492,12 +2492,12 @@ sub product_image_delete {
 # @param string $product_id Defines product id where the image should be updated (required)
 # @param string $id Defines image update specified by image id (required)
 # @param string $variant_ids Defines product&#39;s variants ids (optional)
+# @param string $store_id Store Id (optional)
+# @param string $lang_id Language id (optional)
 # @param string $image_name Defines image&#39;s name (optional)
 # @param string $type Defines image&#39;s types that are specified by comma-separated list (optional, default to 'additional')
 # @param string $label Defines alternative text that has to be attached to the picture (optional)
 # @param int $position Defines image’s position in the list (optional)
-# @param string $store_id Store Id (optional)
-# @param string $lang_id Language id (optional)
 # @param boolean $hidden Define is hide image (optional)
 {
     my $params = {
@@ -2514,6 +2514,16 @@ sub product_image_delete {
     'variant_ids' => {
         data_type => 'string',
         description => 'Defines product&#39;s variants ids',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Store Id',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
         required => '0',
     },
     'image_name' => {
@@ -2534,16 +2544,6 @@ sub product_image_delete {
     'position' => {
         data_type => 'int',
         description => 'Defines image’s position in the list',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Store Id',
-        required => '0',
-    },
-    'lang_id' => {
-        data_type => 'string',
-        description => 'Language id',
         required => '0',
     },
     'hidden' => {
@@ -2594,8 +2594,23 @@ sub product_image_update {
     }
 
     # query params
+    if ( exists $args{'id'}) {
+        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
+    }
+
+    # query params
     if ( exists $args{'variant_ids'}) {
         $query_params->{'variant_ids'} = $self->{api_client}->to_query_value($args{'variant_ids'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     # query params
@@ -2616,21 +2631,6 @@ sub product_image_update {
     # query params
     if ( exists $args{'position'}) {
         $query_params->{'position'} = $self->{api_client}->to_query_value($args{'position'});
-    }
-
-    # query params
-    if ( exists $args{'id'}) {
-        $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     # query params
@@ -2659,12 +2659,12 @@ sub product_image_update {
 # product.info
 #
 # @param string $id Retrieves product&#39;s info specified by product id (required)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price,categories_ids')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $store_id Retrieves product info specified by store id (optional)
 # @param string $lang_id Retrieves product info specified by language id (optional)
 # @param string $currency_id Currency Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price,categories_ids')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 # @param string $report_request_id Report request id (optional)
 # @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
@@ -2674,21 +2674,6 @@ sub product_image_update {
         data_type => 'string',
         description => 'Retrieves product&#39;s info specified by product id',
         required => '1',
-    },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
     },
     'store_id' => {
         data_type => 'string',
@@ -2703,6 +2688,21 @@ sub product_image_update {
     'currency_id' => {
         data_type => 'string',
         description => 'Currency Id',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     'report_request_id' => {
@@ -2758,21 +2758,6 @@ sub product_info {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
@@ -2785,6 +2770,21 @@ sub product_info {
     # query params
     if ( exists $args{'currency_id'}) {
         $query_params->{'currency_id'} = $self->{api_client}->to_query_value($args{'currency_id'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     # query params
@@ -2822,46 +2822,41 @@ sub product_info {
 #
 # product.list
 #
-# @param string $page_cursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price,categories_ids')
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+# @param string $page_cursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
+# @param string $product_ids Retrieves products specified by product ids (optional)
+# @param string $since_id Retrieve entities starting from the specified id. (optional)
+# @param string $categories_ids Retrieves products specified by categories ids (optional)
 # @param string $category_id Retrieves products specified by category id (optional)
+# @param string $store_id Retrieves products specified by store id (optional)
+# @param string $lang_id Retrieves products specified by language id (optional)
+# @param string $currency_id Currency Id (optional)
+# @param boolean $avail_view Specifies the set of visible/invisible products (optional)
+# @param boolean $avail_sale Specifies the set of available/not available products for sale (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param boolean $avail_view Specifies the set of visible/invisible products (optional)
-# @param boolean $avail_sale Specifies the set of available/not available products for sale (optional)
-# @param string $store_id Retrieves products specified by store id (optional)
-# @param string $lang_id Retrieves products specified by language id (optional)
-# @param string $currency_id Currency Id (optional)
-# @param string $product_ids Retrieves products specified by product ids (optional)
-# @param string $since_id Retrieve entities starting from the specified id. (optional)
-# @param string $report_request_id Report request id (optional)
-# @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
-# @param string $sort_by Set field to sort by (optional, default to 'id')
-# @param string $sort_direction Set sorting direction (optional, default to 'asc')
 # @param string $sku Filter by product&#39;s sku (optional)
-# @param boolean $disable_cache Disable cache for current request (optional, default to false)
 # @param string $brand_name Retrieves brands specified by brand name (optional)
 # @param ARRAY[string] $product_attributes Defines product attributes (optional)
 # @param string $status Defines product&#39;s status (optional)
 # @param string $type Defines products&#39;s type (optional)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Product search that is specified by field (optional)
-# @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 # @param boolean $return_global Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. (optional, default to false)
-# @param string $categories_ids Retrieves products specified by categories ids (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price,categories_ids')
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+# @param string $sort_by Set field to sort by (optional, default to 'id')
+# @param string $sort_direction Set sorting direction (optional, default to 'asc')
+# @param string $report_request_id Report request id (optional)
+# @param boolean $disable_cache Disable cache for current request (optional, default to false)
+# @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
+# @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 {
     my $params = {
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -2872,24 +2867,54 @@ sub product_info {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
-    'params' => {
+    'page_cursor' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
-    'response_fields' => {
+    'product_ids' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Retrieves products specified by product ids',
         required => '0',
     },
-    'exclude' => {
+    'since_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        description => 'Retrieve entities starting from the specified id.',
+        required => '0',
+    },
+    'categories_ids' => {
+        data_type => 'string',
+        description => 'Retrieves products specified by categories ids',
         required => '0',
     },
     'category_id' => {
         data_type => 'string',
         description => 'Retrieves products specified by category id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Retrieves products specified by store id',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Retrieves products specified by language id',
+        required => '0',
+    },
+    'currency_id' => {
+        data_type => 'string',
+        description => 'Currency Id',
+        required => '0',
+    },
+    'avail_view' => {
+        data_type => 'boolean',
+        description => 'Specifies the set of visible/invisible products',
+        required => '0',
+    },
+    'avail_sale' => {
+        data_type => 'boolean',
+        description => 'Specifies the set of available/not available products for sale',
         required => '0',
     },
     'created_from' => {
@@ -2912,69 +2937,9 @@ sub product_info {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'avail_view' => {
-        data_type => 'boolean',
-        description => 'Specifies the set of visible/invisible products',
-        required => '0',
-    },
-    'avail_sale' => {
-        data_type => 'boolean',
-        description => 'Specifies the set of available/not available products for sale',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Retrieves products specified by store id',
-        required => '0',
-    },
-    'lang_id' => {
-        data_type => 'string',
-        description => 'Retrieves products specified by language id',
-        required => '0',
-    },
-    'currency_id' => {
-        data_type => 'string',
-        description => 'Currency Id',
-        required => '0',
-    },
-    'product_ids' => {
-        data_type => 'string',
-        description => 'Retrieves products specified by product ids',
-        required => '0',
-    },
-    'since_id' => {
-        data_type => 'string',
-        description => 'Retrieve entities starting from the specified id.',
-        required => '0',
-    },
-    'report_request_id' => {
-        data_type => 'string',
-        description => 'Report request id',
-        required => '0',
-    },
-    'disable_report_cache' => {
-        data_type => 'boolean',
-        description => 'Disable report cache for current request',
-        required => '0',
-    },
-    'sort_by' => {
-        data_type => 'string',
-        description => 'Set field to sort by',
-        required => '0',
-    },
-    'sort_direction' => {
-        data_type => 'string',
-        description => 'Set sorting direction',
-        required => '0',
-    },
     'sku' => {
         data_type => 'string',
         description => 'Filter by product&#39;s sku',
-        required => '0',
-    },
-    'disable_cache' => {
-        data_type => 'boolean',
-        description => 'Disable cache for current request',
         required => '0',
     },
     'brand_name' => {
@@ -3007,19 +2972,54 @@ sub product_info {
         description => 'Product search that is specified by field',
         required => '0',
     },
-    'use_latest_api_version' => {
-        data_type => 'boolean',
-        description => 'Use the latest platform API version',
-        required => '0',
-    },
     'return_global' => {
         data_type => 'boolean',
         description => 'Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.',
         required => '0',
     },
-    'categories_ids' => {
+    'params' => {
         data_type => 'string',
-        description => 'Retrieves products specified by categories ids',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        required => '0',
+    },
+    'sort_by' => {
+        data_type => 'string',
+        description => 'Set field to sort by',
+        required => '0',
+    },
+    'sort_direction' => {
+        data_type => 'string',
+        description => 'Set sorting direction',
+        required => '0',
+    },
+    'report_request_id' => {
+        data_type => 'string',
+        description => 'Report request id',
+        required => '0',
+    },
+    'disable_cache' => {
+        data_type => 'boolean',
+        description => 'Disable cache for current request',
+        required => '0',
+    },
+    'disable_report_cache' => {
+        data_type => 'boolean',
+        description => 'Disable report cache for current request',
+        required => '0',
+    },
+    'use_latest_api_version' => {
+        data_type => 'boolean',
+        description => 'Use the latest platform API version',
         required => '0',
     },
     };
@@ -3050,11 +3050,6 @@ sub product_list {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
-    }
-
-    # query params
     if ( exists $args{'start'}) {
         $query_params->{'start'} = $self->{api_client}->to_query_value($args{'start'});
     }
@@ -3065,23 +3060,53 @@ sub product_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
     }
 
     # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    if ( exists $args{'product_ids'}) {
+        $query_params->{'product_ids'} = $self->{api_client}->to_query_value($args{'product_ids'});
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'since_id'}) {
+        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
+    }
+
+    # query params
+    if ( exists $args{'categories_ids'}) {
+        $query_params->{'categories_ids'} = $self->{api_client}->to_query_value($args{'categories_ids'});
     }
 
     # query params
     if ( exists $args{'category_id'}) {
         $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
+    if ( exists $args{'currency_id'}) {
+        $query_params->{'currency_id'} = $self->{api_client}->to_query_value($args{'currency_id'});
+    }
+
+    # query params
+    if ( exists $args{'avail_view'}) {
+        $query_params->{'avail_view'} = $self->{api_client}->to_query_value($args{'avail_view'});
+    }
+
+    # query params
+    if ( exists $args{'avail_sale'}) {
+        $query_params->{'avail_sale'} = $self->{api_client}->to_query_value($args{'avail_sale'});
     }
 
     # query params
@@ -3105,68 +3130,8 @@ sub product_list {
     }
 
     # query params
-    if ( exists $args{'avail_view'}) {
-        $query_params->{'avail_view'} = $self->{api_client}->to_query_value($args{'avail_view'});
-    }
-
-    # query params
-    if ( exists $args{'avail_sale'}) {
-        $query_params->{'avail_sale'} = $self->{api_client}->to_query_value($args{'avail_sale'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
-    }
-
-    # query params
-    if ( exists $args{'lang_id'}) {
-        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
-    }
-
-    # query params
-    if ( exists $args{'currency_id'}) {
-        $query_params->{'currency_id'} = $self->{api_client}->to_query_value($args{'currency_id'});
-    }
-
-    # query params
-    if ( exists $args{'product_ids'}) {
-        $query_params->{'product_ids'} = $self->{api_client}->to_query_value($args{'product_ids'});
-    }
-
-    # query params
-    if ( exists $args{'since_id'}) {
-        $query_params->{'since_id'} = $self->{api_client}->to_query_value($args{'since_id'});
-    }
-
-    # query params
-    if ( exists $args{'report_request_id'}) {
-        $query_params->{'report_request_id'} = $self->{api_client}->to_query_value($args{'report_request_id'});
-    }
-
-    # query params
-    if ( exists $args{'disable_report_cache'}) {
-        $query_params->{'disable_report_cache'} = $self->{api_client}->to_query_value($args{'disable_report_cache'});
-    }
-
-    # query params
-    if ( exists $args{'sort_by'}) {
-        $query_params->{'sort_by'} = $self->{api_client}->to_query_value($args{'sort_by'});
-    }
-
-    # query params
-    if ( exists $args{'sort_direction'}) {
-        $query_params->{'sort_direction'} = $self->{api_client}->to_query_value($args{'sort_direction'});
-    }
-
-    # query params
     if ( exists $args{'sku'}) {
         $query_params->{'sku'} = $self->{api_client}->to_query_value($args{'sku'});
-    }
-
-    # query params
-    if ( exists $args{'disable_cache'}) {
-        $query_params->{'disable_cache'} = $self->{api_client}->to_query_value($args{'disable_cache'});
     }
 
     # query params
@@ -3200,18 +3165,53 @@ sub product_list {
     }
 
     # query params
-    if ( exists $args{'use_latest_api_version'}) {
-        $query_params->{'use_latest_api_version'} = $self->{api_client}->to_query_value($args{'use_latest_api_version'});
-    }
-
-    # query params
     if ( exists $args{'return_global'}) {
         $query_params->{'return_global'} = $self->{api_client}->to_query_value($args{'return_global'});
     }
 
     # query params
-    if ( exists $args{'categories_ids'}) {
-        $query_params->{'categories_ids'} = $self->{api_client}->to_query_value($args{'categories_ids'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    }
+
+    # query params
+    if ( exists $args{'sort_by'}) {
+        $query_params->{'sort_by'} = $self->{api_client}->to_query_value($args{'sort_by'});
+    }
+
+    # query params
+    if ( exists $args{'sort_direction'}) {
+        $query_params->{'sort_direction'} = $self->{api_client}->to_query_value($args{'sort_direction'});
+    }
+
+    # query params
+    if ( exists $args{'report_request_id'}) {
+        $query_params->{'report_request_id'} = $self->{api_client}->to_query_value($args{'report_request_id'});
+    }
+
+    # query params
+    if ( exists $args{'disable_cache'}) {
+        $query_params->{'disable_cache'} = $self->{api_client}->to_query_value($args{'disable_cache'});
+    }
+
+    # query params
+    if ( exists $args{'disable_report_cache'}) {
+        $query_params->{'disable_report_cache'} = $self->{api_client}->to_query_value($args{'disable_report_cache'});
+    }
+
+    # query params
+    if ( exists $args{'use_latest_api_version'}) {
+        $query_params->{'use_latest_api_version'} = $self->{api_client}->to_query_value($args{'use_latest_api_version'});
     }
 
     my $_body_data;
@@ -3610,12 +3610,12 @@ sub product_option_delete {
 #
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description')
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $product_id Retrieves products&#39; options specified by product id (optional)
 # @param string $lang_id Language id (optional)
 # @param string $store_id Store Id (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'start' => {
@@ -3626,21 +3626,6 @@ sub product_option_delete {
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
-        required => '0',
-    },
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
-    'exclude' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'product_id' => {
@@ -3656,6 +3641,21 @@ sub product_option_delete {
     'store_id' => {
         data_type => 'string',
         description => 'Store Id',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
+    'exclude' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -3696,21 +3696,6 @@ sub product_option_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
-    }
-
-    # query params
     if ( exists $args{'product_id'}) {
         $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
     }
@@ -3723,6 +3708,21 @@ sub product_option_list {
     # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -4452,14 +4452,14 @@ sub product_price_update {
 #
 # @param string $product_id Product id (required)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
-# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
+# @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $ids Retrieves reviews specified by ids (optional)
 # @param string $store_id Store Id (optional)
 # @param string $status Defines status (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 {
     my $params = {
     'product_id' => {
@@ -4472,14 +4472,14 @@ sub product_price_update {
         description => 'This parameter sets the number from which you want to get entities',
         required => '0',
     },
-    'page_cursor' => {
-        data_type => 'string',
-        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
-        required => '0',
-    },
     'count' => {
         data_type => 'int',
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
+        required => '0',
+    },
+    'page_cursor' => {
+        data_type => 'string',
+        description => 'Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)',
         required => '0',
     },
     'ids' => {
@@ -4497,6 +4497,11 @@ sub product_price_update {
         description => 'Defines status',
         required => '0',
     },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     'params' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to retrieve',
@@ -4505,11 +4510,6 @@ sub product_price_update {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'response_fields' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     };
@@ -4550,13 +4550,13 @@ sub product_review_list {
     }
 
     # query params
-    if ( exists $args{'page_cursor'}) {
-        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
+    if ( exists $args{'count'}) {
+        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
     }
 
     # query params
-    if ( exists $args{'count'}) {
-        $query_params->{'count'} = $self->{api_client}->to_query_value($args{'count'});
+    if ( exists $args{'page_cursor'}) {
+        $query_params->{'page_cursor'} = $self->{api_client}->to_query_value($args{'page_cursor'});
     }
 
     # query params
@@ -4580,6 +4580,11 @@ sub product_review_list {
     }
 
     # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
+    }
+
+    # query params
     if ( exists $args{'params'}) {
         $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
@@ -4587,11 +4592,6 @@ sub product_review_list {
     # query params
     if ( exists $args{'exclude'}) {
         $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
-    if ( exists $args{'response_fields'}) {
-        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     my $_body_data;
@@ -5021,18 +5021,28 @@ sub product_variant_add_batch {
 # product.variant.count
 #
 # @param string $product_id Retrieves products&#39; variants specified by product id (required)
+# @param string $category_id Counts products’ variants specified by category id (optional)
+# @param string $store_id Retrieves variants specified by store id (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $category_id Counts products’ variants specified by category id (optional)
-# @param string $store_id Retrieves variants specified by store id (optional)
 {
     my $params = {
     'product_id' => {
         data_type => 'string',
         description => 'Retrieves products&#39; variants specified by product id',
         required => '1',
+    },
+    'category_id' => {
+        data_type => 'string',
+        description => 'Counts products’ variants specified by category id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Retrieves variants specified by store id',
+        required => '0',
     },
     'created_from' => {
         data_type => 'string',
@@ -5052,16 +5062,6 @@ sub product_variant_add_batch {
     'modified_to' => {
         data_type => 'string',
         description => 'Retrieve entities to their modification date',
-        required => '0',
-    },
-    'category_id' => {
-        data_type => 'string',
-        description => 'Counts products’ variants specified by category id',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Retrieves variants specified by store id',
         required => '0',
     },
     };
@@ -5097,6 +5097,21 @@ sub product_variant_count {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'product_id'}) {
+        $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
+    }
+
+    # query params
+    if ( exists $args{'category_id'}) {
+        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
     if ( exists $args{'created_from'}) {
         $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
     }
@@ -5114,21 +5129,6 @@ sub product_variant_count {
     # query params
     if ( exists $args{'modified_to'}) {
         $query_params->{'modified_to'} = $self->{api_client}->to_query_value($args{'modified_to'});
-    }
-
-    # query params
-    if ( exists $args{'category_id'}) {
-        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
-    }
-
-    # query params
-    if ( exists $args{'product_id'}) {
-        $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     my $_body_data;
@@ -5482,15 +5482,20 @@ sub product_variant_image_delete {
 # product.variant.info
 #
 # @param string $id Retrieves variant&#39;s info specified by variant id (required)
+# @param string $store_id Retrieves variant info specified by store id (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
-# @param string $store_id Retrieves variant info specified by store id (optional)
 {
     my $params = {
     'id' => {
         data_type => 'string',
         description => 'Retrieves variant&#39;s info specified by variant id',
         required => '1',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Retrieves variant info specified by store id',
+        required => '0',
     },
     'params' => {
         data_type => 'string',
@@ -5500,11 +5505,6 @@ sub product_variant_image_delete {
     'exclude' => {
         data_type => 'string',
         description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Retrieves variant info specified by store id',
         required => '0',
     },
     };
@@ -5540,16 +5540,6 @@ sub product_variant_info {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
-
-    # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
-    }
-
-    # query params
     if ( exists $args{'id'}) {
         $query_params->{'id'} = $self->{api_client}->to_query_value($args{'id'});
     }
@@ -5557,6 +5547,16 @@ sub product_variant_info {
     # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    }
+
+    # query params
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;
@@ -5581,15 +5581,15 @@ sub product_variant_info {
 #
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price')
-# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
+# @param string $product_id Retrieves products&#39; variants specified by product id (optional)
+# @param string $category_id Retrieves products’ variants specified by category id (optional)
+# @param string $store_id Retrieves variants specified by store id (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
 # @param string $created_to Retrieve entities to their creation date (optional)
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
-# @param string $category_id Retrieves products’ variants specified by category id (optional)
-# @param string $product_id Retrieves products&#39; variants specified by product id (optional)
-# @param string $store_id Retrieves variants specified by store id (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,name,description,price')
+# @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
     'start' => {
@@ -5602,14 +5602,19 @@ sub product_variant_info {
         description => 'This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250',
         required => '0',
     },
-    'params' => {
+    'product_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        description => 'Retrieves products&#39; variants specified by product id',
         required => '0',
     },
-    'exclude' => {
+    'category_id' => {
         data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
+        description => 'Retrieves products’ variants specified by category id',
+        required => '0',
+    },
+    'store_id' => {
+        data_type => 'string',
+        description => 'Retrieves variants specified by store id',
         required => '0',
     },
     'created_from' => {
@@ -5632,19 +5637,14 @@ sub product_variant_info {
         description => 'Retrieve entities to their modification date',
         required => '0',
     },
-    'category_id' => {
+    'params' => {
         data_type => 'string',
-        description => 'Retrieves products’ variants specified by category id',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
-    'product_id' => {
+    'exclude' => {
         data_type => 'string',
-        description => 'Retrieves products&#39; variants specified by product id',
-        required => '0',
-    },
-    'store_id' => {
-        data_type => 'string',
-        description => 'Retrieves variants specified by store id',
+        description => 'Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all',
         required => '0',
     },
     };
@@ -5685,13 +5685,18 @@ sub product_variant_list {
     }
 
     # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
+    if ( exists $args{'product_id'}) {
+        $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
     }
 
     # query params
-    if ( exists $args{'exclude'}) {
-        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
+    if ( exists $args{'category_id'}) {
+        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    }
+
+    # query params
+    if ( exists $args{'store_id'}) {
+        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
     }
 
     # query params
@@ -5715,18 +5720,13 @@ sub product_variant_list {
     }
 
     # query params
-    if ( exists $args{'category_id'}) {
-        $query_params->{'category_id'} = $self->{api_client}->to_query_value($args{'category_id'});
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     # query params
-    if ( exists $args{'product_id'}) {
-        $query_params->{'product_id'} = $self->{api_client}->to_query_value($args{'product_id'});
-    }
-
-    # query params
-    if ( exists $args{'store_id'}) {
-        $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    if ( exists $args{'exclude'}) {
+        $query_params->{'exclude'} = $self->{api_client}->to_query_value($args{'exclude'});
     }
 
     my $_body_data;

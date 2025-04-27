@@ -220,17 +220,17 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'store_id' => {
-        datatype => 'string',
-        base_name => 'store_id',
-        description => 'Store Id',
-        format => '',
-        read_only => '',
-            },
     'warehouse_id' => {
         datatype => 'string',
         base_name => 'warehouse_id',
         description => 'This parameter is used for selecting a warehouse where you need to set/modify a product quantity.',
+        format => '',
+        read_only => '',
+            },
+    'customer_id' => {
+        datatype => 'string',
+        base_name => 'customer_id',
+        description => 'Retrieves orders specified by customer id',
         format => '',
         read_only => '',
             },
@@ -241,10 +241,10 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'customer_id' => {
+    'store_id' => {
         datatype => 'string',
-        base_name => 'customer_id',
-        description => 'Retrieves orders specified by customer id',
+        base_name => 'store_id',
+        description => 'Store Id',
         format => '',
         read_only => '',
             },
@@ -307,10 +307,10 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'store_id' => 'string',
     'warehouse_id' => 'string',
-    'customer_email' => 'string',
     'customer_id' => 'string',
+    'customer_email' => 'string',
+    'store_id' => 'string',
     'shipp_address_1' => 'string',
     'shipp_city' => 'string',
     'shipp_postcode' => 'string',
@@ -322,10 +322,10 @@ __PACKAGE__->openapi_types( {
 } );
 
 __PACKAGE__->attribute_map( {
-    'store_id' => 'store_id',
     'warehouse_id' => 'warehouse_id',
-    'customer_email' => 'customer_email',
     'customer_id' => 'customer_id',
+    'customer_email' => 'customer_email',
+    'store_id' => 'store_id',
     'shipp_address_1' => 'shipp_address_1',
     'shipp_city' => 'shipp_city',
     'shipp_postcode' => 'shipp_postcode',

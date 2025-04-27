@@ -385,20 +385,15 @@ sub webhook_events {
 #
 # webhook.list
 #
-# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,entity,action,callback')
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $entity The entity you want to filter webhooks by (e.g. order or product) (optional)
 # @param string $action The action you want to filter webhooks by (e.g. add, update, or delete) (optional)
 # @param boolean $active The webhook status you want to filter webhooks by (optional)
 # @param string $ids List of сomma-separated webhook ids (optional)
+# @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,entity,action,callback')
 {
     my $params = {
-    'params' => {
-        data_type => 'string',
-        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
-        required => '0',
-    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -429,6 +424,11 @@ sub webhook_events {
         description => 'List of сomma-separated webhook ids',
         required => '0',
     },
+    'params' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'webhook_list' } = {
         summary => 'webhook.list',
@@ -455,11 +455,6 @@ sub webhook_list {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'params'}) {
-        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
-    }
 
     # query params
     if ( exists $args{'start'}) {
@@ -489,6 +484,11 @@ sub webhook_list {
     # query params
     if ( exists $args{'ids'}) {
         $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
+
+    # query params
+    if ( exists $args{'params'}) {
+        $query_params->{'params'} = $self->{api_client}->to_query_value($args{'params'});
     }
 
     my $_body_data;

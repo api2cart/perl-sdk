@@ -45,14 +45,14 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 # cart_catalog_price_rules_list test
 #
 # uncomment below and update the test
-#my $cart_catalog_price_rules_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_start = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_count = undef; # replace NULL with a proper value
+#my $cart_catalog_price_rules_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_ids = undef; # replace NULL with a proper value
-#my $cart_catalog_price_rules_list_params = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_response_fields = undef; # replace NULL with a proper value
+#my $cart_catalog_price_rules_list_params = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_exclude = undef; # replace NULL with a proper value
-#my $cart_catalog_price_rules_list_result = $api->cart_catalog_price_rules_list(page_cursor => $cart_catalog_price_rules_list_page_cursor, start => $cart_catalog_price_rules_list_start, count => $cart_catalog_price_rules_list_count, ids => $cart_catalog_price_rules_list_ids, params => $cart_catalog_price_rules_list_params, response_fields => $cart_catalog_price_rules_list_response_fields, exclude => $cart_catalog_price_rules_list_exclude);
+#my $cart_catalog_price_rules_list_result = $api->cart_catalog_price_rules_list(start => $cart_catalog_price_rules_list_start, count => $cart_catalog_price_rules_list_count, page_cursor => $cart_catalog_price_rules_list_page_cursor, ids => $cart_catalog_price_rules_list_ids, response_fields => $cart_catalog_price_rules_list_response_fields, params => $cart_catalog_price_rules_list_params, exclude => $cart_catalog_price_rules_list_exclude);
 
 #
 # cart_clear_cache test
@@ -92,23 +92,23 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 #my $cart_coupon_condition_add_key = undef; # replace NULL with a proper value
 #my $cart_coupon_condition_add_operator = undef; # replace NULL with a proper value
 #my $cart_coupon_condition_add_value = undef; # replace NULL with a proper value
-#my $cart_coupon_condition_add_store_id = undef; # replace NULL with a proper value
 #my $cart_coupon_condition_add_target = undef; # replace NULL with a proper value
 #my $cart_coupon_condition_add_include_tax = undef; # replace NULL with a proper value
 #my $cart_coupon_condition_add_include_shipping = undef; # replace NULL with a proper value
-#my $cart_coupon_condition_add_result = $api->cart_coupon_condition_add(coupon_id => $cart_coupon_condition_add_coupon_id, entity => $cart_coupon_condition_add_entity, key => $cart_coupon_condition_add_key, operator => $cart_coupon_condition_add_operator, value => $cart_coupon_condition_add_value, store_id => $cart_coupon_condition_add_store_id, target => $cart_coupon_condition_add_target, include_tax => $cart_coupon_condition_add_include_tax, include_shipping => $cart_coupon_condition_add_include_shipping);
+#my $cart_coupon_condition_add_store_id = undef; # replace NULL with a proper value
+#my $cart_coupon_condition_add_result = $api->cart_coupon_condition_add(coupon_id => $cart_coupon_condition_add_coupon_id, entity => $cart_coupon_condition_add_entity, key => $cart_coupon_condition_add_key, operator => $cart_coupon_condition_add_operator, value => $cart_coupon_condition_add_value, target => $cart_coupon_condition_add_target, include_tax => $cart_coupon_condition_add_include_tax, include_shipping => $cart_coupon_condition_add_include_shipping, store_id => $cart_coupon_condition_add_store_id);
 
 #
 # cart_coupon_count test
 #
 # uncomment below and update the test
 #my $cart_coupon_count_store_id = undef; # replace NULL with a proper value
+#my $cart_coupon_count_avail = undef; # replace NULL with a proper value
 #my $cart_coupon_count_date_start_from = undef; # replace NULL with a proper value
 #my $cart_coupon_count_date_start_to = undef; # replace NULL with a proper value
 #my $cart_coupon_count_date_end_from = undef; # replace NULL with a proper value
 #my $cart_coupon_count_date_end_to = undef; # replace NULL with a proper value
-#my $cart_coupon_count_avail = undef; # replace NULL with a proper value
-#my $cart_coupon_count_result = $api->cart_coupon_count(store_id => $cart_coupon_count_store_id, date_start_from => $cart_coupon_count_date_start_from, date_start_to => $cart_coupon_count_date_start_to, date_end_from => $cart_coupon_count_date_end_from, date_end_to => $cart_coupon_count_date_end_to, avail => $cart_coupon_count_avail);
+#my $cart_coupon_count_result = $api->cart_coupon_count(store_id => $cart_coupon_count_store_id, avail => $cart_coupon_count_avail, date_start_from => $cart_coupon_count_date_start_from, date_start_to => $cart_coupon_count_date_start_to, date_end_from => $cart_coupon_count_date_end_from, date_end_to => $cart_coupon_count_date_end_to);
 
 #
 # cart_coupon_delete test
@@ -122,21 +122,21 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 # cart_coupon_list test
 #
 # uncomment below and update the test
-#my $cart_coupon_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_coupon_list_start = undef; # replace NULL with a proper value
 #my $cart_coupon_list_count = undef; # replace NULL with a proper value
+#my $cart_coupon_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_coupon_list_coupons_ids = undef; # replace NULL with a proper value
 #my $cart_coupon_list_store_id = undef; # replace NULL with a proper value
+#my $cart_coupon_list_lang_id = undef; # replace NULL with a proper value
+#my $cart_coupon_list_avail = undef; # replace NULL with a proper value
 #my $cart_coupon_list_date_start_from = undef; # replace NULL with a proper value
 #my $cart_coupon_list_date_start_to = undef; # replace NULL with a proper value
 #my $cart_coupon_list_date_end_from = undef; # replace NULL with a proper value
 #my $cart_coupon_list_date_end_to = undef; # replace NULL with a proper value
-#my $cart_coupon_list_avail = undef; # replace NULL with a proper value
-#my $cart_coupon_list_lang_id = undef; # replace NULL with a proper value
-#my $cart_coupon_list_params = undef; # replace NULL with a proper value
 #my $cart_coupon_list_response_fields = undef; # replace NULL with a proper value
+#my $cart_coupon_list_params = undef; # replace NULL with a proper value
 #my $cart_coupon_list_exclude = undef; # replace NULL with a proper value
-#my $cart_coupon_list_result = $api->cart_coupon_list(page_cursor => $cart_coupon_list_page_cursor, start => $cart_coupon_list_start, count => $cart_coupon_list_count, coupons_ids => $cart_coupon_list_coupons_ids, store_id => $cart_coupon_list_store_id, date_start_from => $cart_coupon_list_date_start_from, date_start_to => $cart_coupon_list_date_start_to, date_end_from => $cart_coupon_list_date_end_from, date_end_to => $cart_coupon_list_date_end_to, avail => $cart_coupon_list_avail, lang_id => $cart_coupon_list_lang_id, params => $cart_coupon_list_params, response_fields => $cart_coupon_list_response_fields, exclude => $cart_coupon_list_exclude);
+#my $cart_coupon_list_result = $api->cart_coupon_list(start => $cart_coupon_list_start, count => $cart_coupon_list_count, page_cursor => $cart_coupon_list_page_cursor, coupons_ids => $cart_coupon_list_coupons_ids, store_id => $cart_coupon_list_store_id, lang_id => $cart_coupon_list_lang_id, avail => $cart_coupon_list_avail, date_start_from => $cart_coupon_list_date_start_from, date_start_to => $cart_coupon_list_date_start_to, date_end_from => $cart_coupon_list_date_end_from, date_end_to => $cart_coupon_list_date_end_to, response_fields => $cart_coupon_list_response_fields, params => $cart_coupon_list_params, exclude => $cart_coupon_list_exclude);
 
 #
 # cart_create test
@@ -189,24 +189,24 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 # cart_giftcard_list test
 #
 # uncomment below and update the test
-#my $cart_giftcard_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_giftcard_list_start = undef; # replace NULL with a proper value
 #my $cart_giftcard_list_count = undef; # replace NULL with a proper value
+#my $cart_giftcard_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_giftcard_list_store_id = undef; # replace NULL with a proper value
-#my $cart_giftcard_list_params = undef; # replace NULL with a proper value
 #my $cart_giftcard_list_response_fields = undef; # replace NULL with a proper value
+#my $cart_giftcard_list_params = undef; # replace NULL with a proper value
 #my $cart_giftcard_list_exclude = undef; # replace NULL with a proper value
-#my $cart_giftcard_list_result = $api->cart_giftcard_list(page_cursor => $cart_giftcard_list_page_cursor, start => $cart_giftcard_list_start, count => $cart_giftcard_list_count, store_id => $cart_giftcard_list_store_id, params => $cart_giftcard_list_params, response_fields => $cart_giftcard_list_response_fields, exclude => $cart_giftcard_list_exclude);
+#my $cart_giftcard_list_result = $api->cart_giftcard_list(start => $cart_giftcard_list_start, count => $cart_giftcard_list_count, page_cursor => $cart_giftcard_list_page_cursor, store_id => $cart_giftcard_list_store_id, response_fields => $cart_giftcard_list_response_fields, params => $cart_giftcard_list_params, exclude => $cart_giftcard_list_exclude);
 
 #
 # cart_info test
 #
 # uncomment below and update the test
-#my $cart_info_params = undef; # replace NULL with a proper value
-#my $cart_info_response_fields = undef; # replace NULL with a proper value
-#my $cart_info_exclude = undef; # replace NULL with a proper value
 #my $cart_info_store_id = undef; # replace NULL with a proper value
-#my $cart_info_result = $api->cart_info(params => $cart_info_params, response_fields => $cart_info_response_fields, exclude => $cart_info_exclude, store_id => $cart_info_store_id);
+#my $cart_info_response_fields = undef; # replace NULL with a proper value
+#my $cart_info_params = undef; # replace NULL with a proper value
+#my $cart_info_exclude = undef; # replace NULL with a proper value
+#my $cart_info_result = $api->cart_info(store_id => $cart_info_store_id, response_fields => $cart_info_response_fields, params => $cart_info_params, exclude => $cart_info_exclude);
 
 #
 # cart_list test
@@ -219,16 +219,16 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 #
 # uncomment below and update the test
 #my $cart_meta_data_list_entity_id = undef; # replace NULL with a proper value
+#my $cart_meta_data_list_count = undef; # replace NULL with a proper value
+#my $cart_meta_data_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_meta_data_list_entity = undef; # replace NULL with a proper value
 #my $cart_meta_data_list_store_id = undef; # replace NULL with a proper value
 #my $cart_meta_data_list_lang_id = undef; # replace NULL with a proper value
 #my $cart_meta_data_list_key = undef; # replace NULL with a proper value
-#my $cart_meta_data_list_count = undef; # replace NULL with a proper value
-#my $cart_meta_data_list_page_cursor = undef; # replace NULL with a proper value
-#my $cart_meta_data_list_params = undef; # replace NULL with a proper value
 #my $cart_meta_data_list_response_fields = undef; # replace NULL with a proper value
+#my $cart_meta_data_list_params = undef; # replace NULL with a proper value
 #my $cart_meta_data_list_exclude = undef; # replace NULL with a proper value
-#my $cart_meta_data_list_result = $api->cart_meta_data_list(entity_id => $cart_meta_data_list_entity_id, entity => $cart_meta_data_list_entity, store_id => $cart_meta_data_list_store_id, lang_id => $cart_meta_data_list_lang_id, key => $cart_meta_data_list_key, count => $cart_meta_data_list_count, page_cursor => $cart_meta_data_list_page_cursor, params => $cart_meta_data_list_params, response_fields => $cart_meta_data_list_response_fields, exclude => $cart_meta_data_list_exclude);
+#my $cart_meta_data_list_result = $api->cart_meta_data_list(entity_id => $cart_meta_data_list_entity_id, count => $cart_meta_data_list_count, page_cursor => $cart_meta_data_list_page_cursor, entity => $cart_meta_data_list_entity, store_id => $cart_meta_data_list_store_id, lang_id => $cart_meta_data_list_lang_id, key => $cart_meta_data_list_key, response_fields => $cart_meta_data_list_response_fields, params => $cart_meta_data_list_params, exclude => $cart_meta_data_list_exclude);
 
 #
 # cart_meta_data_set test
@@ -264,10 +264,10 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 # cart_plugin_list test
 #
 # uncomment below and update the test
-#my $cart_plugin_list_store_id = undef; # replace NULL with a proper value
 #my $cart_plugin_list_start = undef; # replace NULL with a proper value
 #my $cart_plugin_list_count = undef; # replace NULL with a proper value
-#my $cart_plugin_list_result = $api->cart_plugin_list(store_id => $cart_plugin_list_store_id, start => $cart_plugin_list_start, count => $cart_plugin_list_count);
+#my $cart_plugin_list_store_id = undef; # replace NULL with a proper value
+#my $cart_plugin_list_result = $api->cart_plugin_list(start => $cart_plugin_list_start, count => $cart_plugin_list_count, store_id => $cart_plugin_list_store_id);
 
 #
 # cart_script_add test
@@ -295,31 +295,31 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 # cart_script_list test
 #
 # uncomment below and update the test
-#my $cart_script_list_page_cursor = undef; # replace NULL with a proper value
 #my $cart_script_list_start = undef; # replace NULL with a proper value
 #my $cart_script_list_count = undef; # replace NULL with a proper value
+#my $cart_script_list_page_cursor = undef; # replace NULL with a proper value
+#my $cart_script_list_script_ids = undef; # replace NULL with a proper value
+#my $cart_script_list_store_id = undef; # replace NULL with a proper value
 #my $cart_script_list_created_from = undef; # replace NULL with a proper value
 #my $cart_script_list_created_to = undef; # replace NULL with a proper value
 #my $cart_script_list_modified_from = undef; # replace NULL with a proper value
 #my $cart_script_list_modified_to = undef; # replace NULL with a proper value
-#my $cart_script_list_script_ids = undef; # replace NULL with a proper value
-#my $cart_script_list_store_id = undef; # replace NULL with a proper value
-#my $cart_script_list_params = undef; # replace NULL with a proper value
 #my $cart_script_list_response_fields = undef; # replace NULL with a proper value
+#my $cart_script_list_params = undef; # replace NULL with a proper value
 #my $cart_script_list_exclude = undef; # replace NULL with a proper value
-#my $cart_script_list_result = $api->cart_script_list(page_cursor => $cart_script_list_page_cursor, start => $cart_script_list_start, count => $cart_script_list_count, created_from => $cart_script_list_created_from, created_to => $cart_script_list_created_to, modified_from => $cart_script_list_modified_from, modified_to => $cart_script_list_modified_to, script_ids => $cart_script_list_script_ids, store_id => $cart_script_list_store_id, params => $cart_script_list_params, response_fields => $cart_script_list_response_fields, exclude => $cart_script_list_exclude);
+#my $cart_script_list_result = $api->cart_script_list(start => $cart_script_list_start, count => $cart_script_list_count, page_cursor => $cart_script_list_page_cursor, script_ids => $cart_script_list_script_ids, store_id => $cart_script_list_store_id, created_from => $cart_script_list_created_from, created_to => $cart_script_list_created_to, modified_from => $cart_script_list_modified_from, modified_to => $cart_script_list_modified_to, response_fields => $cart_script_list_response_fields, params => $cart_script_list_params, exclude => $cart_script_list_exclude);
 
 #
 # cart_shipping_zones_list test
 #
 # uncomment below and update the test
-#my $cart_shipping_zones_list_store_id = undef; # replace NULL with a proper value
 #my $cart_shipping_zones_list_start = undef; # replace NULL with a proper value
 #my $cart_shipping_zones_list_count = undef; # replace NULL with a proper value
-#my $cart_shipping_zones_list_params = undef; # replace NULL with a proper value
+#my $cart_shipping_zones_list_store_id = undef; # replace NULL with a proper value
 #my $cart_shipping_zones_list_response_fields = undef; # replace NULL with a proper value
+#my $cart_shipping_zones_list_params = undef; # replace NULL with a proper value
 #my $cart_shipping_zones_list_exclude = undef; # replace NULL with a proper value
-#my $cart_shipping_zones_list_result = $api->cart_shipping_zones_list(store_id => $cart_shipping_zones_list_store_id, start => $cart_shipping_zones_list_start, count => $cart_shipping_zones_list_count, params => $cart_shipping_zones_list_params, response_fields => $cart_shipping_zones_list_response_fields, exclude => $cart_shipping_zones_list_exclude);
+#my $cart_shipping_zones_list_result = $api->cart_shipping_zones_list(start => $cart_shipping_zones_list_start, count => $cart_shipping_zones_list_count, store_id => $cart_shipping_zones_list_store_id, response_fields => $cart_shipping_zones_list_response_fields, params => $cart_shipping_zones_list_params, exclude => $cart_shipping_zones_list_exclude);
 
 #
 # cart_validate test

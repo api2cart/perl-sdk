@@ -34,21 +34,21 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 #
 # uncomment below and update the test
 #my $category_add_name = undef; # replace NULL with a proper value
-#my $category_add_parent_id = undef; # replace NULL with a proper value
-#my $category_add_stores_ids = undef; # replace NULL with a proper value
-#my $category_add_store_id = undef; # replace NULL with a proper value
-#my $category_add_lang_id = undef; # replace NULL with a proper value
-#my $category_add_avail = undef; # replace NULL with a proper value
-#my $category_add_sort_order = undef; # replace NULL with a proper value
-#my $category_add_created_time = undef; # replace NULL with a proper value
-#my $category_add_modified_time = undef; # replace NULL with a proper value
 #my $category_add_description = undef; # replace NULL with a proper value
 #my $category_add_short_description = undef; # replace NULL with a proper value
+#my $category_add_parent_id = undef; # replace NULL with a proper value
+#my $category_add_avail = undef; # replace NULL with a proper value
+#my $category_add_created_time = undef; # replace NULL with a proper value
+#my $category_add_modified_time = undef; # replace NULL with a proper value
+#my $category_add_sort_order = undef; # replace NULL with a proper value
 #my $category_add_meta_title = undef; # replace NULL with a proper value
 #my $category_add_meta_description = undef; # replace NULL with a proper value
 #my $category_add_meta_keywords = undef; # replace NULL with a proper value
 #my $category_add_seo_url = undef; # replace NULL with a proper value
-#my $category_add_result = $api->category_add(name => $category_add_name, parent_id => $category_add_parent_id, stores_ids => $category_add_stores_ids, store_id => $category_add_store_id, lang_id => $category_add_lang_id, avail => $category_add_avail, sort_order => $category_add_sort_order, created_time => $category_add_created_time, modified_time => $category_add_modified_time, description => $category_add_description, short_description => $category_add_short_description, meta_title => $category_add_meta_title, meta_description => $category_add_meta_description, meta_keywords => $category_add_meta_keywords, seo_url => $category_add_seo_url);
+#my $category_add_store_id = undef; # replace NULL with a proper value
+#my $category_add_stores_ids = undef; # replace NULL with a proper value
+#my $category_add_lang_id = undef; # replace NULL with a proper value
+#my $category_add_result = $api->category_add(name => $category_add_name, description => $category_add_description, short_description => $category_add_short_description, parent_id => $category_add_parent_id, avail => $category_add_avail, created_time => $category_add_created_time, modified_time => $category_add_modified_time, sort_order => $category_add_sort_order, meta_title => $category_add_meta_title, meta_description => $category_add_meta_description, meta_keywords => $category_add_meta_keywords, seo_url => $category_add_seo_url, store_id => $category_add_store_id, stores_ids => $category_add_stores_ids, lang_id => $category_add_lang_id);
 
 #
 # category_add_batch test
@@ -61,10 +61,10 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 # category_assign test
 #
 # uncomment below and update the test
-#my $category_assign_product_id = undef; # replace NULL with a proper value
 #my $category_assign_category_id = undef; # replace NULL with a proper value
+#my $category_assign_product_id = undef; # replace NULL with a proper value
 #my $category_assign_store_id = undef; # replace NULL with a proper value
-#my $category_assign_result = $api->category_assign(product_id => $category_assign_product_id, category_id => $category_assign_category_id, store_id => $category_assign_store_id);
+#my $category_assign_result = $api->category_assign(category_id => $category_assign_category_id, product_id => $category_assign_product_id, store_id => $category_assign_store_id);
 
 #
 # category_count test
@@ -73,17 +73,17 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 #my $category_count_parent_id = undef; # replace NULL with a proper value
 #my $category_count_store_id = undef; # replace NULL with a proper value
 #my $category_count_lang_id = undef; # replace NULL with a proper value
+#my $category_count_avail = undef; # replace NULL with a proper value
 #my $category_count_created_from = undef; # replace NULL with a proper value
 #my $category_count_created_to = undef; # replace NULL with a proper value
 #my $category_count_modified_from = undef; # replace NULL with a proper value
 #my $category_count_modified_to = undef; # replace NULL with a proper value
-#my $category_count_avail = undef; # replace NULL with a proper value
 #my $category_count_product_type = undef; # replace NULL with a proper value
 #my $category_count_find_value = undef; # replace NULL with a proper value
 #my $category_count_find_where = undef; # replace NULL with a proper value
 #my $category_count_report_request_id = undef; # replace NULL with a proper value
 #my $category_count_disable_report_cache = undef; # replace NULL with a proper value
-#my $category_count_result = $api->category_count(parent_id => $category_count_parent_id, store_id => $category_count_store_id, lang_id => $category_count_lang_id, created_from => $category_count_created_from, created_to => $category_count_created_to, modified_from => $category_count_modified_from, modified_to => $category_count_modified_to, avail => $category_count_avail, product_type => $category_count_product_type, find_value => $category_count_find_value, find_where => $category_count_find_where, report_request_id => $category_count_report_request_id, disable_report_cache => $category_count_disable_report_cache);
+#my $category_count_result = $api->category_count(parent_id => $category_count_parent_id, store_id => $category_count_store_id, lang_id => $category_count_lang_id, avail => $category_count_avail, created_from => $category_count_created_from, created_to => $category_count_created_to, modified_from => $category_count_modified_from, modified_to => $category_count_modified_to, product_type => $category_count_product_type, find_value => $category_count_find_value, find_where => $category_count_find_where, report_request_id => $category_count_report_request_id, disable_report_cache => $category_count_disable_report_cache);
 
 #
 # category_delete test
@@ -112,11 +112,11 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 #my $category_image_add_image_name = undef; # replace NULL with a proper value
 #my $category_image_add_url = undef; # replace NULL with a proper value
 #my $category_image_add_type = undef; # replace NULL with a proper value
+#my $category_image_add_store_id = undef; # replace NULL with a proper value
 #my $category_image_add_label = undef; # replace NULL with a proper value
 #my $category_image_add_mime = undef; # replace NULL with a proper value
 #my $category_image_add_position = undef; # replace NULL with a proper value
-#my $category_image_add_store_id = undef; # replace NULL with a proper value
-#my $category_image_add_result = $api->category_image_add(category_id => $category_image_add_category_id, image_name => $category_image_add_image_name, url => $category_image_add_url, type => $category_image_add_type, label => $category_image_add_label, mime => $category_image_add_mime, position => $category_image_add_position, store_id => $category_image_add_store_id);
+#my $category_image_add_result = $api->category_image_add(category_id => $category_image_add_category_id, image_name => $category_image_add_image_name, url => $category_image_add_url, type => $category_image_add_type, store_id => $category_image_add_store_id, label => $category_image_add_label, mime => $category_image_add_mime, position => $category_image_add_position);
 
 #
 # category_image_delete test
@@ -132,15 +132,15 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 #
 # uncomment below and update the test
 #my $category_info_id = undef; # replace NULL with a proper value
-#my $category_info_params = undef; # replace NULL with a proper value
-#my $category_info_response_fields = undef; # replace NULL with a proper value
-#my $category_info_exclude = undef; # replace NULL with a proper value
 #my $category_info_store_id = undef; # replace NULL with a proper value
 #my $category_info_lang_id = undef; # replace NULL with a proper value
 #my $category_info_schema_type = undef; # replace NULL with a proper value
+#my $category_info_response_fields = undef; # replace NULL with a proper value
+#my $category_info_params = undef; # replace NULL with a proper value
+#my $category_info_exclude = undef; # replace NULL with a proper value
 #my $category_info_report_request_id = undef; # replace NULL with a proper value
 #my $category_info_disable_report_cache = undef; # replace NULL with a proper value
-#my $category_info_result = $api->category_info(id => $category_info_id, params => $category_info_params, response_fields => $category_info_response_fields, exclude => $category_info_exclude, store_id => $category_info_store_id, lang_id => $category_info_lang_id, schema_type => $category_info_schema_type, report_request_id => $category_info_report_request_id, disable_report_cache => $category_info_disable_report_cache);
+#my $category_info_result = $api->category_info(id => $category_info_id, store_id => $category_info_store_id, lang_id => $category_info_lang_id, schema_type => $category_info_schema_type, response_fields => $category_info_response_fields, params => $category_info_params, exclude => $category_info_exclude, report_request_id => $category_info_report_request_id, disable_report_cache => $category_info_disable_report_cache);
 
 #
 # category_list test
@@ -149,24 +149,24 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 #my $category_list_start = undef; # replace NULL with a proper value
 #my $category_list_count = undef; # replace NULL with a proper value
 #my $category_list_page_cursor = undef; # replace NULL with a proper value
-#my $category_list_parent_id = undef; # replace NULL with a proper value
-#my $category_list_params = undef; # replace NULL with a proper value
-#my $category_list_response_fields = undef; # replace NULL with a proper value
-#my $category_list_exclude = undef; # replace NULL with a proper value
 #my $category_list_store_id = undef; # replace NULL with a proper value
 #my $category_list_lang_id = undef; # replace NULL with a proper value
+#my $category_list_parent_id = undef; # replace NULL with a proper value
+#my $category_list_avail = undef; # replace NULL with a proper value
+#my $category_list_product_type = undef; # replace NULL with a proper value
 #my $category_list_created_from = undef; # replace NULL with a proper value
 #my $category_list_created_to = undef; # replace NULL with a proper value
 #my $category_list_modified_from = undef; # replace NULL with a proper value
 #my $category_list_modified_to = undef; # replace NULL with a proper value
-#my $category_list_avail = undef; # replace NULL with a proper value
-#my $category_list_product_type = undef; # replace NULL with a proper value
 #my $category_list_find_value = undef; # replace NULL with a proper value
 #my $category_list_find_where = undef; # replace NULL with a proper value
+#my $category_list_response_fields = undef; # replace NULL with a proper value
+#my $category_list_params = undef; # replace NULL with a proper value
+#my $category_list_exclude = undef; # replace NULL with a proper value
 #my $category_list_report_request_id = undef; # replace NULL with a proper value
 #my $category_list_disable_report_cache = undef; # replace NULL with a proper value
 #my $category_list_disable_cache = undef; # replace NULL with a proper value
-#my $category_list_result = $api->category_list(start => $category_list_start, count => $category_list_count, page_cursor => $category_list_page_cursor, parent_id => $category_list_parent_id, params => $category_list_params, response_fields => $category_list_response_fields, exclude => $category_list_exclude, store_id => $category_list_store_id, lang_id => $category_list_lang_id, created_from => $category_list_created_from, created_to => $category_list_created_to, modified_from => $category_list_modified_from, modified_to => $category_list_modified_to, avail => $category_list_avail, product_type => $category_list_product_type, find_value => $category_list_find_value, find_where => $category_list_find_where, report_request_id => $category_list_report_request_id, disable_report_cache => $category_list_disable_report_cache, disable_cache => $category_list_disable_cache);
+#my $category_list_result = $api->category_list(start => $category_list_start, count => $category_list_count, page_cursor => $category_list_page_cursor, store_id => $category_list_store_id, lang_id => $category_list_lang_id, parent_id => $category_list_parent_id, avail => $category_list_avail, product_type => $category_list_product_type, created_from => $category_list_created_from, created_to => $category_list_created_to, modified_from => $category_list_modified_from, modified_to => $category_list_modified_to, find_value => $category_list_find_value, find_where => $category_list_find_where, response_fields => $category_list_response_fields, params => $category_list_params, exclude => $category_list_exclude, report_request_id => $category_list_report_request_id, disable_report_cache => $category_list_disable_report_cache, disable_cache => $category_list_disable_cache);
 
 #
 # category_unassign test
@@ -183,20 +183,20 @@ isa_ok($api, 'WWW::OpenAPIClient::CategoryApi');
 # uncomment below and update the test
 #my $category_update_id = undef; # replace NULL with a proper value
 #my $category_update_name = undef; # replace NULL with a proper value
+#my $category_update_description = undef; # replace NULL with a proper value
+#my $category_update_short_description = undef; # replace NULL with a proper value
 #my $category_update_parent_id = undef; # replace NULL with a proper value
-#my $category_update_stores_ids = undef; # replace NULL with a proper value
 #my $category_update_avail = undef; # replace NULL with a proper value
 #my $category_update_sort_order = undef; # replace NULL with a proper value
 #my $category_update_modified_time = undef; # replace NULL with a proper value
-#my $category_update_description = undef; # replace NULL with a proper value
-#my $category_update_short_description = undef; # replace NULL with a proper value
 #my $category_update_meta_title = undef; # replace NULL with a proper value
 #my $category_update_meta_description = undef; # replace NULL with a proper value
 #my $category_update_meta_keywords = undef; # replace NULL with a proper value
 #my $category_update_seo_url = undef; # replace NULL with a proper value
-#my $category_update_lang_id = undef; # replace NULL with a proper value
 #my $category_update_store_id = undef; # replace NULL with a proper value
-#my $category_update_result = $api->category_update(id => $category_update_id, name => $category_update_name, parent_id => $category_update_parent_id, stores_ids => $category_update_stores_ids, avail => $category_update_avail, sort_order => $category_update_sort_order, modified_time => $category_update_modified_time, description => $category_update_description, short_description => $category_update_short_description, meta_title => $category_update_meta_title, meta_description => $category_update_meta_description, meta_keywords => $category_update_meta_keywords, seo_url => $category_update_seo_url, lang_id => $category_update_lang_id, store_id => $category_update_store_id);
+#my $category_update_stores_ids = undef; # replace NULL with a proper value
+#my $category_update_lang_id = undef; # replace NULL with a proper value
+#my $category_update_result = $api->category_update(id => $category_update_id, name => $category_update_name, description => $category_update_description, short_description => $category_update_short_description, parent_id => $category_update_parent_id, avail => $category_update_avail, sort_order => $category_update_sort_order, modified_time => $category_update_modified_time, meta_title => $category_update_meta_title, meta_description => $category_update_meta_description, meta_keywords => $category_update_meta_keywords, seo_url => $category_update_seo_url, store_id => $category_update_store_id, stores_ids => $category_update_stores_ids, lang_id => $category_update_lang_id);
 
 
 done_testing();

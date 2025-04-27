@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_attribute_list**
-> ModelResponseProductAttributeList product_attribute_list(product_id => $product_id, attribute_id => $attribute_id, variant_id => $variant_id, page_cursor => $page_cursor, start => $start, count => $count, attribute_group_id => $attribute_group_id, set_name => $set_name, lang_id => $lang_id, store_id => $store_id, sort_by => $sort_by, sort_direction => $sort_direction, params => $params, response_fields => $response_fields, exclude => $exclude)
+> ModelResponseProductAttributeList product_attribute_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, attribute_id => $attribute_id, variant_id => $variant_id, attribute_group_id => $attribute_group_id, lang_id => $lang_id, store_id => $store_id, set_name => $set_name, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 product.attribute.list
 
@@ -197,23 +197,23 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 );
 
 my $product_id = 10; # string | Retrieves attributes specified by product id
-my $attribute_id = 156; # string | Retrieves info for specified attribute_id
-my $variant_id = 45; # string | Defines product's variants specified by variant id
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+my $attribute_id = 156; # string | Retrieves info for specified attribute_id
+my $variant_id = 45; # string | Defines product's variants specified by variant id
 my $attribute_group_id = 202; # string | Filter by attribute_group_id
-my $set_name = Shoes; # string | Retrieves attributes specified by set_name in Magento
 my $lang_id = 3; # string | Retrieves attributes specified by language id
 my $store_id = 1; # string | Retrieves attributes specified by store id
+my $set_name = Shoes; # string | Retrieves attributes specified by set_name in Magento
 my $sort_by = value; # string | Set field to sort by
 my $sort_direction = asc; # string | Set sorting direction
-my $params = attribute_id,name; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $response_fields = {pagination,result{attribute}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = attribute_id,name; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = attribute_id,name; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->product_attribute_list(product_id => $product_id, attribute_id => $attribute_id, variant_id => $variant_id, page_cursor => $page_cursor, start => $start, count => $count, attribute_group_id => $attribute_group_id, set_name => $set_name, lang_id => $lang_id, store_id => $store_id, sort_by => $sort_by, sort_direction => $sort_direction, params => $params, response_fields => $response_fields, exclude => $exclude);
+    my $result = $api_instance->product_attribute_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, attribute_id => $attribute_id, variant_id => $variant_id, attribute_group_id => $attribute_group_id, lang_id => $lang_id, store_id => $store_id, set_name => $set_name, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -226,19 +226,19 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **string**| Retrieves attributes specified by product id | 
- **attribute_id** | **string**| Retrieves info for specified attribute_id | [optional] 
- **variant_id** | **string**| Defines product&#39;s variants specified by variant id | [optional] 
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **attribute_id** | **string**| Retrieves info for specified attribute_id | [optional] 
+ **variant_id** | **string**| Defines product&#39;s variants specified by variant id | [optional] 
  **attribute_group_id** | **string**| Filter by attribute_group_id | [optional] 
- **set_name** | **string**| Retrieves attributes specified by set_name in Magento | [optional] 
  **lang_id** | **string**| Retrieves attributes specified by language id | [optional] 
  **store_id** | **string**| Retrieves attributes specified by store id | [optional] 
+ **set_name** | **string**| Retrieves attributes specified by set_name in Magento | [optional] 
  **sort_by** | **string**| Set field to sort by | [optional] [default to &#39;attribute_id&#39;]
  **sort_direction** | **string**| Set sorting direction | [optional] [default to &#39;asc&#39;]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;attribute_id,name&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;attribute_id,name&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_brand_list**
-> ModelResponseProductBrandList product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, brand_ids => $brand_ids, exclude => $exclude, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, parent_id => $parent_id, response_fields => $response_fields, find_where => $find_where, find_value => $find_value)
+> ModelResponseProductBrandList product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, brand_ids => $brand_ids, category_id => $category_id, parent_id => $parent_id, store_id => $store_id, lang_id => $lang_id, find_where => $find_where, find_value => $find_value, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 product.brand.list
 
@@ -416,23 +416,23 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $brand_ids = 4,5; # string | Retrieves brands specified by brand ids
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $category_id = 6; # string | Retrieves product brands specified by category id
+my $parent_id = 6; # string | Retrieves brands specified by parent id
 my $store_id = 1; # string | Store Id
 my $lang_id = 3; # string | Language id
+my $find_where = name; # string | Entity search that is specified by the comma-separated unique fields
+my $find_value = Phone; # string | Entity search that is specified by some value
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $parent_id = 6; # string | Retrieves brands specified by parent id
 my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $find_where = name; # string | Entity search that is specified by the comma-separated unique fields
-my $find_value = Phone; # string | Entity search that is specified by some value
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, params => $params, brand_ids => $brand_ids, exclude => $exclude, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, parent_id => $parent_id, response_fields => $response_fields, find_where => $find_where, find_value => $find_value);
+    my $result = $api_instance->product_brand_list(start => $start, count => $count, page_cursor => $page_cursor, brand_ids => $brand_ids, category_id => $category_id, parent_id => $parent_id, store_id => $store_id, lang_id => $lang_id, find_where => $find_where, find_value => $find_value, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -447,20 +447,20 @@ Name | Type | Description  | Notes
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,short_description,active,url&#39;]
  **brand_ids** | **string**| Retrieves brands specified by brand ids | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **category_id** | **string**| Retrieves product brands specified by category id | [optional] 
+ **parent_id** | **string**| Retrieves brands specified by parent id | [optional] 
  **store_id** | **string**| Store Id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
+ **find_where** | **string**| Entity search that is specified by the comma-separated unique fields | [optional] 
+ **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **parent_id** | **string**| Retrieves brands specified by parent id | [optional] 
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **find_where** | **string**| Entity search that is specified by the comma-separated unique fields | [optional] 
- **find_value** | **string**| Entity search that is specified by some value | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,short_description,active,url&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_child_item_info**
-> ProductChildItemInfo200Response product_child_item_info(product_id => $product_id, id => $id, params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, use_latest_api_version => $use_latest_api_version)
+> ProductChildItemInfo200Response product_child_item_info(product_id => $product_id, id => $id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, response_fields => $response_fields, params => $params, exclude => $exclude, use_latest_api_version => $use_latest_api_version)
 
 product.child_item.info
 
@@ -563,16 +563,16 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 
 my $product_id = 10; # string | Filter by parent product id
 my $id = 10; # string | Entity id
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {result{id,parent_id,sku,upc,images,combination}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $store_id = 1; # string | Store Id
 my $lang_id = 3; # string | Language id
 my $currency_id = usd; # string | Currency Id
+my $response_fields = {result{id,parent_id,sku,upc,images,combination}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_child_item_info(product_id => $product_id, id => $id, params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, use_latest_api_version => $use_latest_api_version);
+    my $result = $api_instance->product_child_item_info(product_id => $product_id, id => $id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, response_fields => $response_fields, params => $params, exclude => $exclude, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -586,12 +586,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **string**| Filter by parent product id | 
  **id** | **string**| Entity id | 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;force_all&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **store_id** | **string**| Store Id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
  **currency_id** | **string**| Currency Id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;force_all&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
 
 ### Return type
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_child_item_list**
-> ModelResponseProductChildItemList product_child_item_list(page_cursor => $page_cursor, start => $start, count => $count, params => $params, response_fields => $response_fields, exclude => $exclude, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, product_id => $product_id, product_ids => $product_ids, sku => $sku, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_sale => $avail_sale, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, return_global => $return_global)
+> ModelResponseProductChildItemList product_child_item_list(start => $start, count => $count, page_cursor => $page_cursor, product_id => $product_id, product_ids => $product_ids, sku => $sku, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_sale => $avail_sale, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, return_global => $return_global, response_fields => $response_fields, params => $params, exclude => $exclude, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.child_item.list
 
@@ -632,16 +632,9 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {result{children{id,parent_id,sku,upc,images,combination}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
-my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
-my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
-my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
+my $page_cursor = ; # string | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
 my $product_id = 10; # string | Filter by parent product id
 my $product_ids = 4,5; # string | Filter by parent product ids
 my $sku = bag_01; # string | Filter by products variant's sku
@@ -651,13 +644,20 @@ my $currency_id = usd; # string | Currency Id
 my $avail_sale = false; # boolean | Specifies the set of available/not available products for sale
 my $find_value = bundled-item-123-; # string | Entity search that is specified by some value
 my $find_where = sku; # string | Child products search that is specified by field
+my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
+my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
+my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
+my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
+my $return_global = false; # boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
+my $response_fields = {result{children{id,parent_id,sku,upc,images,combination}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $report_request_id = 105245017661; # string | Report request id
 my $disable_report_cache = false; # boolean | Disable report cache for current request
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
-my $return_global = false; # boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
 
 eval {
-    my $result = $api_instance->product_child_item_list(page_cursor => $page_cursor, start => $start, count => $count, params => $params, response_fields => $response_fields, exclude => $exclude, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, product_id => $product_id, product_ids => $product_ids, sku => $sku, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_sale => $avail_sale, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, return_global => $return_global);
+    my $result = $api_instance->product_child_item_list(start => $start, count => $count, page_cursor => $page_cursor, product_id => $product_id, product_ids => $product_ids, sku => $sku, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_sale => $avail_sale, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, return_global => $return_global, response_fields => $response_fields, params => $params, exclude => $exclude, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -669,16 +669,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;force_all&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **created_from** | **string**| Retrieve entities from their creation date | [optional] 
- **created_to** | **string**| Retrieve entities to their creation date | [optional] 
- **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
- **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
+ **page_cursor** | **string**| Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **product_id** | **string**| Filter by parent product id | [optional] 
  **product_ids** | **string**| Filter by parent product ids | [optional] 
  **sku** | **string**| Filter by products variant&#39;s sku | [optional] 
@@ -688,10 +681,17 @@ Name | Type | Description  | Notes
  **avail_sale** | **boolean**| Specifies the set of available/not available products for sale | [optional] 
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Child products search that is specified by field | [optional] 
+ **created_from** | **string**| Retrieve entities from their creation date | [optional] 
+ **created_to** | **string**| Retrieve entities to their creation date | [optional] 
+ **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
+ **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
+ **return_global** | **boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;force_all&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **report_request_id** | **string**| Report request id | [optional] 
  **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
  **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
- **return_global** | **boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
 
 ### Return type
 
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_count**
-> ProductCount200Response product_count(category_id => $category_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, avail_view => $avail_view, avail_sale => $avail_sale, store_id => $store_id, lang_id => $lang_id, product_ids => $product_ids, since_id => $since_id, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, use_latest_api_version => $use_latest_api_version, return_global => $return_global, categories_ids => $categories_ids)
+> ProductCount200Response product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.count
 
@@ -731,31 +731,31 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
+my $product_ids = 4,5; # string | Counts products specified by product ids
+my $since_id = 56; # string | Retrieve entities starting from the specified id.
+my $categories_ids = 23,56; # string | Defines product add that is specified by comma-separated categories id
 my $category_id = 6; # string | Counts products specified by category id
+my $store_id = 1; # string | Counts products specified by store id
+my $lang_id = 3; # string | Counts products specified by language id
+my $avail_view = true; # boolean | Specifies the set of visible/invisible products
+my $avail_sale = false; # boolean | Specifies the set of available/not available products for sale
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $avail_view = true; # boolean | Specifies the set of visible/invisible products
-my $avail_sale = false; # boolean | Specifies the set of available/not available products for sale
-my $store_id = 1; # string | Counts products specified by store id
-my $lang_id = 3; # string | Counts products specified by language id
-my $product_ids = 4,5; # string | Counts products specified by product ids
-my $since_id = 56; # string | Retrieve entities starting from the specified id.
-my $report_request_id = 105245017661; # string | Report request id
-my $disable_report_cache = false; # boolean | Disable report cache for current request
 my $brand_name = Abidas; # string | Retrieves brands specified by brand name
 my $product_attributes = [product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2]; # ARRAY[string] | Defines product attributes
 my $status = disabled; # string | Defines product's status
 my $type = simple; # string | Defines products's type
 my $find_value = Phone; # string | Entity search that is specified by some value
 my $find_where = name; # string | Counts products that are searched specified by field
-my $use_latest_api_version = true; # boolean | Use the latest platform API version
+my $report_request_id = 105245017661; # string | Report request id
 my $return_global = false; # boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-my $categories_ids = 23,56; # string | Defines product add that is specified by comma-separated categories id
+my $disable_report_cache = false; # boolean | Disable report cache for current request
+my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_count(category_id => $category_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, avail_view => $avail_view, avail_sale => $avail_sale, store_id => $store_id, lang_id => $lang_id, product_ids => $product_ids, since_id => $since_id, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, use_latest_api_version => $use_latest_api_version, return_global => $return_global, categories_ids => $categories_ids);
+    my $result = $api_instance->product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -767,28 +767,28 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **product_ids** | **string**| Counts products specified by product ids | [optional] 
+ **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
+ **categories_ids** | **string**| Defines product add that is specified by comma-separated categories id | [optional] 
  **category_id** | **string**| Counts products specified by category id | [optional] 
+ **store_id** | **string**| Counts products specified by store id | [optional] 
+ **lang_id** | **string**| Counts products specified by language id | [optional] 
+ **avail_view** | **boolean**| Specifies the set of visible/invisible products | [optional] 
+ **avail_sale** | **boolean**| Specifies the set of available/not available products for sale | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **avail_view** | **boolean**| Specifies the set of visible/invisible products | [optional] 
- **avail_sale** | **boolean**| Specifies the set of available/not available products for sale | [optional] 
- **store_id** | **string**| Counts products specified by store id | [optional] 
- **lang_id** | **string**| Counts products specified by language id | [optional] 
- **product_ids** | **string**| Counts products specified by product ids | [optional] 
- **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
- **report_request_id** | **string**| Report request id | [optional] 
- **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
  **brand_name** | **string**| Retrieves brands specified by brand name | [optional] 
  **product_attributes** | [**ARRAY[string]**](string.md)| Defines product attributes | [optional] 
  **status** | **string**| Defines product&#39;s status | [optional] 
  **type** | **string**| Defines products&#39;s type | [optional] 
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Counts products that are searched specified by field | [optional] 
- **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
+ **report_request_id** | **string**| Report request id | [optional] 
  **return_global** | **boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
- **categories_ids** | **string**| Defines product add that is specified by comma-separated categories id | [optional] 
+ **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
+ **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_currency_list**
-> ModelResponseProductCurrencyList product_currency_list(start => $start, count => $count, params => $params, page_cursor => $page_cursor, exclude => $exclude, response_fields => $response_fields, default => $default, avail => $avail)
+> ModelResponseProductCurrencyList product_currency_list(start => $start, count => $count, page_cursor => $page_cursor, default => $default, avail => $avail, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 product.currency.list
 
@@ -897,15 +897,15 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $params = name,iso3,default,avail; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-my $exclude = name,iso3,default,avail; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_message,pagination,result{currency}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $default = true; # boolean | Specifies the set of default/not default currencies
 my $avail = false; # boolean | Specifies the set of available/not available currencies
+my $response_fields = {return_message,pagination,result{currency}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = name,iso3,default,avail; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = name,iso3,default,avail; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->product_currency_list(start => $start, count => $count, params => $params, page_cursor => $page_cursor, exclude => $exclude, response_fields => $response_fields, default => $default, avail => $avail);
+    my $result = $api_instance->product_currency_list(start => $start, count => $count, page_cursor => $page_cursor, default => $default, avail => $avail, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -919,12 +919,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;name,iso3,default,avail&#39;]
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **default** | **boolean**| Specifies the set of default/not default currencies | [optional] 
  **avail** | **boolean**| Specifies the set of available/not available currencies | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;name,iso3,default,avail&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -1284,7 +1284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_image_update**
-> ProductImageUpdate200Response product_image_update(product_id => $product_id, id => $id, variant_ids => $variant_ids, image_name => $image_name, type => $type, label => $label, position => $position, store_id => $store_id, lang_id => $lang_id, hidden => $hidden)
+> ProductImageUpdate200Response product_image_update(product_id => $product_id, id => $id, variant_ids => $variant_ids, store_id => $store_id, lang_id => $lang_id, image_name => $image_name, type => $type, label => $label, position => $position, hidden => $hidden)
 
 product.image.update
 
@@ -1309,16 +1309,16 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 my $product_id = 10; # string | Defines product id where the image should be updated
 my $id = 10; # string | Defines image update specified by image id
 my $variant_ids = 1,2,3,4,5; # string | Defines product's variants ids
+my $store_id = 1; # string | Store Id
+my $lang_id = 3; # string | Language id
 my $image_name = data/product/main/product_69_bag-gray.png; # string | Defines image's name
 my $type = thumbnail; # string | Defines image's types that are specified by comma-separated list
 my $label = This cool image; # string | Defines alternative text that has to be attached to the picture
 my $position = 5; # int | Defines image’s position in the list
-my $store_id = 1; # string | Store Id
-my $lang_id = 3; # string | Language id
 my $hidden = true; # boolean | Define is hide image
 
 eval {
-    my $result = $api_instance->product_image_update(product_id => $product_id, id => $id, variant_ids => $variant_ids, image_name => $image_name, type => $type, label => $label, position => $position, store_id => $store_id, lang_id => $lang_id, hidden => $hidden);
+    my $result = $api_instance->product_image_update(product_id => $product_id, id => $id, variant_ids => $variant_ids, store_id => $store_id, lang_id => $lang_id, image_name => $image_name, type => $type, label => $label, position => $position, hidden => $hidden);
     print Dumper($result);
 };
 if ($@) {
@@ -1333,12 +1333,12 @@ Name | Type | Description  | Notes
  **product_id** | **string**| Defines product id where the image should be updated | 
  **id** | **string**| Defines image update specified by image id | 
  **variant_ids** | **string**| Defines product&#39;s variants ids | [optional] 
+ **store_id** | **string**| Store Id | [optional] 
+ **lang_id** | **string**| Language id | [optional] 
  **image_name** | **string**| Defines image&#39;s name | [optional] 
  **type** | **string**| Defines image&#39;s types that are specified by comma-separated list | [optional] [default to &#39;additional&#39;]
  **label** | **string**| Defines alternative text that has to be attached to the picture | [optional] 
  **position** | **int**| Defines image’s position in the list | [optional] 
- **store_id** | **string**| Store Id | [optional] 
- **lang_id** | **string**| Language id | [optional] 
  **hidden** | **boolean**| Define is hide image | [optional] 
 
 ### Return type
@@ -1357,7 +1357,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_info**
-> ProductInfo200Response product_info(id => $id, params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
+> ProductInfo200Response product_info(id => $id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, response_fields => $response_fields, params => $params, exclude => $exclude, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.info
 
@@ -1380,18 +1380,18 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 );
 
 my $id = 10; # string | Retrieves product's info specified by product id
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {result{id,name,price,images}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $store_id = 1; # string | Retrieves product info specified by store id
 my $lang_id = 3; # string | Retrieves product info specified by language id
 my $currency_id = usd; # string | Currency Id
+my $response_fields = {result{id,name,price,images}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $report_request_id = 105245017661; # string | Report request id
 my $disable_report_cache = false; # boolean | Disable report cache for current request
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_info(id => $id, params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
+    my $result = $api_instance->product_info(id => $id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, response_fields => $response_fields, params => $params, exclude => $exclude, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -1404,12 +1404,12 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Retrieves product&#39;s info specified by product id | 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price,categories_ids&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **store_id** | **string**| Retrieves product info specified by store id | [optional] 
  **lang_id** | **string**| Retrieves product info specified by language id | [optional] 
  **currency_id** | **string**| Currency Id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price,categories_ids&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **report_request_id** | **string**| Report request id | [optional] 
  **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
  **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
@@ -1430,7 +1430,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_list**
-> ModelResponseProductList product_list(page_cursor => $page_cursor, start => $start, count => $count, params => $params, response_fields => $response_fields, exclude => $exclude, category_id => $category_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, avail_view => $avail_view, avail_sale => $avail_sale, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, product_ids => $product_ids, since_id => $since_id, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, sort_by => $sort_by, sort_direction => $sort_direction, sku => $sku, disable_cache => $disable_cache, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, use_latest_api_version => $use_latest_api_version, return_global => $return_global, categories_ids => $categories_ids)
+> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.list
 
@@ -1452,42 +1452,42 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {return_code,pagination,result{product{id,name,price,images}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+my $page_cursor = ; # string | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
+my $product_ids = 4,5; # string | Retrieves products specified by product ids
+my $since_id = 56; # string | Retrieve entities starting from the specified id.
+my $categories_ids = 23,56; # string | Retrieves products specified by categories ids
 my $category_id = 6; # string | Retrieves products specified by category id
+my $store_id = 1; # string | Retrieves products specified by store id
+my $lang_id = 3; # string | Retrieves products specified by language id
+my $currency_id = usd; # string | Currency Id
+my $avail_view = true; # boolean | Specifies the set of visible/invisible products
+my $avail_sale = false; # boolean | Specifies the set of available/not available products for sale
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $avail_view = true; # boolean | Specifies the set of visible/invisible products
-my $avail_sale = false; # boolean | Specifies the set of available/not available products for sale
-my $store_id = 1; # string | Retrieves products specified by store id
-my $lang_id = 3; # string | Retrieves products specified by language id
-my $currency_id = usd; # string | Currency Id
-my $product_ids = 4,5; # string | Retrieves products specified by product ids
-my $since_id = 56; # string | Retrieve entities starting from the specified id.
-my $report_request_id = 105245017661; # string | Report request id
-my $disable_report_cache = false; # boolean | Disable report cache for current request
-my $sort_by = value_id; # string | Set field to sort by
-my $sort_direction = asc; # string | Set sorting direction
 my $sku = bag_01; # string | Filter by product's sku
-my $disable_cache = false; # boolean | Disable cache for current request
 my $brand_name = Abidas; # string | Retrieves brands specified by brand name
 my $product_attributes = [product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2]; # ARRAY[string] | Defines product attributes
 my $status = disabled; # string | Defines product's status
 my $type = simple; # string | Defines products's type
 my $find_value = Phone; # string | Entity search that is specified by some value
 my $find_where = name; # string | Product search that is specified by field
-my $use_latest_api_version = true; # boolean | Use the latest platform API version
 my $return_global = false; # boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-my $categories_ids = 23,56; # string | Retrieves products specified by categories ids
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $response_fields = {return_code,pagination,result{product{id,name,price,images}}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+my $sort_by = value_id; # string | Set field to sort by
+my $sort_direction = asc; # string | Set sorting direction
+my $report_request_id = 105245017661; # string | Report request id
+my $disable_cache = false; # boolean | Disable cache for current request
+my $disable_report_cache = false; # boolean | Disable report cache for current request
+my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_list(page_cursor => $page_cursor, start => $start, count => $count, params => $params, response_fields => $response_fields, exclude => $exclude, category_id => $category_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, avail_view => $avail_view, avail_sale => $avail_sale, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, product_ids => $product_ids, since_id => $since_id, report_request_id => $report_request_id, disable_report_cache => $disable_report_cache, sort_by => $sort_by, sort_direction => $sort_direction, sku => $sku, disable_cache => $disable_cache, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, use_latest_api_version => $use_latest_api_version, return_global => $return_global, categories_ids => $categories_ids);
+    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -1499,39 +1499,39 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price,categories_ids&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **page_cursor** | **string**| Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **product_ids** | **string**| Retrieves products specified by product ids | [optional] 
+ **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
+ **categories_ids** | **string**| Retrieves products specified by categories ids | [optional] 
  **category_id** | **string**| Retrieves products specified by category id | [optional] 
+ **store_id** | **string**| Retrieves products specified by store id | [optional] 
+ **lang_id** | **string**| Retrieves products specified by language id | [optional] 
+ **currency_id** | **string**| Currency Id | [optional] 
+ **avail_view** | **boolean**| Specifies the set of visible/invisible products | [optional] 
+ **avail_sale** | **boolean**| Specifies the set of available/not available products for sale | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **avail_view** | **boolean**| Specifies the set of visible/invisible products | [optional] 
- **avail_sale** | **boolean**| Specifies the set of available/not available products for sale | [optional] 
- **store_id** | **string**| Retrieves products specified by store id | [optional] 
- **lang_id** | **string**| Retrieves products specified by language id | [optional] 
- **currency_id** | **string**| Currency Id | [optional] 
- **product_ids** | **string**| Retrieves products specified by product ids | [optional] 
- **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
- **report_request_id** | **string**| Report request id | [optional] 
- **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
- **sort_by** | **string**| Set field to sort by | [optional] [default to &#39;id&#39;]
- **sort_direction** | **string**| Set sorting direction | [optional] [default to &#39;asc&#39;]
  **sku** | **string**| Filter by product&#39;s sku | [optional] 
- **disable_cache** | **boolean**| Disable cache for current request | [optional] [default to false]
  **brand_name** | **string**| Retrieves brands specified by brand name | [optional] 
  **product_attributes** | [**ARRAY[string]**](string.md)| Defines product attributes | [optional] 
  **status** | **string**| Defines product&#39;s status | [optional] 
  **type** | **string**| Defines products&#39;s type | [optional] 
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Product search that is specified by field | [optional] 
- **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
  **return_global** | **boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
- **categories_ids** | **string**| Retrieves products specified by categories ids | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price,categories_ids&#39;]
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **sort_by** | **string**| Set field to sort by | [optional] [default to &#39;id&#39;]
+ **sort_direction** | **string**| Set sorting direction | [optional] [default to &#39;asc&#39;]
+ **report_request_id** | **string**| Report request id | [optional] 
+ **disable_cache** | **boolean**| Disable cache for current request | [optional] [default to false]
+ **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
+ **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -1787,7 +1787,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_option_list**
-> ModelResponseProductOptionList product_option_list(start => $start, count => $count, params => $params, exclude => $exclude, response_fields => $response_fields, product_id => $product_id, lang_id => $lang_id, store_id => $store_id)
+> ModelResponseProductOptionList product_option_list(start => $start, count => $count, product_id => $product_id, lang_id => $lang_id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 product.option.list
 
@@ -1811,15 +1811,15 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $params = id,name,sort_order; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = id,name,sort_order; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $product_id = 10; # string | Retrieves products' options specified by product id
 my $lang_id = 3; # string | Language id
 my $store_id = 1; # string | Store Id
+my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,name,sort_order; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = id,name,sort_order; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->product_option_list(start => $start, count => $count, params => $params, exclude => $exclude, response_fields => $response_fields, product_id => $product_id, lang_id => $lang_id, store_id => $store_id);
+    my $result = $api_instance->product_option_list(start => $start, count => $count, product_id => $product_id, lang_id => $lang_id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -1833,12 +1833,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description&#39;]
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **product_id** | **string**| Retrieves products&#39; options specified by product id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
  **store_id** | **string**| Store Id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -2281,7 +2281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_review_list**
-> ModelResponseProductReviewList product_review_list(product_id => $product_id, start => $start, page_cursor => $page_cursor, count => $count, ids => $ids, store_id => $store_id, status => $status, params => $params, exclude => $exclude, response_fields => $response_fields)
+> ModelResponseProductReviewList product_review_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, store_id => $store_id, status => $status, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 product.review.list
 
@@ -2305,17 +2305,17 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 
 my $product_id = 10; # string | Product id
 my $start = 0; # int | This parameter sets the number from which you want to get entities
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $ids = 24,25; # string | Retrieves reviews specified by ids
 my $store_id = 1; # string | Store Id
 my $status = disabled; # string | Defines status
+my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->product_review_list(product_id => $product_id, start => $start, page_cursor => $page_cursor, count => $count, ids => $ids, store_id => $store_id, status => $status, params => $params, exclude => $exclude, response_fields => $response_fields);
+    my $result = $api_instance->product_review_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, store_id => $store_id, status => $status, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -2329,14 +2329,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **string**| Product id | 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **ids** | **string**| Retrieves reviews specified by ids | [optional] 
  **store_id** | **string**| Store Id | [optional] 
  **status** | **string**| Defines status | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -2686,7 +2686,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_variant_count**
-> ProductVariantCount200Response product_variant_count(product_id => $product_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, category_id => $category_id, store_id => $store_id)
+> ProductVariantCount200Response product_variant_count(product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to)
 
 product.variant.count
 
@@ -2709,15 +2709,15 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 );
 
 my $product_id = 10; # string | Retrieves products' variants specified by product id
+my $category_id = 6; # string | Counts products’ variants specified by category id
+my $store_id = 1; # string | Retrieves variants specified by store id
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $category_id = 6; # string | Counts products’ variants specified by category id
-my $store_id = 1; # string | Retrieves variants specified by store id
 
 eval {
-    my $result = $api_instance->product_variant_count(product_id => $product_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, category_id => $category_id, store_id => $store_id);
+    my $result = $api_instance->product_variant_count(product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to);
     print Dumper($result);
 };
 if ($@) {
@@ -2730,12 +2730,12 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_id** | **string**| Retrieves products&#39; variants specified by product id | 
+ **category_id** | **string**| Counts products’ variants specified by category id | [optional] 
+ **store_id** | **string**| Retrieves variants specified by store id | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **category_id** | **string**| Counts products’ variants specified by category id | [optional] 
- **store_id** | **string**| Retrieves variants specified by store id | [optional] 
 
 ### Return type
 
@@ -2983,7 +2983,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_variant_info**
-> ProductInfo200Response product_variant_info(id => $id, params => $params, exclude => $exclude, store_id => $store_id)
+> ProductInfo200Response product_variant_info(id => $id, store_id => $store_id, params => $params, exclude => $exclude)
 
 product.variant.info
 
@@ -3006,12 +3006,12 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 );
 
 my $id = 10; # string | Retrieves variant's info specified by variant id
+my $store_id = 1; # string | Retrieves variant info specified by store id
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $store_id = 1; # string | Retrieves variant info specified by store id
 
 eval {
-    my $result = $api_instance->product_variant_info(id => $id, params => $params, exclude => $exclude, store_id => $store_id);
+    my $result = $api_instance->product_variant_info(id => $id, store_id => $store_id, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -3024,9 +3024,9 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Retrieves variant&#39;s info specified by variant id | 
+ **store_id** | **string**| Retrieves variant info specified by store id | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **store_id** | **string**| Retrieves variant info specified by store id | [optional] 
 
 ### Return type
 
@@ -3044,7 +3044,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_variant_list**
-> ProductVariantList200Response product_variant_list(start => $start, count => $count, params => $params, exclude => $exclude, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, category_id => $category_id, product_id => $product_id, store_id => $store_id)
+> ProductVariantList200Response product_variant_list(start => $start, count => $count, product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, params => $params, exclude => $exclude)
 
 product.variant.list
 
@@ -3068,18 +3068,18 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+my $product_id = 10; # string | Retrieves products' variants specified by product id
+my $category_id = 6; # string | Retrieves products’ variants specified by category id
+my $store_id = 1; # string | Retrieves variants specified by store id
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $category_id = 6; # string | Retrieves products’ variants specified by category id
-my $product_id = 10; # string | Retrieves products' variants specified by product id
-my $store_id = 1; # string | Retrieves variants specified by store id
+my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->product_variant_list(start => $start, count => $count, params => $params, exclude => $exclude, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, category_id => $category_id, product_id => $product_id, store_id => $store_id);
+    my $result = $api_instance->product_variant_list(start => $start, count => $count, product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -3093,15 +3093,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price&#39;]
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
+ **product_id** | **string**| Retrieves products&#39; variants specified by product id | [optional] 
+ **category_id** | **string**| Retrieves products’ variants specified by category id | [optional] 
+ **store_id** | **string**| Retrieves variants specified by store id | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **category_id** | **string**| Retrieves products’ variants specified by category id | [optional] 
- **product_id** | **string**| Retrieves products&#39; variants specified by product id | [optional] 
- **store_id** | **string**| Retrieves variants specified by store id | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 

@@ -219,31 +219,10 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'store_id' => {
-        datatype => 'string',
-        base_name => 'store_id',
-        description => 'Store Id',
-        format => '',
-        read_only => '',
-            },
     'code' => {
         datatype => 'string',
         base_name => 'code',
         description => 'Coupon code',
-        format => '',
-        read_only => '',
-            },
-    'name' => {
-        datatype => 'string',
-        base_name => 'name',
-        description => 'Coupon name',
-        format => '',
-        read_only => '',
-            },
-    'codes' => {
-        datatype => 'ARRAY[string]',
-        base_name => 'codes',
-        description => 'Entity codes',
         format => '',
         read_only => '',
             },
@@ -272,6 +251,20 @@ __PACKAGE__->method_documentation({
         datatype => 'double',
         base_name => 'action_amount',
         description => 'Defines the discount amount value.',
+        format => '',
+        read_only => '',
+            },
+    'codes' => {
+        datatype => 'ARRAY[string]',
+        base_name => 'codes',
+        description => 'Entity codes',
+        format => '',
+        read_only => '',
+            },
+    'name' => {
+        datatype => 'string',
+        base_name => 'name',
+        description => 'Coupon name',
         format => '',
         read_only => '',
             },
@@ -338,17 +331,23 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'store_id' => {
+        datatype => 'string',
+        base_name => 'store_id',
+        description => 'Store Id',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
-    'store_id' => 'string',
     'code' => 'string',
-    'name' => 'string',
-    'codes' => 'ARRAY[string]',
     'action_type' => 'string',
     'action_apply_to' => 'string',
     'action_scope' => 'string',
     'action_amount' => 'double',
+    'codes' => 'ARRAY[string]',
+    'name' => 'string',
     'date_start' => 'string',
     'date_end' => 'string',
     'usage_limit' => 'int',
@@ -357,18 +356,18 @@ __PACKAGE__->openapi_types( {
     'action_condition_key' => 'string',
     'action_condition_operator' => 'string',
     'action_condition_value' => 'string',
-    'include_tax' => 'boolean'
+    'include_tax' => 'boolean',
+    'store_id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'store_id' => 'store_id',
     'code' => 'code',
-    'name' => 'name',
-    'codes' => 'codes',
     'action_type' => 'action_type',
     'action_apply_to' => 'action_apply_to',
     'action_scope' => 'action_scope',
     'action_amount' => 'action_amount',
+    'codes' => 'codes',
+    'name' => 'name',
     'date_start' => 'date_start',
     'date_end' => 'date_end',
     'usage_limit' => 'usage_limit',
@@ -377,7 +376,8 @@ __PACKAGE__->attribute_map( {
     'action_condition_key' => 'action_condition_key',
     'action_condition_operator' => 'action_condition_operator',
     'action_condition_value' => 'action_condition_value',
-    'include_tax' => 'include_tax'
+    'include_tax' => 'include_tax',
+    'store_id' => 'store_id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

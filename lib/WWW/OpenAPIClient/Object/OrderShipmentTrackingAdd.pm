@@ -219,13 +219,6 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'store_id' => {
-        datatype => 'string',
-        base_name => 'store_id',
-        description => 'Store Id',
-        format => '',
-        read_only => '',
-            },
     'order_id' => {
         datatype => 'string',
         base_name => 'order_id',
@@ -244,6 +237,13 @@ __PACKAGE__->method_documentation({
         datatype => 'string',
         base_name => 'carrier_id',
         description => 'Defines tracking carrier id',
+        format => '',
+        read_only => '',
+            },
+    'store_id' => {
+        datatype => 'string',
+        base_name => 'store_id',
+        description => 'Store Id',
         format => '',
         read_only => '',
             },
@@ -278,10 +278,10 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'store_id' => 'string',
     'order_id' => 'string',
     'shipment_id' => 'string',
     'carrier_id' => 'string',
+    'store_id' => 'string',
     'tracking_provider' => 'string',
     'tracking_number' => 'string',
     'tracking_link' => 'string',
@@ -289,10 +289,10 @@ __PACKAGE__->openapi_types( {
 } );
 
 __PACKAGE__->attribute_map( {
-    'store_id' => 'store_id',
     'order_id' => 'order_id',
     'shipment_id' => 'shipment_id',
     'carrier_id' => 'carrier_id',
+    'store_id' => 'store_id',
     'tracking_provider' => 'tracking_provider',
     'tracking_number' => 'tracking_number',
     'tracking_link' => 'tracking_link',

@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_attribute_list**
-> ModelResponseCustomerAttributeList customer_attribute_list(customer_id => $customer_id, count => $count, page_cursor => $page_cursor, store_id => $store_id, lang_id => $lang_id, params => $params, exclude => $exclude, response_fields => $response_fields)
+> ModelResponseCustomerAttributeList customer_attribute_list(customer_id => $customer_id, count => $count, page_cursor => $page_cursor, store_id => $store_id, lang_id => $lang_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 customer.attribute.list
 
@@ -161,12 +161,12 @@ my $count = 20; # int | This parameter sets the entity amount that has to be ret
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $store_id = 1; # string | Store Id
 my $lang_id = 3; # string | Language id
+my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->customer_attribute_list(customer_id => $customer_id, count => $count, page_cursor => $page_cursor, store_id => $store_id, lang_id => $lang_id, params => $params, exclude => $exclude, response_fields => $response_fields);
+    my $result = $api_instance->customer_attribute_list(customer_id => $customer_id, count => $count, page_cursor => $page_cursor, store_id => $store_id, lang_id => $lang_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -183,9 +183,9 @@ Name | Type | Description  | Notes
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **store_id** | **string**| Store Id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;force_all&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
 
 ### Return type
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_count**
-> CustomerCount200Response customer_count(group_id => $group_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, store_id => $store_id, customer_list_id => $customer_list_id, avail => $avail, find_value => $find_value, find_where => $find_where, ids => $ids, since_id => $since_id)
+> CustomerCount200Response customer_count(ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to)
 
 customer.count
 
@@ -225,21 +225,21 @@ my $api_instance = WWW::OpenAPIClient::CustomerApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
+my $ids = 24,25; # string | Counts customers specified by ids
+my $since_id = 56; # string | Retrieve entities starting from the specified id.
+my $customer_list_id = exampleListId; # string | The numeric ID of the customer list in Demandware.
 my $group_id = 3; # string | Customer group_id
+my $store_id = 1; # string | Counts customer specified by store id
+my $avail = false; # boolean | Defines category's visibility status
+my $find_value = mail@gmail.com; # string | Entity search that is specified by some value
+my $find_where = email; # string | Counts customers that are searched specified by field
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $store_id = 1; # string | Counts customer specified by store id
-my $customer_list_id = exampleListId; # string | The numeric ID of the customer list in Demandware.
-my $avail = false; # boolean | Defines category's visibility status
-my $find_value = mail@gmail.com; # string | Entity search that is specified by some value
-my $find_where = email; # string | Counts customers that are searched specified by field
-my $ids = 24,25; # string | Counts customers specified by ids
-my $since_id = 56; # string | Retrieve entities starting from the specified id.
 
 eval {
-    my $result = $api_instance->customer_count(group_id => $group_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, store_id => $store_id, customer_list_id => $customer_list_id, avail => $avail, find_value => $find_value, find_where => $find_where, ids => $ids, since_id => $since_id);
+    my $result = $api_instance->customer_count(ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to);
     print Dumper($result);
 };
 if ($@) {
@@ -251,18 +251,18 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **string**| Counts customers specified by ids | [optional] 
+ **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
+ **customer_list_id** | **string**| The numeric ID of the customer list in Demandware. | [optional] 
  **group_id** | **string**| Customer group_id | [optional] 
+ **store_id** | **string**| Counts customer specified by store id | [optional] 
+ **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **find_value** | **string**| Entity search that is specified by some value | [optional] 
+ **find_where** | **string**| Counts customers that are searched specified by field | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **store_id** | **string**| Counts customer specified by store id | [optional] 
- **customer_list_id** | **string**| The numeric ID of the customer list in Demandware. | [optional] 
- **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
- **find_value** | **string**| Entity search that is specified by some value | [optional] 
- **find_where** | **string**| Counts customers that are searched specified by field | [optional] 
- **ids** | **string**| Counts customers specified by ids | [optional] 
- **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
 
 ### Return type
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_group_list**
-> ModelResponseCustomerGroupList customer_group_list(disable_cache => $disable_cache, page_cursor => $page_cursor, start => $start, count => $count, store_id => $store_id, lang_id => $lang_id, group_ids => $group_ids, params => $params, exclude => $exclude, response_fields => $response_fields)
+> ModelResponseCustomerGroupList customer_group_list(start => $start, count => $count, page_cursor => $page_cursor, group_ids => $group_ids, store_id => $store_id, lang_id => $lang_id, response_fields => $response_fields, params => $params, exclude => $exclude, disable_cache => $disable_cache)
 
 customer.group.list
 
@@ -477,19 +477,19 @@ my $api_instance = WWW::OpenAPIClient::CustomerApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $disable_cache = false; # boolean | Disable cache for current request
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+my $group_ids = 1,2,3; # string | Groups that will be assigned to a customer
 my $store_id = 1; # string | Store Id
 my $lang_id = 3; # string | Language id
-my $group_ids = 1,2,3; # string | Groups that will be assigned to a customer
+my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $disable_cache = false; # boolean | Disable cache for current request
 
 eval {
-    my $result = $api_instance->customer_group_list(disable_cache => $disable_cache, page_cursor => $page_cursor, start => $start, count => $count, store_id => $store_id, lang_id => $lang_id, group_ids => $group_ids, params => $params, exclude => $exclude, response_fields => $response_fields);
+    my $result = $api_instance->customer_group_list(start => $start, count => $count, page_cursor => $page_cursor, group_ids => $group_ids, store_id => $store_id, lang_id => $lang_id, response_fields => $response_fields, params => $params, exclude => $exclude, disable_cache => $disable_cache);
     print Dumper($result);
 };
 if ($@) {
@@ -501,16 +501,16 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disable_cache** | **boolean**| Disable cache for current request | [optional] [default to false]
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **group_ids** | **string**| Groups that will be assigned to a customer | [optional] 
  **store_id** | **string**| Store Id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
- **group_ids** | **string**| Groups that will be assigned to a customer | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,additional_fields&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **disable_cache** | **boolean**| Disable cache for current request | [optional] [default to false]
 
 ### Return type
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_info**
-> CustomerInfo200Response customer_info(id => $id, params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id)
+> CustomerInfo200Response customer_info(id => $id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 customer.info
 
@@ -551,13 +551,13 @@ my $api_instance = WWW::OpenAPIClient::CustomerApi->new(
 );
 
 my $id = 10; # string | Retrieves customer's info specified by customer id
-my $params = id,email; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {result{id,parent_id,sku,upc,images,combination}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = id,email; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 my $store_id = 1; # string | Retrieves customer info specified by store id
+my $response_fields = {result{id,parent_id,sku,upc,images,combination}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,email; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = id,email; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->customer_info(id => $id, params => $params, response_fields => $response_fields, exclude => $exclude, store_id => $store_id);
+    my $result = $api_instance->customer_info(id => $id, store_id => $store_id, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -570,10 +570,10 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Retrieves customer&#39;s info specified by customer id | 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,email,first_name,last_name&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
  **store_id** | **string**| Retrieves customer info specified by store id | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,email,first_name,last_name&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_list**
-> ModelResponseCustomerList customer_list(page_cursor => $page_cursor, start => $start, count => $count, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, params => $params, response_fields => $response_fields, exclude => $exclude, group_id => $group_id, store_id => $store_id, customer_list_id => $customer_list_id, avail => $avail, find_value => $find_value, find_where => $find_where, sort_by => $sort_by, sort_direction => $sort_direction, ids => $ids, since_id => $since_id)
+> ModelResponseCustomerList customer_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 customer.list
 
@@ -613,29 +613,29 @@ my $api_instance = WWW::OpenAPIClient::CustomerApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+my $ids = 24,25; # string | Retrieves customers specified by ids
+my $since_id = 56; # string | Retrieve entities starting from the specified id.
+my $customer_list_id = exampleListId; # string | The numeric ID of the customer list in Demandware.
+my $group_id = 3; # string | Customer group_id
+my $store_id = 1; # string | Retrieves customers specified by store id
+my $avail = false; # boolean | Defines category's visibility status
+my $find_value = mail@gmail.com; # string | Entity search that is specified by some value
+my $find_where = email; # string | Customer search that is specified by field
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
 my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $params = id,email; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $response_fields = {result{customer}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = id,email; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-my $group_id = 3; # string | Customer group_id
-my $store_id = 1; # string | Retrieves customers specified by store id
-my $customer_list_id = exampleListId; # string | The numeric ID of the customer list in Demandware.
-my $avail = false; # boolean | Defines category's visibility status
-my $find_value = mail@gmail.com; # string | Entity search that is specified by some value
-my $find_where = email; # string | Customer search that is specified by field
 my $sort_by = value_id; # string | Set field to sort by
 my $sort_direction = asc; # string | Set sorting direction
-my $ids = 24,25; # string | Retrieves customers specified by ids
-my $since_id = 56; # string | Retrieve entities starting from the specified id.
+my $response_fields = {result{customer}}; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $params = id,email; # string | Set this parameter in order to choose which entity fields you want to retrieve
+my $exclude = id,email; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->customer_list(page_cursor => $page_cursor, start => $start, count => $count, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, params => $params, response_fields => $response_fields, exclude => $exclude, group_id => $group_id, store_id => $store_id, customer_list_id => $customer_list_id, avail => $avail, find_value => $find_value, find_where => $find_where, sort_by => $sort_by, sort_direction => $sort_direction, ids => $ids, since_id => $since_id);
+    my $result = $api_instance->customer_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -647,26 +647,26 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **ids** | **string**| Retrieves customers specified by ids | [optional] 
+ **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
+ **customer_list_id** | **string**| The numeric ID of the customer list in Demandware. | [optional] 
+ **group_id** | **string**| Customer group_id | [optional] 
+ **store_id** | **string**| Retrieves customers specified by store id | [optional] 
+ **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **find_value** | **string**| Entity search that is specified by some value | [optional] 
+ **find_where** | **string**| Customer search that is specified by field | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
  **created_to** | **string**| Retrieve entities to their creation date | [optional] 
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,email,first_name,last_name&#39;]
- **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
- **group_id** | **string**| Customer group_id | [optional] 
- **store_id** | **string**| Retrieves customers specified by store id | [optional] 
- **customer_list_id** | **string**| The numeric ID of the customer list in Demandware. | [optional] 
- **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
- **find_value** | **string**| Entity search that is specified by some value | [optional] 
- **find_where** | **string**| Customer search that is specified by field | [optional] 
  **sort_by** | **string**| Set field to sort by | [optional] [default to &#39;created_time&#39;]
  **sort_direction** | **string**| Set sorting direction | [optional] [default to &#39;asc&#39;]
- **ids** | **string**| Retrieves customers specified by ids | [optional] 
- **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
+ **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,email,first_name,last_name&#39;]
+ **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
 
 ### Return type
 
@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_wishlist_list**
-> ModelResponseCustomerWishlistList customer_wishlist_list(customer_id => $customer_id, id => $id, store_id => $store_id, start => $start, count => $count, page_cursor => $page_cursor, response_fields => $response_fields)
+> ModelResponseCustomerWishlistList customer_wishlist_list(customer_id => $customer_id, start => $start, count => $count, page_cursor => $page_cursor, id => $id, store_id => $store_id, response_fields => $response_fields)
 
 customer.wishlist.list
 
@@ -762,15 +762,15 @@ my $api_instance = WWW::OpenAPIClient::CustomerApi->new(
 );
 
 my $customer_id = 5; # string | Retrieves orders specified by customer id
-my $id = 10; # string | Entity id
-my $store_id = 1; # string | Store Id
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+my $id = 10; # string | Entity id
+my $store_id = 1; # string | Store Id
 my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 
 eval {
-    my $result = $api_instance->customer_wishlist_list(customer_id => $customer_id, id => $id, store_id => $store_id, start => $start, count => $count, page_cursor => $page_cursor, response_fields => $response_fields);
+    my $result = $api_instance->customer_wishlist_list(customer_id => $customer_id, start => $start, count => $count, page_cursor => $page_cursor, id => $id, store_id => $store_id, response_fields => $response_fields);
     print Dumper($result);
 };
 if ($@) {
@@ -783,11 +783,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_id** | **string**| Retrieves orders specified by customer id | 
- **id** | **string**| Entity id | [optional] 
- **store_id** | **string**| Store Id | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
+ **id** | **string**| Entity id | [optional] 
+ **store_id** | **string**| Store Id | [optional] 
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;{return_code,return_message,pagination,result}&#39;]
 
 ### Return type
