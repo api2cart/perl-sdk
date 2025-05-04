@@ -304,6 +304,8 @@ sub account_cart_list {
 # @param string $shopware_access_key Shopware access key (optional)
 # @param string $shopware_api_key Shopware api key (optional)
 # @param string $shopware_api_secret Shopware client secret access key (optional)
+# @param string $bigcartel_user_name Subdomain of store (optional)
+# @param string $bigcartel_password BigCartel account password (optional)
 # @param string $volusion_login It&#39;s a Volusion account for which API is enabled (optional)
 # @param string $volusion_password Volusion API Password (optional)
 # @param string $walmart_client_id Walmart client ID. For the region &#39;ca&#39; use Consumer ID (optional)
@@ -730,6 +732,16 @@ sub account_cart_list {
     'shopware_api_secret' => {
         data_type => 'string',
         description => 'Shopware client secret access key',
+        required => '0',
+    },
+    'bigcartel_user_name' => {
+        data_type => 'string',
+        description => 'Subdomain of store',
+        required => '0',
+    },
+    'bigcartel_password' => {
+        data_type => 'string',
+        description => 'BigCartel account password',
         required => '0',
     },
     'volusion_login' => {
@@ -1467,6 +1479,16 @@ sub account_config_update {
     # query params
     if ( exists $args{'shopware_api_secret'}) {
         $query_params->{'shopware_api_secret'} = $self->{api_client}->to_query_value($args{'shopware_api_secret'});
+    }
+
+    # query params
+    if ( exists $args{'bigcartel_user_name'}) {
+        $query_params->{'bigcartel_user_name'} = $self->{api_client}->to_query_value($args{'bigcartel_user_name'});
+    }
+
+    # query params
+    if ( exists $args{'bigcartel_password'}) {
+        $query_params->{'bigcartel_password'} = $self->{api_client}->to_query_value($args{'bigcartel_password'});
     }
 
     # query params

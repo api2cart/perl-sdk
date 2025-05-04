@@ -312,6 +312,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'tracking_provider' => {
+        datatype => 'string',
+        base_name => 'tracking_provider',
+        description => 'Defines name of the company which provides shipment tracking',
+        format => '',
+        read_only => '',
+            },
     'use_latest_api_version' => {
         datatype => 'boolean',
         base_name => 'use_latest_api_version',
@@ -335,6 +342,7 @@ __PACKAGE__->openapi_types( {
     'adjust_stock' => 'boolean',
     'enable_cache' => 'boolean',
     'check_process_status' => 'boolean',
+    'tracking_provider' => 'string',
     'use_latest_api_version' => 'boolean'
 } );
 
@@ -352,6 +360,7 @@ __PACKAGE__->attribute_map( {
     'adjust_stock' => 'adjust_stock',
     'enable_cache' => 'enable_cache',
     'check_process_status' => 'check_process_status',
+    'tracking_provider' => 'tracking_provider',
     'use_latest_api_version' => 'use_latest_api_version'
 } );
 

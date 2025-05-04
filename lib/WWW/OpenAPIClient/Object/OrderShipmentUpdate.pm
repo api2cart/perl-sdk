@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::OrderShipmentAddItemsInner;
 use WWW::OpenAPIClient::Object::OrderShipmentAddTrackingNumbersInner;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
@@ -283,6 +284,27 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'send_notifications' => {
+        datatype => 'boolean',
+        base_name => 'send_notifications',
+        description => 'Send notifications to customer after order was created',
+        format => '',
+        read_only => '',
+            },
+    'tracking_provider' => {
+        datatype => 'string',
+        base_name => 'tracking_provider',
+        description => 'Defines name of the company which provides shipment tracking',
+        format => '',
+        read_only => '',
+            },
+    'items' => {
+        datatype => 'ARRAY[OrderShipmentAddItemsInner]',
+        base_name => 'items',
+        description => 'Defines items in the order that will be shipped',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -294,7 +316,10 @@ __PACKAGE__->openapi_types( {
     'tracking_link' => 'string',
     'is_shipped' => 'boolean',
     'delivered_at' => 'string',
-    'replace' => 'boolean'
+    'replace' => 'boolean',
+    'send_notifications' => 'boolean',
+    'tracking_provider' => 'string',
+    'items' => 'ARRAY[OrderShipmentAddItemsInner]'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -306,7 +331,10 @@ __PACKAGE__->attribute_map( {
     'tracking_link' => 'tracking_link',
     'is_shipped' => 'is_shipped',
     'delivered_at' => 'delivered_at',
-    'replace' => 'replace'
+    'replace' => 'replace',
+    'send_notifications' => 'send_notifications',
+    'tracking_provider' => 'tracking_provider',
+    'items' => 'items'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
