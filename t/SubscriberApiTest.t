@@ -33,6 +33,7 @@ isa_ok($api, 'WWW::OpenAPIClient::SubscriberApi');
 # subscriber_list test
 #
 # uncomment below and update the test
+#my $subscriber_list_ids = undef; # replace NULL with a proper value
 #my $subscriber_list_start = undef; # replace NULL with a proper value
 #my $subscriber_list_count = undef; # replace NULL with a proper value
 #my $subscriber_list_page_cursor = undef; # replace NULL with a proper value
@@ -46,7 +47,7 @@ isa_ok($api, 'WWW::OpenAPIClient::SubscriberApi');
 #my $subscriber_list_response_fields = undef; # replace NULL with a proper value
 #my $subscriber_list_params = undef; # replace NULL with a proper value
 #my $subscriber_list_exclude = undef; # replace NULL with a proper value
-#my $subscriber_list_result = $api->subscriber_list(start => $subscriber_list_start, count => $subscriber_list_count, page_cursor => $subscriber_list_page_cursor, subscribed => $subscriber_list_subscribed, store_id => $subscriber_list_store_id, email => $subscriber_list_email, created_from => $subscriber_list_created_from, created_to => $subscriber_list_created_to, modified_from => $subscriber_list_modified_from, modified_to => $subscriber_list_modified_to, response_fields => $subscriber_list_response_fields, params => $subscriber_list_params, exclude => $subscriber_list_exclude);
+#my $subscriber_list_result = $api->subscriber_list(ids => $subscriber_list_ids, start => $subscriber_list_start, count => $subscriber_list_count, page_cursor => $subscriber_list_page_cursor, subscribed => $subscriber_list_subscribed, store_id => $subscriber_list_store_id, email => $subscriber_list_email, created_from => $subscriber_list_created_from, created_to => $subscriber_list_created_to, modified_from => $subscriber_list_modified_from, modified_to => $subscriber_list_modified_to, response_fields => $subscriber_list_response_fields, params => $subscriber_list_params, exclude => $subscriber_list_exclude);
 
 
 done_testing();

@@ -37,6 +37,7 @@ use WWW::OpenAPIClient::Object::ProductAddGroupPricesInner;
 use WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner;
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
+use WWW::OpenAPIClient::Object::ProductAddPersonalizationDetails;
 use WWW::OpenAPIClient::Object::ProductAddSalesTax;
 use WWW::OpenAPIClient::Object::ProductAddSellerProfiles;
 use WWW::OpenAPIClient::Object::ProductAddShippingDetailsInner;
@@ -1016,6 +1017,27 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'shop_section_id' => {
+        datatype => 'int',
+        base_name => 'shop_section_id',
+        description => 'Add Shop Section Id',
+        format => '',
+        read_only => '',
+            },
+    'return_policy_id' => {
+        datatype => 'int',
+        base_name => 'return_policy_id',
+        description => 'Add Return Policy Id',
+        format => '',
+        read_only => '',
+            },
+    'personalization_details' => {
+        datatype => 'ProductAddPersonalizationDetails',
+        base_name => 'personalization_details',
+        description => '',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -1130,7 +1152,10 @@ __PACKAGE__->openapi_types( {
     'marketplace_item_properties' => 'string',
     'clear_cache' => 'boolean',
     'viewed_count' => 'int',
-    'ordered_count' => 'int'
+    'ordered_count' => 'int',
+    'shop_section_id' => 'int',
+    'return_policy_id' => 'int',
+    'personalization_details' => 'ProductAddPersonalizationDetails'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -1245,7 +1270,10 @@ __PACKAGE__->attribute_map( {
     'marketplace_item_properties' => 'marketplace_item_properties',
     'clear_cache' => 'clear_cache',
     'viewed_count' => 'viewed_count',
-    'ordered_count' => 'ordered_count'
+    'ordered_count' => 'ordered_count',
+    'shop_section_id' => 'shop_section_id',
+    'return_policy_id' => 'return_policy_id',
+    'personalization_details' => 'personalization_details'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

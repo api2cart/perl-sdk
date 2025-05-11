@@ -32,6 +32,8 @@ use DateTime;
 
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
+use WWW::OpenAPIClient::Object::ProductAddPersonalizationDetails;
+use WWW::OpenAPIClient::Object::ProductAddSpecificsInner;
 use WWW::OpenAPIClient::Object::ProductAddTierPricesInner;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
@@ -796,6 +798,27 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'specifics' => {
+        datatype => 'ARRAY[ProductAddSpecificsInner]',
+        base_name => 'specifics',
+        description => 'An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields-&gt;product_specifics).         &lt;b&gt;The structure of the parameter is different for specific platforms.&lt;/b&gt;',
+        format => '',
+        read_only => '',
+            },
+    'shop_section_id' => {
+        datatype => 'int',
+        base_name => 'shop_section_id',
+        description => 'Add Shop Section Id',
+        format => '',
+        read_only => '',
+            },
+    'personalization_details' => {
+        datatype => 'ProductAddPersonalizationDetails',
+        base_name => 'personalization_details',
+        description => '',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -880,7 +903,10 @@ __PACKAGE__->openapi_types( {
     'disable_report_cache' => 'boolean',
     'reindex' => 'boolean',
     'clear_cache' => 'boolean',
-    'check_process_status' => 'boolean'
+    'check_process_status' => 'boolean',
+    'specifics' => 'ARRAY[ProductAddSpecificsInner]',
+    'shop_section_id' => 'int',
+    'personalization_details' => 'ProductAddPersonalizationDetails'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -965,7 +991,10 @@ __PACKAGE__->attribute_map( {
     'disable_report_cache' => 'disable_report_cache',
     'reindex' => 'reindex',
     'clear_cache' => 'clear_cache',
-    'check_process_status' => 'check_process_status'
+    'check_process_status' => 'check_process_status',
+    'specifics' => 'specifics',
+    'shop_section_id' => 'shop_section_id',
+    'personalization_details' => 'personalization_details'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

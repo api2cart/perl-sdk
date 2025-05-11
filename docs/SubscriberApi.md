@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **subscriber_list**
-> ModelResponseSubscriberList subscriber_list(start => $start, count => $count, page_cursor => $page_cursor, subscribed => $subscribed, store_id => $store_id, email => $email, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude)
+> ModelResponseSubscriberList subscriber_list(ids => $ids, start => $start, count => $count, page_cursor => $page_cursor, subscribed => $subscribed, store_id => $store_id, email => $email, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 subscriber.list
 
@@ -35,6 +35,7 @@ my $api_instance = WWW::OpenAPIClient::SubscriberApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
+my $ids = 24,25; # string | Retrieves subscribers specified by ids
 my $start = 0; # int | This parameter sets the number from which you want to get entities
 my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
@@ -50,7 +51,7 @@ my $params = id,model,price,images; # string | Set this parameter in order to ch
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->subscriber_list(start => $start, count => $count, page_cursor => $page_cursor, subscribed => $subscribed, store_id => $store_id, email => $email, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude);
+    my $result = $api_instance->subscriber_list(ids => $ids, start => $start, count => $count, page_cursor => $page_cursor, subscribed => $subscribed, store_id => $store_id, email => $email, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -62,6 +63,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **string**| Retrieves subscribers specified by ids | [optional] 
  **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 

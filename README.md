@@ -525,6 +525,7 @@ use WWW::OpenAPIClient::Object::ProductAddGroupPricesInner;
 use WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner;
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
+use WWW::OpenAPIClient::Object::ProductAddPersonalizationDetails;
 use WWW::OpenAPIClient::Object::ProductAddSalesTax;
 use WWW::OpenAPIClient::Object::ProductAddSellerProfiles;
 use WWW::OpenAPIClient::Object::ProductAddShippingDetailsInner;
@@ -990,6 +991,7 @@ use WWW::OpenAPIClient::Object::ProductAddGroupPricesInner;
 use WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner;
 use WWW::OpenAPIClient::Object::ProductAddManufacturerInfo;
 use WWW::OpenAPIClient::Object::ProductAddPackageDetails;
+use WWW::OpenAPIClient::Object::ProductAddPersonalizationDetails;
 use WWW::OpenAPIClient::Object::ProductAddSalesTax;
 use WWW::OpenAPIClient::Object::ProductAddSellerProfiles;
 use WWW::OpenAPIClient::Object::ProductAddShippingDetailsInner;
@@ -1636,6 +1638,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ProductAddLogisticInfoInner](docs/ProductAddLogisticInfoInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddManufacturerInfo](docs/ProductAddManufacturerInfo.md)
  - [WWW::OpenAPIClient::Object::ProductAddPackageDetails](docs/ProductAddPackageDetails.md)
+ - [WWW::OpenAPIClient::Object::ProductAddPersonalizationDetails](docs/ProductAddPersonalizationDetails.md)
  - [WWW::OpenAPIClient::Object::ProductAddSalesTax](docs/ProductAddSalesTax.md)
  - [WWW::OpenAPIClient::Object::ProductAddSellerProfiles](docs/ProductAddSellerProfiles.md)
  - [WWW::OpenAPIClient::Object::ProductAddShippingDetailsInner](docs/ProductAddShippingDetailsInner.md)

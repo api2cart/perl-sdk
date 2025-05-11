@@ -53,6 +53,7 @@ sub new {
 #
 # subscriber.list
 #
+# @param string $ids Retrieves subscribers specified by ids (optional)
 # @param int $start This parameter sets the number from which you want to get entities (optional, default to 0)
 # @param int $count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 (optional, default to 10)
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
@@ -68,6 +69,11 @@ sub new {
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
 {
     my $params = {
+    'ids' => {
+        data_type => 'string',
+        description => 'Retrieves subscribers specified by ids',
+        required => '0',
+    },
     'start' => {
         data_type => 'int',
         description => 'This parameter sets the number from which you want to get entities',
@@ -159,6 +165,11 @@ sub subscriber_list {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'ids'}) {
+        $query_params->{'ids'} = $self->{api_client}->to_query_value($args{'ids'});
+    }
 
     # query params
     if ( exists $args{'start'}) {
