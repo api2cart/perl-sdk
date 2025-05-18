@@ -2739,6 +2739,7 @@ sub order_transaction_list {
 # @param boolean $send_notifications Send notifications to customer after order was created (optional, default to false)
 # @param boolean $create_invoice Determines whether an invoice should be created if it has not already been created (optional)
 # @param string $origin The source of the order (optional)
+# @param string $tags Order tags (optional)
 {
     my $params = {
     'order_id' => {
@@ -2819,6 +2820,11 @@ sub order_transaction_list {
     'origin' => {
         data_type => 'string',
         description => 'The source of the order',
+        required => '0',
+    },
+    'tags' => {
+        data_type => 'string',
+        description => 'Order tags',
         required => '0',
     },
     };
@@ -2931,6 +2937,11 @@ sub order_update {
     # query params
     if ( exists $args{'origin'}) {
         $query_params->{'origin'} = $self->{api_client}->to_query_value($args{'origin'});
+    }
+
+    # query params
+    if ( exists $args{'tags'}) {
+        $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
     }
 
     my $_body_data;

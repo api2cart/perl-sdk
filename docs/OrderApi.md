@@ -1473,7 +1473,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **order_update**
-> AccountConfigUpdate200Response order_update(order_id => $order_id, store_id => $store_id, order_status => $order_status, financial_status => $financial_status, fulfillment_status => $fulfillment_status, cancellation_reason => $cancellation_reason, order_payment_method => $order_payment_method, comment => $comment, admin_comment => $admin_comment, admin_private_comment => $admin_private_comment, invoice_admin_comment => $invoice_admin_comment, date_modified => $date_modified, date_finished => $date_finished, send_notifications => $send_notifications, create_invoice => $create_invoice, origin => $origin)
+> AccountConfigUpdate200Response order_update(order_id => $order_id, store_id => $store_id, order_status => $order_status, financial_status => $financial_status, fulfillment_status => $fulfillment_status, cancellation_reason => $cancellation_reason, order_payment_method => $order_payment_method, comment => $comment, admin_comment => $admin_comment, admin_private_comment => $admin_private_comment, invoice_admin_comment => $invoice_admin_comment, date_modified => $date_modified, date_finished => $date_finished, send_notifications => $send_notifications, create_invoice => $create_invoice, origin => $origin, tags => $tags)
 
 order.update
 
@@ -1511,9 +1511,10 @@ my $date_finished = 2014-06-05 05:05:00; # string | Specifies order's  finished 
 my $send_notifications = true; # boolean | Send notifications to customer after order was created
 my $create_invoice = true; # boolean | Determines whether an invoice should be created if it has not already been created
 my $origin = newsletter; # string | The source of the order
+my $tags = tag1,tag2; # string | Order tags
 
 eval {
-    my $result = $api_instance->order_update(order_id => $order_id, store_id => $store_id, order_status => $order_status, financial_status => $financial_status, fulfillment_status => $fulfillment_status, cancellation_reason => $cancellation_reason, order_payment_method => $order_payment_method, comment => $comment, admin_comment => $admin_comment, admin_private_comment => $admin_private_comment, invoice_admin_comment => $invoice_admin_comment, date_modified => $date_modified, date_finished => $date_finished, send_notifications => $send_notifications, create_invoice => $create_invoice, origin => $origin);
+    my $result = $api_instance->order_update(order_id => $order_id, store_id => $store_id, order_status => $order_status, financial_status => $financial_status, fulfillment_status => $fulfillment_status, cancellation_reason => $cancellation_reason, order_payment_method => $order_payment_method, comment => $comment, admin_comment => $admin_comment, admin_private_comment => $admin_private_comment, invoice_admin_comment => $invoice_admin_comment, date_modified => $date_modified, date_finished => $date_finished, send_notifications => $send_notifications, create_invoice => $create_invoice, origin => $origin, tags => $tags);
     print Dumper($result);
 };
 if ($@) {
@@ -1541,6 +1542,7 @@ Name | Type | Description  | Notes
  **send_notifications** | **boolean**| Send notifications to customer after order was created | [optional] [default to false]
  **create_invoice** | **boolean**| Determines whether an invoice should be created if it has not already been created | [optional] 
  **origin** | **string**| The source of the order | [optional] 
+ **tags** | **string**| Order tags | [optional] 
 
 ### Return type
 
