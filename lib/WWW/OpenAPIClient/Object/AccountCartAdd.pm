@@ -780,6 +780,48 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'shopee_partner_id' => {
+        datatype => 'string',
+        base_name => 'shopee_partner_id',
+        description => 'Shopee Partner ID',
+        format => '',
+        read_only => '',
+            },
+    'shopee_partner_key' => {
+        datatype => 'string',
+        base_name => 'shopee_partner_key',
+        description => 'Shopee Partner Key',
+        format => '',
+        read_only => '',
+            },
+    'shopee_shop_id' => {
+        datatype => 'string',
+        base_name => 'shopee_shop_id',
+        description => 'Shopee SHOP ID',
+        format => '',
+        read_only => '',
+            },
+    'shopee_refresh_token' => {
+        datatype => 'string',
+        base_name => 'shopee_refresh_token',
+        description => 'Shopee Refresh Token',
+        format => '',
+        read_only => '',
+            },
+    'shopee_region' => {
+        datatype => 'string',
+        base_name => 'shopee_region',
+        description => 'Shopee API endpoint Region. Use for Chinese Mainland or Brazil.',
+        format => '',
+        read_only => '',
+            },
+    'shopee_environment' => {
+        datatype => 'string',
+        base_name => 'shopee_environment',
+        description => 'Shopee Environment',
+        format => '',
+        read_only => '',
+            },
     'shoplazza_access_token' => {
         datatype => 'string',
         base_name => 'shoplazza_access_token',
@@ -1277,6 +1319,34 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'temu_app_key' => {
+        datatype => 'string',
+        base_name => 'temu_app_key',
+        description => 'Temu App Key',
+        format => '',
+        read_only => '',
+            },
+    'temu_app_secret' => {
+        datatype => 'string',
+        base_name => 'temu_app_secret',
+        description => 'Temu App Secret',
+        format => '',
+        read_only => '',
+            },
+    'temu_access_token' => {
+        datatype => 'string',
+        base_name => 'temu_access_token',
+        description => 'Temu Access Token',
+        format => '',
+        read_only => '',
+            },
+    'temu_region' => {
+        datatype => 'string',
+        base_name => 'temu_region',
+        description => 'Temu API endpoint Region.',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -1360,6 +1430,12 @@ __PACKAGE__->openapi_types( {
     'shopify_api_key' => 'string',
     'shopify_api_password' => 'string',
     'shopify_shared_secret' => 'string',
+    'shopee_partner_id' => 'string',
+    'shopee_partner_key' => 'string',
+    'shopee_shop_id' => 'string',
+    'shopee_refresh_token' => 'string',
+    'shopee_region' => 'string',
+    'shopee_environment' => 'string',
     'shoplazza_access_token' => 'string',
     'shoplazza_shared_secret' => 'string',
     'shopware_access_key' => 'string',
@@ -1430,7 +1506,11 @@ __PACKAGE__->openapi_types( {
     'salla_client_id' => 'string',
     'salla_client_secret' => 'string',
     'salla_refresh_token' => 'string',
-    'salla_access_token' => 'string'
+    'salla_access_token' => 'string',
+    'temu_app_key' => 'string',
+    'temu_app_secret' => 'string',
+    'temu_access_token' => 'string',
+    'temu_region' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -1514,6 +1594,12 @@ __PACKAGE__->attribute_map( {
     'shopify_api_key' => 'shopify_api_key',
     'shopify_api_password' => 'shopify_api_password',
     'shopify_shared_secret' => 'shopify_shared_secret',
+    'shopee_partner_id' => 'shopee_partner_id',
+    'shopee_partner_key' => 'shopee_partner_key',
+    'shopee_shop_id' => 'shopee_shop_id',
+    'shopee_refresh_token' => 'shopee_refresh_token',
+    'shopee_region' => 'shopee_region',
+    'shopee_environment' => 'shopee_environment',
     'shoplazza_access_token' => 'shoplazza_access_token',
     'shoplazza_shared_secret' => 'shoplazza_shared_secret',
     'shopware_access_key' => 'shopware_access_key',
@@ -1584,7 +1670,11 @@ __PACKAGE__->attribute_map( {
     'salla_client_id' => 'salla_client_id',
     'salla_client_secret' => 'salla_client_secret',
     'salla_refresh_token' => 'salla_refresh_token',
-    'salla_access_token' => 'salla_access_token'
+    'salla_access_token' => 'salla_access_token',
+    'temu_app_key' => 'temu_app_key',
+    'temu_app_secret' => 'temu_app_secret',
+    'temu_access_token' => 'temu_access_token',
+    'temu_region' => 'temu_region'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

@@ -297,6 +297,12 @@ sub account_cart_list {
 # @param string $shopify_api_key Shopify API Key (optional)
 # @param string $shopify_api_password Shopify API Password (optional)
 # @param string $shopify_shared_secret Shared secret (optional)
+# @param string $shopee_partner_id Shopee Partner ID (optional)
+# @param string $shopee_partner_key Shopee Partner Key (optional)
+# @param string $shopee_shop_id Shopee SHOP ID (optional)
+# @param string $shopee_refresh_token Shopee Refresh Token (optional)
+# @param string $shopee_region Shopee API endpoint Region. Use for Chinese Mainland or Brazil. (optional)
+# @param string $shopee_environment Shopee Environment (optional)
 # @param string $shoplazza_access_token Access token authorizing the app to access resources on behalf of a user (optional)
 # @param string $shoplazza_shared_secret Shared secret (optional)
 # @param string $miva_access_token Miva access token (optional)
@@ -377,6 +383,10 @@ sub account_cart_list {
 # @param string $salla_client_secret Salla Client Secret (optional)
 # @param string $salla_refresh_token Salla Refresh Token (optional)
 # @param string $salla_access_token Salla Access Token (optional)
+# @param string $temu_app_key Temu App Key (optional)
+# @param string $temu_app_secret Temu App Secret (optional)
+# @param string $temu_access_token Temu Access Token (optional)
+# @param string $temu_region Temu API endpoint Region. (optional, default to 'US')
 {
     my $params = {
     'replace_parameters' => {
@@ -697,6 +707,36 @@ sub account_cart_list {
     'shopify_shared_secret' => {
         data_type => 'string',
         description => 'Shared secret',
+        required => '0',
+    },
+    'shopee_partner_id' => {
+        data_type => 'string',
+        description => 'Shopee Partner ID',
+        required => '0',
+    },
+    'shopee_partner_key' => {
+        data_type => 'string',
+        description => 'Shopee Partner Key',
+        required => '0',
+    },
+    'shopee_shop_id' => {
+        data_type => 'string',
+        description => 'Shopee SHOP ID',
+        required => '0',
+    },
+    'shopee_refresh_token' => {
+        data_type => 'string',
+        description => 'Shopee Refresh Token',
+        required => '0',
+    },
+    'shopee_region' => {
+        data_type => 'string',
+        description => 'Shopee API endpoint Region. Use for Chinese Mainland or Brazil.',
+        required => '0',
+    },
+    'shopee_environment' => {
+        data_type => 'string',
+        description => 'Shopee Environment',
         required => '0',
     },
     'shoplazza_access_token' => {
@@ -1099,6 +1139,26 @@ sub account_cart_list {
         description => 'Salla Access Token',
         required => '0',
     },
+    'temu_app_key' => {
+        data_type => 'string',
+        description => 'Temu App Key',
+        required => '0',
+    },
+    'temu_app_secret' => {
+        data_type => 'string',
+        description => 'Temu App Secret',
+        required => '0',
+    },
+    'temu_access_token' => {
+        data_type => 'string',
+        description => 'Temu Access Token',
+        required => '0',
+    },
+    'temu_region' => {
+        data_type => 'string',
+        description => 'Temu API endpoint Region.',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'account_config_update' } = {
         summary => 'account.config.update',
@@ -1444,6 +1504,36 @@ sub account_config_update {
     # query params
     if ( exists $args{'shopify_shared_secret'}) {
         $query_params->{'shopify_shared_secret'} = $self->{api_client}->to_query_value($args{'shopify_shared_secret'});
+    }
+
+    # query params
+    if ( exists $args{'shopee_partner_id'}) {
+        $query_params->{'shopee_partner_id'} = $self->{api_client}->to_query_value($args{'shopee_partner_id'});
+    }
+
+    # query params
+    if ( exists $args{'shopee_partner_key'}) {
+        $query_params->{'shopee_partner_key'} = $self->{api_client}->to_query_value($args{'shopee_partner_key'});
+    }
+
+    # query params
+    if ( exists $args{'shopee_shop_id'}) {
+        $query_params->{'shopee_shop_id'} = $self->{api_client}->to_query_value($args{'shopee_shop_id'});
+    }
+
+    # query params
+    if ( exists $args{'shopee_refresh_token'}) {
+        $query_params->{'shopee_refresh_token'} = $self->{api_client}->to_query_value($args{'shopee_refresh_token'});
+    }
+
+    # query params
+    if ( exists $args{'shopee_region'}) {
+        $query_params->{'shopee_region'} = $self->{api_client}->to_query_value($args{'shopee_region'});
+    }
+
+    # query params
+    if ( exists $args{'shopee_environment'}) {
+        $query_params->{'shopee_environment'} = $self->{api_client}->to_query_value($args{'shopee_environment'});
     }
 
     # query params
@@ -1844,6 +1934,26 @@ sub account_config_update {
     # query params
     if ( exists $args{'salla_access_token'}) {
         $query_params->{'salla_access_token'} = $self->{api_client}->to_query_value($args{'salla_access_token'});
+    }
+
+    # query params
+    if ( exists $args{'temu_app_key'}) {
+        $query_params->{'temu_app_key'} = $self->{api_client}->to_query_value($args{'temu_app_key'});
+    }
+
+    # query params
+    if ( exists $args{'temu_app_secret'}) {
+        $query_params->{'temu_app_secret'} = $self->{api_client}->to_query_value($args{'temu_app_secret'});
+    }
+
+    # query params
+    if ( exists $args{'temu_access_token'}) {
+        $query_params->{'temu_access_token'} = $self->{api_client}->to_query_value($args{'temu_access_token'});
+    }
+
+    # query params
+    if ( exists $args{'temu_region'}) {
+        $query_params->{'temu_region'} = $self->{api_client}->to_query_value($args{'temu_region'});
     }
 
     my $_body_data;
