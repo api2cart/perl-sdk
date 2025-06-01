@@ -386,7 +386,7 @@ sub account_cart_list {
 # @param string $temu_app_key Temu App Key (optional)
 # @param string $temu_app_secret Temu App Secret (optional)
 # @param string $temu_access_token Temu Access Token (optional)
-# @param string $temu_region Temu API endpoint Region. (optional, default to 'US')
+# @param string $temu_region Temu API endpoint Region. (optional)
 {
     my $params = {
     'replace_parameters' => {
