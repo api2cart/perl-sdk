@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_create**
-> BasketLiveShippingServiceCreate200Response webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, active => $active, store_id => $store_id)
+> BasketLiveShippingServiceCreate200Response webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id, store_id => $store_id)
 
 webhook.create
 
@@ -105,10 +105,11 @@ my $callback = https://example.com/callback; # string | Callback url that return
 my $label = Super webhook; # string | The name you give to the webhook
 my $fields = id, name, description; # string | Fields the webhook should send
 my $active = true; # boolean | Webhook status
+my $lang_id = 3; # string | Language id
 my $store_id = 1; # string | Defines store id where the webhook should be assigned
 
 eval {
-    my $result = $api_instance->webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, active => $active, store_id => $store_id);
+    my $result = $api_instance->webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id, store_id => $store_id);
     print Dumper($result);
 };
 if ($@) {
@@ -126,6 +127,7 @@ Name | Type | Description  | Notes
  **label** | **string**| The name you give to the webhook | [optional] 
  **fields** | **string**| Fields the webhook should send | [optional] [default to &#39;force_all&#39;]
  **active** | **boolean**| Webhook status | [optional] [default to true]
+ **lang_id** | **string**| Language id | [optional] 
  **store_id** | **string**| Defines store id where the webhook should be assigned | [optional] 
 
 ### Return type
@@ -317,7 +319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_update**
-> ProductImageUpdate200Response webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, active => $active)
+> ProductImageUpdate200Response webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id)
 
 webhook.update
 
@@ -344,9 +346,10 @@ my $callback = https://example.com/callback; # string | Callback url that return
 my $label = Super webhook; # string | The name you give to the webhook
 my $fields = id, name, description; # string | Fields the webhook should send
 my $active = true; # boolean | Webhook status
+my $lang_id = 3; # string | Language id
 
 eval {
-    my $result = $api_instance->webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, active => $active);
+    my $result = $api_instance->webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id);
     print Dumper($result);
 };
 if ($@) {
@@ -363,6 +366,7 @@ Name | Type | Description  | Notes
  **label** | **string**| The name you give to the webhook | [optional] 
  **fields** | **string**| Fields the webhook should send | [optional] 
  **active** | **boolean**| Webhook status | [optional] 
+ **lang_id** | **string**| Language id | [optional] 
 
 ### Return type
 

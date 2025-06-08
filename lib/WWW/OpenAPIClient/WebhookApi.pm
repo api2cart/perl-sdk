@@ -141,6 +141,7 @@ sub webhook_count {
 # @param string $label The name you give to the webhook (optional)
 # @param string $fields Fields the webhook should send (optional, default to 'force_all')
 # @param boolean $active Webhook status (optional, default to true)
+# @param string $lang_id Language id (optional)
 # @param string $store_id Defines store id where the webhook should be assigned (optional)
 {
     my $params = {
@@ -172,6 +173,11 @@ sub webhook_count {
     'active' => {
         data_type => 'boolean',
         description => 'Webhook status',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
         required => '0',
     },
     'store_id' => {
@@ -244,6 +250,11 @@ sub webhook_create {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     # query params
@@ -516,6 +527,7 @@ sub webhook_list {
 # @param string $label The name you give to the webhook (optional)
 # @param string $fields Fields the webhook should send (optional)
 # @param boolean $active Webhook status (optional)
+# @param string $lang_id Language id (optional)
 {
     my $params = {
     'id' => {
@@ -541,6 +553,11 @@ sub webhook_list {
     'active' => {
         data_type => 'boolean',
         description => 'Webhook status',
+        required => '0',
+    },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
         required => '0',
     },
     };
@@ -598,6 +615,11 @@ sub webhook_update {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
+    }
+
+    # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
     }
 
     my $_body_data;
