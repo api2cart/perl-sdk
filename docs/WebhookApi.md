@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_create**
-> BasketLiveShippingServiceCreate200Response webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id, store_id => $store_id)
+> BasketLiveShippingServiceCreate200Response webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, response_fields => $response_fields, active => $active, lang_id => $lang_id, store_id => $store_id)
 
 webhook.create
 
@@ -104,12 +104,13 @@ my $action = add; # string | Specify what action (event) will trigger the webhoo
 my $callback = https://example.com/callback; # string | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
 my $label = Super webhook; # string | The name you give to the webhook
 my $fields = id, name, description; # string | Fields the webhook should send
+my $response_fields = {result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $active = true; # boolean | Webhook status
 my $lang_id = 3; # string | Language id
 my $store_id = 1; # string | Defines store id where the webhook should be assigned
 
 eval {
-    my $result = $api_instance->webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id, store_id => $store_id);
+    my $result = $api_instance->webhook_create(entity => $entity, action => $action, callback => $callback, label => $label, fields => $fields, response_fields => $response_fields, active => $active, lang_id => $lang_id, store_id => $store_id);
     print Dumper($result);
 };
 if ($@) {
@@ -126,6 +127,7 @@ Name | Type | Description  | Notes
  **callback** | **string**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] 
  **label** | **string**| The name you give to the webhook | [optional] 
  **fields** | **string**| Fields the webhook should send | [optional] [default to &#39;force_all&#39;]
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **active** | **boolean**| Webhook status | [optional] [default to true]
  **lang_id** | **string**| Language id | [optional] 
  **store_id** | **string**| Defines store id where the webhook should be assigned | [optional] 
@@ -319,7 +321,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_update**
-> ProductImageUpdate200Response webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id)
+> ProductImageUpdate200Response webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, response_fields => $response_fields, active => $active, lang_id => $lang_id)
 
 webhook.update
 
@@ -345,11 +347,12 @@ my $id = 25; # string | Webhook id
 my $callback = https://example.com/callback; # string | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
 my $label = Super webhook; # string | The name you give to the webhook
 my $fields = id, name, description; # string | Fields the webhook should send
+my $response_fields = {result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $active = true; # boolean | Webhook status
 my $lang_id = 3; # string | Language id
 
 eval {
-    my $result = $api_instance->webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, active => $active, lang_id => $lang_id);
+    my $result = $api_instance->webhook_update(id => $id, callback => $callback, label => $label, fields => $fields, response_fields => $response_fields, active => $active, lang_id => $lang_id);
     print Dumper($result);
 };
 if ($@) {
@@ -365,6 +368,7 @@ Name | Type | Description  | Notes
  **callback** | **string**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] 
  **label** | **string**| The name you give to the webhook | [optional] 
  **fields** | **string**| Fields the webhook should send | [optional] 
+ **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **active** | **boolean**| Webhook status | [optional] 
  **lang_id** | **string**| Language id | [optional] 
 

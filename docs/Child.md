@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **avail_for_sale** | **boolean** |  | [optional] 
 **allow_backorders** | **boolean** |  | [optional] 
 **in_stock** | **boolean** |  | [optional] 
+**on_sale** | **boolean** |  | [optional] 
 **manage_stock** | **boolean** |  | [optional] 
 **inventory_level** | **double** |  | [optional] 
 **inventory** | [**ARRAY[ProductInventory]**](ProductInventory.md) |  | [optional] 

@@ -140,6 +140,7 @@ sub webhook_count {
 # @param string $callback Callback url that returns shipping rates. It should be able to accept POST requests with json data. (optional)
 # @param string $label The name you give to the webhook (optional)
 # @param string $fields Fields the webhook should send (optional, default to 'force_all')
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param boolean $active Webhook status (optional, default to true)
 # @param string $lang_id Language id (optional)
 # @param string $store_id Defines store id where the webhook should be assigned (optional)
@@ -168,6 +169,11 @@ sub webhook_count {
     'fields' => {
         data_type => 'string',
         description => 'Fields the webhook should send',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'active' => {
@@ -245,6 +251,11 @@ sub webhook_create {
     # query params
     if ( exists $args{'fields'}) {
         $query_params->{'fields'} = $self->{api_client}->to_query_value($args{'fields'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params
@@ -526,6 +537,7 @@ sub webhook_list {
 # @param string $callback Callback url that returns shipping rates. It should be able to accept POST requests with json data. (optional)
 # @param string $label The name you give to the webhook (optional)
 # @param string $fields Fields the webhook should send (optional)
+# @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param boolean $active Webhook status (optional)
 # @param string $lang_id Language id (optional)
 {
@@ -548,6 +560,11 @@ sub webhook_list {
     'fields' => {
         data_type => 'string',
         description => 'Fields the webhook should send',
+        required => '0',
+    },
+    'response_fields' => {
+        data_type => 'string',
+        description => 'Set this parameter in order to choose which entity fields you want to retrieve',
         required => '0',
     },
     'active' => {
@@ -610,6 +627,11 @@ sub webhook_update {
     # query params
     if ( exists $args{'fields'}) {
         $query_params->{'fields'} = $self->{api_client}->to_query_value($args{'fields'});
+    }
+
+    # query params
+    if ( exists $args{'response_fields'}) {
+        $query_params->{'response_fields'} = $self->{api_client}->to_query_value($args{'response_fields'});
     }
 
     # query params

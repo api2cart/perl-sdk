@@ -47,10 +47,11 @@ isa_ok($api, 'WWW::OpenAPIClient::WebhookApi');
 #my $webhook_create_callback = undef; # replace NULL with a proper value
 #my $webhook_create_label = undef; # replace NULL with a proper value
 #my $webhook_create_fields = undef; # replace NULL with a proper value
+#my $webhook_create_response_fields = undef; # replace NULL with a proper value
 #my $webhook_create_active = undef; # replace NULL with a proper value
 #my $webhook_create_lang_id = undef; # replace NULL with a proper value
 #my $webhook_create_store_id = undef; # replace NULL with a proper value
-#my $webhook_create_result = $api->webhook_create(entity => $webhook_create_entity, action => $webhook_create_action, callback => $webhook_create_callback, label => $webhook_create_label, fields => $webhook_create_fields, active => $webhook_create_active, lang_id => $webhook_create_lang_id, store_id => $webhook_create_store_id);
+#my $webhook_create_result = $api->webhook_create(entity => $webhook_create_entity, action => $webhook_create_action, callback => $webhook_create_callback, label => $webhook_create_label, fields => $webhook_create_fields, response_fields => $webhook_create_response_fields, active => $webhook_create_active, lang_id => $webhook_create_lang_id, store_id => $webhook_create_store_id);
 
 #
 # webhook_delete test
@@ -86,9 +87,10 @@ isa_ok($api, 'WWW::OpenAPIClient::WebhookApi');
 #my $webhook_update_callback = undef; # replace NULL with a proper value
 #my $webhook_update_label = undef; # replace NULL with a proper value
 #my $webhook_update_fields = undef; # replace NULL with a proper value
+#my $webhook_update_response_fields = undef; # replace NULL with a proper value
 #my $webhook_update_active = undef; # replace NULL with a proper value
 #my $webhook_update_lang_id = undef; # replace NULL with a proper value
-#my $webhook_update_result = $api->webhook_update(id => $webhook_update_id, callback => $webhook_update_callback, label => $webhook_update_label, fields => $webhook_update_fields, active => $webhook_update_active, lang_id => $webhook_update_lang_id);
+#my $webhook_update_result = $api->webhook_update(id => $webhook_update_id, callback => $webhook_update_callback, label => $webhook_update_label, fields => $webhook_update_fields, response_fields => $webhook_update_response_fields, active => $webhook_update_active, lang_id => $webhook_update_lang_id);
 
 
 done_testing();
