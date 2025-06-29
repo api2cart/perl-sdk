@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **action_condition_value** | **string** | Defines condition attribute value/s. Can be comma separated string. | [optional] 
 **include_tax** | **boolean** | Indicates whether to apply a discount for taxes. | [optional] [default to false]
 **store_id** | **string** | Store Id | [optional] 
+**free_cash_on_delivery** | **boolean** | Defines whether the coupon provides free cash on delivery | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

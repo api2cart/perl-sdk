@@ -338,6 +338,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'free_cash_on_delivery' => {
+        datatype => 'boolean',
+        base_name => 'free_cash_on_delivery',
+        description => 'Defines whether the coupon provides free cash on delivery',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -357,7 +364,8 @@ __PACKAGE__->openapi_types( {
     'action_condition_operator' => 'string',
     'action_condition_value' => 'string',
     'include_tax' => 'boolean',
-    'store_id' => 'string'
+    'store_id' => 'string',
+    'free_cash_on_delivery' => 'boolean'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -377,7 +385,8 @@ __PACKAGE__->attribute_map( {
     'action_condition_operator' => 'action_condition_operator',
     'action_condition_value' => 'action_condition_value',
     'include_tax' => 'include_tax',
-    'store_id' => 'store_id'
+    'store_id' => 'store_id',
+    'free_cash_on_delivery' => 'free_cash_on_delivery'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

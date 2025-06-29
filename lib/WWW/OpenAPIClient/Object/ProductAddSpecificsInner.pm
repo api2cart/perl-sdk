@@ -257,6 +257,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'input_value' => {
+        datatype => 'string',
+        base_name => 'input_value',
+        description => '',
+        format => '',
+        read_only => '',
+            },
     'food_details' => {
         datatype => 'ProductAddSpecificsInnerFoodDetails',
         base_name => 'food_details',
@@ -286,6 +293,7 @@ __PACKAGE__->openapi_types( {
     'values' => 'ARRAY[string]',
     'used_for_variations' => 'boolean',
     'scale_id' => 'int',
+    'input_value' => 'string',
     'food_details' => 'ProductAddSpecificsInnerFoodDetails',
     'group_products_details' => 'ARRAY[ProductAddSpecificsInnerGroupProductsDetailsInner]',
     'booking_details' => 'ProductAddSpecificsInnerBookingDetails'
@@ -297,6 +305,7 @@ __PACKAGE__->attribute_map( {
     'values' => 'values',
     'used_for_variations' => 'used_for_variations',
     'scale_id' => 'scale_id',
+    'input_value' => 'input_value',
     'food_details' => 'food_details',
     'group_products_details' => 'group_products_details',
     'booking_details' => 'booking_details'

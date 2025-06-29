@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **values** | **ARRAY[string]** |  | [optional] 
 **used_for_variations** | **boolean** |  | [optional] [default to false]
 **scale_id** | **int** |  | [optional] 
+**input_value** | **string** |  | [optional] 
 **food_details** | [**ProductAddSpecificsInnerFoodDetails**](ProductAddSpecificsInnerFoodDetails.md) |  | [optional] 
 **group_products_details** | [**ARRAY[ProductAddSpecificsInnerGroupProductsDetailsInner]**](ProductAddSpecificsInnerGroupProductsDetailsInner.md) |  | [optional] 
 **booking_details** | [**ProductAddSpecificsInnerBookingDetails**](ProductAddSpecificsInnerBookingDetails.md) |  | [optional] 

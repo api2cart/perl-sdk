@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_count**
-> ProductCount200Response product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
+> ProductCount200Response product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.count
 
@@ -747,6 +747,7 @@ my $brand_name = Abidas; # string | Retrieves brands specified by brand name
 my $product_attributes = [product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2]; # ARRAY[string] | Defines product attributes
 my $status = disabled; # string | Defines product's status
 my $type = simple; # string | Defines products's type
+my $visible = everywhere; # string | Filter items by visibility status
 my $find_value = Phone; # string | Entity search that is specified by some value
 my $find_where = name; # string | Counts products that are searched specified by field
 my $report_request_id = 105245017661; # string | Report request id
@@ -755,7 +756,7 @@ my $disable_report_cache = false; # boolean | Disable report cache for current r
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
+    my $result = $api_instance->product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -783,6 +784,7 @@ Name | Type | Description  | Notes
  **product_attributes** | [**ARRAY[string]**](string.md)| Defines product attributes | [optional] 
  **status** | **string**| Defines product&#39;s status | [optional] 
  **type** | **string**| Defines products&#39;s type | [optional] 
+ **visible** | **string**| Filter items by visibility status | [optional] [default to &#39;everywhere&#39;]
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Counts products that are searched specified by field | [optional] 
  **report_request_id** | **string**| Report request id | [optional] 
@@ -1430,7 +1432,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_list**
-> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
+> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.list
 
@@ -1473,6 +1475,7 @@ my $brand_name = Abidas; # string | Retrieves brands specified by brand name
 my $product_attributes = [product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2]; # ARRAY[string] | Defines product attributes
 my $status = disabled; # string | Defines product's status
 my $type = simple; # string | Defines products's type
+my $visible = everywhere; # string | Filter items by visibility status
 my $find_value = Phone; # string | Entity search that is specified by some value
 my $find_where = name; # string | Product search that is specified by field
 my $return_global = false; # boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
@@ -1487,7 +1490,7 @@ my $disable_report_cache = false; # boolean | Disable report cache for current r
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
+    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -1520,6 +1523,7 @@ Name | Type | Description  | Notes
  **product_attributes** | [**ARRAY[string]**](string.md)| Defines product attributes | [optional] 
  **status** | **string**| Defines product&#39;s status | [optional] 
  **type** | **string**| Defines products&#39;s type | [optional] 
+ **visible** | **string**| Filter items by visibility status | [optional] [default to &#39;everywhere&#39;]
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Product search that is specified by field | [optional] 
  **return_global** | **boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]

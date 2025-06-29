@@ -1474,6 +1474,7 @@ sub product_child_item_list {
 # @param ARRAY[string] $product_attributes Defines product attributes (optional)
 # @param string $status Defines product&#39;s status (optional)
 # @param string $type Defines products&#39;s type (optional)
+# @param string $visible Filter items by visibility status (optional, default to 'everywhere')
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Counts products that are searched specified by field (optional)
 # @param string $report_request_id Report request id (optional)
@@ -1560,6 +1561,11 @@ sub product_child_item_list {
     'type' => {
         data_type => 'string',
         description => 'Defines products&#39;s type',
+        required => '0',
+    },
+    'visible' => {
+        data_type => 'string',
+        description => 'Filter items by visibility status',
         required => '0',
     },
     'find_value' => {
@@ -1697,6 +1703,11 @@ sub product_count {
     # query params
     if ( exists $args{'type'}) {
         $query_params->{'type'} = $self->{api_client}->to_query_value($args{'type'});
+    }
+
+    # query params
+    if ( exists $args{'visible'}) {
+        $query_params->{'visible'} = $self->{api_client}->to_query_value($args{'visible'});
     }
 
     # query params
@@ -2843,6 +2854,7 @@ sub product_info {
 # @param ARRAY[string] $product_attributes Defines product attributes (optional)
 # @param string $status Defines product&#39;s status (optional)
 # @param string $type Defines products&#39;s type (optional)
+# @param string $visible Filter items by visibility status (optional, default to 'everywhere')
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Product search that is specified by field (optional)
 # @param boolean $return_global Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. (optional, default to false)
@@ -2960,6 +2972,11 @@ sub product_info {
     'type' => {
         data_type => 'string',
         description => 'Defines products&#39;s type',
+        required => '0',
+    },
+    'visible' => {
+        data_type => 'string',
+        description => 'Filter items by visibility status',
         required => '0',
     },
     'find_value' => {
@@ -3152,6 +3169,11 @@ sub product_list {
     # query params
     if ( exists $args{'type'}) {
         $query_params->{'type'} = $self->{api_client}->to_query_value($args{'type'});
+    }
+
+    # query params
+    if ( exists $args{'visible'}) {
+        $query_params->{'visible'} = $self->{api_client}->to_query_value($args{'visible'});
     }
 
     # query params
