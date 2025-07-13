@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **last_login** | [**A2CDateTime**](A2CDateTime.md) |  | [optional] 
 **birth_day** | [**A2CDateTime**](A2CDateTime.md) |  | [optional] 
 **status** | **string** |  | [optional] 
+**is_guest** | **boolean** |  | [optional] 
 **news_letter_subscription** | **boolean** |  | [optional] 
 **consents** | [**ARRAY[CustomerConsent]**](CustomerConsent.md) |  | [optional] 
 **gender** | **string** |  | [optional] 

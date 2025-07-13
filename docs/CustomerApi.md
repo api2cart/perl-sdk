@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_count**
-> CustomerCount200Response customer_count(ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to)
+> CustomerCount200Response customer_count(ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, include_guests => $include_guests, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to)
 
 customer.count
 
@@ -231,6 +231,7 @@ my $customer_list_id = exampleListId; # string | The numeric ID of the customer 
 my $group_id = 3; # string | Customer group_id
 my $store_id = 1; # string | Counts customer specified by store id
 my $avail = false; # boolean | Defines category's visibility status
+my $include_guests = true; # boolean | Indicates whether to include guest customers in the total count.
 my $find_value = mail@gmail.com; # string | Entity search that is specified by some value
 my $find_where = email; # string | Counts customers that are searched specified by field
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
@@ -239,7 +240,7 @@ my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
 
 eval {
-    my $result = $api_instance->customer_count(ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to);
+    my $result = $api_instance->customer_count(ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, include_guests => $include_guests, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to);
     print Dumper($result);
 };
 if ($@) {
@@ -257,6 +258,7 @@ Name | Type | Description  | Notes
  **group_id** | **string**| Customer group_id | [optional] 
  **store_id** | **string**| Counts customer specified by store id | [optional] 
  **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **include_guests** | **boolean**| Indicates whether to include guest customers in the total count. | [optional] [default to false]
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Counts customers that are searched specified by field | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 
@@ -335,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_find**
-> CustomerFind200Response customer_find(find_value => $find_value, find_where => $find_where, find_params => $find_params, store_id => $store_id)
+> CustomerFind200Response customer_find(find_value => $find_value, find_where => $find_where, find_params => $find_params, store_id => $store_id, include_guests => $include_guests)
 
 customer.find
 
@@ -361,9 +363,10 @@ my $find_value = mail@gmail.com; # string | Entity search that is specified by s
 my $find_where = email; # string | Entity search that is specified by the comma-separated unique fields
 my $find_params = regex; # string | Entity search that is specified by comma-separated parameters
 my $store_id = 1; # string | Store Id
+my $include_guests = true; # boolean | Indicates whether to search among guest customers when looking up a customer.
 
 eval {
-    my $result = $api_instance->customer_find(find_value => $find_value, find_where => $find_where, find_params => $find_params, store_id => $store_id);
+    my $result = $api_instance->customer_find(find_value => $find_value, find_where => $find_where, find_params => $find_params, store_id => $store_id, include_guests => $include_guests);
     print Dumper($result);
 };
 if ($@) {
@@ -379,6 +382,7 @@ Name | Type | Description  | Notes
  **find_where** | **string**| Entity search that is specified by the comma-separated unique fields | [optional] [default to &#39;email&#39;]
  **find_params** | **string**| Entity search that is specified by comma-separated parameters | [optional] [default to &#39;whole_words&#39;]
  **store_id** | **string**| Store Id | [optional] 
+ **include_guests** | **boolean**| Indicates whether to search among guest customers when looking up a customer. | [optional] [default to false]
 
 ### Return type
 
@@ -591,7 +595,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_list**
-> ModelResponseCustomerList customer_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude)
+> ModelResponseCustomerList customer_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, include_guests => $include_guests, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 customer.list
 
@@ -622,6 +626,7 @@ my $customer_list_id = exampleListId; # string | The numeric ID of the customer 
 my $group_id = 3; # string | Customer group_id
 my $store_id = 1; # string | Retrieves customers specified by store id
 my $avail = false; # boolean | Defines category's visibility status
+my $include_guests = true; # boolean | Indicates whether to include guest customers in the list results.
 my $find_value = mail@gmail.com; # string | Entity search that is specified by some value
 my $find_where = email; # string | Customer search that is specified by field
 my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
@@ -635,7 +640,7 @@ my $params = id,email; # string | Set this parameter in order to choose which en
 my $exclude = id,email; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->customer_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude);
+    my $result = $api_instance->customer_list(start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, since_id => $since_id, customer_list_id => $customer_list_id, group_id => $group_id, store_id => $store_id, avail => $avail, include_guests => $include_guests, find_value => $find_value, find_where => $find_where, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -656,6 +661,7 @@ Name | Type | Description  | Notes
  **group_id** | **string**| Customer group_id | [optional] 
  **store_id** | **string**| Retrieves customers specified by store id | [optional] 
  **avail** | **boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **include_guests** | **boolean**| Indicates whether to include guest customers in the list results. | [optional] [default to false]
  **find_value** | **string**| Entity search that is specified by some value | [optional] 
  **find_where** | **string**| Customer search that is specified by field | [optional] 
  **created_from** | **string**| Retrieve entities from their creation date | [optional] 

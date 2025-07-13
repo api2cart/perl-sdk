@@ -331,6 +331,7 @@ sub customer_attribute_list {
 # @param string $group_id Customer group_id (optional)
 # @param string $store_id Counts customer specified by store id (optional)
 # @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
+# @param boolean $include_guests Indicates whether to include guest customers in the total count. (optional, default to false)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Counts customers that are searched specified by field (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
@@ -367,6 +368,11 @@ sub customer_attribute_list {
     'avail' => {
         data_type => 'boolean',
         description => 'Defines category&#39;s visibility status',
+        required => '0',
+    },
+    'include_guests' => {
+        data_type => 'boolean',
+        description => 'Indicates whether to include guest customers in the total count.',
         required => '0',
     },
     'find_value' => {
@@ -454,6 +460,11 @@ sub customer_count {
     # query params
     if ( exists $args{'avail'}) {
         $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'include_guests'}) {
+        $query_params->{'include_guests'} = $self->{api_client}->to_query_value($args{'include_guests'});
     }
 
     # query params
@@ -575,6 +586,7 @@ sub customer_delete {
 # @param string $find_where Entity search that is specified by the comma-separated unique fields (optional, default to 'email')
 # @param string $find_params Entity search that is specified by comma-separated parameters (optional, default to 'whole_words')
 # @param string $store_id Store Id (optional)
+# @param boolean $include_guests Indicates whether to search among guest customers when looking up a customer. (optional, default to false)
 {
     my $params = {
     'find_value' => {
@@ -595,6 +607,11 @@ sub customer_delete {
     'store_id' => {
         data_type => 'string',
         description => 'Store Id',
+        required => '0',
+    },
+    'include_guests' => {
+        data_type => 'boolean',
+        description => 'Indicates whether to search among guest customers when looking up a customer.',
         required => '0',
     },
     };
@@ -647,6 +664,11 @@ sub customer_find {
     # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'include_guests'}) {
+        $query_params->{'include_guests'} = $self->{api_client}->to_query_value($args{'include_guests'});
     }
 
     my $_body_data;
@@ -1033,6 +1055,7 @@ sub customer_info {
 # @param string $group_id Customer group_id (optional)
 # @param string $store_id Retrieves customers specified by store id (optional)
 # @param boolean $avail Defines category&#39;s visibility status (optional, default to true)
+# @param boolean $include_guests Indicates whether to include guest customers in the list results. (optional, default to false)
 # @param string $find_value Entity search that is specified by some value (optional)
 # @param string $find_where Customer search that is specified by field (optional)
 # @param string $created_from Retrieve entities from their creation date (optional)
@@ -1089,6 +1112,11 @@ sub customer_info {
     'avail' => {
         data_type => 'boolean',
         description => 'Defines category&#39;s visibility status',
+        required => '0',
+    },
+    'include_guests' => {
+        data_type => 'boolean',
+        description => 'Indicates whether to include guest customers in the list results.',
         required => '0',
     },
     'find_value' => {
@@ -1216,6 +1244,11 @@ sub customer_list {
     # query params
     if ( exists $args{'avail'}) {
         $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'include_guests'}) {
+        $query_params->{'include_guests'} = $self->{api_client}->to_query_value($args{'include_guests'});
     }
 
     # query params

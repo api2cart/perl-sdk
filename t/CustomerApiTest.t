@@ -67,13 +67,14 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 #my $customer_count_group_id = undef; # replace NULL with a proper value
 #my $customer_count_store_id = undef; # replace NULL with a proper value
 #my $customer_count_avail = undef; # replace NULL with a proper value
+#my $customer_count_include_guests = undef; # replace NULL with a proper value
 #my $customer_count_find_value = undef; # replace NULL with a proper value
 #my $customer_count_find_where = undef; # replace NULL with a proper value
 #my $customer_count_created_from = undef; # replace NULL with a proper value
 #my $customer_count_created_to = undef; # replace NULL with a proper value
 #my $customer_count_modified_from = undef; # replace NULL with a proper value
 #my $customer_count_modified_to = undef; # replace NULL with a proper value
-#my $customer_count_result = $api->customer_count(ids => $customer_count_ids, since_id => $customer_count_since_id, customer_list_id => $customer_count_customer_list_id, group_id => $customer_count_group_id, store_id => $customer_count_store_id, avail => $customer_count_avail, find_value => $customer_count_find_value, find_where => $customer_count_find_where, created_from => $customer_count_created_from, created_to => $customer_count_created_to, modified_from => $customer_count_modified_from, modified_to => $customer_count_modified_to);
+#my $customer_count_result = $api->customer_count(ids => $customer_count_ids, since_id => $customer_count_since_id, customer_list_id => $customer_count_customer_list_id, group_id => $customer_count_group_id, store_id => $customer_count_store_id, avail => $customer_count_avail, include_guests => $customer_count_include_guests, find_value => $customer_count_find_value, find_where => $customer_count_find_where, created_from => $customer_count_created_from, created_to => $customer_count_created_to, modified_from => $customer_count_modified_from, modified_to => $customer_count_modified_to);
 
 #
 # customer_delete test
@@ -90,7 +91,8 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 #my $customer_find_find_where = undef; # replace NULL with a proper value
 #my $customer_find_find_params = undef; # replace NULL with a proper value
 #my $customer_find_store_id = undef; # replace NULL with a proper value
-#my $customer_find_result = $api->customer_find(find_value => $customer_find_find_value, find_where => $customer_find_find_where, find_params => $customer_find_find_params, store_id => $customer_find_store_id);
+#my $customer_find_include_guests = undef; # replace NULL with a proper value
+#my $customer_find_result = $api->customer_find(find_value => $customer_find_find_value, find_where => $customer_find_find_where, find_params => $customer_find_find_params, store_id => $customer_find_store_id, include_guests => $customer_find_include_guests);
 
 #
 # customer_group_add test
@@ -141,6 +143,7 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 #my $customer_list_group_id = undef; # replace NULL with a proper value
 #my $customer_list_store_id = undef; # replace NULL with a proper value
 #my $customer_list_avail = undef; # replace NULL with a proper value
+#my $customer_list_include_guests = undef; # replace NULL with a proper value
 #my $customer_list_find_value = undef; # replace NULL with a proper value
 #my $customer_list_find_where = undef; # replace NULL with a proper value
 #my $customer_list_created_from = undef; # replace NULL with a proper value
@@ -152,7 +155,7 @@ isa_ok($api, 'WWW::OpenAPIClient::CustomerApi');
 #my $customer_list_response_fields = undef; # replace NULL with a proper value
 #my $customer_list_params = undef; # replace NULL with a proper value
 #my $customer_list_exclude = undef; # replace NULL with a proper value
-#my $customer_list_result = $api->customer_list(start => $customer_list_start, count => $customer_list_count, page_cursor => $customer_list_page_cursor, ids => $customer_list_ids, since_id => $customer_list_since_id, customer_list_id => $customer_list_customer_list_id, group_id => $customer_list_group_id, store_id => $customer_list_store_id, avail => $customer_list_avail, find_value => $customer_list_find_value, find_where => $customer_list_find_where, created_from => $customer_list_created_from, created_to => $customer_list_created_to, modified_from => $customer_list_modified_from, modified_to => $customer_list_modified_to, sort_by => $customer_list_sort_by, sort_direction => $customer_list_sort_direction, response_fields => $customer_list_response_fields, params => $customer_list_params, exclude => $customer_list_exclude);
+#my $customer_list_result = $api->customer_list(start => $customer_list_start, count => $customer_list_count, page_cursor => $customer_list_page_cursor, ids => $customer_list_ids, since_id => $customer_list_since_id, customer_list_id => $customer_list_customer_list_id, group_id => $customer_list_group_id, store_id => $customer_list_store_id, avail => $customer_list_avail, include_guests => $customer_list_include_guests, find_value => $customer_list_find_value, find_where => $customer_list_find_where, created_from => $customer_list_created_from, created_to => $customer_list_created_to, modified_from => $customer_list_modified_from, modified_to => $customer_list_modified_to, sort_by => $customer_list_sort_by, sort_direction => $customer_list_sort_direction, response_fields => $customer_list_response_fields, params => $customer_list_params, exclude => $customer_list_exclude);
 
 #
 # customer_update test
