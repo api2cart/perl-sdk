@@ -5,7 +5,7 @@
 use WWW::OpenAPIClient::Object::ProductApi;
 ```
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,6 @@ Method | HTTP request | Description
 [**product_currency_list**](ProductApi.md#product_currency_list) | **GET** /product.currency.list.json | product.currency.list
 [**product_delete**](ProductApi.md#product_delete) | **DELETE** /product.delete.json | product.delete
 [**product_delete_batch**](ProductApi.md#product_delete_batch) | **POST** /product.delete.batch.json | product.delete.batch
-[**product_fields**](ProductApi.md#product_fields) | **GET** /product.fields.json | product.fields
 [**product_find**](ProductApi.md#product_find) | **GET** /product.find.json | product.find
 [**product_image_add**](ProductApi.md#product_image_add) | **POST** /product.image.add.json | product.image.add
 [**product_image_delete**](ProductApi.md#product_image_delete) | **DELETE** /product.image.delete.json | product.image.delete
@@ -49,13 +48,10 @@ Method | HTTP request | Description
 [**product_update_batch**](ProductApi.md#product_update_batch) | **POST** /product.update.batch.json | product.update.batch
 [**product_variant_add**](ProductApi.md#product_variant_add) | **POST** /product.variant.add.json | product.variant.add
 [**product_variant_add_batch**](ProductApi.md#product_variant_add_batch) | **POST** /product.variant.add.batch.json | product.variant.add.batch
-[**product_variant_count**](ProductApi.md#product_variant_count) | **GET** /product.variant.count.json | product.variant.count
 [**product_variant_delete**](ProductApi.md#product_variant_delete) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**product_variant_delete_batch**](ProductApi.md#product_variant_delete_batch) | **POST** /product.variant.delete.batch.json | product.variant.delete.batch
 [**product_variant_image_add**](ProductApi.md#product_variant_image_add) | **POST** /product.variant.image.add.json | product.variant.image.add
 [**product_variant_image_delete**](ProductApi.md#product_variant_image_delete) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
-[**product_variant_info**](ProductApi.md#product_variant_info) | **GET** /product.variant.info.json | product.variant.info
-[**product_variant_list**](ProductApi.md#product_variant_list) | **GET** /product.variant.list.json | product.variant.list
 [**product_variant_price_add**](ProductApi.md#product_variant_price_add) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**product_variant_price_delete**](ProductApi.md#product_variant_price_delete) | **DELETE** /product.variant.price.delete.json | product.variant.price.delete
 [**product_variant_price_update**](ProductApi.md#product_variant_price_update) | **PUT** /product.variant.price.update.json | product.variant.price.update
@@ -1051,57 +1047,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **product_fields**
-> CartConfigUpdate200Response product_fields()
-
-product.fields
-
-Retrieve all available fields for product item in store.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::ProductApi;
-my $api_instance = WWW::OpenAPIClient::ProductApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-
-eval {
-    my $result = $api_instance->product_fields();
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling ProductApi->product_fields: $@\n";
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2689,73 +2634,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **product_variant_count**
-> ProductVariantCount200Response product_variant_count(product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to)
-
-product.variant.count
-
-Get count variants.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::ProductApi;
-my $api_instance = WWW::OpenAPIClient::ProductApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $product_id = 10; # string | Retrieves products' variants specified by product id
-my $category_id = 6; # string | Counts products’ variants specified by category id
-my $store_id = 1; # string | Retrieves variants specified by store id
-my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
-my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
-my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
-my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-
-eval {
-    my $result = $api_instance->product_variant_count(product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling ProductApi->product_variant_count: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **product_id** | **string**| Retrieves products&#39; variants specified by product id | 
- **category_id** | **string**| Counts products’ variants specified by category id | [optional] 
- **store_id** | **string**| Retrieves variants specified by store id | [optional] 
- **created_from** | **string**| Retrieve entities from their creation date | [optional] 
- **created_to** | **string**| Retrieve entities to their creation date | [optional] 
- **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
- **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
-
-### Return type
-
-[**ProductVariantCount200Response**](ProductVariantCount200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **product_variant_delete**
 > AttributeValueDelete200Response product_variant_delete(id => $id, product_id => $product_id, store_id => $store_id)
 
@@ -2974,142 +2852,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttributeDelete200Response**](AttributeDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **product_variant_info**
-> ProductInfo200Response product_variant_info(id => $id, store_id => $store_id, params => $params, exclude => $exclude)
-
-product.variant.info
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::ProductApi;
-my $api_instance = WWW::OpenAPIClient::ProductApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $id = 10; # string | Retrieves variant's info specified by variant id
-my $store_id = 1; # string | Retrieves variant info specified by store id
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-eval {
-    my $result = $api_instance->product_variant_info(id => $id, store_id => $store_id, params => $params, exclude => $exclude);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling ProductApi->product_variant_info: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Retrieves variant&#39;s info specified by variant id | 
- **store_id** | **string**| Retrieves variant info specified by store id | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price&#39;]
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**ProductInfo200Response**](ProductInfo200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **product_variant_list**
-> ProductVariantList200Response product_variant_list(start => $start, count => $count, product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, params => $params, exclude => $exclude)
-
-product.variant.list
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::ProductApi;
-my $api_instance = WWW::OpenAPIClient::ProductApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $start = 0; # int | This parameter sets the number from which you want to get entities
-my $count = 20; # int | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-my $product_id = 10; # string | Retrieves products' variants specified by product id
-my $category_id = 6; # string | Retrieves products’ variants specified by category id
-my $store_id = 1; # string | Retrieves variants specified by store id
-my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
-my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
-my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
-my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
-my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-eval {
-    my $result = $api_instance->product_variant_list(start => $start, count => $count, product_id => $product_id, category_id => $category_id, store_id => $store_id, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, params => $params, exclude => $exclude);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling ProductApi->product_variant_list: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **int**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **count** | **int**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **product_id** | **string**| Retrieves products&#39; variants specified by product id | [optional] 
- **category_id** | **string**| Retrieves products’ variants specified by category id | [optional] 
- **store_id** | **string**| Retrieves variants specified by store id | [optional] 
- **created_from** | **string**| Retrieve entities from their creation date | [optional] 
- **created_to** | **string**| Retrieve entities to their creation date | [optional] 
- **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
- **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,name,description,price&#39;]
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**ProductVariantList200Response**](ProductVariantList200Response.md)
 
 ### Authorization
 

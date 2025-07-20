@@ -5,30 +5,23 @@
 use WWW::OpenAPIClient::Object::CartApi;
 ```
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cart_bridge**](CartApi.md#cart_bridge) | **GET** /cart.bridge.json | cart.bridge
 [**cart_catalog_price_rules_count**](CartApi.md#cart_catalog_price_rules_count) | **GET** /cart.catalog_price_rules.count.json | cart.catalog_price_rules.count
 [**cart_catalog_price_rules_list**](CartApi.md#cart_catalog_price_rules_list) | **GET** /cart.catalog_price_rules.list.json | cart.catalog_price_rules.list
-[**cart_clear_cache**](CartApi.md#cart_clear_cache) | **POST** /cart.clear_cache.json | cart.clear_cache
-[**cart_config**](CartApi.md#cart_config) | **GET** /cart.config.json | cart.config
-[**cart_config_update**](CartApi.md#cart_config_update) | **PUT** /cart.config.update.json | cart.config.update
 [**cart_coupon_add**](CartApi.md#cart_coupon_add) | **POST** /cart.coupon.add.json | cart.coupon.add
 [**cart_coupon_condition_add**](CartApi.md#cart_coupon_condition_add) | **POST** /cart.coupon.condition.add.json | cart.coupon.condition.add
 [**cart_coupon_count**](CartApi.md#cart_coupon_count) | **GET** /cart.coupon.count.json | cart.coupon.count
 [**cart_coupon_delete**](CartApi.md#cart_coupon_delete) | **DELETE** /cart.coupon.delete.json | cart.coupon.delete
 [**cart_coupon_list**](CartApi.md#cart_coupon_list) | **GET** /cart.coupon.list.json | cart.coupon.list
-[**cart_create**](CartApi.md#cart_create) | **POST** /cart.create.json | cart.create
 [**cart_delete**](CartApi.md#cart_delete) | **DELETE** /cart.delete.json | cart.delete
-[**cart_disconnect**](CartApi.md#cart_disconnect) | **GET** /cart.disconnect.json | cart.disconnect
 [**cart_giftcard_add**](CartApi.md#cart_giftcard_add) | **POST** /cart.giftcard.add.json | cart.giftcard.add
 [**cart_giftcard_count**](CartApi.md#cart_giftcard_count) | **GET** /cart.giftcard.count.json | cart.giftcard.count
 [**cart_giftcard_delete**](CartApi.md#cart_giftcard_delete) | **DELETE** /cart.giftcard.delete.json | cart.giftcard.delete
 [**cart_giftcard_list**](CartApi.md#cart_giftcard_list) | **GET** /cart.giftcard.list.json | cart.giftcard.list
 [**cart_info**](CartApi.md#cart_info) | **GET** /cart.info.json | cart.info
-[**cart_list**](CartApi.md#cart_list) | **GET** /cart.list.json | cart.list
 [**cart_meta_data_list**](CartApi.md#cart_meta_data_list) | **GET** /cart.meta_data.list.json | cart.meta_data.list
 [**cart_meta_data_set**](CartApi.md#cart_meta_data_set) | **POST** /cart.meta_data.set.json | cart.meta_data.set
 [**cart_meta_data_unset**](CartApi.md#cart_meta_data_unset) | **DELETE** /cart.meta_data.unset.json | cart.meta_data.unset
@@ -40,53 +33,6 @@ Method | HTTP request | Description
 [**cart_shipping_zones_list**](CartApi.md#cart_shipping_zones_list) | **GET** /cart.shipping_zones.list.json | cart.shipping_zones.list
 [**cart_validate**](CartApi.md#cart_validate) | **GET** /cart.validate.json | cart.validate
 
-
-# **cart_bridge**
-> CartBridge200Response cart_bridge()
-
-cart.bridge
-
-Get bridge key and store key
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-
-eval {
-    my $result = $api_instance->cart_bridge();
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_bridge: $@\n";
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartBridge200Response**](CartBridge200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_catalog_price_rules_count**
 > CartCatalogPriceRulesCount200Response cart_catalog_price_rules_count()
@@ -202,173 +148,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cart_clear_cache**
-> CartClearCache200Response cart_clear_cache(cache_type => $cache_type)
-
-cart.clear_cache
-
-Clear cache on store.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $cache_type = storage_cache; # string | Defines which cache should be cleared.
-
-eval {
-    my $result = $api_instance->cart_clear_cache(cache_type => $cache_type);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_clear_cache: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cache_type** | **string**| Defines which cache should be cleared. | 
-
-### Return type
-
-[**CartClearCache200Response**](CartClearCache200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cart_config**
-> CartConfig200Response cart_config(params => $params, exclude => $exclude)
-
-cart.config
-
-Get list of cart configs
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $params = store_name,store_url,db_prefix; # string | Set this parameter in order to choose which entity fields you want to retrieve
-my $exclude = store_name,store_url,db_prefix; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-
-eval {
-    my $result = $api_instance->cart_config(params => $params, exclude => $exclude);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_config: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;store_name,store_url,db_prefix&#39;]
- **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
-
-### Return type
-
-[**CartConfig200Response**](CartConfig200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cart_config_update**
-> CartConfigUpdate200Response cart_config_update(cart_config_update => $cart_config_update)
-
-cart.config.update
-
-Use this API method to update custom data in client database.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $cart_config_update = WWW::OpenAPIClient::Object::CartConfigUpdate->new(); # CartConfigUpdate | 
-
-eval {
-    my $result = $api_instance->cart_config_update(cart_config_update => $cart_config_update);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_config_update: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cart_config_update** | [**CartConfigUpdate**](CartConfigUpdate.md)|  | 
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -702,57 +481,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cart_create**
-> AccountCartAdd200Response cart_create(cart_create => $cart_create)
-
-cart.create
-
-Add store to the account
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $cart_create = WWW::OpenAPIClient::Object::CartCreate->new(); # CartCreate | 
-
-eval {
-    my $result = $api_instance->cart_create(cart_create => $cart_create);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_create: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cart_create** | [**CartCreate**](CartCreate.md)|  | 
-
-### Return type
-
-[**AccountCartAdd200Response**](AccountCartAdd200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **cart_delete**
 > CartDelete200Response cart_delete(delete_bridge => $delete_bridge)
 
@@ -796,61 +524,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CartDelete200Response**](CartDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cart_disconnect**
-> CartDisconnect200Response cart_disconnect(delete_bridge => $delete_bridge)
-
-cart.disconnect
-
-Disconnect with the store and clear store session data.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: StoreKeyAuth
-    api_key => {'x-store-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-store-key' => 'Bearer'},
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $delete_bridge = true; # boolean | Identifies if there is a necessity to delete bridge
-
-eval {
-    my $result = $api_instance->cart_disconnect(delete_bridge => $delete_bridge);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_disconnect: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **delete_bridge** | **boolean**| Identifies if there is a necessity to delete bridge | [optional] [default to false]
-
-### Return type
-
-[**CartDisconnect200Response**](CartDisconnect200Response.md)
 
 ### Authorization
 
@@ -1158,53 +831,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cart_list**
-> CartList200Response cart_list()
-
-cart.list
-
-Get list of supported carts
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::CartApi;
-my $api_instance = WWW::OpenAPIClient::CartApi->new(
-
-    # Configure API key authorization: ApiKeyAuth
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-
-eval {
-    my $result = $api_instance->cart_list();
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling CartApi->cart_list: $@\n";
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartList200Response**](CartList200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

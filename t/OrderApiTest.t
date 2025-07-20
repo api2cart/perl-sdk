@@ -89,24 +89,6 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 #my $order_financial_status_list_result = $api->order_financial_status_list();
 
 #
-# order_find test
-#
-# uncomment below and update the test
-#my $order_find_start = undef; # replace NULL with a proper value
-#my $order_find_count = undef; # replace NULL with a proper value
-#my $order_find_customer_id = undef; # replace NULL with a proper value
-#my $order_find_customer_email = undef; # replace NULL with a proper value
-#my $order_find_order_status = undef; # replace NULL with a proper value
-#my $order_find_financial_status = undef; # replace NULL with a proper value
-#my $order_find_created_to = undef; # replace NULL with a proper value
-#my $order_find_created_from = undef; # replace NULL with a proper value
-#my $order_find_modified_to = undef; # replace NULL with a proper value
-#my $order_find_modified_from = undef; # replace NULL with a proper value
-#my $order_find_params = undef; # replace NULL with a proper value
-#my $order_find_exclude = undef; # replace NULL with a proper value
-#my $order_find_result = $api->order_find(start => $order_find_start, count => $order_find_count, customer_id => $order_find_customer_id, customer_email => $order_find_customer_email, order_status => $order_find_order_status, financial_status => $order_find_financial_status, created_to => $order_find_created_to, created_from => $order_find_created_from, modified_to => $order_find_modified_to, modified_from => $order_find_modified_from, params => $order_find_params, exclude => $order_find_exclude);
-
-#
 # order_fulfillment_status_list test
 #
 # uncomment below and update the test

@@ -5,7 +5,7 @@
 use WWW::OpenAPIClient::Object::ReturnApi;
 ```
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

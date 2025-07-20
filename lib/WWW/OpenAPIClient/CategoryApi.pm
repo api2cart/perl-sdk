@@ -361,10 +361,10 @@ sub category_add_batch {
     __PACKAGE__->method_documentation->{ 'category_assign' } = {
         summary => 'category.assign',
         params => $params,
-        returns => 'CartConfigUpdate200Response',
+        returns => 'CategoryAssign200Response',
         };
 }
-# @return CartConfigUpdate200Response
+# @return CategoryAssign200Response
 #
 sub category_assign {
     my ($self, %args) = @_;
@@ -420,7 +420,7 @@ sub category_assign {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('CartConfigUpdate200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('CategoryAssign200Response', $response);
     return $_response_object;
 }
 
@@ -1501,10 +1501,10 @@ sub category_list {
     __PACKAGE__->method_documentation->{ 'category_unassign' } = {
         summary => 'category.unassign',
         params => $params,
-        returns => 'CartConfigUpdate200Response',
+        returns => 'CategoryAssign200Response',
         };
 }
-# @return CartConfigUpdate200Response
+# @return CategoryAssign200Response
 #
 sub category_unassign {
     my ($self, %args) = @_;
@@ -1560,7 +1560,7 @@ sub category_unassign {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('CartConfigUpdate200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('CategoryAssign200Response', $response);
     return $_response_object;
 }
 

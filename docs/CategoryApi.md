@@ -5,7 +5,7 @@
 use WWW::OpenAPIClient::Object::CategoryApi;
 ```
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **category_assign**
-> CartConfigUpdate200Response category_assign(category_id => $category_id, product_id => $product_id, store_id => $store_id)
+> CategoryAssign200Response category_assign(category_id => $category_id, product_id => $product_id, store_id => $store_id)
 
 category.assign
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
+[**CategoryAssign200Response**](CategoryAssign200Response.md)
 
 ### Authorization
 
@@ -712,7 +712,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **category_unassign**
-> CartConfigUpdate200Response category_unassign(category_id => $category_id, product_id => $product_id, store_id => $store_id)
+> CategoryAssign200Response category_unassign(category_id => $category_id, product_id => $product_id, store_id => $store_id)
 
 category.unassign
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
+[**CategoryAssign200Response**](CategoryAssign200Response.md)
 
 ### Authorization
 

@@ -239,12 +239,6 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_delete_batch_result = $api->product_delete_batch(product_delete_batch => $product_delete_batch_product_delete_batch);
 
 #
-# product_fields test
-#
-# uncomment below and update the test
-#my $product_fields_result = $api->product_fields();
-
-#
 # product_find test
 #
 # uncomment below and update the test
@@ -524,19 +518,6 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_variant_add_batch_result = $api->product_variant_add_batch(product_variant_add_batch => $product_variant_add_batch_product_variant_add_batch);
 
 #
-# product_variant_count test
-#
-# uncomment below and update the test
-#my $product_variant_count_product_id = undef; # replace NULL with a proper value
-#my $product_variant_count_category_id = undef; # replace NULL with a proper value
-#my $product_variant_count_store_id = undef; # replace NULL with a proper value
-#my $product_variant_count_created_from = undef; # replace NULL with a proper value
-#my $product_variant_count_created_to = undef; # replace NULL with a proper value
-#my $product_variant_count_modified_from = undef; # replace NULL with a proper value
-#my $product_variant_count_modified_to = undef; # replace NULL with a proper value
-#my $product_variant_count_result = $api->product_variant_count(product_id => $product_variant_count_product_id, category_id => $product_variant_count_category_id, store_id => $product_variant_count_store_id, created_from => $product_variant_count_created_from, created_to => $product_variant_count_created_to, modified_from => $product_variant_count_modified_from, modified_to => $product_variant_count_modified_to);
-
-#
 # product_variant_delete test
 #
 # uncomment below and update the test
@@ -568,33 +549,6 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_variant_image_delete_id = undef; # replace NULL with a proper value
 #my $product_variant_image_delete_store_id = undef; # replace NULL with a proper value
 #my $product_variant_image_delete_result = $api->product_variant_image_delete(product_id => $product_variant_image_delete_product_id, product_variant_id => $product_variant_image_delete_product_variant_id, id => $product_variant_image_delete_id, store_id => $product_variant_image_delete_store_id);
-
-#
-# product_variant_info test
-#
-# uncomment below and update the test
-#my $product_variant_info_id = undef; # replace NULL with a proper value
-#my $product_variant_info_store_id = undef; # replace NULL with a proper value
-#my $product_variant_info_params = undef; # replace NULL with a proper value
-#my $product_variant_info_exclude = undef; # replace NULL with a proper value
-#my $product_variant_info_result = $api->product_variant_info(id => $product_variant_info_id, store_id => $product_variant_info_store_id, params => $product_variant_info_params, exclude => $product_variant_info_exclude);
-
-#
-# product_variant_list test
-#
-# uncomment below and update the test
-#my $product_variant_list_start = undef; # replace NULL with a proper value
-#my $product_variant_list_count = undef; # replace NULL with a proper value
-#my $product_variant_list_product_id = undef; # replace NULL with a proper value
-#my $product_variant_list_category_id = undef; # replace NULL with a proper value
-#my $product_variant_list_store_id = undef; # replace NULL with a proper value
-#my $product_variant_list_created_from = undef; # replace NULL with a proper value
-#my $product_variant_list_created_to = undef; # replace NULL with a proper value
-#my $product_variant_list_modified_from = undef; # replace NULL with a proper value
-#my $product_variant_list_modified_to = undef; # replace NULL with a proper value
-#my $product_variant_list_params = undef; # replace NULL with a proper value
-#my $product_variant_list_exclude = undef; # replace NULL with a proper value
-#my $product_variant_list_result = $api->product_variant_list(start => $product_variant_list_start, count => $product_variant_list_count, product_id => $product_variant_list_product_id, category_id => $product_variant_list_category_id, store_id => $product_variant_list_store_id, created_from => $product_variant_list_created_from, created_to => $product_variant_list_created_to, modified_from => $product_variant_list_modified_from, modified_to => $product_variant_list_modified_to, params => $product_variant_list_params, exclude => $product_variant_list_exclude);
 
 #
 # product_variant_price_add test

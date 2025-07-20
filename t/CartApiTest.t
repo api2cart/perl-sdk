@@ -30,12 +30,6 @@ my $api = WWW::OpenAPIClient::CartApi->new();
 isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 
 #
-# cart_bridge test
-#
-# uncomment below and update the test
-#my $cart_bridge_result = $api->cart_bridge();
-
-#
 # cart_catalog_price_rules_count test
 #
 # uncomment below and update the test
@@ -53,28 +47,6 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 #my $cart_catalog_price_rules_list_params = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_exclude = undef; # replace NULL with a proper value
 #my $cart_catalog_price_rules_list_result = $api->cart_catalog_price_rules_list(start => $cart_catalog_price_rules_list_start, count => $cart_catalog_price_rules_list_count, page_cursor => $cart_catalog_price_rules_list_page_cursor, ids => $cart_catalog_price_rules_list_ids, response_fields => $cart_catalog_price_rules_list_response_fields, params => $cart_catalog_price_rules_list_params, exclude => $cart_catalog_price_rules_list_exclude);
-
-#
-# cart_clear_cache test
-#
-# uncomment below and update the test
-#my $cart_clear_cache_cache_type = undef; # replace NULL with a proper value
-#my $cart_clear_cache_result = $api->cart_clear_cache(cache_type => $cart_clear_cache_cache_type);
-
-#
-# cart_config test
-#
-# uncomment below and update the test
-#my $cart_config_params = undef; # replace NULL with a proper value
-#my $cart_config_exclude = undef; # replace NULL with a proper value
-#my $cart_config_result = $api->cart_config(params => $cart_config_params, exclude => $cart_config_exclude);
-
-#
-# cart_config_update test
-#
-# uncomment below and update the test
-#my $cart_config_update_cart_config_update = undef; # replace NULL with a proper value
-#my $cart_config_update_result = $api->cart_config_update(cart_config_update => $cart_config_update_cart_config_update);
 
 #
 # cart_coupon_add test
@@ -139,25 +111,11 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 #my $cart_coupon_list_result = $api->cart_coupon_list(start => $cart_coupon_list_start, count => $cart_coupon_list_count, page_cursor => $cart_coupon_list_page_cursor, coupons_ids => $cart_coupon_list_coupons_ids, store_id => $cart_coupon_list_store_id, lang_id => $cart_coupon_list_lang_id, avail => $cart_coupon_list_avail, date_start_from => $cart_coupon_list_date_start_from, date_start_to => $cart_coupon_list_date_start_to, date_end_from => $cart_coupon_list_date_end_from, date_end_to => $cart_coupon_list_date_end_to, response_fields => $cart_coupon_list_response_fields, params => $cart_coupon_list_params, exclude => $cart_coupon_list_exclude);
 
 #
-# cart_create test
-#
-# uncomment below and update the test
-#my $cart_create_cart_create = undef; # replace NULL with a proper value
-#my $cart_create_result = $api->cart_create(cart_create => $cart_create_cart_create);
-
-#
 # cart_delete test
 #
 # uncomment below and update the test
 #my $cart_delete_delete_bridge = undef; # replace NULL with a proper value
 #my $cart_delete_result = $api->cart_delete(delete_bridge => $cart_delete_delete_bridge);
-
-#
-# cart_disconnect test
-#
-# uncomment below and update the test
-#my $cart_disconnect_delete_bridge = undef; # replace NULL with a proper value
-#my $cart_disconnect_result = $api->cart_disconnect(delete_bridge => $cart_disconnect_delete_bridge);
 
 #
 # cart_giftcard_add test
@@ -207,12 +165,6 @@ isa_ok($api, 'WWW::OpenAPIClient::CartApi');
 #my $cart_info_params = undef; # replace NULL with a proper value
 #my $cart_info_exclude = undef; # replace NULL with a proper value
 #my $cart_info_result = $api->cart_info(store_id => $cart_info_store_id, response_fields => $cart_info_response_fields, params => $cart_info_params, exclude => $cart_info_exclude);
-
-#
-# cart_list test
-#
-# uncomment below and update the test
-#my $cart_list_result = $api->cart_list();
 
 #
 # cart_meta_data_list test

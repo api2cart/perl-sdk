@@ -312,6 +312,10 @@ sub account_cart_list {
 # @param string $shopware_api_secret Shopware client secret access key (optional)
 # @param string $bigcartel_user_name Subdomain of store (optional)
 # @param string $bigcartel_password BigCartel account password (optional)
+# @param string $bricklink_consumer_key Bricklink Consumer Key (optional)
+# @param string $bricklink_consumer_secret Bricklink Consumer Secret (optional)
+# @param string $bricklink_token Bricklink Access Token (optional)
+# @param string $bricklink_token_secret Bricklink Access Token Secret (optional)
 # @param string $volusion_login It&#39;s a Volusion account for which API is enabled (optional)
 # @param string $volusion_password Volusion API Password (optional)
 # @param string $walmart_client_id Walmart client ID. For the region &#39;ca&#39; use Consumer ID (optional)
@@ -782,6 +786,26 @@ sub account_cart_list {
     'bigcartel_password' => {
         data_type => 'string',
         description => 'BigCartel account password',
+        required => '0',
+    },
+    'bricklink_consumer_key' => {
+        data_type => 'string',
+        description => 'Bricklink Consumer Key',
+        required => '0',
+    },
+    'bricklink_consumer_secret' => {
+        data_type => 'string',
+        description => 'Bricklink Consumer Secret',
+        required => '0',
+    },
+    'bricklink_token' => {
+        data_type => 'string',
+        description => 'Bricklink Access Token',
+        required => '0',
+    },
+    'bricklink_token_secret' => {
+        data_type => 'string',
+        description => 'Bricklink Access Token Secret',
         required => '0',
     },
     'volusion_login' => {
@@ -1579,6 +1603,26 @@ sub account_config_update {
     # query params
     if ( exists $args{'bigcartel_password'}) {
         $query_params->{'bigcartel_password'} = $self->{api_client}->to_query_value($args{'bigcartel_password'});
+    }
+
+    # query params
+    if ( exists $args{'bricklink_consumer_key'}) {
+        $query_params->{'bricklink_consumer_key'} = $self->{api_client}->to_query_value($args{'bricklink_consumer_key'});
+    }
+
+    # query params
+    if ( exists $args{'bricklink_consumer_secret'}) {
+        $query_params->{'bricklink_consumer_secret'} = $self->{api_client}->to_query_value($args{'bricklink_consumer_secret'});
+    }
+
+    # query params
+    if ( exists $args{'bricklink_token'}) {
+        $query_params->{'bricklink_token'} = $self->{api_client}->to_query_value($args{'bricklink_token'});
+    }
+
+    # query params
+    if ( exists $args{'bricklink_token_secret'}) {
+        $query_params->{'bricklink_token_secret'} = $self->{api_client}->to_query_value($args{'bricklink_token_secret'});
     }
 
     # query params
