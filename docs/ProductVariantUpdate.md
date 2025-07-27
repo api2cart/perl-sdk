@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **visible** | **string** | Set visibility status | [optional] 
 **status** | **string** | Defines product variant&#39;s status | [optional] 
 **backorder_status** | **string** | Set backorder status | [optional] 
+**low_stock_threshold** | **double** | Specify the quantity threshold below which the product is considered low in stock | [optional] 
 **available_for_sale** | **boolean** | Specifies the set of visible/invisible product&#39;s variants for sale | [optional] [default to true]
 **avail** | **boolean** | Defines category&#39;s visibility status | [optional] [default to true]
 **is_default** | **boolean** | Defines as a default variant | [optional] 

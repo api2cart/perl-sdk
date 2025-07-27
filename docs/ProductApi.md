@@ -1377,7 +1377,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_list**
-> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
+> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, product_type => $product_type)
 
 product.list
 
@@ -1433,9 +1433,10 @@ my $report_request_id = 105245017661; # string | Report request id
 my $disable_cache = false; # boolean | Disable cache for current request
 my $disable_report_cache = false; # boolean | Disable report cache for current request
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
+my $product_type = BICYCLE; # string | A categorization for the product
 
 eval {
-    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
+    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, product_type => $product_type);
     print Dumper($result);
 };
 if ($@) {
@@ -1481,6 +1482,7 @@ Name | Type | Description  | Notes
  **disable_cache** | **boolean**| Disable cache for current request | [optional] [default to false]
  **disable_report_cache** | **boolean**| Disable report cache for current request | [optional] [default to false]
  **use_latest_api_version** | **boolean**| Use the latest platform API version | [optional] [default to false]
+ **product_type** | **string**| A categorization for the product | [optional] 
 
 ### Return type
 

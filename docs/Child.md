@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **inventory_level** | **double** |  | [optional] 
 **inventory** | [**ARRAY[ProductInventory]**](ProductInventory.md) |  | [optional] 
 **min_quantity** | **double** |  | [optional] 
+**low_stock_threshold** | **double** |  | [optional] 
 **default_qty_in_pack** | **double** |  | [optional] 
 **is_qty_in_pack_fixed** | **boolean** |  | [optional] 
 **weight_unit** | **string** |  | [optional] 

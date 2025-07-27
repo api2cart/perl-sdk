@@ -2818,6 +2818,7 @@ sub product_info {
 # @param boolean $disable_cache Disable cache for current request (optional, default to false)
 # @param boolean $disable_report_cache Disable report cache for current request (optional, default to false)
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
+# @param string $product_type A categorization for the product (optional)
 {
     my $params = {
     'start' => {
@@ -2988,6 +2989,11 @@ sub product_info {
     'use_latest_api_version' => {
         data_type => 'boolean',
         description => 'Use the latest platform API version',
+        required => '0',
+    },
+    'product_type' => {
+        data_type => 'string',
+        description => 'A categorization for the product',
         required => '0',
     },
     };
@@ -3185,6 +3191,11 @@ sub product_list {
     # query params
     if ( exists $args{'use_latest_api_version'}) {
         $query_params->{'use_latest_api_version'} = $self->{api_client}->to_query_value($args{'use_latest_api_version'});
+    }
+
+    # query params
+    if ( exists $args{'product_type'}) {
+        $query_params->{'product_type'} = $self->{api_client}->to_query_value($args{'product_type'});
     }
 
     my $_body_data;
