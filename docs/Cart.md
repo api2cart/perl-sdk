@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional] 
 **url** | **string** |  | [optional] 
 **version** | **string** |  | [optional] 
+**bridge_version** | **string** |  | [optional] 
 **db_prefix** | **string** |  | [optional] 
 **stores_info** | [**ARRAY[CartStoreInfo]**](CartStoreInfo.md) |  | [optional] 
 **warehouses** | [**ARRAY[CartWarehouse]**](CartWarehouse.md) |  | [optional] 

@@ -826,6 +826,20 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'marketplace_item_properties' => {
+        datatype => 'string',
+        base_name => 'marketplace_item_properties',
+        description => 'String containing the JSON representation of the supplied data',
+        format => '',
+        read_only => '',
+            },
+    'min_order_quantity' => {
+        datatype => 'double',
+        base_name => 'min_order_quantity',
+        description => 'The minimum quantity an order must contain, to be eligible to purchase this product.',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -914,7 +928,9 @@ __PACKAGE__->openapi_types( {
     'check_process_status' => 'boolean',
     'specifics' => 'ARRAY[ProductAddSpecificsInner]',
     'shop_section_id' => 'int',
-    'personalization_details' => 'ProductAddPersonalizationDetails'
+    'personalization_details' => 'ProductAddPersonalizationDetails',
+    'marketplace_item_properties' => 'string',
+    'min_order_quantity' => 'double'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -1003,7 +1019,9 @@ __PACKAGE__->attribute_map( {
     'check_process_status' => 'check_process_status',
     'specifics' => 'specifics',
     'shop_section_id' => 'shop_section_id',
-    'personalization_details' => 'personalization_details'
+    'personalization_details' => 'personalization_details',
+    'marketplace_item_properties' => 'marketplace_item_properties',
+    'min_order_quantity' => 'min_order_quantity'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
