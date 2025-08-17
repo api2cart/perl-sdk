@@ -345,6 +345,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'customer_id' => {
+        datatype => 'string',
+        base_name => 'customer_id',
+        description => 'Retrieves orders specified by customer id',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -365,7 +372,8 @@ __PACKAGE__->openapi_types( {
     'action_condition_value' => 'string',
     'include_tax' => 'boolean',
     'store_id' => 'string',
-    'free_cash_on_delivery' => 'boolean'
+    'free_cash_on_delivery' => 'boolean',
+    'customer_id' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -386,7 +394,8 @@ __PACKAGE__->attribute_map( {
     'action_condition_value' => 'action_condition_value',
     'include_tax' => 'include_tax',
     'store_id' => 'store_id',
-    'free_cash_on_delivery' => 'free_cash_on_delivery'
+    'free_cash_on_delivery' => 'free_cash_on_delivery',
+    'customer_id' => 'customer_id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

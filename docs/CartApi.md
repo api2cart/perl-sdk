@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cart_coupon_list**
-> ModelResponseCartCouponList cart_coupon_list(start => $start, count => $count, page_cursor => $page_cursor, coupons_ids => $coupons_ids, store_id => $store_id, lang_id => $lang_id, avail => $avail, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, response_fields => $response_fields, params => $params, exclude => $exclude)
+> ModelResponseCartCouponList cart_coupon_list(start => $start, count => $count, page_cursor => $page_cursor, coupons_ids => $coupons_ids, store_id => $store_id, lang_id => $lang_id, avail => $avail, status => $status, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 cart.coupon.list
 
@@ -430,6 +430,7 @@ my $coupons_ids = 1,2,3; # string | Filter coupons by ids
 my $store_id = 1; # string | Filter coupons by store id
 my $lang_id = 3; # string | Language id
 my $avail = false; # boolean | Filter coupons by avail status
+my $status = disabled; # string | Defines coupon's status
 my $date_start_from = 2016-12-29 16:44:30; # string | Filter entity by date_start (greater or equal)
 my $date_start_to = 2016-12-29 16:44:30; # string | Filter entity by date_start (less or equal)
 my $date_end_from = 2016-12-29 16:44:30; # string | Filter entity by date_end (greater or equal)
@@ -439,7 +440,7 @@ my $params = id,code,type,amount; # string | Set this parameter in order to choo
 my $exclude = usage_history,type; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->cart_coupon_list(start => $start, count => $count, page_cursor => $page_cursor, coupons_ids => $coupons_ids, store_id => $store_id, lang_id => $lang_id, avail => $avail, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, response_fields => $response_fields, params => $params, exclude => $exclude);
+    my $result = $api_instance->cart_coupon_list(start => $start, count => $count, page_cursor => $page_cursor, coupons_ids => $coupons_ids, store_id => $store_id, lang_id => $lang_id, avail => $avail, status => $status, date_start_from => $date_start_from, date_start_to => $date_start_to, date_end_from => $date_end_from, date_end_to => $date_end_to, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -458,6 +459,7 @@ Name | Type | Description  | Notes
  **store_id** | **string**| Filter coupons by store id | [optional] 
  **lang_id** | **string**| Language id | [optional] 
  **avail** | **boolean**| Filter coupons by avail status | [optional] 
+ **status** | **string**| Defines coupon&#39;s status | [optional] 
  **date_start_from** | **string**| Filter entity by date_start (greater or equal) | [optional] 
  **date_start_to** | **string**| Filter entity by date_start (less or equal) | [optional] 
  **date_end_from** | **string**| Filter entity by date_end (greater or equal) | [optional] 

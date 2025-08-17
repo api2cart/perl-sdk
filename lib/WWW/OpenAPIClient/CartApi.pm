@@ -664,6 +664,7 @@ sub cart_coupon_delete {
 # @param string $store_id Filter coupons by store id (optional)
 # @param string $lang_id Language id (optional)
 # @param boolean $avail Filter coupons by avail status (optional)
+# @param string $status Defines coupon&#39;s status (optional)
 # @param string $date_start_from Filter entity by date_start (greater or equal) (optional)
 # @param string $date_start_to Filter entity by date_start (less or equal) (optional)
 # @param string $date_end_from Filter entity by date_end (greater or equal) (optional)
@@ -706,6 +707,11 @@ sub cart_coupon_delete {
     'avail' => {
         data_type => 'boolean',
         description => 'Filter coupons by avail status',
+        required => '0',
+    },
+    'status' => {
+        data_type => 'string',
+        description => 'Defines coupon&#39;s status',
         required => '0',
     },
     'date_start_from' => {
@@ -803,6 +809,11 @@ sub cart_coupon_list {
     # query params
     if ( exists $args{'avail'}) {
         $query_params->{'avail'} = $self->{api_client}->to_query_value($args{'avail'});
+    }
+
+    # query params
+    if ( exists $args{'status'}) {
+        $query_params->{'status'} = $self->{api_client}->to_query_value($args{'status'});
     }
 
     # query params
