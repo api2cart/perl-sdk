@@ -826,6 +826,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'external_product_link' => {
+        datatype => 'string',
+        base_name => 'external_product_link',
+        description => 'External product link',
+        format => '',
+        read_only => '',
+            },
     'marketplace_item_properties' => {
         datatype => 'string',
         base_name => 'marketplace_item_properties',
@@ -929,6 +936,7 @@ __PACKAGE__->openapi_types( {
     'specifics' => 'ARRAY[ProductAddSpecificsInner]',
     'shop_section_id' => 'int',
     'personalization_details' => 'ProductAddPersonalizationDetails',
+    'external_product_link' => 'string',
     'marketplace_item_properties' => 'string',
     'min_order_quantity' => 'double'
 } );
@@ -1020,6 +1028,7 @@ __PACKAGE__->attribute_map( {
     'specifics' => 'specifics',
     'shop_section_id' => 'shop_section_id',
     'personalization_details' => 'personalization_details',
+    'external_product_link' => 'external_product_link',
     'marketplace_item_properties' => 'marketplace_item_properties',
     'min_order_quantity' => 'min_order_quantity'
 } );
