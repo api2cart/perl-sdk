@@ -317,6 +317,71 @@ sub order_add {
 }
 
 #
+# order_calculate
+#
+# order.calculate
+#
+# @param OrderCalculate $order_calculate  (required)
+{
+    my $params = {
+    'order_calculate' => {
+        data_type => 'OrderCalculate',
+        description => '',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'order_calculate' } = {
+        summary => 'order.calculate',
+        params => $params,
+        returns => 'OrderCalculate200Response',
+        };
+}
+# @return OrderCalculate200Response
+#
+sub order_calculate {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'order_calculate' is set
+    unless (exists $args{'order_calculate'}) {
+      croak("Missing the required parameter 'order_calculate' when calling order_calculate");
+    }
+
+    # parse inputs
+    my $_resource_path = '/order.calculate.json';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    my $_body_data;
+    # body params
+    if ( exists $args{'order_calculate'}) {
+        $_body_data = $args{'order_calculate'};
+    }
+
+    # authentication setting, if any
+    my $auth_settings = [qw(StoreKeyAuth ApiKeyAuth )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('OrderCalculate200Response', $response);
+    return $_response_object;
+}
+
+#
 # order_count
 #
 # order.count

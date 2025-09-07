@@ -299,6 +299,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'modified_time' => {
+        datatype => 'A2CDateTime',
+        base_name => 'modified_time',
+        description => '',
+        format => '',
+        read_only => '',
+            },
     'medias' => {
         datatype => 'ARRAY[Media]',
         base_name => 'medias',
@@ -334,6 +341,7 @@ __PACKAGE__->openapi_types( {
     'ratings' => 'ARRAY[ProductReviewRating]',
     'status' => 'string',
     'created_time' => 'A2CDateTime',
+    'modified_time' => 'A2CDateTime',
     'medias' => 'ARRAY[Media]',
     'additional_fields' => 'object',
     'custom_fields' => 'object'
@@ -351,6 +359,7 @@ __PACKAGE__->attribute_map( {
     'ratings' => 'ratings',
     'status' => 'status',
     'created_time' => 'created_time',
+    'modified_time' => 'modified_time',
     'medias' => 'medias',
     'additional_fields' => 'additional_fields',
     'custom_fields' => 'custom_fields'

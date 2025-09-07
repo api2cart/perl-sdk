@@ -346,7 +346,13 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_manufacturer_add_product_id = undef; # replace NULL with a proper value
 #my $product_manufacturer_add_manufacturer = undef; # replace NULL with a proper value
 #my $product_manufacturer_add_store_id = undef; # replace NULL with a proper value
-#my $product_manufacturer_add_result = $api->product_manufacturer_add(product_id => $product_manufacturer_add_product_id, manufacturer => $product_manufacturer_add_manufacturer, store_id => $product_manufacturer_add_store_id);
+#my $product_manufacturer_add_meta_title = undef; # replace NULL with a proper value
+#my $product_manufacturer_add_meta_keywords = undef; # replace NULL with a proper value
+#my $product_manufacturer_add_meta_description = undef; # replace NULL with a proper value
+#my $product_manufacturer_add_search_keywords = undef; # replace NULL with a proper value
+#my $product_manufacturer_add_image_url = undef; # replace NULL with a proper value
+#my $product_manufacturer_add_seo_url = undef; # replace NULL with a proper value
+#my $product_manufacturer_add_result = $api->product_manufacturer_add(product_id => $product_manufacturer_add_product_id, manufacturer => $product_manufacturer_add_manufacturer, store_id => $product_manufacturer_add_store_id, meta_title => $product_manufacturer_add_meta_title, meta_keywords => $product_manufacturer_add_meta_keywords, meta_description => $product_manufacturer_add_meta_description, search_keywords => $product_manufacturer_add_search_keywords, image_url => $product_manufacturer_add_image_url, seo_url => $product_manufacturer_add_seo_url);
 
 #
 # product_option_add test
@@ -469,11 +475,17 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductApi');
 #my $product_review_list_page_cursor = undef; # replace NULL with a proper value
 #my $product_review_list_ids = undef; # replace NULL with a proper value
 #my $product_review_list_store_id = undef; # replace NULL with a proper value
+#my $product_review_list_lang_id = undef; # replace NULL with a proper value
 #my $product_review_list_status = undef; # replace NULL with a proper value
+#my $product_review_list_created_from = undef; # replace NULL with a proper value
+#my $product_review_list_created_to = undef; # replace NULL with a proper value
+#my $product_review_list_customer_id = undef; # replace NULL with a proper value
+#my $product_review_list_sort_by = undef; # replace NULL with a proper value
+#my $product_review_list_sort_direction = undef; # replace NULL with a proper value
 #my $product_review_list_response_fields = undef; # replace NULL with a proper value
 #my $product_review_list_params = undef; # replace NULL with a proper value
 #my $product_review_list_exclude = undef; # replace NULL with a proper value
-#my $product_review_list_result = $api->product_review_list(product_id => $product_review_list_product_id, start => $product_review_list_start, count => $product_review_list_count, page_cursor => $product_review_list_page_cursor, ids => $product_review_list_ids, store_id => $product_review_list_store_id, status => $product_review_list_status, response_fields => $product_review_list_response_fields, params => $product_review_list_params, exclude => $product_review_list_exclude);
+#my $product_review_list_result = $api->product_review_list(product_id => $product_review_list_product_id, start => $product_review_list_start, count => $product_review_list_count, page_cursor => $product_review_list_page_cursor, ids => $product_review_list_ids, store_id => $product_review_list_store_id, lang_id => $product_review_list_lang_id, status => $product_review_list_status, created_from => $product_review_list_created_from, created_to => $product_review_list_created_to, customer_id => $product_review_list_customer_id, sort_by => $product_review_list_sort_by, sort_direction => $product_review_list_sort_direction, response_fields => $product_review_list_response_fields, params => $product_review_list_params, exclude => $product_review_list_exclude);
 
 #
 # product_store_assign test

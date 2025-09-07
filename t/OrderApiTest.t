@@ -57,6 +57,13 @@ isa_ok($api, 'WWW::OpenAPIClient::OrderApi');
 #my $order_add_result = $api->order_add(order_add => $order_add_order_add);
 
 #
+# order_calculate test
+#
+# uncomment below and update the test
+#my $order_calculate_order_calculate = undef; # replace NULL with a proper value
+#my $order_calculate_result = $api->order_calculate(order_calculate => $order_calculate_order_calculate);
+
+#
 # order_count test
 #
 # uncomment below and update the test

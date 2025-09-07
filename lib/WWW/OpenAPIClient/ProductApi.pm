@@ -3221,6 +3221,12 @@ sub product_list {
 # @param string $product_id Defines products specified by product id (required)
 # @param string $manufacturer Defines product’s manufacturer&#39;s name (required)
 # @param string $store_id Store Id (optional)
+# @param string $meta_title Defines unique meta title for each entity (optional)
+# @param string $meta_keywords Defines unique meta keywords for each entity (optional)
+# @param string $meta_description Defines unique meta description of a entity (optional)
+# @param string $search_keywords Defines unique search keywords (optional)
+# @param string $image_url Image Url (optional)
+# @param string $seo_url Defines unique URL for SEO (optional)
 {
     my $params = {
     'product_id' => {
@@ -3236,6 +3242,36 @@ sub product_list {
     'store_id' => {
         data_type => 'string',
         description => 'Store Id',
+        required => '0',
+    },
+    'meta_title' => {
+        data_type => 'string',
+        description => 'Defines unique meta title for each entity',
+        required => '0',
+    },
+    'meta_keywords' => {
+        data_type => 'string',
+        description => 'Defines unique meta keywords for each entity',
+        required => '0',
+    },
+    'meta_description' => {
+        data_type => 'string',
+        description => 'Defines unique meta description of a entity',
+        required => '0',
+    },
+    'search_keywords' => {
+        data_type => 'string',
+        description => 'Defines unique search keywords',
+        required => '0',
+    },
+    'image_url' => {
+        data_type => 'string',
+        description => 'Image Url',
+        required => '0',
+    },
+    'seo_url' => {
+        data_type => 'string',
+        description => 'Defines unique URL for SEO',
         required => '0',
     },
     };
@@ -3288,6 +3324,36 @@ sub product_manufacturer_add {
     # query params
     if ( exists $args{'store_id'}) {
         $query_params->{'store_id'} = $self->{api_client}->to_query_value($args{'store_id'});
+    }
+
+    # query params
+    if ( exists $args{'meta_title'}) {
+        $query_params->{'meta_title'} = $self->{api_client}->to_query_value($args{'meta_title'});
+    }
+
+    # query params
+    if ( exists $args{'meta_keywords'}) {
+        $query_params->{'meta_keywords'} = $self->{api_client}->to_query_value($args{'meta_keywords'});
+    }
+
+    # query params
+    if ( exists $args{'meta_description'}) {
+        $query_params->{'meta_description'} = $self->{api_client}->to_query_value($args{'meta_description'});
+    }
+
+    # query params
+    if ( exists $args{'search_keywords'}) {
+        $query_params->{'search_keywords'} = $self->{api_client}->to_query_value($args{'search_keywords'});
+    }
+
+    # query params
+    if ( exists $args{'image_url'}) {
+        $query_params->{'image_url'} = $self->{api_client}->to_query_value($args{'image_url'});
+    }
+
+    # query params
+    if ( exists $args{'seo_url'}) {
+        $query_params->{'seo_url'} = $self->{api_client}->to_query_value($args{'seo_url'});
     }
 
     my $_body_data;
@@ -4440,7 +4506,13 @@ sub product_price_update {
 # @param string $page_cursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) (optional)
 # @param string $ids Retrieves reviews specified by ids (optional)
 # @param string $store_id Store Id (optional)
+# @param string $lang_id Language id (optional)
 # @param string $status Defines status (optional)
+# @param string $created_from Retrieve entities from their creation date (optional)
+# @param string $created_to Retrieve entities to their creation date (optional)
+# @param string $customer_id Retrieves orders specified by customer id (optional)
+# @param string $sort_by Set field to sort by (optional, default to 'id')
+# @param string $sort_direction Set sorting direction (optional, default to 'asc')
 # @param string $response_fields Set this parameter in order to choose which entity fields you want to retrieve (optional)
 # @param string $params Set this parameter in order to choose which entity fields you want to retrieve (optional, default to 'id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time')
 # @param string $exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all (optional)
@@ -4476,9 +4548,39 @@ sub product_price_update {
         description => 'Store Id',
         required => '0',
     },
+    'lang_id' => {
+        data_type => 'string',
+        description => 'Language id',
+        required => '0',
+    },
     'status' => {
         data_type => 'string',
         description => 'Defines status',
+        required => '0',
+    },
+    'created_from' => {
+        data_type => 'string',
+        description => 'Retrieve entities from their creation date',
+        required => '0',
+    },
+    'created_to' => {
+        data_type => 'string',
+        description => 'Retrieve entities to their creation date',
+        required => '0',
+    },
+    'customer_id' => {
+        data_type => 'string',
+        description => 'Retrieves orders specified by customer id',
+        required => '0',
+    },
+    'sort_by' => {
+        data_type => 'string',
+        description => 'Set field to sort by',
+        required => '0',
+    },
+    'sort_direction' => {
+        data_type => 'string',
+        description => 'Set sorting direction',
         required => '0',
     },
     'response_fields' => {
@@ -4559,8 +4661,38 @@ sub product_review_list {
     }
 
     # query params
+    if ( exists $args{'lang_id'}) {
+        $query_params->{'lang_id'} = $self->{api_client}->to_query_value($args{'lang_id'});
+    }
+
+    # query params
     if ( exists $args{'status'}) {
         $query_params->{'status'} = $self->{api_client}->to_query_value($args{'status'});
+    }
+
+    # query params
+    if ( exists $args{'created_from'}) {
+        $query_params->{'created_from'} = $self->{api_client}->to_query_value($args{'created_from'});
+    }
+
+    # query params
+    if ( exists $args{'created_to'}) {
+        $query_params->{'created_to'} = $self->{api_client}->to_query_value($args{'created_to'});
+    }
+
+    # query params
+    if ( exists $args{'customer_id'}) {
+        $query_params->{'customer_id'} = $self->{api_client}->to_query_value($args{'customer_id'});
+    }
+
+    # query params
+    if ( exists $args{'sort_by'}) {
+        $query_params->{'sort_by'} = $self->{api_client}->to_query_value($args{'sort_by'});
+    }
+
+    # query params
+    if ( exists $args{'sort_direction'}) {
+        $query_params->{'sort_direction'} = $self->{api_client}->to_query_value($args{'sort_direction'});
     }
 
     # query params

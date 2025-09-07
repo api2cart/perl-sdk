@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ratings** | [**ARRAY[ProductReviewRating]**](ProductReviewRating.md) |  | [optional] 
 **status** | **string** |  | [optional] 
 **created_time** | [**A2CDateTime**](A2CDateTime.md) |  | [optional] 
+**modified_time** | [**A2CDateTime**](A2CDateTime.md) |  | [optional] 
 **medias** | [**ARRAY[Media]**](Media.md) |  | [optional] 
 **additional_fields** | **object** |  | [optional] 
 **custom_fields** | **object** |  | [optional] 

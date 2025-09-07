@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**order_abandoned_list**](OrderApi.md#order_abandoned_list) | **GET** /order.abandoned.list.json | order.abandoned.list
 [**order_add**](OrderApi.md#order_add) | **POST** /order.add.json | order.add
+[**order_calculate**](OrderApi.md#order_calculate) | **POST** /order.calculate.json | order.calculate
 [**order_count**](OrderApi.md#order_count) | **GET** /order.count.json | order.count
 [**order_financial_status_list**](OrderApi.md#order_financial_status_list) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**order_fulfillment_status_list**](OrderApi.md#order_fulfillment_status_list) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
@@ -157,6 +158,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderAdd200Response**](OrderAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **order_calculate**
+> OrderCalculate200Response order_calculate(order_calculate => $order_calculate)
+
+order.calculate
+
+<p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+
+### Example
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::OrderApi;
+my $api_instance = WWW::OpenAPIClient::OrderApi->new(
+
+    # Configure API key authorization: StoreKeyAuth
+    api_key => {'x-store-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'x-store-key' => 'Bearer'},
+    # Configure API key authorization: ApiKeyAuth
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
+);
+
+my $order_calculate = WWW::OpenAPIClient::Object::OrderCalculate->new(); # OrderCalculate | 
+
+eval {
+    my $result = $api_instance->order_calculate(order_calculate => $order_calculate);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling OrderApi->order_calculate: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_calculate** | [**OrderCalculate**](OrderCalculate.md)|  | 
+
+### Return type
+
+[**OrderCalculate200Response**](OrderCalculate200Response.md)
 
 ### Authorization
 

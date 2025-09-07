@@ -440,6 +440,15 @@ use WWW::OpenAPIClient::Object::OrderAddNoteAttributesInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemOptionInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemPropertyInner;
+use WWW::OpenAPIClient::Object::OrderCalculate;
+use WWW::OpenAPIClient::Object::OrderCalculate200Response;
+use WWW::OpenAPIClient::Object::OrderCalculateDiscount;
+use WWW::OpenAPIClient::Object::OrderCalculateItem;
+use WWW::OpenAPIClient::Object::OrderCalculateOrderItemInner;
+use WWW::OpenAPIClient::Object::OrderCalculateOrderItemInnerOrderItemOptionInner;
+use WWW::OpenAPIClient::Object::OrderCalculateShippingRate;
+use WWW::OpenAPIClient::Object::OrderCalculateSubtotal;
+use WWW::OpenAPIClient::Object::OrderCalculateTax;
 use WWW::OpenAPIClient::Object::OrderCount200Response;
 use WWW::OpenAPIClient::Object::OrderCount200ResponseResult;
 use WWW::OpenAPIClient::Object::OrderFinancialStatusList200Response;
@@ -887,6 +896,15 @@ use WWW::OpenAPIClient::Object::OrderAddNoteAttributesInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemOptionInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemPropertyInner;
+use WWW::OpenAPIClient::Object::OrderCalculate;
+use WWW::OpenAPIClient::Object::OrderCalculate200Response;
+use WWW::OpenAPIClient::Object::OrderCalculateDiscount;
+use WWW::OpenAPIClient::Object::OrderCalculateItem;
+use WWW::OpenAPIClient::Object::OrderCalculateOrderItemInner;
+use WWW::OpenAPIClient::Object::OrderCalculateOrderItemInnerOrderItemOptionInner;
+use WWW::OpenAPIClient::Object::OrderCalculateShippingRate;
+use WWW::OpenAPIClient::Object::OrderCalculateSubtotal;
+use WWW::OpenAPIClient::Object::OrderCalculateTax;
 use WWW::OpenAPIClient::Object::OrderCount200Response;
 use WWW::OpenAPIClient::Object::OrderCount200ResponseResult;
 use WWW::OpenAPIClient::Object::OrderFinancialStatusList200Response;
@@ -1228,6 +1246,7 @@ Class | Method | HTTP request | Description
 *MarketplaceApi* | [**marketplace_product_find**](docs/MarketplaceApi.md#marketplace_product_find) | **GET** /marketplace.product.find.json | marketplace.product.find
 *OrderApi* | [**order_abandoned_list**](docs/OrderApi.md#order_abandoned_list) | **GET** /order.abandoned.list.json | order.abandoned.list
 *OrderApi* | [**order_add**](docs/OrderApi.md#order_add) | **POST** /order.add.json | order.add
+*OrderApi* | [**order_calculate**](docs/OrderApi.md#order_calculate) | **POST** /order.calculate.json | order.calculate
 *OrderApi* | [**order_count**](docs/OrderApi.md#order_count) | **GET** /order.count.json | order.count
 *OrderApi* | [**order_financial_status_list**](docs/OrderApi.md#order_financial_status_list) | **GET** /order.financial_status.list.json | order.financial_status.list
 *OrderApi* | [**order_fulfillment_status_list**](docs/OrderApi.md#order_fulfillment_status_list) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
@@ -1503,6 +1522,15 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::OrderAddOrderItemInner](docs/OrderAddOrderItemInner.md)
  - [WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemOptionInner](docs/OrderAddOrderItemInnerOrderItemOptionInner.md)
  - [WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemPropertyInner](docs/OrderAddOrderItemInnerOrderItemPropertyInner.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculate](docs/OrderCalculate.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculate200Response](docs/OrderCalculate200Response.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateDiscount](docs/OrderCalculateDiscount.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateItem](docs/OrderCalculateItem.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateOrderItemInner](docs/OrderCalculateOrderItemInner.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateOrderItemInnerOrderItemOptionInner](docs/OrderCalculateOrderItemInnerOrderItemOptionInner.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateShippingRate](docs/OrderCalculateShippingRate.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateSubtotal](docs/OrderCalculateSubtotal.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateTax](docs/OrderCalculateTax.md)
  - [WWW::OpenAPIClient::Object::OrderCount200Response](docs/OrderCount200Response.md)
  - [WWW::OpenAPIClient::Object::OrderCount200ResponseResult](docs/OrderCount200ResponseResult.md)
  - [WWW::OpenAPIClient::Object::OrderFinancialStatusList200Response](docs/OrderFinancialStatusList200Response.md)

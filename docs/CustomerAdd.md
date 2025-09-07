@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **last_name** | **string** | Defines customer&#39;s last name | [optional] 
 **password** | **string** | Defines customer&#39;s unique password | [optional] 
 **group** | **string** | Defines the group where the customer | [optional] 
+**group_id** | **string** | Customer group_id | [optional] 
 **group_ids** | **string** | Groups that will be assigned to a customer | [optional] 
 **status** | **string** | Defines customer&#39;s status | [optional] [default to &#39;enabled&#39;]
 **created_time** | **string** | Entity&#39;s date creation | [optional] 

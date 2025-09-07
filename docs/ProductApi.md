@@ -1500,7 +1500,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_manufacturer_add**
-> ProductManufacturerAdd200Response product_manufacturer_add(product_id => $product_id, manufacturer => $manufacturer, store_id => $store_id)
+> ProductManufacturerAdd200Response product_manufacturer_add(product_id => $product_id, manufacturer => $manufacturer, store_id => $store_id, meta_title => $meta_title, meta_keywords => $meta_keywords, meta_description => $meta_description, search_keywords => $search_keywords, image_url => $image_url, seo_url => $seo_url)
 
 product.manufacturer.add
 
@@ -1525,9 +1525,15 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
 my $product_id = 10; # string | Defines products specified by product id
 my $manufacturer = Samsung; # string | Defines product’s manufacturer's name
 my $store_id = 1; # string | Store Id
+my $meta_title = category,test; # string | Defines unique meta title for each entity
+my $meta_keywords = category,test; # string | Defines unique meta keywords for each entity
+my $meta_description = category,test; # string | Defines unique meta description of a entity
+my $search_keywords = key1,key2,key3; # string | Defines unique search keywords
+my $image_url = https://docs.api2cart.com/img/logo.png; # string | Image Url
+my $seo_url = some seo url; # string | Defines unique URL for SEO
 
 eval {
-    my $result = $api_instance->product_manufacturer_add(product_id => $product_id, manufacturer => $manufacturer, store_id => $store_id);
+    my $result = $api_instance->product_manufacturer_add(product_id => $product_id, manufacturer => $manufacturer, store_id => $store_id, meta_title => $meta_title, meta_keywords => $meta_keywords, meta_description => $meta_description, search_keywords => $search_keywords, image_url => $image_url, seo_url => $seo_url);
     print Dumper($result);
 };
 if ($@) {
@@ -1542,6 +1548,12 @@ Name | Type | Description  | Notes
  **product_id** | **string**| Defines products specified by product id | 
  **manufacturer** | **string**| Defines product’s manufacturer&#39;s name | 
  **store_id** | **string**| Store Id | [optional] 
+ **meta_title** | **string**| Defines unique meta title for each entity | [optional] 
+ **meta_keywords** | **string**| Defines unique meta keywords for each entity | [optional] 
+ **meta_description** | **string**| Defines unique meta description of a entity | [optional] 
+ **search_keywords** | **string**| Defines unique search keywords | [optional] 
+ **image_url** | **string**| Image Url | [optional] 
+ **seo_url** | **string**| Defines unique URL for SEO | [optional] 
 
 ### Return type
 
@@ -2232,7 +2244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_review_list**
-> ModelResponseProductReviewList product_review_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, store_id => $store_id, status => $status, response_fields => $response_fields, params => $params, exclude => $exclude)
+> ModelResponseProductReviewList product_review_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, store_id => $store_id, lang_id => $lang_id, status => $status, created_from => $created_from, created_to => $created_to, customer_id => $customer_id, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude)
 
 product.review.list
 
@@ -2260,13 +2272,19 @@ my $count = 20; # int | This parameter sets the entity amount that has to be ret
 my $page_cursor = ; # string | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 my $ids = 24,25; # string | Retrieves reviews specified by ids
 my $store_id = 1; # string | Store Id
+my $lang_id = 3; # string | Language id
 my $status = disabled; # string | Defines status
+my $created_from = 2010-07-29 13:45:52; # string | Retrieve entities from their creation date
+my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their creation date
+my $customer_id = 5; # string | Retrieves orders specified by customer id
+my $sort_by = value_id; # string | Set field to sort by
+my $sort_direction = asc; # string | Set sorting direction
 my $response_fields = {return_code,return_message,pagination,result}; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $params = id,model,price,images; # string | Set this parameter in order to choose which entity fields you want to retrieve
 my $exclude = false; # string | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 
 eval {
-    my $result = $api_instance->product_review_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, store_id => $store_id, status => $status, response_fields => $response_fields, params => $params, exclude => $exclude);
+    my $result = $api_instance->product_review_list(product_id => $product_id, start => $start, count => $count, page_cursor => $page_cursor, ids => $ids, store_id => $store_id, lang_id => $lang_id, status => $status, created_from => $created_from, created_to => $created_to, customer_id => $customer_id, sort_by => $sort_by, sort_direction => $sort_direction, response_fields => $response_fields, params => $params, exclude => $exclude);
     print Dumper($result);
 };
 if ($@) {
@@ -2284,7 +2302,13 @@ Name | Type | Description  | Notes
  **page_cursor** | **string**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] 
  **ids** | **string**| Retrieves reviews specified by ids | [optional] 
  **store_id** | **string**| Store Id | [optional] 
+ **lang_id** | **string**| Language id | [optional] 
  **status** | **string**| Defines status | [optional] 
+ **created_from** | **string**| Retrieve entities from their creation date | [optional] 
+ **created_to** | **string**| Retrieve entities to their creation date | [optional] 
+ **customer_id** | **string**| Retrieves orders specified by customer id | [optional] 
+ **sort_by** | **string**| Set field to sort by | [optional] [default to &#39;id&#39;]
+ **sort_direction** | **string**| Set sorting direction | [optional] [default to &#39;asc&#39;]
  **response_fields** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] 
  **params** | **string**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to &#39;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&#39;]
  **exclude** | **string**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] 
