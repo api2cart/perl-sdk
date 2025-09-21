@@ -584,6 +584,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'manufacturer' => {
+        datatype => 'string',
+        base_name => 'manufacturer',
+        description => 'Specifies the product variant&#39;s manufacturer',
+        format => '',
+        read_only => '',
+            },
     'reindex' => {
         datatype => 'boolean',
         base_name => 'reindex',
@@ -653,6 +660,7 @@ __PACKAGE__->openapi_types( {
     'meta_title' => 'string',
     'meta_description' => 'string',
     'meta_keywords' => 'string',
+    'manufacturer' => 'string',
     'reindex' => 'boolean',
     'clear_cache' => 'boolean'
 } );
@@ -710,6 +718,7 @@ __PACKAGE__->attribute_map( {
     'meta_title' => 'meta_title',
     'meta_description' => 'meta_description',
     'meta_keywords' => 'meta_keywords',
+    'manufacturer' => 'manufacturer',
     'reindex' => 'reindex',
     'clear_cache' => 'clear_cache'
 } );
