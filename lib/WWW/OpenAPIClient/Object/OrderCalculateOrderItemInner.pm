@@ -241,6 +241,20 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'order_item_parent' => {
+        datatype => 'int',
+        base_name => 'order_item_parent',
+        description => 'Index of the parent grouped/bundle product',
+        format => '',
+        read_only => '',
+            },
+    'order_item_parent_option_name' => {
+        datatype => 'string',
+        base_name => 'order_item_parent_option_name',
+        description => 'Option name of the parent grouped/bundle product',
+        format => '',
+        read_only => '',
+            },
     'order_item_option' => {
         datatype => 'ARRAY[OrderCalculateOrderItemInnerOrderItemOptionInner]',
         base_name => 'order_item_option',
@@ -254,6 +268,8 @@ __PACKAGE__->openapi_types( {
     'order_item_id' => 'string',
     'order_item_quantity' => 'int',
     'order_item_variant_id' => 'string',
+    'order_item_parent' => 'int',
+    'order_item_parent_option_name' => 'string',
     'order_item_option' => 'ARRAY[OrderCalculateOrderItemInnerOrderItemOptionInner]'
 } );
 
@@ -261,6 +277,8 @@ __PACKAGE__->attribute_map( {
     'order_item_id' => 'order_item_id',
     'order_item_quantity' => 'order_item_quantity',
     'order_item_variant_id' => 'order_item_variant_id',
+    'order_item_parent' => 'order_item_parent',
+    'order_item_parent_option_name' => 'order_item_parent_option_name',
     'order_item_option' => 'order_item_option'
 } );
 

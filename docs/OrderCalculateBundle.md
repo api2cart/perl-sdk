@@ -1,8 +1,8 @@
-# WWW::OpenAPIClient::Object::OrderCalculateItem
+# WWW::OpenAPIClient::Object::OrderCalculateBundle
 
 ## Load the model package
 ```perl
-use WWW::OpenAPIClient::Object::OrderCalculateItem;
+use WWW::OpenAPIClient::Object::OrderCalculateBundle;
 ```
 
 ## Properties
@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **weight_unit** | **string** |  | [optional] 
 **barcode** | **string** |  | [optional] 
 **variant_id** | **string** |  | [optional] 
-**bundle_product_id** | **string** |  | [optional] 
 **options** | [**ARRAY[OrderItemOption]**](OrderItemOption.md) |  | [optional] 
 **additional_fields** | **object** |  | [optional] 
 **custom_fields** | **object** |  | [optional] 

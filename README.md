@@ -442,6 +442,7 @@ use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemOptionInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemPropertyInner;
 use WWW::OpenAPIClient::Object::OrderCalculate;
 use WWW::OpenAPIClient::Object::OrderCalculate200Response;
+use WWW::OpenAPIClient::Object::OrderCalculateBundle;
 use WWW::OpenAPIClient::Object::OrderCalculateDiscount;
 use WWW::OpenAPIClient::Object::OrderCalculateItem;
 use WWW::OpenAPIClient::Object::OrderCalculateOrderItemInner;
@@ -510,6 +511,7 @@ use WWW::OpenAPIClient::Object::ProductAddBatch;
 use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInner;
 use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerAdvancedPricesInner;
 use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerImagesInner;
+use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerSalesTax;
 use WWW::OpenAPIClient::Object::ProductAddBestOffer;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInner;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInnerFilesInner;
@@ -898,6 +900,7 @@ use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemOptionInner;
 use WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemPropertyInner;
 use WWW::OpenAPIClient::Object::OrderCalculate;
 use WWW::OpenAPIClient::Object::OrderCalculate200Response;
+use WWW::OpenAPIClient::Object::OrderCalculateBundle;
 use WWW::OpenAPIClient::Object::OrderCalculateDiscount;
 use WWW::OpenAPIClient::Object::OrderCalculateItem;
 use WWW::OpenAPIClient::Object::OrderCalculateOrderItemInner;
@@ -966,6 +969,7 @@ use WWW::OpenAPIClient::Object::ProductAddBatch;
 use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInner;
 use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerAdvancedPricesInner;
 use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerImagesInner;
+use WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerSalesTax;
 use WWW::OpenAPIClient::Object::ProductAddBestOffer;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInner;
 use WWW::OpenAPIClient::Object::ProductAddCertificationsInnerFilesInner;
@@ -1524,6 +1528,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::OrderAddOrderItemInnerOrderItemPropertyInner](docs/OrderAddOrderItemInnerOrderItemPropertyInner.md)
  - [WWW::OpenAPIClient::Object::OrderCalculate](docs/OrderCalculate.md)
  - [WWW::OpenAPIClient::Object::OrderCalculate200Response](docs/OrderCalculate200Response.md)
+ - [WWW::OpenAPIClient::Object::OrderCalculateBundle](docs/OrderCalculateBundle.md)
  - [WWW::OpenAPIClient::Object::OrderCalculateDiscount](docs/OrderCalculateDiscount.md)
  - [WWW::OpenAPIClient::Object::OrderCalculateItem](docs/OrderCalculateItem.md)
  - [WWW::OpenAPIClient::Object::OrderCalculateOrderItemInner](docs/OrderCalculateOrderItemInner.md)
@@ -1592,6 +1597,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ProductAddBatchPayloadInner](docs/ProductAddBatchPayloadInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerAdvancedPricesInner](docs/ProductAddBatchPayloadInnerAdvancedPricesInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerImagesInner](docs/ProductAddBatchPayloadInnerImagesInner.md)
+ - [WWW::OpenAPIClient::Object::ProductAddBatchPayloadInnerSalesTax](docs/ProductAddBatchPayloadInnerSalesTax.md)
  - [WWW::OpenAPIClient::Object::ProductAddBestOffer](docs/ProductAddBestOffer.md)
  - [WWW::OpenAPIClient::Object::ProductAddCertificationsInner](docs/ProductAddCertificationsInner.md)
  - [WWW::OpenAPIClient::Object::ProductAddCertificationsInnerFilesInner](docs/ProductAddCertificationsInnerFilesInner.md)

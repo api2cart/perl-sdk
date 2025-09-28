@@ -308,6 +308,7 @@ sub account_cart_list {
 # @param string $miva_access_token Miva access token (optional)
 # @param string $miva_signature Miva signature (optional)
 # @param string $shopware_access_key Shopware access key (optional)
+# @param string $unas_api_key UNAS API Key (optional)
 # @param string $shopware_api_key Shopware api key (optional)
 # @param string $shopware_api_secret Shopware client secret access key (optional)
 # @param string $bigcartel_user_name Subdomain of store (optional)
@@ -766,6 +767,11 @@ sub account_cart_list {
     'shopware_access_key' => {
         data_type => 'string',
         description => 'Shopware access key',
+        required => '0',
+    },
+    'unas_api_key' => {
+        data_type => 'string',
+        description => 'UNAS API Key',
         required => '0',
     },
     'shopware_api_key' => {
@@ -1583,6 +1589,11 @@ sub account_config_update {
     # query params
     if ( exists $args{'shopware_access_key'}) {
         $query_params->{'shopware_access_key'} = $self->{api_client}->to_query_value($args{'shopware_access_key'});
+    }
+
+    # query params
+    if ( exists $args{'unas_api_key'}) {
+        $query_params->{'unas_api_key'} = $self->{api_client}->to_query_value($args{'unas_api_key'});
     }
 
     # query params
