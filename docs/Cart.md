@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **url** | **string** |  | [optional] 
 **version** | **string** |  | [optional] 
 **bridge_version** | **string** |  | [optional] 
+**default_rounding_precision** | **int** |  | [optional] 
 **db_prefix** | **string** |  | [optional] 
 **stores_info** | [**ARRAY[CartStoreInfo]**](CartStoreInfo.md) |  | [optional] 
 **warehouses** | [**ARRAY[CartWarehouse]**](CartWarehouse.md) |  | [optional] 
