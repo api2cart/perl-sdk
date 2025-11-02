@@ -1458,6 +1458,7 @@ sub product_child_item_list {
 #
 # product.count
 #
+# @param string $sku Filter by product&#39;s sku (optional)
 # @param string $product_ids Counts products specified by product ids (optional)
 # @param string $since_id Retrieve entities starting from the specified id. (optional)
 # @param string $categories_ids Defines product add that is specified by comma-separated categories id (optional)
@@ -1471,6 +1472,7 @@ sub product_child_item_list {
 # @param string $modified_from Retrieve entities from their modification date (optional)
 # @param string $modified_to Retrieve entities to their modification date (optional)
 # @param string $brand_name Retrieves brands specified by brand name (optional)
+# @param string $manufacturer_id Defines product&#39;s manufacturer by manufacturer_id (optional)
 # @param ARRAY[string] $product_attributes Defines product attributes (optional)
 # @param string $status Defines product&#39;s status (optional)
 # @param string $type Defines products&#39;s type (optional)
@@ -1483,6 +1485,11 @@ sub product_child_item_list {
 # @param boolean $use_latest_api_version Use the latest platform API version (optional, default to false)
 {
     my $params = {
+    'sku' => {
+        data_type => 'string',
+        description => 'Filter by product&#39;s sku',
+        required => '0',
+    },
     'product_ids' => {
         data_type => 'string',
         description => 'Counts products specified by product ids',
@@ -1546,6 +1553,11 @@ sub product_child_item_list {
     'brand_name' => {
         data_type => 'string',
         description => 'Retrieves brands specified by brand name',
+        required => '0',
+    },
+    'manufacturer_id' => {
+        data_type => 'string',
+        description => 'Defines product&#39;s manufacturer by manufacturer_id',
         required => '0',
     },
     'product_attributes' => {
@@ -1626,6 +1638,11 @@ sub product_count {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
+    if ( exists $args{'sku'}) {
+        $query_params->{'sku'} = $self->{api_client}->to_query_value($args{'sku'});
+    }
+
+    # query params
     if ( exists $args{'product_ids'}) {
         $query_params->{'product_ids'} = $self->{api_client}->to_query_value($args{'product_ids'});
     }
@@ -1688,6 +1705,11 @@ sub product_count {
     # query params
     if ( exists $args{'brand_name'}) {
         $query_params->{'brand_name'} = $self->{api_client}->to_query_value($args{'brand_name'});
+    }
+
+    # query params
+    if ( exists $args{'manufacturer_id'}) {
+        $query_params->{'manufacturer_id'} = $self->{api_client}->to_query_value($args{'manufacturer_id'});
     }
 
     # query params
@@ -2803,6 +2825,7 @@ sub product_info {
 # @param string $sku Filter by product&#39;s sku (optional)
 # @param string $brand_name Retrieves brands specified by brand name (optional)
 # @param ARRAY[string] $product_attributes Defines product attributes (optional)
+# @param string $manufacturer_id Defines product&#39;s manufacturer by manufacturer_id (optional)
 # @param string $status Defines product&#39;s status (optional)
 # @param string $type Defines products&#39;s type (optional)
 # @param string $visible Filter items by visibility status (optional, default to 'everywhere')
@@ -2914,6 +2937,11 @@ sub product_info {
     'product_attributes' => {
         data_type => 'ARRAY[string]',
         description => 'Defines product attributes',
+        required => '0',
+    },
+    'manufacturer_id' => {
+        data_type => 'string',
+        description => 'Defines product&#39;s manufacturer by manufacturer_id',
         required => '0',
     },
     'status' => {
@@ -3116,6 +3144,11 @@ sub product_list {
     # query params
     if ( exists $args{'product_attributes'}) {
         $query_params->{'product_attributes'} = $self->{api_client}->to_query_value($args{'product_attributes'});
+    }
+
+    # query params
+    if ( exists $args{'manufacturer_id'}) {
+        $query_params->{'manufacturer_id'} = $self->{api_client}->to_query_value($args{'manufacturer_id'});
     }
 
     # query params

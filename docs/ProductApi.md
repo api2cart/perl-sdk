@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_count**
-> ProductCount200Response product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
+> ProductCount200Response product_count(sku => $sku, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, manufacturer_id => $manufacturer_id, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version)
 
 product.count
 
@@ -727,6 +727,7 @@ my $api_instance = WWW::OpenAPIClient::ProductApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
+my $sku = bag_01; # string | Filter by product's sku
 my $product_ids = 4,5; # string | Counts products specified by product ids
 my $since_id = 56; # string | Retrieve entities starting from the specified id.
 my $categories_ids = 23,56; # string | Defines product add that is specified by comma-separated categories id
@@ -740,6 +741,7 @@ my $created_to = 2100-08-29 13:45:52; # string | Retrieve entities to their crea
 my $modified_from = 2010-07-29 13:45:52; # string | Retrieve entities from their modification date
 my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their modification date
 my $brand_name = Abidas; # string | Retrieves brands specified by brand name
+my $manufacturer_id = 1; # string | Defines product's manufacturer by manufacturer_id
 my $product_attributes = [product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2]; # ARRAY[string] | Defines product attributes
 my $status = disabled; # string | Defines product's status
 my $type = simple; # string | Defines products's type
@@ -752,7 +754,7 @@ my $disable_report_cache = false; # boolean | Disable report cache for current r
 my $use_latest_api_version = true; # boolean | Use the latest platform API version
 
 eval {
-    my $result = $api_instance->product_count(product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
+    my $result = $api_instance->product_count(sku => $sku, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, brand_name => $brand_name, manufacturer_id => $manufacturer_id, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, report_request_id => $report_request_id, return_global => $return_global, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version);
     print Dumper($result);
 };
 if ($@) {
@@ -764,6 +766,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sku** | **string**| Filter by product&#39;s sku | [optional] 
  **product_ids** | **string**| Counts products specified by product ids | [optional] 
  **since_id** | **string**| Retrieve entities starting from the specified id. | [optional] 
  **categories_ids** | **string**| Defines product add that is specified by comma-separated categories id | [optional] 
@@ -777,6 +780,7 @@ Name | Type | Description  | Notes
  **modified_from** | **string**| Retrieve entities from their modification date | [optional] 
  **modified_to** | **string**| Retrieve entities to their modification date | [optional] 
  **brand_name** | **string**| Retrieves brands specified by brand name | [optional] 
+ **manufacturer_id** | **string**| Defines product&#39;s manufacturer by manufacturer_id | [optional] 
  **product_attributes** | [**ARRAY[string]**](string.md)| Defines product attributes | [optional] 
  **status** | **string**| Defines product&#39;s status | [optional] 
  **type** | **string**| Defines products&#39;s type | [optional] 
@@ -1377,7 +1381,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_list**
-> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, product_type => $product_type)
+> ModelResponseProductList product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, manufacturer_id => $manufacturer_id, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, product_type => $product_type)
 
 product.list
 
@@ -1418,6 +1422,7 @@ my $modified_to = 2100-08-29 13:45:52; # string | Retrieve entities to their mod
 my $sku = bag_01; # string | Filter by product's sku
 my $brand_name = Abidas; # string | Retrieves brands specified by brand name
 my $product_attributes = [product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2]; # ARRAY[string] | Defines product attributes
+my $manufacturer_id = 1; # string | Defines product's manufacturer by manufacturer_id
 my $status = disabled; # string | Defines product's status
 my $type = simple; # string | Defines products's type
 my $visible = everywhere; # string | Filter items by visibility status
@@ -1436,7 +1441,7 @@ my $use_latest_api_version = true; # boolean | Use the latest platform API versi
 my $product_type = BICYCLE; # string | A categorization for the product
 
 eval {
-    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, product_type => $product_type);
+    my $result = $api_instance->product_list(start => $start, count => $count, page_cursor => $page_cursor, product_ids => $product_ids, since_id => $since_id, categories_ids => $categories_ids, category_id => $category_id, store_id => $store_id, lang_id => $lang_id, currency_id => $currency_id, avail_view => $avail_view, avail_sale => $avail_sale, created_from => $created_from, created_to => $created_to, modified_from => $modified_from, modified_to => $modified_to, sku => $sku, brand_name => $brand_name, product_attributes => $product_attributes, manufacturer_id => $manufacturer_id, status => $status, type => $type, visible => $visible, find_value => $find_value, find_where => $find_where, return_global => $return_global, params => $params, response_fields => $response_fields, exclude => $exclude, sort_by => $sort_by, sort_direction => $sort_direction, report_request_id => $report_request_id, disable_cache => $disable_cache, disable_report_cache => $disable_report_cache, use_latest_api_version => $use_latest_api_version, product_type => $product_type);
     print Dumper($result);
 };
 if ($@) {
@@ -1467,6 +1472,7 @@ Name | Type | Description  | Notes
  **sku** | **string**| Filter by product&#39;s sku | [optional] 
  **brand_name** | **string**| Retrieves brands specified by brand name | [optional] 
  **product_attributes** | [**ARRAY[string]**](string.md)| Defines product attributes | [optional] 
+ **manufacturer_id** | **string**| Defines product&#39;s manufacturer by manufacturer_id | [optional] 
  **status** | **string**| Defines product&#39;s status | [optional] 
  **type** | **string**| Defines products&#39;s type | [optional] 
  **visible** | **string**| Filter items by visibility status | [optional] [default to &#39;everywhere&#39;]

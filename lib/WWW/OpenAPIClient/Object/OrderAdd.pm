@@ -704,6 +704,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'fee_price' => {
+        datatype => 'double',
+        base_name => 'fee_price',
+        description => 'Specifies refund&#39;s fee price',
+        format => '',
+        read_only => '',
+            },
     'order_item' => {
         datatype => 'ARRAY[OrderAddOrderItemInner]',
         base_name => 'order_item',
@@ -783,6 +790,7 @@ __PACKAGE__->openapi_types( {
     'note_attributes' => 'ARRAY[OrderAddNoteAttributesInner]',
     'clear_cache' => 'boolean',
     'origin' => 'string',
+    'fee_price' => 'double',
     'order_item' => 'ARRAY[OrderAddOrderItemInner]'
 } );
 
@@ -856,6 +864,7 @@ __PACKAGE__->attribute_map( {
     'note_attributes' => 'note_attributes',
     'clear_cache' => 'clear_cache',
     'origin' => 'origin',
+    'fee_price' => 'fee_price',
     'order_item' => 'order_item'
 } );
 
